@@ -1,0 +1,43 @@
+{
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "inferenceAccelerators": [],
+    "containerDefinitions": [
+        {
+            "name": "itseed-frontend",
+            "image": "itseedsystem/itseed_frontend:{WILL_BE_REPLACE}",
+            "resourceRequirements": null,
+            "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": "3000",
+                    "protocol": "tcp"
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "secretOptions": null,
+                "options": {
+                    "awslogs-group": "/ecs/itseed-frontend",
+                    "awslogs-region": "ap-northeast-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            },
+            "environmentFiles": [
+                {
+                    "value": "arn:aws:s3:::itseed/frontend-stage.env",
+                    "type": "s3"
+                }
+            ]
+        }
+    ],
+    "volumes": [],
+    "networkMode": "awsvpc",
+    "memory": "512",
+    "cpu": "256",
+    "executionRoleArn": "arn:aws:iam::078392828802:role/ecsTaskExecutionRole",
+    "family": "itseed-backend",
+    "taskRoleArn": "",
+    "placementConstraints": []
+}
