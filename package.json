@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --check .",
+    "format:write": "prettier --write ."
   },
   "dependencies": {
     "next": "11.1.2",
@@ -17,6 +19,13 @@
     "@types/react": "^17.0.27",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.4.1",
     "typescript": "^4.4.3"
-  }
+  },
+  "pre-commit": [
+    "lint",
+    "format",
+    "build"
+  ]
 }
