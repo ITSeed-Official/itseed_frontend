@@ -1,0 +1,39 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.183.0/containers/javascript-node
+{
+	"name": "Node.js",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			// Update 'VARIANT' to pick a Node version: 12, 14, 16
+			"VARIANT": "14-buster",
+
+			// User name has to match the 'remoteUser' argument for personalization to work
+			"USER": "node",
+			"GROUP": "node"
+		}
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+        "dsznajder.es7-react-js-snippets",
+        "ms-vscode.vscode-typescript-next",
+        "rvest.vs-code-prettier-eslint",
+        "esbenp.prettier-vscode",
+        "orta.vscode-jest",
+		"dbaeumer.vscode-eslint",
+        "streetsidesoftware.code-spell-checker",
+		"ms-azuretools.vscode-docker",
+		"bierner.markdown-preview-github-styles",
+		"yzhang.markdown-all-in-one"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "yarn install",
+
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node"
+}
