@@ -13,4 +13,18 @@ a {
 
 * {
   box-sizing: border-box;
+
+  /* color */
+  --light-black: #4f4f4f;
+  --gray: #333333;
+  --light-gray: #e9e9e9;
+  --dark-gray: #c4c4c4;
+
+  /* size */
+  --header-height: 70px;
+  --content-width-desktop: 1080px;
+
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: normal;
 }
