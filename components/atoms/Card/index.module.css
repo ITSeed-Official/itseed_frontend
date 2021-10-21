@@ -1,0 +1,29 @@
+.card {
+  width: 420px;
+  max-width: 30%;
+  aspect-ratio: 420 / 560;
+}
+
+.cardInfo {
+  padding: 24px;
+}
+
+.cardImg {
+  width: 100%;
+  aspect-ratio: 420 / 250;
+  background-color: var(--dark-gray);
+}
+
+.cardTitle {
+  margin-bottom: 24px;
+}
+
+.cardInfo > p {
+  font-size: 14px;
+  color: var(--gray);
+  margin: 0;
+}
+
+.authorInfo {
+  padding: 24px 0;
+}
