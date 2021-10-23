@@ -1,30 +1,25 @@
 import type { NextPage } from "next";
+import dynamic from "next/dynamic";
 import classnames from "classnames";
 
-import Banner from "../components/atoms/Banner";
 import Button from "../components/atoms/Button";
+import { SubTitle } from "../components/atoms/SectionTitle";
 import Card from "../components/atoms/Card";
-import { SectionBigTitle, SubTitle } from "../components/atoms/SectionTitle";
-import SectionWrapper from "../components/atoms/SectionWrapper";
+import SectionWrapper from "../components/molecules/SectionWrapper";
 
 import styles from "../styles/Home.module.css";
+
+const BannerContainer = dynamic(
+  () => {
+    return import("../components/molecules/BannerContainer");
+  },
+  { ssr: false }
+); /* reference https://dev.to/vvo/how-to-solve-window-is-not-defined-errors-in-react-and-next-js-5f97 */
 
 const Home: NextPage = () => {
   return (
     <div>
-      <div className={styles.banner}>
-        <Banner />
-        <div className={styles.bannerInfo}>
-          <SectionBigTitle title="擁抱每一份獨特" />
-          <SubTitle
-            title="第十九屆資訊種子培訓計畫"
-            className={styles.subTitle}
-          />
-          <p>報名時間：2022/6/1-7/1</p>
-          <Button text="立即報名" className={styles.button} reverse />
-        </div>
-        <div className={styles.floatingBox}></div>
-      </div>
+      <BannerContainer />
       <SectionWrapper title="計畫介紹">
         <div className={styles.intro}>
           <p>資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。</p>
@@ -36,38 +31,40 @@ const Home: NextPage = () => {
             培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。
           </p>
           <Button text="計畫內容" className={styles.button} />
-          <div className={styles.flexSection}>
-            <div className={styles.feature}>
-              <SubTitle title="專業課程" />
-              <div className={styles.featureDetail}>
-                <p>擺脫學校框架</p>
-                <p>職場軟實力培養</p>
-                <p>突破視野局限</p>
-              </div>
+        </div>
+      </SectionWrapper>
+      <SectionWrapper>
+        <div className={styles.flexSection}>
+          <div className={styles.feature}>
+            <SubTitle title="專業課程" />
+            <div className={styles.featureDetail}>
+              <p>擺脫學校框架</p>
+              <p>職場軟實力培養</p>
+              <p>突破視野局限</p>
             </div>
-            <div className={styles.feature}>
-              <SubTitle title="課程" />
-              <div className={styles.featureDetail}>
-                <p>擺脫學校框架</p>
-                <p>職場軟實力培養</p>
-                <p>突破視野局限</p>
-              </div>
+          </div>
+          <div className={styles.feature}>
+            <SubTitle title="課程" />
+            <div className={styles.featureDetail}>
+              <p>擺脫學校框架</p>
+              <p>職場軟實力培養</p>
+              <p>突破視野局限</p>
             </div>
-            <div className={styles.feature}>
-              <SubTitle title="校友" />
-              <div className={styles.featureDetail}>
-                <p>擺脫學校框架</p>
-                <p>職場軟實力培養</p>
-                <p>突破視野局限</p>
-              </div>
+          </div>
+          <div className={styles.feature}>
+            <SubTitle title="校友" />
+            <div className={styles.featureDetail}>
+              <p>擺脫學校框架</p>
+              <p>職場軟實力培養</p>
+              <p>突破視野局限</p>
             </div>
-            <div className={styles.feature}>
-              <SubTitle title="職涯輔導" />
-              <div className={styles.featureDetail}>
-                <p>擺脫學校框架</p>
-                <p>職場軟實力培養</p>
-                <p>突破視野局限</p>
-              </div>
+          </div>
+          <div className={styles.feature}>
+            <SubTitle title="職涯輔導" />
+            <div className={styles.featureDetail}>
+              <p>擺脫學校框架</p>
+              <p>職場軟實力培養</p>
+              <p>突破視野局限</p>
             </div>
           </div>
         </div>
