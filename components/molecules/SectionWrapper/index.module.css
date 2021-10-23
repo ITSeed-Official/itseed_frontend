@@ -1,0 +1,19 @@
+.sectionWrapper {
+  width: var(--content-width-mobile);
+  min-width: 400px;
+  margin: 200px auto;
+}
+
+@media screen and (max-width: 768px) {
+  .sectionWrapper {
+    width: 100%;
+    margin: 0;
+    padding: calc((100% - var(--content-width-mobile)) / 2);
+  }
+}
+
+@media screen and (min-width: 1279px) {
+  .sectionWrapper {
+    width: var(--content-width-desktop);
+  }
+}

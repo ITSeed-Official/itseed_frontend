@@ -1,17 +1,17 @@
 import { FC } from "react";
 
-import SectionTitle from "../SectionTitle";
+import SectionTitle from "../../atoms/SectionTitle";
 
 import styles from "./index.module.css";
 
 type SectionWrapperProperty = {
-  title: string;
+  title?: string;
 };
 
 const SectionWrapper: FC<SectionWrapperProperty> = ({ children, title }) => {
   return (
     <section className={styles.sectionWrapper}>
-      <SectionTitle title={title} />
+      {title && <SectionTitle title={title} />}
       {children}
     </section>
   );
