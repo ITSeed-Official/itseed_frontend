@@ -4,6 +4,12 @@
   aspect-ratio: 420 / 560;
 }
 
+@media screen and (max-width: 768px) {
+  .card {
+    max-width: unset;
+  }
+}
+
 .cardInfo {
   padding: 24px;
 }
@@ -19,7 +25,7 @@
 }
 
 .cardInfo > p {
-  font-size: 14px;
+  font-size: var(--smallText-fontSize-desktop);
   color: var(--gray);
   margin: 0;
 }

@@ -4,7 +4,7 @@
   background-color: var(--gray);
 }
 
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 768px) {
   .banner {
     height: 500px;
   }

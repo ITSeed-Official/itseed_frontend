@@ -9,7 +9,7 @@
   top: 50%;
   transform: translateY(-50%);
 
-  margin-left: 10%;
+  margin-left: calc((100vw - var(--content-width-mobile)) / 2);
 
   color: white;
 }
@@ -24,13 +24,13 @@
   left: 50%;
   transform: translateX(-50%);
 
-  width: 80%;
+  width: var(--content-width-mobile);
   height: 270px;
 
   background-color: var(--light-gray);
 }
 
-@media screen and (max-width: 699px) {
+@media screen and (max-width: 768px) {
   .floatingBox {
     position: static;
     transform: none;
@@ -59,13 +59,15 @@
 }
 
 .intro > p {
-  font-size: 18px;
+  font-size: var(--text-fontSize-desktop);
   margin: 0px;
   letter-spacing: 0.02em;
 }
 
-.intro > button {
-  margin-bottom: 100px;
+@media screen and (max-width: 768px) {
+  .intro > p {
+    font-size: var(--text-fontSize-mobile);
+  }
 }
 
 .flexSection {
@@ -87,12 +89,25 @@
   background-color: var(--light-gray);
 }
 
+@media screen and (max-width: 768px) {
+  .flexSection {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .feature {
+    margin: 16px 0;
+    max-width: unset;
+    width: 100%;
+  }
+}
+
 .featureDetail {
   margin-top: 24px;
 }
 
 .featureDetail > p {
-  font-size: 14px;
+  font-size: var(--smallText-fontSize-desktop);
   margin: 0px;
   letter-spacing: 0.02em;
 }
@@ -110,5 +125,5 @@
   border-bottom: 1px solid var(--light-gray);
   padding: 40px 20px;
 
-  font-size: 18px;
+  font-size: var(--text-fontSize-desktop);
 }

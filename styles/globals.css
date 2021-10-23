@@ -20,9 +20,27 @@ a {
   --light-gray: #e9e9e9;
   --dark-gray: #c4c4c4;
 
-  /* size */
-  --header-height: 70px;
+  /* device size */
+  --phone: 768px;
+  --desktop: 1279px;
+
+  /* component size */
+  --header-height-desktop: 70px;
+  --header-height-mobile: 50px;
   --content-width-desktop: 1080px;
+  --content-width-mobile: 85%;
+
+  /* font */
+  --bigTitle-fontSize-desktop: 64px;
+  --title-fontSize-desktop: 40px;
+  --subTitle-fontSize-desktop: 24px;
+  --text-fontSize-desktop: 18px;
+  --smallText-fontSize-desktop: 14px;
+
+  --bigTitle-fontSize-mobile: 48px;
+  --title-fontSize-mobile: 24px;
+  --subTitle-fontSize-mobile: 18px;
+  --text-fontSize-mobile: 14px;
 
   font-family: "Noto Sans TC";
   font-style: normal;
