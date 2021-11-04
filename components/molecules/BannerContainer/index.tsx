@@ -1,16 +1,12 @@
 import { FC } from "react";
-import { useMedia } from "../../../util/hooks";
 
 import Banner from "../../atoms/Banner";
 import Button from "../../atoms/Button";
 import { SectionBigTitle, SubTitle } from "../../atoms/SectionTitle";
-import SectionWrapper from "../SectionWrapper";
 
-import styles from "./index.module.css";
+import styles from "./index.module.scss";
 
 const BannerContainer: FC = () => {
-  const media = useMedia();
-
   return (
     <>
       <div className={styles.bannerContainer}>
@@ -24,13 +20,8 @@ const BannerContainer: FC = () => {
           <p>報名時間：2022/6/1-7/1</p>
           <Button text="立即報名" className={styles.button} reverse />
         </div>
-        {media === "desktop" && <div className={styles.floatingBox}></div>}
+        <div className={styles.summaryInfo}></div>
       </div>
-      {media !== "desktop" && (
-        <SectionWrapper>
-          <div className={styles.staticBox}></div>
-        </SectionWrapper>
-      )}
     </>
   );
 };

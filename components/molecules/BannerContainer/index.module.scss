@@ -1,0 +1,53 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixin.scss";
+
+.bannerContainer {
+  position: relative;
+
+  .bannerInfo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    margin-left: calc( (100vw - $content-width-desktop) / 2 );
+    
+    @include large-tablet {
+      margin-left: calc( (100vw - $content-width-large-tablet) / 2 );
+    }
+    
+    @include tablet {
+      margin-left: calc( (100vw - $content-width-tablet) / 2 );
+    }
+    
+    @include mobile {
+      margin-left: calc( (100vw - $content-width-mobile) / 2 );
+    }
+
+    .subTitle {
+      margin-top: 40px;
+    }
+  }
+
+  /* only show in desktop or tablet */
+  .summaryInfo {
+    position: absolute;
+    bottom: -170px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $light-gray;
+    width: $content-width-desktop;
+    height: 270px;
+    
+    @include large-tablet {
+      width: $content-width-large-tablet;
+    }
+    
+    @include tablet {
+      width: $content-width-tablet;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+}

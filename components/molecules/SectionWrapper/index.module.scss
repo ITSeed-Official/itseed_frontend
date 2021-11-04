@@ -1,0 +1,21 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixin.scss";
+
+.sectionWrapper {
+  width: $content-width-desktop;
+  margin: 200px auto;
+
+  @include large-tablet{
+    width: $content-width-large-tablet;
+  }
+
+  @include tablet{
+    width: $content-width-tablet;
+  }
+
+  @include mobile {
+    width: $content-width-mobile;
+    margin: 0 auto;
+    padding: $padding-height-mobile 0;
+  }
+}
