@@ -1,26 +1,23 @@
 import type { NextPage } from "next";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import classnames from "classnames";
 
 import Button from "../components/atoms/Button";
 import { SubTitle } from "../components/atoms/SectionTitle";
 import Card from "../components/atoms/Card";
 import SectionWrapper from "../components/molecules/SectionWrapper";
+import BannerContainer from "../components/molecules/BannerContainer";
 
-import styles from "../styles/Home.module.css";
-
-const BannerContainer = dynamic(
-  () => {
-    return import("../components/molecules/BannerContainer");
-  },
-  { ssr: false }
-); /* reference https://dev.to/vvo/how-to-solve-window-is-not-defined-errors-in-react-and-next-js-5f97 */
+import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
   return (
     <div>
       <BannerContainer />
-      <SectionWrapper title="計畫介紹">
+      <SectionWrapper className={styles.summaryInfo}>
+        <div />
+      </SectionWrapper>
+      <SectionWrapper title="計畫介紹" className={styles.introWrapper}>
         <div className={styles.intro}>
           <p>資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。</p>
           <p>
@@ -33,7 +30,7 @@ const Home: NextPage = () => {
           <Button text="計畫內容" className={styles.button} />
         </div>
       </SectionWrapper>
-      <SectionWrapper>
+      <SectionWrapper className={styles.featureWrapper}>
         <div className={styles.flexSection}>
           <div className={styles.feature}>
             <SubTitle title="專業課程" />
@@ -71,9 +68,9 @@ const Home: NextPage = () => {
       </SectionWrapper>
       <SectionWrapper title="聽聽校友怎麼說">
         <div className={classnames(styles.flexSection, styles.alumni)}>
-          <Card />
-          <Card />
-          <Card />
+          <Card className={styles.card} />
+          <Card className={styles.card} />
+          <Card className={styles.card} />
         </div>
         <Button text="校友評價" className={styles.button} />
       </SectionWrapper>

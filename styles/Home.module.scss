@@ -1,0 +1,131 @@
+@import "./variables.scss";
+@import "./mixin.scss";
+
+/* only show this in mobile */
+@include mobile {
+  .summaryInfo > div {
+    width: 100%;
+    height: 660px;
+    background-color: $light-gray;
+  }
+  
+}
+
+.introWrapper {
+  margin-top: 320px;
+  margin-bottom: 100px;
+
+  @include mobile {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+.intro,
+.alumni,
+.plan,
+.questions {
+  margin-top: 30px;
+}
+
+.button {
+  margin-top: 40px;
+}
+
+.intro > p {
+  font-size: $text-fontSize-desktop;
+  margin: 0px;
+  letter-spacing: 0.02em;
+
+  @include mobile {
+    font-size: $text-fontSize-mobile;
+  }
+}
+
+.featureWrapper {
+  margin-top: 0px;
+  
+  .feature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 300px;
+    max-width: 20%;
+    aspect-ratio: 1 / 1;
+  
+    background-color: $light-gray;
+  
+    @include mobile {
+      margin: 16px 0;
+      max-width: unset;
+      width: 100%;
+    }
+  
+    .featureDetail {
+      margin-top: 24px;
+  
+      p {
+        font-size: $smallText-fontSize-desktop;
+        margin: 0px;
+        letter-spacing: 0.02em;
+      }
+    }
+  }
+
+}
+
+.flexSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include mobile {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.alumni {
+  .card {
+    max-width: 30%;
+
+    @include tablet{
+      max-width: 45%;
+    }
+
+    @include mobile{
+      max-width: unset;
+    }
+  }
+
+  .card:last-child {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  .card:nth-child(2) {
+    @include mobile {
+      display: none;
+    }
+  }
+  
+}
+
+.plan {
+  width: 100%;
+  height: 470px;
+  background-color: $light-gray;
+}
+
+.questions > div {
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid $light-gray;
+  padding: 40px 20px;
+
+  font-size: $text-fontSize-desktop;
+}
