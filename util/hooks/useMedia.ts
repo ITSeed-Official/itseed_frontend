@@ -33,14 +33,14 @@ export const useMedia = () => {
     const tabletHandler = handleMediaChange("tablet");
     const desktopHandler = handleMediaChange("desktop");
 
-    mobileMedia.addListener(mobileHandler);
-    tabletMedia.addListener(tabletHandler);
-    desktopMedia.addListener(desktopHandler);
+    mobileMedia.addEventListener("change", mobileHandler);
+    tabletMedia.addEventListener("change", tabletHandler);
+    desktopMedia.addEventListener("change", desktopHandler);
 
     return () => {
-      mobileMedia.removeListener(mobileHandler);
-      tabletMedia.removeListener(tabletHandler);
-      desktopMedia.removeListener(desktopHandler);
+      mobileMedia.removeEventListener("change", mobileHandler);
+      tabletMedia.removeEventListener("change", tabletHandler);
+      desktopMedia.removeEventListener("change", desktopHandler);
     };
   }, [media]);
 
