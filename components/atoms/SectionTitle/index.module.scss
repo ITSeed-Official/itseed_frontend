@@ -1,0 +1,29 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixin.scss";
+
+.sectionBigTitle {
+  font-size: $bigTitle-fontSize-desktop;
+  margin: 0;
+
+  @include mobile {
+    font-size: $bigTitle-fontSize-mobile;
+  }
+}
+
+.sectionTitle {
+  font-size: $title-fontSize-desktop;
+  margin: 0;
+
+  @include mobile {
+    font-size: $title-fontSize-mobile;
+  }
+}
+
+.subTitle {
+  font-size: $subTitle-fontSize-desktop;
+  margin: 0;
+
+  @include mobile {
+    font-size: $subTitle-fontSize-mobile;
+  }
+}

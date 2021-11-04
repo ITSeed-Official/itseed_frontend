@@ -1,7 +1,7 @@
 import { FC } from "react";
 import classnames from "classnames";
 
-import styles from "./index.module.css";
+import styles from "./index.module.scss";
 
 type TitleProperty = {
   title: string;

@@ -1,0 +1,38 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixin.scss";
+
+.card {
+  width: 420px;
+  aspect-ratio: 420 / 560;
+  
+  @include mobile {
+    width: 100%;
+  }
+
+  .cardInfo {
+    padding: 24px;
+
+    p {
+      font-size: $smallText-fontSize-desktop;
+      color: $gray;
+      margin: 0;
+    }
+  }
+
+  .cardImg {
+    width: 100%;
+    aspect-ratio: 420 / 250;
+    background-color: $dark-gray;
+  }
+  
+  .cardTitle {
+    margin-bottom: 24px;
+  }
+
+  .authorInfo {
+    padding: 24px 0;
+  }
+}
+
+
+

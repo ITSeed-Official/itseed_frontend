@@ -1,12 +1,17 @@
 import { FC } from "react";
+import classnames from "classnames";
 
 import { SubTitle } from "../SectionTitle";
 
-import styles from "./index.module.css";
+import styles from "./index.module.scss";
 
-const Card: FC = () => {
+type CardProperty = {
+  className?: string;
+};
+
+const Card: FC<CardProperty> = ({ className }) => {
   return (
-    <div className={styles.card}>
+    <div className={classnames(styles.card, className)}>
       <div className={styles.cardImg} />
       <div className={styles.cardInfo}>
         <SubTitle title="「資種帶你飛」" className={styles.cardTitle} />

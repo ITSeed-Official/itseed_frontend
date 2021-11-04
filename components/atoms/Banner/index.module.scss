@@ -1,0 +1,14 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixin.scss";
+
+.banner {
+  width: 100%;
+  height: calc(100vh - $header-height-desktop);
+  background-color: $gray;
+
+  @include mobile {
+    height: calc(100vh - $header-height-mobile);
+  }
+}
+
+
