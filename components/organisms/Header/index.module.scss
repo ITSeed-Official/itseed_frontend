@@ -1,0 +1,12 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixin.scss";
+
+.header {
+  width: 100%;
+  height: $header-height-desktop;
+  background-color: white;
+
+  @include mobile {
+    height: $header-height-mobile;
+  }
+}

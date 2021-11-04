@@ -3,7 +3,7 @@ import { FC } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 
-import styles from "./index.module.css";
+import styles from "./index.module.scss";
 
 const Layout: FC = ({ children }) => {
   return (
