@@ -1,0 +1,53 @@
+/* naming rules 
+
+generic-specific-device 
+
+--- device shorthanded ---
+-d: desktop
+-l: laptop
+-lt: large-tablet
+-t: tablet
+-m: mobile
+
+*/
+
+/* color */
+$black-light: #4f4f4f;
+$gray: #333333;
+$gray-light: #e9e9e9;
+$gray-dark: #c4c4c4;
+$green-deep: #003816;
+$green-tree: #00702D;
+$green-grass: #37995E;
+$green-mist: #E3ECE7;
+
+/* component size */
+$height-header-d: 70px;
+$height-header-m: 50px;
+
+/* page width */
+$width-content-d: 1440px;
+$width-content-l: 1140px;
+$width-content-lt: 900px;
+$width-content-t: 700px;
+$width-content-m: 320px;
+
+/* page padding */
+$padding-width-d: 120px;
+$padding-height-m: 40px;
+$padding-width-m: 32px;
+
+/* page margin */
+$margin-width-m: 32px;
+
+/* font */
+$font-bigTitle-d: 64px;
+$font-title-d: 40px;
+$font-subTitle-d: 24px;
+$font-text-d: 18px;
+$font-smallText-d: 14px;
+
+$font-bigTitle-m: 48px;
+$font-title-m: 24px;
+$font-subTitle-m: 18px;
+$font-text-m: 14px;
