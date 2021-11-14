@@ -1,0 +1,45 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+$height-d-bannerContainer: calc(100vh - $height-header-d);
+$height-m-bannerContainer: calc(100vh - $height-header-m);
+$height-d-bannerInfo: 320px;
+
+.bannerContainer {
+  margin: 0;
+  background-color: $gray;
+  height: $height-d-bannerContainer;
+
+  @include mobile {
+    height: $height-m-bannerContainer;
+  }
+}
+
+.bannerContent {
+  margin: 0 auto;
+}
+
+.bannerInfo {
+  box-sizing: content-box;
+  margin: 0 auto;
+  padding-top: calc( ($height-d-bannerContainer - $height-d-bannerInfo) / 2 );
+  height: $height-d-bannerInfo;
+  color: white;
+}
+
+.subTitle {
+  margin-top: 40px;
+}
+
+/* only show in desktop or tablet */
+.summaryInfo {
+  margin-top: calc( ($height-d-bannerContainer - $height-d-bannerInfo) / 4 );
+  background-color: $gray-light;
+  height: 270px;
+  
+  @include mobile {
+    display: none;
+  }
+}
+
+
