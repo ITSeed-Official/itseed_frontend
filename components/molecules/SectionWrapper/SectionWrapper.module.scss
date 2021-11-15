@@ -1,0 +1,29 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.sectionWrapper {
+  margin: 200px auto;
+  width: $width-content-d;
+
+  @include laptop {
+    width: $width-content-l;
+  }
+
+  @include large-tablet{
+    width: $width-content-lt;
+  }
+
+  @include tablet{
+    width: $width-content-t;
+  }
+
+  @include mobile {
+    margin: 0;
+    padding: $padding-height-m $padding-width-m;
+    width: 100%;
+  }
+}
+
+.title {
+  margin-bottom: 30px;
+}
