@@ -1,7 +1,7 @@
 import { FC } from "react";
 import classnames from "classnames";
 
-import SectionTitle from "../../atoms/SectionTitle/SectionTitle";
+import SectionTitle from "../../atoms/SectionTitle";
 
 import styles from "./SectionWrapper.module.scss";
 

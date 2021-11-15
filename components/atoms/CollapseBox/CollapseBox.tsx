@@ -14,7 +14,7 @@ type CollapseBoxProperty = {
 const CollapseBox: FC<CollapseBoxProperty> = ({
   className,
   title,
-  children
+  children,
 }) => {
   const [isOpen, setOpen] = useState(false);
 
@@ -22,7 +22,7 @@ const CollapseBox: FC<CollapseBoxProperty> = ({
     <div className={classnames(styles.collapseBox, className)}>
       <div
         className={classnames(styles.collapseHeader, isOpen && styles.open)}
-        onClick={() => setOpen(isOpen => !isOpen)}
+        onClick={() => setOpen((isOpen) => !isOpen)}
       >
         <span className={styles.title}>{title}</span>
         <Image

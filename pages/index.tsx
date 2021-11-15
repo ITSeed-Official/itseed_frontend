@@ -1,20 +1,19 @@
 import type { NextPage } from "next";
-// import dynamic from "next/dynamic";
 import classnames from "classnames";
 
-import Button from "../components/atoms/Button/Button";
-import { SubTitle } from "../components/atoms/SectionTitle/SectionTitle";
-import Card from "../components/atoms/Card/Card";
-import CollapseBox from "../components/atoms/CollapseBox/CollapseBox";
-import SectionWrapper from "../components/molecules/SectionWrapper/SectionWrapper";
-import BannerContainer from "../components/molecules/BannerContainer/BannerContainer";
+import Button from "../components/atoms/Button";
+import { SubTitle } from "../components/atoms/SectionTitle";
+import CollapseBox from "../components/atoms/CollapseBox";
+import Card from "../components/molecules/Card";
+import SectionWrapper from "../components/molecules/SectionWrapper";
+import BannerContainer from "../components/molecules/BannerContainer";
 
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
   return (
     <>
-      <BannerContainer backgroundImage="images/Banner-Homepage.png" />
+      <BannerContainer backgroundImage="images/banner_homepage.png" />
       <SectionWrapper className={styles.summaryInfo}>
         <div />
       </SectionWrapper>
