@@ -1,7 +1,7 @@
 import { FC } from "react";
 import classnames from "classnames";
 
-import { SubTitle } from "../SectionTitle/SectionTitle";
+import { SubTitle } from "../../atoms/SectionTitle";
 
 import styles from "./Card.module.scss";
 
