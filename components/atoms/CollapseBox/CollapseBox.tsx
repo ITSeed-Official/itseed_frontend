@@ -2,8 +2,7 @@ import { FC, useState } from "react";
 import classnames from "classnames";
 import Image from "next/image";
 
-import arrowUp from "../../../public/images/up-arrow.png";
-import arrowDown from "../../../public/images/down-arrow.png";
+import arrow from "../../../public/images/arrow.png";
 
 import styles from "./CollapseBox.module.scss";
 
@@ -15,23 +14,21 @@ type CollapseBoxProperty = {
 const CollapseBox: FC<CollapseBoxProperty> = ({
   className,
   title,
-  children,
+  children
 }) => {
   const [isOpen, setOpen] = useState(false);
 
   return (
     <div className={classnames(styles.collapseBox, className)}>
       <div
-        className={classnames(
-          styles.collapseHeader,
-          isOpen ? styles.open : styles.close
-        )}
-        onClick={() => setOpen((isOpen) => !isOpen)}
+        className={classnames(styles.collapseHeader, isOpen && styles.open)}
+        onClick={() => setOpen(isOpen => !isOpen)}
       >
         <span className={styles.title}>{title}</span>
         <Image
+          className={classnames(styles.arrow, isOpen && styles.arrowReverse)}
           alt="arrow"
-          src={isOpen ? arrowUp : arrowDown}
+          src={arrow}
           width={36}
           height={36}
         />
