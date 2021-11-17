@@ -5,11 +5,12 @@
 
 const { withSentryConfig } = require('@sentry/nextjs');
 
-
-let SENTRY_AUTO_RELEASE = process.env.SENTRY_AUTO_RELEASE === 'true';
+const isProd = process.env.NODE_ENV === 'production'
+const SENTRY_AUTO_RELEASE = process.env.SENTRY_AUTO_RELEASE === 'true';
 
 const moduleExports = {
   reactStrictMode: true,
+  assetPrefix: isProd ? 'https://cdn1.itseed.tw' : '',
   sentry: {
     disableServerWebpackPlugin: !SENTRY_AUTO_RELEASE,
     disableClientWebpackPlugin: !SENTRY_AUTO_RELEASE,
