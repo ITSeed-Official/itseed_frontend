@@ -3,7 +3,6 @@ import classnames from "classnames";
 
 import Button from "../../components/atoms/Button";
 import { SubTitle } from "../../components/atoms/SectionTitle";
-import CollapseBox from "../../components/atoms/CollapseBox";
 import Card from "../../components/molecules/Card";
 import SectionWrapper from "../../components/molecules/SectionWrapper";
 import BannerContainer from "../../components/molecules/BannerContainer";
@@ -76,7 +75,7 @@ const Home: NextPage = () => {
         <div className={styles.plan} />
         <Button text="詳細流程" className={styles.button} />
       </SectionWrapper>
-      <FAQSection />
+      <FAQSection limit={3} />
     </>
   );
 };
