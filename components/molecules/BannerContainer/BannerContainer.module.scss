@@ -1,13 +1,14 @@
 @import "/styles/variables.scss";
 @import "/styles/mixin.scss";
 
-$height-d-bannerContainer: calc(100vh - $height-header-d);
+$height-d-bannerContainer: 600px;
 $height-m-bannerContainer: calc(100vh - $height-header-m);
 $height-d-bannerInfo: 320px;
 
 .bannerContainer {
   margin: 0;
   background-color: $gray;
+  background-size: cover;
   height: $height-d-bannerContainer;
 
   @include mobile {
