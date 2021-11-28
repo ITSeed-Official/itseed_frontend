@@ -4,7 +4,8 @@
 .header {
   width: 100%;
   height: $height-header-d;
-  background-color: white;
+  backdrop-filter: blur(16px);
+  background-color: rgba(241, 242, 244, 0.8);
 
   @include mobile {
     height: $height-header-m;
