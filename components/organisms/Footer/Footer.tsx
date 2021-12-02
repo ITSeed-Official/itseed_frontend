@@ -8,28 +8,46 @@ const Footer: FC = () => {
       <section className={styles.content}>
         <div className={styles.linksRow}>
           <span>
-            <Image
-              alt="facebook"
-              src="/images/icons/icon-facebook.svg"
-              width="24"
-              height="24"
-            />
+            <a
+              href="https://www.facebook.com/iloveitseed"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <Image
+                alt="facebook"
+                src="/images/icons/icon-facebook.svg"
+                width="24"
+                height="24"
+              />
+            </a>
           </span>
           <span>
-            <Image
-              alt="medium"
-              src="/images/icons/icon-medium.svg"
-              width="24"
-              height="24"
-            />
+            <a
+              href="https://medium.com/%E6%88%91%E8%88%87%E8%B3%87%E7%A8%AE-itseed-%E8%B3%87%E8%A8%8A%E7%A8%AE%E5%AD%90-%E5%AE%98%E6%96%B9%E9%83%A8%E8%90%BD%E6%A0%BC"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <Image
+                alt="medium"
+                src="/images/icons/icon-medium.svg"
+                width="24"
+                height="24"
+              />
+            </a>
           </span>
           <span>
-            <Image
-              alt="mail"
-              src="/images/icons/icon-mail.svg"
-              width="24"
-              height="24"
-            />
+            <a
+              href="mailto:itseed19th@gmail.com"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <Image
+                alt="mail"
+                src="/images/icons/icon-mail.svg"
+                width="24"
+                height="24"
+              />
+            </a>
           </span>
         </div>
         <div className={styles.ownerRow}>
