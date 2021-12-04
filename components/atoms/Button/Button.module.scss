@@ -1,22 +1,44 @@
 @import "/styles/variables.scss";
 
 .button {
-  width: 150px;
-  height: 50px;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 30px;
+  box-sizing: border-box;
   border-radius: 4px;
-  padding: 12px 20px;
-
   cursor: pointer;
-}
-
-.standard {
-  border: 1px solid $black-light;
-  background-color: white;
-}
-
-.reverse {
-  border: 1px solid white;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  transition: 0.3s;
   background-color: transparent;
-  color: white;
+}
+
+.outline {
+  border: 1.5px solid $green-tree;
+  background-color: transparent;
+  color: $green-tree;
+
+  &:hover {
+    background-color: $green-tree;
+    color: $gray-bright;
+  }
+
+  &:active {
+    background-color: $green-deep;
+  }
+}
+
+.noBorder {
+  border: none;
+
+  &:hover {
+    background-color: $green-tree;
+    color: $gray-bright;
+  }
+
+  &:active {
+    background-color: $green-deep;
+  }
 }

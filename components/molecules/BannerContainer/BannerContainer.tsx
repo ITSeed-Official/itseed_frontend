@@ -32,7 +32,7 @@ const BannerContainer: FC<BannerContainerProperty> = ({
             className={styles.subTitle}
           />
           <p>報名時間：2022/6/1-7/1</p>
-          <Button text="立即報名" className={styles.button} reverse />
+          <Button text="立即報名" className={styles.button} />
         </div>
         <div className={styles.summaryInfo} />
       </SectionWrapper>
