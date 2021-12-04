@@ -2,7 +2,7 @@
 @import "/styles/mixin.scss";
 
 .sectionWrapper {
-  margin: 200px auto;
+  margin: 0 auto 200px auto;
   width: $width-content-d;
 
   @include laptop {

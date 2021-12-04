@@ -1,0 +1,109 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.headerLogo {
+  cursor: pointer;
+}
+
+.header {
+  display: block;
+  width: 100%;
+  backdrop-filter: blur(16px);
+  background-color: rgba(241, 242, 244, 0.8);
+
+  @include mobile {
+    display: none;
+  }
+}
+.headerContent {
+  height: $height-header-d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.navList {
+  margin-left: auto;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+}
+
+.navItem {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: $height-header-d;
+  margin-left: auto;
+  padding: 0 12px;
+  font-size: 16px;
+  line-height: 26px;
+  color: $color-neutral-000;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+
+  &:hover {
+    color: $green-tree;
+
+    .subNavList {
+      display: flex;
+
+      .subNavListContent {
+        animation: subListContentScrollDown 0.2s ease-out forwards;
+      }
+    }
+  }
+}
+
+@keyframes subListContentScrollDown {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.subNavList {
+  display: none;
+  overflow: hidden;
+  position: absolute;
+  top: $height-header-d;
+  left: -8px;
+  padding: 8px;
+}
+
+.subNavListContent {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  list-style: none;
+  flex-direction: column;
+  padding: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  color: $color-neutral-200;
+  min-width: 113px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.08);
+}
+
+.subNavListItem {
+  white-space: nowrap;
+  font-size: 16px;
+  padding: 12px 24px;
+  line-height: 26px;
+  background-color: $color-neutral-900;
+  border: none;
+  cursor: pointer;
+
+  >span {
+    display: block;
+  }
+
+  &:hover {
+    background-color: $green-mist;
+  }
+}
