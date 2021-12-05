@@ -15,20 +15,27 @@ generic-specific-device
 $black-light: #4f4f4f;
 $gray: #333333;
 $gray-light: #e9e9e9;
+$gray-bright: #F2F2F2;
 $gray-dark: #c4c4c4;
 $green-deep: #003816;
 $green-tree: #00702D;
 $green-grass: #37995E;
-$green-mist: #E3ECE7;
+$green-mist: #F2F9F5;
+
+$color-neutral-900: #FFFFFF;
+$color-neutral-200: #333333;
+$color-neutral-100: #323232;
+$color-neutral-000: #000000;
+
 
 /* component size */
 $height-header-d: 70px;
-$height-header-m: 50px;
+$height-header-m: 56px;
 
 /* page width */
 $width-content-d: 1440px;
 $width-content-l: 1140px;
-$width-content-lt: 900px;
+$width-content-lt: 976px; // 1024px - 48px
 $width-content-t: 700px;
 $width-content-m: 320px;
 

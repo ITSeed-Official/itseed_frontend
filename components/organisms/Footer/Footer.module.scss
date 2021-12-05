@@ -1,5 +1,56 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
 .footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 235px;
-  background-color: black;
+  height: 220px;
+  background-color: $green-deep;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $green-mist;
+
+  >* {
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.linksRow {
+  display: flex;
+
+  >* {
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+
+.ownerRow {
+  display: flex;
+  align-items: center;
+
+  >span {
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.02em;
+    margin-right: 12px
+  }
+}
+
+.copywritingRow {
+  font-size: 12px;
+  line-height: 18px;
 }

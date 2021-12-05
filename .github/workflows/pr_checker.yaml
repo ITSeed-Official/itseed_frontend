@@ -17,5 +17,3 @@ jobs:
         run: yarn run lint
       - name: Run code style checker
         run: yarn run format
-      - name: Run tests 
-        run: yarn run test

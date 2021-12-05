@@ -16,6 +16,10 @@
     "storybook:build": "build-storybook"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
     "@reduxjs/toolkit": "^1.6.2",
     "@sentry/nextjs": "^6.13.3",
     "@testing-library/jest-dom": "^5.14.1",
@@ -52,12 +56,12 @@
     "prettier": "^2.4.1",
     "redux-logger": "^3.0.6",
     "sass-loader": "^10",
+    "types/": "fortawesome/react-fontawesome",
     "typescript": "^4.4.3"
   },
   "pre-commit": [
     "lint",
     "format",
-    "test:cov",
     "build"
   ]
 }

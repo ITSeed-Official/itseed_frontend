@@ -3,22 +3,26 @@ import classnames from "classnames";
 
 import styles from "./Button.module.scss";
 
-type ButtonProperty = {
-  text: string;
+export enum ButtonTheme {
+  outline = "outline",
+  noBorder = "noBorder",
+}
+
+export type Props = {
+  text?: string;
   className?: string;
-  reverse?: boolean;
+  theme?: ButtonTheme;
 };
 
-const Button: FC<ButtonProperty> = ({ text, className, reverse = false }) => {
+const Button: FC<Props> = ({
+  text,
+  className,
+  theme = ButtonTheme.outline,
+  children,
+}) => {
   return (
-    <button
-      className={classnames(
-        styles.button,
-        reverse ? styles.reverse : styles.standard,
-        className
-      )}
-    >
-      {text}
+    <button className={classnames(styles.button, styles[theme], className)}>
+      {children || text}
     </button>
   );
 };
