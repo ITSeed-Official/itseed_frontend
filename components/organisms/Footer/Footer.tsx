@@ -37,7 +37,7 @@ const Footer: FC = () => {
           </span>
           <span>
             <a
-              href="mailto:itseed19th@gmail.com"
+              href="mailto:itseedsystem@gmail.com"
               target="_blank"
               rel="noreferrer noopener"
             >
@@ -60,7 +60,7 @@ const Footer: FC = () => {
           />
         </div>
         <span className={styles.copywritingRow}>
-          Copyright © 2021 - 資訊種子培訓計畫
+          Copyright © {new Date().getFullYear()} - 資訊種子培訓計畫
         </span>
       </section>
     </footer>
