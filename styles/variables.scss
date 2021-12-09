@@ -35,11 +35,12 @@ $height-header-m: 56px;
 /* page width */
 $width-content-d: 1440px;
 $width-content-l: 1140px;
-$width-content-lt: 976px; // 1024px - 48px
+$width-content-lt: 900px; 
 $width-content-t: 700px;
 $width-content-m: 320px;
 
 /* page padding */
+$padding-height-d: 100px;
 $padding-width-d: 120px;
 $padding-height-m: 40px;
 $padding-width-m: 32px;
@@ -48,13 +49,26 @@ $padding-width-m: 32px;
 $margin-width-m: 32px;
 
 /* font */
-$font-bigTitle-d: 64px;
-$font-title-d: 40px;
+$font-bigTitle-d: 48px;
+$font-title-d: 32px;
 $font-subTitle-d: 24px;
 $font-text-d: 18px;
 $font-smallText-d: 14px;
 
-$font-bigTitle-m: 48px;
+$font-bigTitle-m: 36px;
 $font-title-m: 24px;
 $font-subTitle-m: 18px;
 $font-text-m: 14px;
+
+/* card */
+$width-card-d: 420px;
+$height-card-d: 560px;
+$height-card-m: 490px;
+
+/* carousel arrow */
+$width-arrow-d: 60px;
+$height-arrow-d: 60px;
+$width-arrow-lt: 40px;
+$height-arrow-lt: 40px;
+$width-arrow-t: 30px;
+$height-arrow-t: 30px;
