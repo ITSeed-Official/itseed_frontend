@@ -16,7 +16,7 @@ const data = [
     img: "images/common/pics/alumni.png",
     content:
       "「我曾經被學長姐無私的回饋而感動，那種認真聽、耐心答、樂於分享的學長姐，不但沒有距離，更是我們未來前進的力量！」",
-    character: "第18屆副學員長"
+    character: "第18屆副學員長",
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const data = [
     img: "images/common/pics/alumni2.png",
     content:
       "「我曾經被學長姐無私的回饋而感動，那種認真聽、耐心答、樂於分享的學長姐，不但沒有距離，更是我們未來前進的力量！」",
-    character: "第18屆副學員長"
+    character: "第18屆副學員長",
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const data = [
     img: "images/common/pics/alumni3.png",
     content:
       "「我曾經被學長姐無私的回饋而感動，那種認真聽、耐心答、樂於分享的學長姐，不但沒有距離，更是我們未來前進的力量！」",
-    character: "第18屆副學員長"
+    character: "第18屆副學員長",
   },
   {
     id: 4,
@@ -40,7 +40,7 @@ const data = [
     img: "images/common/pics/alumni.png",
     content:
       "「我曾經被學長姐無私的回饋而感動，那種認真聽、耐心答、樂於分享的學長姐，不但沒有距離，更是我們未來前進的力量！」",
-    character: "第18屆副學員長"
+    character: "第18屆副學員長",
   },
   {
     id: 5,
@@ -48,7 +48,7 @@ const data = [
     img: "images/common/pics/alumni2.png",
     content:
       "「我曾經被學長姐無私的回饋而感動，那種認真聽、耐心答、樂於分享的學長姐，不但沒有距離，更是我們未來前進的力量！」",
-    character: "第18屆副學員長"
+    character: "第18屆副學員長",
   },
   {
     id: 6,
@@ -56,8 +56,8 @@ const data = [
     img: "images/common/pics/alumni3.png",
     content:
       "「我曾經被學長姐無私的回饋而感動，那種認真聽、耐心答、樂於分享的學長姐，不但沒有距離，更是我們未來前進的力量！」",
-    character: "第18屆副學員長"
-  }
+    character: "第18屆副學員長",
+  },
 ];
 
 const AlumniSection: FC = () => {
@@ -66,7 +66,7 @@ const AlumniSection: FC = () => {
   const show = {
     desktop: 3,
     tablet: 2,
-    mobile: 1
+    mobile: 1,
   };
 
   return (

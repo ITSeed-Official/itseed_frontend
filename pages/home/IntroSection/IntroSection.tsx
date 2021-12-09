@@ -16,26 +16,26 @@ const data = [
     id: 1,
     title: "專案實作",
     img: "images/homepage/icons/project.svg",
-    content: ["累積業界實務", "職涯探索與深化", "跨領域團隊夥伴"]
+    content: ["累積業界實務", "職涯探索與深化", "跨領域團隊夥伴"],
   },
   {
     id: 2,
     title: "專業課程",
     img: "images/homepage/icons/class.svg",
-    content: ["擺脫學校框架", "職場軟實力培養", "突破視野侷限"]
+    content: ["擺脫學校框架", "職場軟實力培養", "突破視野侷限"],
   },
   {
     id: 3,
     title: "校友資源",
     img: "images/homepage/icons/resource.svg",
-    content: ["不藏私回饋", "跨代交流分享", "各界人脈建立"]
+    content: ["不藏私回饋", "跨代交流分享", "各界人脈建立"],
   },
   {
     id: 4,
     title: "職涯導師",
     img: "images/homepage/icons/mentor.svg",
-    content: ["歷屆校友共學", "提攜突破瓶頸", "共好未來發展"]
-  }
+    content: ["歷屆校友共學", "提攜突破瓶頸", "共好未來發展"],
+  },
 ];
 
 const IntroSection: FC = () => {

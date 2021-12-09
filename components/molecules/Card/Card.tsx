@@ -21,7 +21,7 @@ const Card: FC<CardProperty> = ({
   content,
   name,
   character,
-  readmore = "看更多"
+  readmore = "看更多",
 }) => {
   return (
     <div className={classnames(styles.card, className)}>
@@ -31,7 +31,7 @@ const Card: FC<CardProperty> = ({
           imgSrc
             ? {
                 backgroundImage: `url(${imgSrc})`,
-                backgroundSize: "cover"
+                backgroundSize: "cover",
               }
             : { backgroundColor: "gray" }
         }

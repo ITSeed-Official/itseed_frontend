@@ -14,7 +14,7 @@ const FAQSection = ({ limit }: Props) => {
 
   const placeholderFaqs: FAQ[] = Array(limit || 3).fill({
     question: "",
-    answer: ""
+    answer: "",
   });
   const displayedFaqs = isLoading ? placeholderFaqs : faqs.slice(0, limit);
 
