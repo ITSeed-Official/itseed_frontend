@@ -1,0 +1,26 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.carousel {
+    /* arrow button's parent element */
+    & > div:nth-child(1),  > div:nth-child(3) {
+        display: flex;
+        align-items: center;
+    }
+
+    @include mobile {
+        position: relative;
+
+        & > div:nth-child(1) {
+            position: absolute;
+            right: 50px;
+            top: 520px;
+        }
+
+        & > div:nth-child(3) {
+            position: absolute;
+            right: 0;
+            top: 520px;
+        }
+    }
+}
