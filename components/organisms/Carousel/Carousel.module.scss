@@ -6,6 +6,37 @@
     & > div:nth-child(1),  > div:nth-child(3) {
         display: flex;
         align-items: center;
+
+        button[data-direction] {
+            width: $width-arrow-d;
+            height: $height-arrow-d;
+            cursor: pointer;
+            border: none;
+            background: url('/images/common/icons/arrow_right.svg') no-repeat center;
+          
+            @include large-tablet {
+              width: $width-arrow-lt;
+              height: $height-arrow-lt;
+              transform: translateX(-10px);
+            }
+          
+            @include tablet {
+              width: $width-arrow-t;
+              height: $height-arrow-t;
+            }
+          
+            @include mobile {
+              transform: unset;
+            }
+          }
+          
+          button[data-direction='left'] { /* left button */
+            transform: rotateZ(180deg);
+          
+            @include large-tablet {
+              transform: rotateZ(180deg) translateX(-10px);
+            }
+          }
     }
 
     @include mobile {

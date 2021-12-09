@@ -9,7 +9,11 @@ type FeatureCardProperty = {
   content: string[];
 };
 
-const FeatureCard: FC<FeatureCardProperty> = ({ imgSrc, title, content }) => {
+const FeatureCard: FC<FeatureCardProperty> = ({
+  imgSrc,
+  title,
+  content = [],
+}) => {
   return (
     <div className={styles.feature}>
       <img className={styles.featureImg} src={imgSrc} alt={title} />

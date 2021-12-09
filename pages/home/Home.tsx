@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
 
 import BannerContainer from "components/molecules/BannerContainer";
-import SummarySection from "./SummarySection";
-import IntroSection from "./IntroSection";
-import AlumniSection from "./AlumniSection";
-import TimelineSection from "./TimelineSection";
-import FAQSection from "./FAQSection";
+import SummarySection from "components/templates/Home/SummarySection";
+import IntroSection from "components/templates/Home/IntroSection";
+import AlumniSection from "components/templates/Home/AlumniSection";
+import TimelineSection from "components/templates/Home/TimelineSection";
+import FAQSection from "components/templates/Home/FAQSection";
 
 const Home: NextPage = () => (
   <>
