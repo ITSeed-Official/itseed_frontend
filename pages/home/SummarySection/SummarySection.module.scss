@@ -1,0 +1,17 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.summaryInfo {
+  display: none;
+
+  /* only show this section in mobile */
+  @include mobile {
+    display: block;
+
+    & > div {
+      width: 100%;
+      height: 450px;
+      background-color: $gray-light;
+    }
+  }
+}
