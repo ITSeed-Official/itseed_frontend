@@ -35,7 +35,7 @@ const MobileHeader: FC = () => {
     >
       <nav className={mStyles.headerNav}>
         <div className={mStyles.headerNavContent}>
-          <Link href="/">
+          <Link href="/" passHref>
             <Image
               alt="logo"
               layout="fixed"
@@ -180,7 +180,7 @@ const DesktopHeader: FC = () => {
   return (
     <header className={dStyles.header}>
       <SectionWrapper className={dStyles.headerContent}>
-        <Link href="/">
+        <Link href="/" passHref>
           <Image
             className={dStyles.headerLogo}
             alt="logo"
