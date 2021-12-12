@@ -1,31 +1,42 @@
 @import "/styles/variables.scss";
 @import "/styles/mixin.scss";
 
-$height-d-bannerContainer: 600px;
-$height-m-bannerContainer: calc(100vh - $height-header-m);
-$height-d-bannerInfo: 320px;
+$height-bannerContainer-d: 600px;
+$height-bannerContainer-m: calc(100vh - $height-header-m);
+$height-bannerInfo-d: 320px;
+$height-bannerInfo-m: 300px;
 
 .bannerContainer {
   margin: 0;
   background-color: $gray;
   background-size: cover;
-  height: $height-d-bannerContainer;
+  height: $height-bannerContainer-d;
 
   @include mobile {
-    height: $height-m-bannerContainer;
+    height: $height-bannerContainer-m;
   }
 }
 
 .bannerContent {
   margin: 0 auto;
+  padding: 0;
+
+  @include mobile {
+    padding: 40px 32px;
+  }
 }
 
 .bannerInfo {
   box-sizing: content-box;
   margin: 0 auto;
-  padding-top: calc( ($height-d-bannerContainer - $height-d-bannerInfo) / 2 );
-  height: $height-d-bannerInfo;
+  padding-top: calc( ($height-bannerContainer-d - $height-bannerInfo-d) / 2 );
+  height: $height-bannerInfo-d;
   color: white;
+
+  @include mobile {
+    padding-top: calc(($height-bannerContainer-m - $height-bannerInfo-m) / 2);
+    height: $height-bannerInfo-m;
+  }
 }
 
 .subTitle {
@@ -34,7 +45,7 @@ $height-d-bannerInfo: 320px;
 
 /* only show in desktop or tablet */
 .summaryInfo {
-  margin-top: calc( ($height-d-bannerContainer - $height-d-bannerInfo) / 4 );
+  margin-top: calc( ($height-bannerContainer-d - $height-bannerInfo-d) / 4 );
   background-color: $gray-light;
   height: 270px;
   

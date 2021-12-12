@@ -1,12 +1,12 @@
 import { FC } from "react";
 import classnames from "classnames";
 
-import SectionWrapper from "../SectionWrapper/SectionWrapper";
-import Button from "../../atoms/Button/Button";
+import SectionWrapper from "components/molecules/SectionWrapper/SectionWrapper";
+import Button from "components/atoms/Button/Button";
 import {
   SectionBigTitle,
   SubTitle,
-} from "../../atoms/SectionTitle/SectionTitle";
+} from "components/atoms/SectionTitle/SectionTitle";
 
 import styles from "./BannerContainer.module.scss";
 

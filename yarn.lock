@@ -2837,6 +2837,11 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
+"@trendyol-js/react-carousel@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@trendyol-js/react-carousel/-/react-carousel-2.0.0.tgz#ecc7dccace8414b301226c9ad80576aacca7448a"
+  integrity sha512-AS/2cYZp4bXErECV6c49CsFeWxxd6J7xsRqRPUL5j1BF2Ga0rcIZog7wDRQr6WYaUbVRa/8Z5BKtg7kTk0s0+w==
+
 "@types/aria-query@^4.2.0":
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/@types/aria-query/-/aria-query-4.2.2.tgz#ed4e0ad92306a704f9fb132a0cfcf77486dbe2bc"

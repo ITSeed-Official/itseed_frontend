@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import classnames from "classnames";
 import Image from "next/image";
 
-import arrow from "../../../public/images/arrow.png";
+import arrow from "public/images/common/arrow.png";
 
 import styles from "./CollapseBox.module.scss";
 

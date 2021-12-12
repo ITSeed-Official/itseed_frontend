@@ -39,7 +39,7 @@ const MobileHeader: FC = () => {
             <Image
               alt="logo"
               layout="fixed"
-              src="/images/header_mobile_logo@3x.png"
+              src="/images/common/pics/header_mobile_logo@3x.png"
               width={131}
               height={24}
             />
@@ -184,7 +184,7 @@ const DesktopHeader: FC = () => {
           <Image
             className={dStyles.headerLogo}
             alt="logo"
-            src="/images/header_desktop_logo@2x.png"
+            src="/images/common/pics/header_desktop_logo@2x.png"
             width={170}
             height={31}
           />

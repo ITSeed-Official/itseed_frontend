@@ -2,20 +2,22 @@
 @import "/styles/mixin.scss";
 
 .card {
-  width: 420px;
-  aspect-ratio: 420 / 560;
+  width: $width-card-d;
+  height: $height-card-d;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
   
   @include mobile {
     width: 100%;
+    height: $height-card-m;
   }
 }
 
 .cardInfo {
   padding: 24px;
+  background-color: white;
 
   p {
-    font-size: $font-smallText-d;
+    font-size: 12px;
     color: $gray;
     margin: 0;
   }
@@ -23,14 +25,23 @@
 
 .cardImg {
   width: 100%;
-  aspect-ratio: 420 / 250;
-  background-color: $gray-dark;
+  height: 220px;
 }
 
-.cardTitle {
-  margin-bottom: 24px;
+p.content {
+  margin-bottom: 16px;
+  font-size: 16px;
 }
 
-.authorInfo {
-  padding: 24px 0;
+.readmore {
+  margin-top: 40px;
+  display: flex;
+
+  p {
+    font-size: 16px;
+    color: $green-tree;
+    margin-right: 8px;
+  }
 }
+
+

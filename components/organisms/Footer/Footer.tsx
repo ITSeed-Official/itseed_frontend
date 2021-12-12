@@ -15,7 +15,7 @@ const Footer: FC = () => {
             >
               <Image
                 alt="facebook"
-                src="/images/icons/icon-facebook.svg"
+                src="/images/common/icons/icon-facebook.svg"
                 width="24"
                 height="24"
               />
@@ -29,7 +29,7 @@ const Footer: FC = () => {
             >
               <Image
                 alt="medium"
-                src="/images/icons/icon-medium.svg"
+                src="/images/common/icons/icon-medium.svg"
                 width="24"
                 height="24"
               />
@@ -43,7 +43,7 @@ const Footer: FC = () => {
             >
               <Image
                 alt="mail"
-                src="/images/icons/icon-mail.svg"
+                src="/images/common/icons/icon-mail.svg"
                 width="24"
                 height="24"
               />
@@ -54,7 +54,7 @@ const Footer: FC = () => {
           <span>主辦單位：新北市電腦商業同業公會</span>
           <Image
             alt="NTCA"
-            src="/images/NTCA-logo.svg"
+            src="/images/common/NTCA-logo.svg"
             width="46"
             height="11"
           />

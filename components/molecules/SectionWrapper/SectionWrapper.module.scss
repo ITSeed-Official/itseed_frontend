@@ -2,7 +2,8 @@
 @import "/styles/mixin.scss";
 
 .sectionWrapper {
-  margin: 0 auto 200px auto;
+  margin: 0 auto;
+  padding: $padding-height-d 0;
   width: $width-content-d;
 
   @include laptop {
