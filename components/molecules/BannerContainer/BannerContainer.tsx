@@ -13,7 +13,7 @@ import styles from "./BannerContainer.module.scss";
 type BannerContainerProperty = {
   className?: string;
   backgroundImage?: string;
-  bigTitle?: string;
+  primaryTitle?: string;
   subTitle?: string;
   subText?: string;
   buttonText?: string;
@@ -22,7 +22,7 @@ type BannerContainerProperty = {
 
 const BannerContainer: FC<BannerContainerProperty> = ({
   backgroundImage = "",
-  bigTitle = "",
+  primaryTitle = "",
   subTitle = "",
   subText = "",
   buttonText = "",
@@ -36,7 +36,7 @@ const BannerContainer: FC<BannerContainerProperty> = ({
     >
       <SectionWrapper className={styles.bannerContent}>
         <div className={styles.bannerInfo}>
-          {bigTitle && <SectionBigTitle title={bigTitle} />}
+          {primaryTitle && <SectionBigTitle title={primaryTitle} />}
           {subTitle && (
             <SubTitle title={subTitle} className={styles.subTitle} />
           )}
