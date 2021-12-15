@@ -39,22 +39,16 @@ const IntroSection: FC = () => {
     <SectionWrapper className={styles.introSection}>
       <div className={styles.intro}>
         <div className={styles.introContent}>
-          <SectionTitle title="計畫介紹" className={styles.introTitle} />
-          <p>資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。</p>
-          <p>
-            透過執行 4 大專案，參與 10+
-            堂來自業界講師的課程，了解業界生態，並探索自己未來的職涯方向，
+          <h2 className={styles.introTitle}>計畫介紹</h2>
+          <p className={styles.introDescription}>
+            資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。透過執行
+            4 大專案，參與 10+
+            堂來自業界講師的課程，了解業界生態，並探索自己未來的職涯方向，培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。
           </p>
-          <p>
-            培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。
-          </p>
-          <Button
-            text="瞭解更多"
-            className={styles.button}
-            icon={ButtonIcon.arrow}
-          />
+          <Button text="瞭解更多" icon={ButtonIcon.arrow} />
         </div>
-        <div className={styles.introImage}>
+        <div className={styles.dummySpacing} />
+        <div className={styles.introImageWrapper}>
           <Image src={IntroImage} alt="intro" />
         </div>
       </div>
