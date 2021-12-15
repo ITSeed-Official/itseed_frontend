@@ -2,8 +2,7 @@
 @import "/styles/mixin.scss";
 
 .introSection {
-  margin-top: 200px;
-
+  margin-top: 0px;
   @include mobile {
     margin-top: 0px;
     margin-bottom: 0px;
