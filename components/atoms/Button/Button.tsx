@@ -12,6 +12,7 @@ export type Props = {
   text?: string;
   className?: string;
   theme?: ButtonTheme;
+  onClick?: Function;
 };
 
 const Button: FC<Props> = ({
@@ -19,9 +20,15 @@ const Button: FC<Props> = ({
   className,
   theme = ButtonTheme.outline,
   children,
+  onClick = () => {},
 }) => {
   return (
-    <button className={classnames(styles.button, styles[theme], className)}>
+    <button
+      className={classnames(styles.button, styles[theme], className)}
+      onClick={(e) => {
+        onClick();
+      }}
+    >
       {children || text}
     </button>
   );
