@@ -1,14 +1,10 @@
 import type { FC } from "react";
 import Image from "next/image";
-
 import IntroImage from "public/images/homepage/pics/intro.png";
-
-import Button from "components/atoms/Button";
+import Button, { ButtonIcon } from "components/atoms/Button";
 import SectionTitle from "components/atoms/SectionTitle";
 import SectionWrapper from "components/molecules/SectionWrapper";
-
 import FeatureCard from "./FeatureCard";
-
 import styles from "./IntroSection.module.scss";
 
 const data = [
@@ -52,7 +48,11 @@ const IntroSection: FC = () => {
           <p>
             培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。
           </p>
-          <Button text="計畫內容" className={styles.button} />
+          <Button
+            text="瞭解更多"
+            className={styles.button}
+            icon={ButtonIcon.arrow}
+          />
         </div>
         <div className={styles.introImage}>
           <Image src={IntroImage} alt="intro" />

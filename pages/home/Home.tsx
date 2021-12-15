@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 
+import { ButtonIcon } from "components/atoms/Button";
 import BannerContainer, {
   BannerType,
 } from "components/molecules/BannerContainer";
@@ -24,6 +25,7 @@ const Home: NextPage = () => (
       subTitle="第十九屆資訊種子培訓計畫"
       description="報名時間 2022.6.1 - 7.11"
       ctaText="立即報名"
+      ctaIcon={ButtonIcon.arrow}
       ctaOnClick={() => console.log("click")}
     />
     <SummarySection />

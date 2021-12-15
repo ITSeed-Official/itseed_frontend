@@ -1,12 +1,9 @@
 import { FC } from "react";
-
 import { useMedia } from "util/hooks/useMedia";
-
-import Button from "components/atoms/Button";
+import Button, { ButtonIcon } from "components/atoms/Button";
 import Card from "components/molecules/Card";
 import SectionWrapper from "components/molecules/SectionWrapper";
 import Carousel from "components/organisms/Carousel";
-
 import styles from "./AlumniSection.module.scss";
 
 const data = [
@@ -88,7 +85,11 @@ const AlumniSection: FC = () => {
             />
           ))}
         </Carousel>
-        <Button text="校友評價" className={styles.button} />
+        <Button
+          text="校友評價"
+          className={styles.button}
+          icon={ButtonIcon.arrow}
+        />
       </SectionWrapper>
     </div>
   );

@@ -1,4 +1,4 @@
-import Button from "components/atoms/Button";
+import Button, { ButtonIcon, ButtonTheme } from "components/atoms/Button";
 import { SubTitle } from "components/atoms/SectionTitle";
 import SectionWrapper from "components/molecules/SectionWrapper";
 import styles from "./FAQSection.module.scss";
@@ -32,14 +32,23 @@ const FAQSection = ({ limit }: Props) => {
         ))}
       </div>
       {!!limit && faqs.length > limit && (
-        <Button text="全部問題" className={styles.button} />
+        <Button
+          icon={ButtonIcon.arrow}
+          text="全部問題"
+          className={styles.button}
+        />
       )}
       <div className={styles.cta}>
         <div className={styles.slogan}>
           <SubTitle title="迎接更多挑戰" />
           <SubTitle title="現在決定你的未來" />
         </div>
-        <Button text="立即報名" />
+        <Button
+          theme={ButtonTheme.outlineReverse}
+          icon={ButtonIcon.arrowReverse}
+        >
+          立即報名
+        </Button>
       </div>
     </SectionWrapper>
   );

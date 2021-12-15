@@ -3,7 +3,7 @@ import Image from "next/image";
 import classnames from "classnames";
 
 import SectionWrapper from "components/molecules/SectionWrapper/SectionWrapper";
-import Button from "components/atoms/Button/Button";
+import Button, { ButtonIcon } from "components/atoms/Button/Button";
 import styles from "./SlashBanner.module.scss";
 import { BannerType } from "./enum";
 
@@ -15,6 +15,7 @@ export type SlashBannerProps = {
   subTitle?: string;
   description?: string;
   ctaText?: string;
+  ctaIcon?: ButtonIcon;
   ctaOnClick?: Function;
 };
 
@@ -24,6 +25,7 @@ const SlashBanner: FC<SlashBannerProps> = ({
   subTitle,
   description,
   ctaText,
+  ctaIcon,
   ctaOnClick,
   className,
 }) => {
@@ -39,6 +41,7 @@ const SlashBanner: FC<SlashBannerProps> = ({
           <Button
             text={ctaText}
             className={styles.ctaButton}
+            icon={ctaIcon}
             onClick={ctaOnClick}
           />
         )}
