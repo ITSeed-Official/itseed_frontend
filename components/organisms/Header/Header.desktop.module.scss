@@ -11,7 +11,7 @@
   backdrop-filter: blur(16px);
   background-color: rgba(241, 242, 244, 0.8);
 
-  @include mobile {
+  @include tablet {
     display: none;
   }
 }

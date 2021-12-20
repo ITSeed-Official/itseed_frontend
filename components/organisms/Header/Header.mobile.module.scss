@@ -4,7 +4,7 @@
 .header {
   display: hidden;
 
-  @include mobile {
+  @include tablet {
     width: 100%;
     display: block;
     align-items: center;

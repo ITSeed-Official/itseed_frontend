@@ -33,7 +33,7 @@ $height-bannerInfo-m: 300px;
   height: $height-bannerInfo-d;
   color: white;
 
-  @include mobile {
+  @include tablet {
     padding-top: calc(($height-bannerContainer-m - $height-bannerInfo-m) / 2);
     height: $height-bannerInfo-m;
   }
