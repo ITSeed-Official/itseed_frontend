@@ -1,29 +1,37 @@
 import type { FC } from "react";
-import { SubTitle } from "components/atoms/SectionTitle";
-
+import Image from "next/image";
+import Link from "next/link";
 import styles from "./FeatureCard.module.scss";
 
 type FeatureCardProperty = {
   imgSrc: string;
   title: string;
+  link: string;
   content: string[];
 };
 
 const FeatureCard: FC<FeatureCardProperty> = ({
   imgSrc,
   title,
+  link,
   content = [],
 }) => {
   return (
-    <div className={styles.feature}>
-      <img className={styles.featureImg} src={imgSrc} alt={title} />
-      <SubTitle title={title} className={styles.featureTitle} />
-      <div className={styles.featureContent}>
-        {content.map((text, index) => (
-          <p key={`${text}_${index}`}>{text}</p>
-        ))}
+    <Link href={link} passHref>
+      <div className={styles.wrapper}>
+        <div className={styles.content}>
+          <div className={styles.iconWrapper}>
+            <Image src={imgSrc} alt={title} width="60px" height="60px" />
+          </div>
+          <h3 className={styles.title}>{title}</h3>
+          <ul className={styles.keypoints}>
+            {content.map((text, index) => (
+              <li key={`${text}_${index}`}>{text}</li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

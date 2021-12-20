@@ -1,31 +1,37 @@
 @import "/styles/variables.scss";
 @import "/styles/mixin.scss";
 
+.desktopOnly {
+  @include desktopOnly;
+}
+
+.mobileOnly {
+  @include mobileOnly;
+}
+
 .introSection {
   margin-top: 0px;
+}
 
-  @include mobile {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    padding: 60px 32px;
-  }
+.introSectionMobileTop {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 60px 32px;
+}
+
+.introSectionMobileBottom {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 32px;
 }
 
 .intro {
   display: flex;
   justify-content: space-between;
-
-  @include mobile {
-    flex-direction: column;
-  }
 }
 
 .introContent {
   flex: 1;
-
-  @include mobile {
-    width: 100%;
-  }
 }
 
 .dummySpacing {
@@ -41,11 +47,19 @@
 }
 
 .introImageWrapper {
+  position: relative;
   flex: 1;
+  overflow: hidden;
+  &:before{
+    content: '';
+    display: block;
+    padding-bottom: 61.6%;
+  }
 
   @include mobile {
+    position: relative;
     width: 100%;
-    margin-top: 60px;
+    overflow: hidden;
   }
 }
 
@@ -53,7 +67,7 @@
   margin: 0;
   margin-bottom: 40px;
   font-size: 32px;
-  line-height: 140%;
+  line-height: 45px;
   font-weight: 500;
 
   @include mobile {
@@ -76,17 +90,15 @@
 }
 
 .features {
-  margin-top: 100px;
+  margin-top: 80px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 
   @include mobile {
     flex-wrap: wrap;
     justify-content: center;
-  }
-
-  @include mobile {
-    margin-top: 40px;
+    margin-top: 0px;
   }
 }

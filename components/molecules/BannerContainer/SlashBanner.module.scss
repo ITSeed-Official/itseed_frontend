@@ -15,7 +15,9 @@ $background-shift: 143px;
     overflow: hidden;
 
     @include mobile {
-        height: $height-bannerContainer-m;
+        height: calc(100vh - $height-header-m - env(safe-area-inset-bottom));
+        min-height: calc($height-bannerContainer-m - 100px);
+        max-height: $height-bannerContainer-m;
     }
 }
 

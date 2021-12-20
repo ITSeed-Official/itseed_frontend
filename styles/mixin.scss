@@ -3,23 +3,65 @@ $width-laptop: 1440px;
 $width-large-tablet: 1024px;
 $width-tablet: 768px;
 
-@mixin laptop{
-  @media(max-width: ($width-desktop - 1px)){
+@mixin laptop {
+  @media(max-width: ($width-desktop - 1px)) {
     @content;
   }
 }
-@mixin large-tablet{
-  @media(max-width: ($width-laptop - 1px)){
+
+@mixin large-tablet {
+  @media(max-width: ($width-laptop - 1px)) {
     @content;
   }
 }
-@mixin tablet{
-  @media(max-width: ($width-large-tablet - 1px)){
+
+@mixin tablet {
+  @media(max-width: ($width-large-tablet - 1px)) {
     @content;
   }
 }
-@mixin mobile{
-  @media(max-width: ($width-tablet - 1px)){
-      @content;
+
+@mixin mobile {
+  @media(max-width: ($width-tablet - 1px)) {
+    @content;
+  }
+}
+
+@mixin desktopOnly {
+  display: block;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+@mixin mobileOnly {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+@mixin smallDotList {
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+
+  >li {
+    margin: 0px;
+    letter-spacing: 0.02em;
+    font-size: 14px;
+    line-height: 22px;
+    list-style: none;
+    &:before {
+      content: "．";
+      display: inline-block;
+      width: 1em;
+      font-size: inherit;
+      text-align: center;
+      line-height: inherit;
+      font-weight: bold;
+    }
   }
 }

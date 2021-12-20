@@ -5,8 +5,6 @@ $desktop-card-height: 112px;
 
 .desktopOnly {
   display: block;
-  height: 100px;
-
   @include mobile {
     display: none;
   }
@@ -14,7 +12,6 @@ $desktop-card-height: 112px;
 
 .mobileOnly {
   display: none;
-
   @include mobile {
     display: block;
   }
