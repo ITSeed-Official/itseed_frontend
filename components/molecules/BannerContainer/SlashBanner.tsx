@@ -51,7 +51,7 @@ const SlashBanner: FC<SlashBannerProps> = ({
         <Image alt="banner-image" src={bannerImage} width={863} height={600} />
       </div>
       <div className={styles.ScrollHinter}>
-        <span>上滑了解更多</span>
+        <span>上滑瞭解更多</span>
         <span className={styles.ScrollHinterIconWrapper}>
           <Image
             alt="arrow-icon"

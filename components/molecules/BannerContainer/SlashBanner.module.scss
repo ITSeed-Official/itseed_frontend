@@ -123,11 +123,15 @@ $background-shift: 143px;
 
 @keyframes scrollHinterAnimation {
     0% {
-        transform: translateX(-50%) translateY(0);
+        transform: translateY(-10%);
+    }
+
+    50% {
+        transform: translateY(10%);
     }
 
     100% {
-        transform: translateX(-50%) translateY(20%);
+        transform: translateY(-10%);
     }
 }
 
@@ -141,10 +145,10 @@ $background-shift: 143px;
         z-index: 20;
         left: 50%;
         bottom: 17px;
+        transform: translateX(-50%);
         font-size: 16px;
         line-height: 160%;
         color: $green-grass;
-        animation: scrollHinterAnimation 0.6s ease-in-out infinite alternate;
     }
 }
 
@@ -152,4 +156,5 @@ $background-shift: 143px;
     display: flex;
     margin-left: 12px;
     align-items: center;
+    animation: scrollHinterAnimation 1s infinite;
 }
