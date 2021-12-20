@@ -31,7 +31,6 @@ const Home: NextPage = () => (
     <SummarySection />
     <IntroSection />
     <AlumniSection />
-    <TimelineSection />
     <FAQSection limit={3} />
   </>
 );

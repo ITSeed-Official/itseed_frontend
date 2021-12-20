@@ -3,6 +3,10 @@
 
 .collapseBox {
     width: 100%;
+
+    +.collapseBox {
+        margin-top: 24px;
+    }
 }
 
 .collapseHeader {
@@ -10,16 +14,16 @@
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
-
-    padding: 12px;
+    padding: 16px 24px;
     border: 1px solid $green-deep;
     border-radius: 4px;
-    
     cursor: pointer;
 }
 
 .title {
     font-size: 16px;
+    line-height: 26px;
+    padding: 5px 10px 5px 0;
     color: $green-deep;
 }
 
@@ -32,9 +36,9 @@
 }
 
 .open {
-    background-color: $green-mist;        
+    background-color: $green-mist;
 }
 
 .content {
-    padding: 24px 24px 0px 24px;
+    @include markdownContent;
 }

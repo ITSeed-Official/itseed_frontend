@@ -54,6 +54,7 @@ $width-tablet: 768px;
     font-size: 14px;
     line-height: 22px;
     list-style: none;
+
     &:before {
       content: "．";
       display: inline-block;
@@ -63,5 +64,21 @@ $width-tablet: 768px;
       line-height: inherit;
       font-weight: bold;
     }
+  }
+}
+
+@mixin markdownContent {
+  padding: 24px;
+  padding-bottom: 12px;
+  color: $color-neutral-200;
+  line-height: 160%;
+  letter-spacing: 0.02em;
+
+  >p {
+    margin: 0;
+  }
+
+  >img {
+    width: 100%;
   }
 }

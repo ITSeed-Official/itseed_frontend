@@ -21,7 +21,8 @@ const FAQSection = ({ limit }: Props) => {
   if (isError) return null;
 
   return (
-    <SectionWrapper title="常見問題">
+    <SectionWrapper className={styles.section}>
+      <h2 className={styles.title}>常見問題</h2>
       <div>
         {displayedFaqs.map((faq, index) => (
           <FAQBox
