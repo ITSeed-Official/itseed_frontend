@@ -54,7 +54,7 @@ const Footer: FC = () => {
           <span>主辦單位：新北市電腦商業同業公會</span>
           <Image
             alt="NTCA"
-            src="/images/common/NTCA-logo.svg"
+            src="/images/common/icons/NTCA-logo.svg"
             width="46"
             height="11"
           />
