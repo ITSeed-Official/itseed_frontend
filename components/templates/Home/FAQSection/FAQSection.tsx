@@ -1,5 +1,5 @@
 import Button, { ButtonIcon, ButtonTheme } from "components/atoms/Button";
-import { SubTitle } from "components/atoms/SectionTitle";
+import { useRouter } from "next/router";
 import SectionWrapper from "components/molecules/SectionWrapper";
 import styles from "./FAQSection.module.scss";
 import { useFAQs, FAQ } from "hooks/swr/useFAQs";
@@ -10,6 +10,7 @@ interface Props {
 }
 
 const FAQSection = ({ limit }: Props) => {
+  const router = useRouter();
   const { faqs, isLoading, isError } = useFAQs();
 
   const placeholderFaqs: FAQ[] = Array(limit || 3).fill({
@@ -37,16 +38,26 @@ const FAQSection = ({ limit }: Props) => {
           icon={ButtonIcon.arrow}
           text="全部問題"
           className={styles.button}
+          onClick={() => {
+            router.push("/faq");
+          }}
         />
       )}
       <div className={styles.cta}>
-        <div className={styles.slogan}>
-          <SubTitle title="迎接更多挑戰" />
-          <SubTitle title="現在決定你的未來" />
+        <div className={styles.ctaBg}>
+          <span className={styles.ctaBgText}>ITSEED</span>
         </div>
+        <h3 className={styles.ctaTitle}>
+          迎接更多挑戰
+          <br />
+          現在決定你的未來
+        </h3>
         <Button
           theme={ButtonTheme.outlineReverse}
           icon={ButtonIcon.arrowReverse}
+          onClick={() => {
+            router.push("joinus");
+          }}
         >
           立即報名
         </Button>

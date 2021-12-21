@@ -167,7 +167,14 @@ const MobileHeader: FC = () => {
             </li>
           </ul>
           <div className={mStyles.buttonWrapper}>
-            <Button icon={ButtonIcon.arrow}>立即報名</Button>
+            <Button
+              icon={ButtonIcon.arrow}
+              onClick={() => {
+                router.push("joinus");
+              }}
+            >
+              立即報名
+            </Button>
           </div>
         </div>
         <div className={mStyles.mask}></div>
@@ -177,6 +184,7 @@ const MobileHeader: FC = () => {
 };
 
 const DesktopHeader: FC = () => {
+  const router = useRouter();
   return (
     <header className={dStyles.header}>
       <SectionWrapper className={dStyles.headerContent}>
@@ -253,7 +261,14 @@ const DesktopHeader: FC = () => {
             <Link href="/faq">常見問題</Link>
           </li>
         </ul>
-        <Button icon={ButtonIcon.arrow}>立即報名</Button>
+        <Button
+          icon={ButtonIcon.arrow}
+          onClick={() => {
+            router.push("joinus");
+          }}
+        >
+          立即報名
+        </Button>
       </SectionWrapper>
     </header>
   );

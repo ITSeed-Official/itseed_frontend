@@ -16,6 +16,7 @@
 }
 
 .cta {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,7 +26,7 @@
   background-color: $green-tree;
 
   margin-top: 100px;
-  padding: 0 96px;
+  padding: 0 92px 0 96px;
   border-radius: 8px;
 
   @include mobile {
@@ -33,9 +34,39 @@
   }
 }
 
-.slogan {
-  &>h3 {
-    color: white;
-    font-weight: 400;
+.ctaBg {
+  position: absolute;
+  left: 27%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 66%;
+}
+
+.ctaBgText {
+  font-size: $width-content-d * 0.66 / 6 * 1.77;
+  color: $green-mist;
+  opacity: 0.1;
+  font-weight: 500;
+
+  @include laptop {
+    font-size: $width-content-l * 0.66 / 6 * 1.77;
   }
+
+  @include large-tablet {
+    font-size: $width-content-lt * 0.66 / 6 * 1.77;
+  }
+
+  @include tablet {
+    font-size: $width-content-t * 0.66 / 6 * 1.77;
+  }
+
+  @include mobile {
+    font-size: 11vw;
+  }
+}
+
+.ctaTitle {
+  font-size: 24px;
+  line-height: 140%;
+  color: $green-mist;
 }
