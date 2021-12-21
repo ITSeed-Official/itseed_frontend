@@ -30,7 +30,7 @@ const features = [
   },
   {
     title: "職涯導師",
-    imgSrc: "/images/homepage/icons/mentor.svg",
+    imgSrc: "/images/homepage/icons/mentor.png",
     hoverImgSrc: "/images/homepage/icons/mentor.svg",
     link: "/career",
     content: ["歷屆校友共學", "提攜突破瓶頸", "共好未來發展"],

@@ -3,16 +3,28 @@
 
 .section {
   padding-top: 0;
+  @include mobile {
+    padding-top: 60px;
+    padding-bottom: 80px;
+  }
 }
 
 .title {
   font-size: 32px;
   line-height: 45px;
   margin: 0 0 40px 0;
+  @include mobile {
+    font-size: 24px;
+    margin-bottom: 48px;
+    color: $green-deep;
+  }
 }
 
 .button {
   margin-top: 40px;
+  @include mobile {
+    margin-top: 48px;
+  }
 }
 
 .cta {
@@ -43,21 +55,21 @@
 }
 
 .ctaBgText {
-  font-size: $width-content-d * 0.66 / 6 * 1.77;
+  font-size: $width-content-d * 0.1947; // bg width(0.66) / word count(6) * ratio(1.77)
   color: $green-mist;
   opacity: 0.1;
   font-weight: 500;
 
   @include laptop {
-    font-size: $width-content-l * 0.66 / 6 * 1.77;
+    font-size: $width-content-l * 0.1947; // bg width(0.66) / word count(6) * ratio(1.77)
   }
 
   @include large-tablet {
-    font-size: $width-content-lt * 0.66 / 6 * 1.77;
+    font-size: $width-content-lt * 0.1947; // bg width(0.66) / word count(6) * ratio(1.77)
   }
 
   @include tablet {
-    font-size: $width-content-t * 0.66 / 6 * 1.77;
+    font-size: $width-content-t * 0.1947; // bg width(0.66) / word count(6) * ratio(1.77)
   }
 
   @include mobile {

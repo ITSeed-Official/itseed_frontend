@@ -16,6 +16,7 @@
   &:hover {
     background-color: $green-tree;
     color: $color-neutral-900;
+
     .iconWrapper {
       transition: 0.3s;
       filter: brightness(0) invert(1);
@@ -26,11 +27,7 @@
     background-color: $green-deep;
   }
 
-  &:before {
-    content: '';
-    display: block;
-    padding-bottom: 100%;
-  }
+  @include imageWrapper(100%);
 
   @include tablet {
     width: calc((100% - 30px) / 2);
@@ -44,6 +41,10 @@
   @include mobile {
     margin: 0 0 24px 0;
     width: 100%;
+
+    &:last-child {
+      margin: 0;
+    }
   }
 }
 
