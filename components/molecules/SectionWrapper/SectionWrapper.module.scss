@@ -2,26 +2,12 @@
 @import "/styles/mixin.scss";
 
 .sectionWrapper {
-  margin: 0 auto;
   padding: $padding-height-d 0;
-  width: $width-content-d;
-
-  @include laptop {
-    width: $width-content-l;
-  }
-
-  @include large-tablet{
-    width: $width-content-lt;
-  }
-
-  @include tablet{
-    width: $width-content-t;
-  }
+  @include contentMaxLimit(0px, 0px, 0px, 0px, 0px);
 
   @include mobile {
     margin: 0;
     padding: $padding-height-m $padding-width-m;
-    width: 100%;
   }
 }
 

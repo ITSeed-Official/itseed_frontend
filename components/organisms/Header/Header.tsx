@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from "react";
 import Image from "next/image";
 import classNames from "classnames";
-import Button from "components/atoms/Button";
+import Button, { ButtonIcon } from "components/atoms/Button";
 import SectionWrapper from "components/molecules/SectionWrapper";
 import dStyles from "./Header.desktop.module.scss";
 import mStyles from "./Header.mobile.module.scss";
@@ -167,7 +167,14 @@ const MobileHeader: FC = () => {
             </li>
           </ul>
           <div className={mStyles.buttonWrapper}>
-            <Button>立即報名</Button>
+            <Button
+              icon={ButtonIcon.arrow}
+              onClick={() => {
+                router.push("joinus");
+              }}
+            >
+              立即報名
+            </Button>
           </div>
         </div>
         <div className={mStyles.mask}></div>
@@ -177,6 +184,7 @@ const MobileHeader: FC = () => {
 };
 
 const DesktopHeader: FC = () => {
+  const router = useRouter();
   return (
     <header className={dStyles.header}>
       <SectionWrapper className={dStyles.headerContent}>
@@ -253,7 +261,14 @@ const DesktopHeader: FC = () => {
             <Link href="/faq">常見問題</Link>
           </li>
         </ul>
-        <Button text="立即報名" />
+        <Button
+          icon={ButtonIcon.arrow}
+          onClick={() => {
+            router.push("joinus");
+          }}
+        >
+          立即報名
+        </Button>
       </SectionWrapper>
     </header>
   );

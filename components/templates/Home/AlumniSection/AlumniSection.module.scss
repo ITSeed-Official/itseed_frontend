@@ -8,79 +8,76 @@ $padding-carouselItem-t: 10px;
 
 .alumniContainer {
     background: linear-gradient(15deg, white 600px, $green-grass 0);
-}
-
-.alumniSection {
-    width: calc($width-content-d + ($width-arrow-d + $padding-carouselItem-d) * 2 );
-
-    @include laptop {
-        width: calc($width-content-l + ($width-arrow-d + $padding-carouselItem-l) * 2);
-    }
-
-    @include large-tablet{
-        width: calc($width-content-lt + ($width-arrow-lt + $padding-carouselItem-lt) * 2);
-    }
-
-    @include tablet{
-        width: calc($width-content-t + ($width-arrow-t + $padding-carouselItem-t) * 2);
-    }
 
     @include mobile {
-        margin: 0;
-        padding: $padding-height-m $padding-width-m;
-        width: 100%;
-    }
-}
-  
-.carousel {
-    /* carousel's item */
-    & > div:nth-child(2) > div > div {
-        box-sizing: content-box;
-        padding-right: $padding-carouselItem-d;
-        padding-left: $padding-carouselItem-d;
-
-        @include large-tablet {
-            padding-right: $padding-carouselItem-lt;
-            padding-left: $padding-carouselItem-lt;
-        }
-
-        @include tablet {
-            padding-right: $padding-carouselItem-t;
-            padding-left: $padding-carouselItem-t;
-        }
-
-        @include mobile {
-            padding: 0px;
-        }
+        background: none;
     }
 }
 
-.title, .button {
-    margin-left: calc($width-arrow-d + $padding-carouselItem-d);
+.topSection {
+    padding-bottom: 0;
+
+    @include mobile {
+        padding-top: 60px;
+    }
+}
+
+.bottomSection {
+    padding-top: 0;
+}
+
+.carouselSection {
+    @include contentMaxLimit($padding-carouselItem-d * 2,
+        $padding-carouselItem-l * 2,
+        $padding-carouselItem-lt * 2,
+        $padding-carouselItem-t * 2,
+        $padding-carouselItem-t);
+
+
+    @include mobile {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+.cardWrapper {
+    padding: 0 $padding-carouselItem-d;
+    padding-bottom: 6px;
+
+    @include laptop {
+        padding: 0 $padding-carouselItem-l;
+        padding-bottom: 6px;
+    }
+
+    @include laptop {
+        padding: 0 $padding-carouselItem-l;
+        padding-bottom: 6px;
+    }
 
     @include large-tablet {
-        margin-left: calc($width-arrow-lt + $padding-carouselItem-lt);
+        padding: 0 $padding-carouselItem-lt;
+        padding-bottom: 6px;
     }
 
     @include tablet {
-        margin-left: calc($width-arrow-t + $padding-carouselItem-t)
-    }
-
-    @include mobile {
-        margin-left: 0;
+        padding: 0 $padding-carouselItem-t;
+        padding-bottom: 6px;
     }
 }
 
+
 .title {
-    color: white;
+    font-size: 32px;
+    line-height: 140%;
+    color: $color-neutral-900;
+    margin-top: 0;
+    margin-bottom: 40px;
+
+    @include mobile {
+        color: $color-neutral-200
+    }
 }
 
 .button {
     margin-top: 40px;
-}
-
-.card {
-    width: 100%;
-    height: auto;
-    margin: 2px 0 6px 0;
 }

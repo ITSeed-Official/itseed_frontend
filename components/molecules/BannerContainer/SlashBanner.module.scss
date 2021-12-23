@@ -1,0 +1,159 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+$height-bannerContainer-d: 600px;
+$height-bannerContainer-m: 560px;
+$height-bannerInfo-d: 320px;
+$height-bannerInfo-m: 300px;
+$background-shift: 143px;
+
+.container {
+    position: relative;
+    background-color: transparent;
+    width: 100%;
+    height: $height-bannerContainer-d;
+    overflow: hidden;
+
+    @include mobile {
+        height: calc(100vh - $height-header-m);
+        max-height: $height-bannerContainer-m;
+    }
+}
+
+.contentWrapper {
+    position: relative;
+    padding: 0;
+    padding-top: 118px;
+    z-index: 10;
+
+    @include mobile {
+        padding: 0;
+        padding-top: 105px;
+        max-width: 288px;
+        margin: 0 auto;
+    }
+}
+
+.primaryTitle {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: $green-deep;
+
+    em {
+        color: $green-grass;
+    }
+
+    @include mobile {
+        font-size: 36px;
+        color: $color-neutral-200;
+
+        em {
+            color: $green-grass;
+        }
+    }
+}
+
+.subTitle {
+    margin: 0;
+    margin-top: 24px;
+    font-size: 24px;
+    color: $green-deep;
+    font-weight: normal;
+    line-height: 34px;
+
+    @include mobile {
+        line-height: 1.5;
+        color: $color-neutral-200;
+    }
+}
+
+.description {
+    margin: 0;
+    font-size: 16px;
+    line-height: 34px;
+    letter-spacing: 0.02em;
+    color: $green-deep;
+    font-weight: normal;
+
+    @include mobile {
+        margin: 0;
+        margin-top: 12px;
+        line-height: 27px;
+        color: $color-neutral-200;
+    }
+}
+
+.ctaButton {
+    margin-top: 48px;
+
+    @include mobile {
+        margin-top: 60px;
+    }
+}
+
+.infoBackground {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    background: linear-gradient(54.73deg, #EFF4EF 4.2%, rgba(239, 244, 239, 0) 64.93%);
+    width: calc(50% - $background-shift);
+    height: $height-bannerContainer-d;
+
+    @include mobile {
+        width: 100%;
+        height: $height-bannerContainer-m;
+    }
+}
+
+.bannerImageWrapper {
+    width: 863px;
+    position: absolute;
+    top: 0;
+    left: calc(50% - $background-shift);
+    height: $height-bannerContainer-d;
+
+    @include mobile {
+        display: none;
+    }
+}
+
+@keyframes scrollHinterAnimation {
+    0% {
+        transform: translateY(-10%);
+    }
+
+    50% {
+        transform: translateY(10%);
+    }
+
+    100% {
+        transform: translateY(-10%);
+    }
+}
+
+.ScrollHinter {
+    display: none;
+
+    @include mobile {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        z-index: 20;
+        left: 50%;
+        bottom: 41px; // padding (16px) + Avoid toolbar (25px)
+        transform: translateX(-50%);
+        font-size: 16px;
+        line-height: 160%;
+        color: $green-grass;
+    }
+}
+
+.ScrollHinterIconWrapper {
+    display: flex;
+    margin-left: 12px;
+    align-items: center;
+    animation: scrollHinterAnimation 1s infinite;
+}

@@ -2,56 +2,61 @@
 @import "/styles/mixin.scss";
 
 .carousel {
-    /* arrow button's parent element */
-    & > div:nth-child(1),  > div:nth-child(3) {
-        display: flex;
-        align-items: center;
+  position: relative;
 
-        button[data-direction] {
-            width: $width-arrow-d;
-            height: $height-arrow-d;
-            cursor: pointer;
-            border: none;
-            background: url('/images/common/icons/arrow_right.svg') no-repeat center;
-          
-            @include large-tablet {
-              width: $width-arrow-lt;
-              height: $height-arrow-lt;
-              transform: translateX(-10px);
-            }
-          
-            @include tablet {
-              width: $width-arrow-t;
-              height: $height-arrow-t;
-            }
-          
-            @include mobile {
-              transform: unset;
-            }
-          }
-          
-          button[data-direction='left'] { /* left button */
-            transform: rotateZ(180deg);
-          
-            @include large-tablet {
-              transform: rotateZ(180deg) translateX(-10px);
-            }
-          }
+  .arrowImageWrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .leftArrow {
+    position: absolute;
+    left: -60px; // icon width(60px)
+    height: 100%;
+    padding: 0 16px 0 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .rightArrow {
+    position: absolute;
+    right: -60px; // icon width(60px)
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  >div:nth-child(2)>div:nth-child(1),
+  >div:nth-child(2)>div:nth-child(1)>div {
+    overflow: visible;
+  }
+
+  @include tablet {
+    padding-bottom: 56px;
+
+    .arrowImageWrapper {
+      width: 36px;
+      height: 36px;
     }
 
-    @include mobile {
-        position: relative;
-
-        & > div:nth-child(1) {
-            position: absolute;
-            right: 50px;
-            top: 520px;
-        }
-
-        & > div:nth-child(3) {
-            position: absolute;
-            right: 0;
-            top: 520px;
-        }
+    .leftArrow {
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      bottom: 0px;
+      left: initial;
+      right: 52px; // arrow(36px) + padding(16px)
     }
+
+    .rightArrow {
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      bottom: 0px;
+      left: initial;
+      right: 0px;
+    }
+  }
 }

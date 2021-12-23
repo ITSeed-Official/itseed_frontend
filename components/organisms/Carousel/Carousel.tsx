@@ -1,4 +1,5 @@
 import { FC, ReactNode } from "react";
+import Image from "next/image";
 import classnames from "classnames";
 import { Carousel as SwipingCarousel } from "@trendyol-js/react-carousel";
 
@@ -11,6 +12,30 @@ type CarouselProperty = {
   slide: number;
 };
 
+const LeftArrow = () => (
+  <div className={styles.leftArrow}>
+    <div className={styles.arrowImageWrapper}>
+      <Image
+        src="/images/common/icons/arrow_left.svg"
+        alt="arrow_left"
+        layout="fill"
+      />
+    </div>
+  </div>
+);
+
+const RightArrow = () => (
+  <div className={styles.rightArrow}>
+    <div className={styles.arrowImageWrapper}>
+      <Image
+        src="/images/common/icons/arrow_right.svg"
+        alt="arrow_left"
+        layout="fill"
+      />
+    </div>
+  </div>
+);
+
 const Carousel: FC<CarouselProperty> = ({
   children,
   className = "",
@@ -22,8 +47,11 @@ const Carousel: FC<CarouselProperty> = ({
       className={classnames(styles.carousel, className)}
       show={show}
       slide={slide}
+      swipeOn={0.5}
       swiping
       dynamic
+      leftArrow={LeftArrow()}
+      rightArrow={RightArrow()}
     >
       {children}
     </SwipingCarousel>

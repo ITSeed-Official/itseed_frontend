@@ -1,5 +1,23 @@
 @import "/styles/variables.scss";
 
+@mixin icon-original {
+  .iconOriginal {
+    display: inline-block;
+  }
+  .iconHover {
+    display: none;
+  }
+}
+
+@mixin icon-hover {
+  .iconOriginal {
+    display: none;
+  }
+  .iconHover {
+    display: inline-block;
+  }
+}
+
 .button {
   display: flex;
   justify-content: center;
@@ -13,6 +31,8 @@
   letter-spacing: 0.12em;
   transition: 0.3s;
   background-color: transparent;
+
+  @include icon-original;
 }
 
 .outline {
@@ -23,10 +43,27 @@
   &:hover {
     background-color: $green-tree;
     color: $gray-bright;
+    @include icon-hover;
   }
 
   &:active {
     background-color: $green-deep;
+  }
+}
+
+.outline--reverse {
+  border: 1.5px solid $gray-bright;
+  background-color: transparent;
+  color: $gray-bright;
+
+  &:hover {
+    background-color: $gray-bright;
+    color: $green-tree;
+    @include icon-hover;
+  }
+
+  &:active {
+    background-color: $gray-dark;
   }
 }
 
@@ -36,9 +73,15 @@
   &:hover {
     background-color: $green-tree;
     color: $gray-bright;
+    @include icon-hover;
   }
 
   &:active {
     background-color: $green-deep;
   }
+}
+
+.iconWrapper {
+  margin-left: 8px;
+  height: 24px;
 }

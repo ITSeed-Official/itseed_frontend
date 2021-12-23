@@ -1,17 +1,119 @@
 @import "/styles/variables.scss";
 @import "/styles/mixin.scss";
 
-.summaryInfo {
-  display: none;
+$desktop-card-height: 112px;
 
-  /* only show this section in mobile */
+.desktopOnly {
+  display: block;
+  @include mobile {
+    display: none;
+  }
+}
+
+.mobileOnly {
+  display: none;
   @include mobile {
     display: block;
+  }
+}
 
-    & > div {
-      width: 100%;
-      height: 450px;
-      background-color: $gray-light;
+.content {
+  position: relative;
+  height: calc($desktop-card-height / 2);
+  padding: 0;
+  overflow: visible;
+
+  @include mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 530px;
+    background-size: cover;
+    overflow: hidden;
+  }
+}
+
+.cardWrapper {
+  position: absolute;
+  display: flex;
+  left: 0;
+  top: 0;
+  transform: translateY(-50%);
+
+  @include mobile {
+    position: static;
+    width: calc(100% - 89px);
+    margin: 0 auto;
+    padding: 40px;
+    background-size: cover;
+    overflow: hidden;
+    background: $color-neutral-900;
+    opacity: 0.95;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.06);
+    border-radius: 4px;
+    flex-direction: column;
+    transform: none;
+  }
+}
+
+.card {
+  display: inline-flex;
+  align-items: flex-end;
+  padding: 32px 40px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 160%;
+  color: $green-deep;
+  background-color: $color-neutral-900;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+
+  em {
+    font-size: 48px;
+    line-height: 100%;
+    margin-right: 16px;
+  }
+
+  +.card {
+    margin-left: 40px;
+  }
+
+  @include mobile {
+    display: flex;
+    justify-content: center;
+    color: $color-neutral-200;
+    background: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 40px 0;
+    text-align: center;
+
+    em {
+      color: $green-deep;
     }
+
+    +.card {
+      margin: 0;
+      border-top: 1px solid #E2E2E2;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.title {
+  display: none;
+
+  @include mobile {
+    display: block;
+    margin: 0;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: 0.02em;
+    color: $color-neutral-200;
+    text-align: center;
   }
 }
