@@ -7,7 +7,6 @@ import BannerContainer, {
 import SummarySection from "components/templates/Home/SummarySection";
 import IntroSection from "components/templates/Home/IntroSection";
 import AlumniSection from "components/templates/Home/AlumniSection";
-import TimelineSection from "components/templates/Home/TimelineSection";
 import FAQSection from "components/templates/Home/FAQSection";
 
 const Home: NextPage = () => (
