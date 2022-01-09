@@ -6,7 +6,7 @@ export async function getServerSideProps() {
   const meta = getSeos("about");
 
   return {
-    props: meta,
+    props: { meta: meta },
   };
 }
 
