@@ -1,0 +1,25 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table {
+    border: 0.5px solid gray;
+    border-collapse: collapse;
+    text-align: left;
+    width: 1146px;
+    table-layout: fixed;
+}
+
+.thead {
+    background-color: #F5F5F5;
+    padding: 0;
+    min-width: 100px;
+}
+
+.td {
+    padding: 2%;
+    max-width: 10%;
+    height: 62px;
+}
