@@ -10,6 +10,7 @@ $height-bannerInfo-m: 300px;
   margin: 0;
   background-color: $gray;
   background-size: cover;
+  max-width: $width-content-d;
   height: $height-bannerContainer-d;
 
   @include mobile {
