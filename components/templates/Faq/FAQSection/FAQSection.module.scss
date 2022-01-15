@@ -1,0 +1,21 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.section {
+  padding-top: 5%;
+  @include mobile {
+    padding-top: 60px;
+    padding-bottom: 80px;
+  }
+}
+
+.paragraph {
+  padding-top: 5%;
+  @include mobile {
+    padding-top: 40px;
+  }
+}
+
+.green {
+  color: $green-grass;
+}
