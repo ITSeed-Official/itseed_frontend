@@ -4,26 +4,31 @@
 $drop-down-with: 12%;
 
 .dropDownMenu {
-    width: $drop-down-with;
-    margin-bottom: 5%;
+  position: relative;
+  width: 170px;
+  margin-bottom: 40px;
+
+  @include mobile {
+    width: 100%;
+    margin-bottom: 24px;
+  }
 }
 
 .dropDownHeader {
-    width: 100%;
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 12px;
-    border: 1px solid $green-deep;
-    border-radius: 4px;
-    
-    cursor: pointer;
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border: 1px solid $green-deep;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .subNavList {
-  display: flex;
+  width: 100%;
   position: absolute;
+  display: flex;
   align-items: stretch;
   justify-content: flex-start;
   list-style: none;
@@ -32,8 +37,8 @@ $drop-down-with: 12%;
   border-radius: 4px;
   overflow: auto;
   color: $color-neutral-200;
-  min-width: $drop-down-with;
   max-height: 200px;
+  margin: initial;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -56,18 +61,18 @@ $drop-down-with: 12%;
 }
 
 .title {
-    font-size: 16px;
-    color: $green-deep;
+  font-size: 16px;
+  color: $green-deep;
 }
 
 .arrow {
-    transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
 .arrowReverse {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .open {
-    background-color: $green-mist;        
+  background-color: $green-mist;
 }

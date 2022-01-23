@@ -10,7 +10,7 @@ export interface Meta {
   og_image: string;
 }
 
-const PageMeta = (Page: NextPage) => {
+const PageMeta = (Page: NextPage<any>) => {
   const PageHead = (props: any) => {
     const { meta } = props;
 

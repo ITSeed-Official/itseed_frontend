@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import BannerContainer from "components/molecules/BannerContainer";
-import DropDownMenu from "components/templates/Graduates/DropDownMenu";
-import TableView from "components/templates/Graduates/TableView";
+import DropDownMenu from "components/templates/About/DropDownMenu";
+import TableView from "components/templates/About/TableView";
 import { CURRENT_SESSION } from "../../../util/common/setting";
 import { useState, useEffect } from "react";
 import { BannerType } from "../../molecules/BannerContainer/enum";
@@ -10,7 +10,17 @@ import SectionWrapper from "components/molecules/SectionWrapper";
 
 const INITIAL_COUNTER = 0;
 
-const Graduates: NextPage = (props: any) => {
+interface Graduate {
+  name: string;
+  school: string;
+  department: string;
+}
+
+interface IProps {
+  graduates: Graduate[];
+}
+
+const About: NextPage<IProps> = (props: IProps) => {
   const [session, setSession] = useState(CURRENT_SESSION);
   const [renderCounter, setRenderCounter] = useState(INITIAL_COUNTER);
   const [graduates, setGraduates] = useState(props.graduates);
@@ -27,7 +37,7 @@ const Graduates: NextPage = (props: any) => {
       const graduates = await axios
         .get(`${domain}/graduates?session=${session}`)
         .then((res: any) => {
-          return res.data.map((graduate: any) => {
+          return res.data.map((graduate: Graduate) => {
             return {
               name: graduate.name,
               school: graduate.school,
@@ -46,7 +56,7 @@ const Graduates: NextPage = (props: any) => {
       <BannerContainer
         type={BannerType.general}
         backgroundImage="images/homepage/pics/banner.png"
-        primaryTitle="歷屆名單"
+        primaryTitle="關於資種"
       />
       <SectionWrapper>
         <DropDownMenu
@@ -61,4 +71,4 @@ const Graduates: NextPage = (props: any) => {
   );
 };
 
-export default Graduates;
+export default About;
