@@ -32,7 +32,13 @@ const FAQSection = ({ limit }: Props) => {
       <div className={styles.paragraph}>
         如有任何其他相關問題，請私訊
         <span className={styles.green}>
-          <a href="https://www.facebook.com/iloveitseed">資訊種子粉絲專頁</a>
+          <a
+            href="https://www.facebook.com/iloveitseed"
+            target="_blank"
+            rel="noreferrer"
+          >
+            資訊種子粉絲專頁
+          </a>
         </span>
         ，或寄信至
         <span className={styles.green}>
