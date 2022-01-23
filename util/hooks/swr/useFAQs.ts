@@ -7,7 +7,7 @@ export interface FAQ {
   answer: string;
 }
 
-interface APIResponse {
+export interface APIResponse {
   id: number;
   published_at: string;
   created_at: string;

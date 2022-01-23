@@ -4,24 +4,14 @@ import { useFAQs, FAQ } from "util/hooks/swr/useFAQs";
 import FAQBox from "components/templates/Home/FAQSection/FAQBox";
 
 interface Props {
-  limit?: number;
+  faqs: FAQ[];
 }
 
-const FAQSection = ({ limit }: Props) => {
-  const { faqs, isLoading, isError } = useFAQs();
-
-  const placeholderFaqs: FAQ[] = Array(limit || 3).fill({
-    question: "",
-    answer: "",
-  });
-  const displayedFaqs = isLoading ? placeholderFaqs : faqs.slice(0, limit);
-
-  if (isError) return null;
-
+const FAQSection = ({ faqs }: Props) => {
   return (
     <SectionWrapper className={styles.section}>
       <div>
-        {displayedFaqs.map((faq, index) => (
+        {faqs.map((faq, index) => (
           <FAQBox
             key={index + faq.question}
             serialNumber={index + 1}
