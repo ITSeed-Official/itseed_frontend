@@ -51,10 +51,6 @@ $drop-down-with: 12%;
   border: none;
   cursor: pointer;
 
-  >span {
-    display: block;
-  }
-
   &:hover {
     background-color: $green-mist;
   }
