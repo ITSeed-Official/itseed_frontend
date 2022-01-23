@@ -1,5 +1,6 @@
-import { DEFAULT_META } from "./constants";
+import { DEFAULT_META, DEFAULT_FAQ } from "./constants";
 import { Meta } from "../components/atoms/PageMeta/PageMeta";
+import { APIResponse, FAQ } from "util/hooks/swr/useFAQs";
 
 export const getSeos = async (path: string): Promise<Meta> => {
   const response = await fetch(
@@ -53,16 +54,13 @@ export const getGraduates = async (session: number): Promise<Graduate[]> => {
   return graduates;
 };
 
-// TODO Faq page need to implement server side render.
-export const getFaqs = async (): Promise<any> => {
+export const getFaqs = async (): Promise<FAQ[]> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_ORIGIN}/faq`);
-  const data = await response.json();
+  const data: APIResponse = await response.json();
 
-  if (!data.length) {
-    return;
+  if (!data) {
+    return [DEFAULT_FAQ];
   }
 
-  const faqs = data.FAQ;
-
-  return faqs;
+  return data.FAQ;
 };

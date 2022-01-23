@@ -1,12 +1,15 @@
-import Faq from "components/templates/Faq/Faq";
+import Faq from "components/templates/Faq";
 import PageMeta from "components/atoms/PageMeta";
-import { getSeos } from "lib/api";
+import { getSeos, getFaqs } from "lib/api";
 
 export async function getServerSideProps() {
-  const meta = getSeos("faq");
+  const [meta, faqs] = await Promise.all([getSeos("faq"), getFaqs()]);
 
   return {
-    props: meta,
+    props: {
+      meta: meta,
+      faqs: faqs,
+    },
   };
 }
 
