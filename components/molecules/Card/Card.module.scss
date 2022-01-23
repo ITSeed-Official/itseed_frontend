@@ -5,10 +5,14 @@
   width: 100%;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
+  cursor: pointer;
 
   &:hover {
-    transform: translateY(-4px);
     box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.08);
+
+    .cta>span {
+      margin-right: 12px;
+    }
   }
 
   @include mobile {
@@ -63,9 +67,11 @@
   align-items: center;
   font-size: 16px;
   color: $green-tree;
+  letter-spacing: 0.12em;
   cursor: pointer;
 
   >span {
+    transition: 0.3s;
     margin-right: 8px;
   }
 }

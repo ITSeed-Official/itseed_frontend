@@ -3,6 +3,7 @@
 
 .section {
   padding-top: 0;
+
   @include mobile {
     padding-top: 60px;
     padding-bottom: 80px;
@@ -13,6 +14,7 @@
   font-size: 32px;
   line-height: 45px;
   margin: 0 0 40px 0;
+
   @include mobile {
     font-size: 24px;
     margin-bottom: 48px;
@@ -22,6 +24,7 @@
 
 .button {
   margin-top: 40px;
+
   @include mobile {
     margin-top: 48px;
   }
@@ -42,7 +45,13 @@
   border-radius: 8px;
 
   @include mobile {
-    display: none;
+    flex-direction: column;
+    padding: 32px;
+    height: auto;
+    font-size: 24px;
+    line-height: 32px;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 }
 
@@ -52,6 +61,14 @@
   top: 50%;
   transform: translateY(-50%);
   width: 66%;
+
+  @include mobile {
+    width: auto;
+    transform: none;
+    top: initial;
+    left: 20px;
+    bottom: -24px;
+  }
 }
 
 .ctaBgText {
@@ -73,7 +90,8 @@
   }
 
   @include mobile {
-    font-size: 11vw;
+    font-size: 128px;
+    line-height: 180px;
   }
 }
 
@@ -81,4 +99,8 @@
   font-size: 24px;
   line-height: 140%;
   color: $green-mist;
+
+  @include mobile {
+    margin: 0 0 40px 0;
+  }
 }

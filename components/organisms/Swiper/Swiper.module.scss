@@ -1,0 +1,8 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.swiper {
+    @include tablet {
+        overflow: visible !important;
+    }
+}

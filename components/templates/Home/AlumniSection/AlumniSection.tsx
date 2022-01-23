@@ -4,8 +4,8 @@ import Button, { ButtonIcon } from 'components/atoms/Button';
 import { useRouter } from 'next/router';
 import Card from 'components/molecules/Card';
 import SectionWrapper from 'components/molecules/SectionWrapper';
-import Carousel from 'components/organisms/Carousel';
 import styles from './AlumniSection.module.scss';
+import { Swiper, SwiperSlide } from '../../../organisms/Swiper';
 
 const data = [
   {
@@ -69,25 +69,21 @@ const AlumniSection: FC = () => {
 
   return (
     <div className={styles.alumniContainer}>
-      <SectionWrapper className={styles.topSection}>
+      <SectionWrapper>
         <h2 className={styles.title}>聽聽校友怎麼說</h2>
-      </SectionWrapper>
-      <div className={styles.carouselSection}>
-        <Carousel show={show[media]} slide={1} className={styles.carousel}>
+        <Swiper>
           {data.map(({ id, content, name, img, character }) => (
-            <Card
-              key={id}
-              wrapperClassName={styles.cardWrapper}
-              className={styles.card}
-              content={content}
-              name={name}
-              imgSrc={img}
-              character={character}
-            />
+            <SwiperSlide key={id}>
+              <Card
+                wrapperClassName={styles.cardWrapper}
+                content={content}
+                name={name}
+                imgSrc={img}
+                character={character}
+              />
+            </SwiperSlide>
           ))}
-        </Carousel>
-      </div>
-      <SectionWrapper className={styles.bottomSection}>
+        </Swiper>
         <Button
           text="全部校友評價"
           className={styles.button}

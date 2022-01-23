@@ -2,7 +2,6 @@ import { FC, ReactNode } from 'react';
 import Image from 'next/image';
 import classnames from 'classnames';
 import { Carousel as SwipingCarousel } from '@trendyol-js/react-carousel';
-
 import styles from './Carousel.module.scss';
 
 type CarouselProperty = {

@@ -23,7 +23,7 @@ const FAQSection = ({ limit }: Props) => {
 
   return (
     <SectionWrapper className={styles.section}>
-      <h2 className={styles.title}>常見問題</h2>
+      <h2 className={styles.title}>常見問題 QA</h2>
       <div>
         {displayedFaqs.map((faq, index) => (
           <FAQBox key={index + faq.question} serialNumber={index + 1} {...faq} />
@@ -44,7 +44,7 @@ const FAQSection = ({ limit }: Props) => {
           <span className={styles.ctaBgText}>ITSEED</span>
         </div>
         <h3 className={styles.ctaTitle}>
-          迎接更多挑戰
+          迎接更多的挑戰
           <br />
           現在決定你的未來
         </h3>

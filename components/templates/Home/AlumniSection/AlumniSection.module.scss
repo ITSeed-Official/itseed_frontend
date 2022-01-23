@@ -11,60 +11,17 @@ $padding-carouselItem-t: 10px;
 
     @include mobile {
         background: none;
-    }
-}
-
-.topSection {
-    padding-bottom: 0;
-
-    @include mobile {
-        padding-top: 60px;
-    }
-}
-
-.bottomSection {
-    padding-top: 0;
-}
-
-.carouselSection {
-    @include contentMaxLimit($padding-carouselItem-d * 2,
-        $padding-carouselItem-l * 2,
-        $padding-carouselItem-lt * 2,
-        $padding-carouselItem-t * 2,
-        $padding-carouselItem-t);
-
-
-    @include mobile {
-        padding-top: 0;
-        padding-bottom: 0;
+        margin-top: 20px;
     }
 }
 
 .cardWrapper {
-    padding: 0 $padding-carouselItem-d;
-    padding-bottom: 6px;
+    padding-bottom: 72px;
 
-    @include laptop {
-        padding: 0 $padding-carouselItem-l;
-        padding-bottom: 6px;
-    }
-
-    @include laptop {
-        padding: 0 $padding-carouselItem-l;
-        padding-bottom: 6px;
-    }
-
-    @include large-tablet {
-        padding: 0 $padding-carouselItem-lt;
-        padding-bottom: 6px;
-    }
-
-    @include tablet {
-        padding: 0 $padding-carouselItem-t;
-        padding-bottom: 6px;
+    @include mobile {
+        padding-bottom: 56px;
     }
 }
-
 
 .title {
     font-size: 32px;
@@ -74,10 +31,16 @@ $padding-carouselItem-t: 10px;
     margin-bottom: 40px;
 
     @include mobile {
+        font-size: 24px;
         color: $color-neutral-200
     }
 }
 
 .button {
-    margin-top: 40px;
+    display: none;
+
+    @include mobile {
+        display: inline-flex;
+        margin-top: 40px;
+    }
 }
