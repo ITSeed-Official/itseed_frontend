@@ -1,47 +1,53 @@
 import { FC } from 'react';
 import classnames from 'classnames';
-
+import Image from 'next/image';
 import SectionWrapper from 'components/molecules/SectionWrapper/SectionWrapper';
-import Button from 'components/atoms/Button/Button';
 import { SectionBigTitle, SubTitle } from 'components/atoms/SectionTitle/SectionTitle';
 import styles from './GeneralBanner.module.scss';
 import { BannerType } from './enum';
 
 export type GeneralBannerProps = {
   type: BannerType.general;
-  className?: string;
-  backgroundImage?: string;
-  primaryTitle?: string;
+  desktopBackgroundImage?: string;
+  mobileBackgroundImage?: string;
+  primaryTitle: string;
   subTitle?: string;
-  subText?: string;
-  buttonText?: string;
-  showSummaryInfo?: boolean;
+  description?: string;
+  className?: string;
 };
 
 const GeneralBanner: FC<GeneralBannerProps> = ({
-  backgroundImage = '',
+  desktopBackgroundImage = '',
+  mobileBackgroundImage = '',
   primaryTitle = '',
   subTitle = '',
-  subText = '',
-  buttonText = '',
-  showSummaryInfo = false,
+  description = '',
   className,
 }) => {
   return (
-    <div
-      className={classnames(styles.bannerContainer, className)}
-      style={{ backgroundImage: `url(${backgroundImage})` }}
-    >
+    <div className={classnames(styles.bannerContainer, className)}>
       <SectionWrapper className={styles.bannerContent}>
         <div className={styles.bannerInfo}>
-          {primaryTitle && <SectionBigTitle title={primaryTitle} />}
-          {subTitle && <SubTitle title={subTitle} className={styles.subTitle} />}
-
-          {subText && <p>{subText}</p>}
-          {buttonText && <Button text={buttonText} className={styles.button} />}
+          <div className={styles.primaryTitleArea}>
+            {primaryTitle && <h1 className={styles.primaryTitle}>{primaryTitle}</h1>}
+          </div>
+          <div className={styles.subTitleArea}>
+            {subTitle && <SubTitle title={subTitle} className={styles.subTitle} />}
+            {description && <p className={styles.description}>{description}</p>}
+          </div>
         </div>
-        {showSummaryInfo && <div className={styles.summaryInfo} />}
       </SectionWrapper>
+      {desktopBackgroundImage && (
+        <div className={classnames([styles.desktopOnly, styles.bannerImageWrapper])}>
+          <Image alt="desktop-banner-image" src={desktopBackgroundImage} width={1440} height={400} />
+        </div>
+      )}
+      {mobileBackgroundImage && (
+        <div className={classnames([styles.mobileOnly, styles.bannerImageWrapper])}>
+          <Image alt="mobile-banner-image" src={mobileBackgroundImage} layout="fill" />
+        </div>
+      )}
+      <div className={styles.filter}></div>
     </div>
   );
 };
