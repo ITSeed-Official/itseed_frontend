@@ -15,7 +15,7 @@ const NextSection: FC<PageProperty> = ({ title, path, className }) => {
   return (
     <Link href={path} passHref>
       <div className={classnames(styles.section, className)}>
-        <div className={classnames(styles.next, className)}>
+        <div className={styles.next}>
           Next
           <Image
             alt="read more"
@@ -24,7 +24,7 @@ const NextSection: FC<PageProperty> = ({ title, path, className }) => {
             height="24"
           />
         </div>
-        <div className={classnames(styles.title, className)}>{title}</div>
+        <div className={styles.title}>{title}</div>
       </div>
     </Link>
   );
