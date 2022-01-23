@@ -2,7 +2,7 @@ import Button, { ButtonIcon, ButtonTheme } from "components/atoms/Button";
 import { useRouter } from "next/router";
 import SectionWrapper from "components/molecules/SectionWrapper";
 import styles from "./FAQSection.module.scss";
-import { useFAQs, FAQ } from "hooks/swr/useFAQs";
+import { useFAQs, FAQ } from "util/hooks/swr/useFAQs";
 import FAQBox from "./FAQBox";
 
 interface Props {
