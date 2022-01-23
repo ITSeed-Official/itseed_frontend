@@ -42,8 +42,8 @@ const FAQSection = ({ limit }: Props) => {
         </span>
         ，或寄信至
         <span className={styles.green}>
-          <a href="mailto:who@yahoo.com.tw">
-            ITseed 信箱（itseed19th@gmail.com）
+          <a href="mailto:itseedsystem@gmail.com">
+            ITseed 信箱（itseedsystem@gmail.com）
           </a>
         </span>
         <br />
