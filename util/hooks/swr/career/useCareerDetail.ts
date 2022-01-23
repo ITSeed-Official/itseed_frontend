@@ -1,7 +1,7 @@
-import useSWR from "swr";
-import axios, { AxiosError } from "axios";
+import useSWR from 'swr';
+import axios, { AxiosError } from 'axios';
 
-import { CareerDetailType } from "api/careers";
+import { CareerDetailType } from 'api/careers';
 
 type APIResponse = CareerDetailType;
 
@@ -15,10 +15,7 @@ const domain = process.env.NEXT_PUBLIC_API_ORIGIN;
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 export const useCareerDetail = (id: string): Response => {
-  const { data, error } = useSWR<APIResponse, AxiosError>(
-    `${domain}/careers/${id}`,
-    fetcher
-  );
+  const { data, error } = useSWR<APIResponse, AxiosError>(`${domain}/careers/${id}`, fetcher);
 
   return {
     data,

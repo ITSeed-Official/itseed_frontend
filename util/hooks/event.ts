@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 interface EventHandlers {
   [key: string]: EventListenerOrEventListenerObject;
@@ -6,14 +6,10 @@ interface EventHandlers {
 
 export const useDom = (eventHandlers: EventHandlers) => {
   useEffect(() => {
-    Object.keys(eventHandlers).forEach((event) =>
-      window.addEventListener(event, eventHandlers[event])
-    );
+    Object.keys(eventHandlers).forEach((event) => window.addEventListener(event, eventHandlers[event]));
 
     return () => {
-      Object.keys(eventHandlers).forEach((event) =>
-        window.removeEventListener(event, eventHandlers[event])
-      );
+      Object.keys(eventHandlers).forEach((event) => window.removeEventListener(event, eventHandlers[event]));
     };
   }, []);
 };

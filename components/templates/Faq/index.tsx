@@ -1,11 +1,9 @@
-import type { NextPage } from "next";
-import BannerContainer, {
-  BannerType,
-} from "components/molecules/BannerContainer";
-import FAQSection from "./FAQSection/FAQSection";
-import NextSection from "components/atoms/NextSection";
-import { FAQ } from "util/hooks/swr/useFAQs";
-import { useState } from "react";
+import type { NextPage } from 'next';
+import BannerContainer, { BannerType } from 'components/molecules/BannerContainer';
+import FAQSection from './FAQSection/FAQSection';
+import NextSection from 'components/atoms/NextSection';
+import { FAQ } from 'util/hooks/swr/useFAQs';
+import { useState } from 'react';
 
 interface IProps {
   faqs: FAQ[];

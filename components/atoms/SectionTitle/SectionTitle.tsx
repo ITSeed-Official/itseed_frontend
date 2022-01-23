@@ -1,7 +1,7 @@
-import { FC } from "react";
-import classnames from "classnames";
+import { FC } from 'react';
+import classnames from 'classnames';
 
-import styles from "./SectionTitle.module.scss";
+import styles from './SectionTitle.module.scss';
 
 type TitleProperty = {
   title: string;
@@ -9,15 +9,11 @@ type TitleProperty = {
 };
 
 export const SectionBigTitle: FC<TitleProperty> = ({ title, className }) => {
-  return (
-    <h1 className={classnames(styles.sectionBigTitle, className)}>{title}</h1>
-  );
+  return <h1 className={classnames(styles.sectionBigTitle, className)}>{title}</h1>;
 };
 
 const SectionTitle: FC<TitleProperty> = ({ title, className }) => {
-  return (
-    <h2 className={classnames(styles.sectionTitle, className)}>{title}</h2>
-  );
+  return <h2 className={classnames(styles.sectionTitle, className)}>{title}</h2>;
 };
 
 export const SubTitle: FC<TitleProperty> = ({ title, className }) => {

@@ -1,4 +1,4 @@
 export enum BannerType {
-  general = "general",
-  slash = "slash",
+  general = 'general',
+  slash = 'slash',
 }

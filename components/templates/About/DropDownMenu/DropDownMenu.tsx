@@ -1,11 +1,11 @@
-import { FC, useState } from "react";
-import classnames from "classnames";
-import Image from "next/image";
+import { FC, useState } from 'react';
+import classnames from 'classnames';
+import Image from 'next/image';
 
-import arrow from "public/images/common/arrow.png";
+import arrow from 'public/images/common/arrow.png';
 
-import styles from "./DropDownMenu.module.scss";
-import { CURRENT_SESSION } from "../../../../util/common/setting";
+import styles from './DropDownMenu.module.scss';
+import { CURRENT_SESSION } from '../../../../util/common/setting';
 
 type ChangeSession = (newSession: number) => void;
 
@@ -15,11 +15,7 @@ type DropDownMenuProperty = {
   session: number;
 };
 
-const DropDownMenu: FC<DropDownMenuProperty> = ({
-  className,
-  changeSession,
-  session,
-}) => {
+const DropDownMenu: FC<DropDownMenuProperty> = ({ className, changeSession, session }) => {
   const [isOpen, setOpen] = useState(false);
 
   return (

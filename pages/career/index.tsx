@@ -1,9 +1,9 @@
-import type { NextPage, GetServerSideProps } from "next";
+import type { NextPage, GetServerSideProps } from 'next';
 
-import { getCareerList, CareerExperience } from "api/careers";
+import { getCareerList, CareerExperience } from 'api/careers';
 
-import CareerLayout from "components/templates/Career/CareerLayout";
-import CareerLists from "components/templates/Career/CareerLists";
+import CareerLayout from 'components/templates/Career/CareerLayout';
+import CareerLists from 'components/templates/Career/CareerLists';
 
 interface CareerProperty {
   data: CareerExperience[];

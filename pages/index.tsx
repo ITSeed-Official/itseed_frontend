@@ -1,10 +1,10 @@
-import Home from "./home";
-import PageMeta from "../components/atoms/PageMeta";
-import { getSeos } from "../lib/api";
-import { Meta } from "../components/atoms/PageMeta/PageMeta";
+import Home from './home';
+import PageMeta from '../components/atoms/PageMeta';
+import { getSeos } from '../lib/api';
+import { Meta } from '../components/atoms/PageMeta/PageMeta';
 
 export async function getServerSideProps() {
-  const meta: Meta = await getSeos("home");
+  const meta: Meta = await getSeos('home');
 
   return {
     props: { meta: meta },

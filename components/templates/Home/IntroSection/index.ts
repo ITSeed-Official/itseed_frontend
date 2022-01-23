@@ -1,1 +1,1 @@
-export { default } from "./IntroSection";
+export { default } from './IntroSection';

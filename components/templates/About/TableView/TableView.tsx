@@ -1,7 +1,7 @@
-import { FC } from "react";
-import classnames from "classnames";
-import { Graduate } from "../../../../lib/api";
-import styles from "./TableView.module.scss";
+import { FC } from 'react';
+import classnames from 'classnames';
+import { Graduate } from '../../../../lib/api';
+import styles from './TableView.module.scss';
 
 type TableViewProperty = {
   className?: string;

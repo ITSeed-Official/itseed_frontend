@@ -1,11 +1,9 @@
-import { DEFAULT_META, DEFAULT_FAQ } from "./constants";
-import { Meta } from "../components/atoms/PageMeta/PageMeta";
-import { APIResponse, FAQ } from "util/hooks/swr/useFAQs";
+import { DEFAULT_META, DEFAULT_FAQ } from './constants';
+import { Meta } from '../components/atoms/PageMeta/PageMeta';
+import { APIResponse, FAQ } from 'util/hooks/swr/useFAQs';
 
 export const getSeos = async (path: string): Promise<Meta> => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_ORIGIN}/seos?path=${path}`
-  );
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_ORIGIN}/seos?path=${path}`);
   const data = await response.json();
 
   if (!data.length) {
@@ -35,13 +33,11 @@ export interface Graduate {
 }
 
 export const getGraduates = async (session: number): Promise<Graduate[]> => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_ORIGIN}/graduates?session=${session}`
-  );
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_ORIGIN}/graduates?session=${session}`);
   const data: GraduatesAPIData[] = await response.json();
 
   if (!data.length) {
-    return [{ name: "", school: "", department: "" }];
+    return [{ name: '', school: '', department: '' }];
   }
   const graduates: Graduate[] = data.map((graduate: GraduatesAPIData) => {
     return {
