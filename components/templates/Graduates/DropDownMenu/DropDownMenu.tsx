@@ -28,13 +28,13 @@ const DropDownMenu: FC<DropDownMenuProperty> = ({
         className={classnames(styles.dropDownHeader, isOpen && styles.open)}
         onClick={() => setOpen((isOpen) => !isOpen)}
       >
-        <span className={styles.title}>{`${session}屆`}</span>
+        <span className={styles.title}>{`${session} 屆`}</span>
         <Image
           className={classnames(styles.arrow, isOpen && styles.arrowReverse)}
           alt="arrow"
           src={arrow}
-          width={20}
-          height={11}
+          width={24}
+          height={24}
         />
       </div>
       {isOpen && generateSessionNavList(changeSession, setOpen)}
