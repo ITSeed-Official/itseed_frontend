@@ -1,0 +1,52 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.backgroundWrapper {
+    background-color: $green-mist;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+}
+
+.controlBar {
+    display: flex;
+    height: 70px;
+    padding: 0;
+
+    @include mobile {
+        padding: 0px 32px;
+    }
+    
+    & > div {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        box-sizing: content-box;
+    }
+
+    & > div:hover {
+        border-bottom: 4px solid $green-tree;
+        cursor: pointer;
+    }
+
+    & > div.selected {
+        border-bottom: 4px solid $green-tree;
+    }
+
+    & > div:not(:last-child) {
+        margin-right: 20px;
+    }
+}
+
+.categoryButton {
+    font-size: 24px;
+
+    @include mobile {
+        font-size: 18px;
+    }
+}
+
+.greenBackground {
+    background-color: $green-mist;
+}
