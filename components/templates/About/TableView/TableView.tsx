@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import classnames from 'classnames';
-import { Graduate } from '../../../../lib/api';
+import { Graduate } from 'api/graduates';
 import styles from './TableView.module.scss';
 
 type TableViewProperty = {
@@ -20,7 +20,7 @@ const TableView: FC<TableViewProperty> = ({ className, graduates }) => {
           </tr>
         </thead>
         <tbody>
-          {graduates.map((graduate: any, index: number) => {
+          {graduates.map((graduate: Graduate, index: number) => {
             return (
               <tr key={index} className={styles.tr}>
                 <td className={styles.td}>{graduate.name}</td>
