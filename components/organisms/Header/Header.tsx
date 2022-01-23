@@ -92,7 +92,7 @@ const MobileHeader: FC = () => {
             </li>
             <li className={mStyles.menuItemWrapper}>
               <div className={mStyles.menuItem}>
-                <Link href="/graduates">招生資訊</Link>
+                <Link href="/admission">招生資訊</Link>
               </div>
             </li>
             <li className={mStyles.menuItemWrapper}>
@@ -217,7 +217,7 @@ const DesktopHeader: FC = () => {
             </div>
           </li>
           <li className={dStyles.navItem}>
-            <Link href="/graduates">招生資訊</Link>
+            <Link href="/admission">招生資訊</Link>
           </li>
           <li className={dStyles.navItem}>
             <span>
