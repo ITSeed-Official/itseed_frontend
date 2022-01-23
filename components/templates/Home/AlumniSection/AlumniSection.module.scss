@@ -15,12 +15,6 @@ $padding-carouselItem-t: 10px;
     }
 }
 
-.swiper {
-    @include tablet {
-        overflow: visible !important;
-    }
-}
-
 .cardWrapper {
     padding-bottom: 72px;
 

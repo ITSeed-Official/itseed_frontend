@@ -4,15 +4,8 @@ import Button, { ButtonIcon } from "components/atoms/Button";
 import { useRouter } from "next/router";
 import Card from "components/molecules/Card";
 import SectionWrapper from "components/molecules/SectionWrapper";
-// import Carousel from "components/organisms/Carousel";
 import styles from "./AlumniSection.module.scss";
-
-import { Navigation, Pagination, A11y } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css/bundle";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "../../../organisms/Swiper";
 
 const data = [
   {
@@ -78,38 +71,19 @@ const AlumniSection: FC = () => {
     <div className={styles.alumniContainer}>
       <SectionWrapper>
         <h2 className={styles.title}>聽聽校友怎麼說</h2>
-        <div className={styles.swiperArea}>
-          <Swiper
-            className={styles.swiper}
-            modules={[Navigation, Pagination, A11y]}
-            spaceBetween={24}
-            slidesPerView={1}
-            loop
-            pagination={{ clickable: true }}
-            breakpoints={{
-              "768": {
-                slidesPerView: 2,
-                spaceBetween: 40,
-              },
-              "1024": {
-                slidesPerView: 3,
-                spaceBetween: 30,
-              },
-            }}
-          >
-            {data.map(({ id, content, name, img, character }) => (
-              <SwiperSlide key={id}>
-                <Card
-                  wrapperClassName={styles.cardWrapper}
-                  content={content}
-                  name={name}
-                  imgSrc={img}
-                  character={character}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        <Swiper>
+          {data.map(({ id, content, name, img, character }) => (
+            <SwiperSlide key={id}>
+              <Card
+                wrapperClassName={styles.cardWrapper}
+                content={content}
+                name={name}
+                imgSrc={img}
+                character={character}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
         <Button
           text="全部校友評價"
           className={styles.button}
@@ -118,19 +92,6 @@ const AlumniSection: FC = () => {
             router.push("/sharing");
           }}
         />
-        {/* <Carousel show={show[media]} slide={1} className={styles.carousel}>
-          {data.map(({ id, content, name, img, character }) => (
-            <Card
-              key={id}
-              wrapperClassName={styles.cardWrapper}
-              className={styles.card}
-              content={content}
-              name={name}
-              imgSrc={img}
-              character={character}
-            />
-          ))}
-        </Carousel> */}
       </SectionWrapper>
     </div>
   );
