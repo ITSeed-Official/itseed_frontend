@@ -51,7 +51,7 @@ export const getGraduates = async (session: number): Promise<Graduate[]> => {
   });
 
   return graduates;
-}
+};
 
 // TODO Faq page need to implement server side render.
 export const getFaqs = async (): Promise<any> => {
