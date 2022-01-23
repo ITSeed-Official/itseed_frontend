@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import classnames from "classnames";
 import Image from "next/image";
 import styles from "./Card.module.scss";
@@ -11,6 +11,7 @@ type CardProperty = {
   name: string;
   character: string;
   ctaText?: string;
+  children?: ReactNode;
   onClickCta?: Function;
 };
 
@@ -22,6 +23,7 @@ const Card: FC<CardProperty> = ({
   name,
   character,
   ctaText = "看更多",
+  children,
   onClickCta = () => {},
 }) => {
   return (
@@ -39,6 +41,7 @@ const Card: FC<CardProperty> = ({
           </span>
         </div>
         <div className={styles.cardInfo}>
+          {children}
           <p className={styles.sharingWords}>{content}</p>
           <p className={styles.sharer}>{name}</p>
           <p className={styles.sharerTitle}>{character}</p>
