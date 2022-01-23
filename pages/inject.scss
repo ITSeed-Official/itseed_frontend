@@ -1,0 +1,15 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+// swiper
+.swiper-pagination-bullet-active {
+    background: $green-tree !important;
+}
+
+.swiper-button-prev {
+    color: $green-tree !important;
+}
+
+.swiper-button-next {
+    color: $green-tree !important;
+}

@@ -23,7 +23,7 @@ const FAQSection = ({ limit }: Props) => {
 
   return (
     <SectionWrapper className={styles.section}>
-      <h2 className={styles.title}>常見問題</h2>
+      <h2 className={styles.title}>常見問題 QA</h2>
       <div>
         {displayedFaqs.map((faq, index) => (
           <FAQBox
