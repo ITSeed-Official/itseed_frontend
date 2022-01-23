@@ -53,11 +53,7 @@ const About: NextPage<IProps> = (props: IProps) => {
 
   return (
     <>
-      <BannerContainer
-        type={BannerType.general}
-        backgroundImage="images/homepage/pics/banner.png"
-        primaryTitle="關於資種"
-      />
+      <BannerContainer type={BannerType.general} primaryTitle="關於資種" />
       <SectionWrapper>
         <DropDownMenu
           changeSession={(newSession: number) => {
