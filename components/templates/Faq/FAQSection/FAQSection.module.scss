@@ -2,7 +2,7 @@
 @import "/styles/mixin.scss";
 
 .section {
-  padding-top: 5%;
+  padding-top: 100px;
   @include mobile {
     padding-top: 60px;
     padding-bottom: 80px;
@@ -10,7 +10,7 @@
 }
 
 .paragraph {
-  padding-top: 5%;
+  padding-top: 80px;
   @include mobile {
     padding-top: 40px;
   }
