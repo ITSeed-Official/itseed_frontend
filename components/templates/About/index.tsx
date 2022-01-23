@@ -3,7 +3,7 @@ import BannerContainer from "components/molecules/BannerContainer";
 import DropDownMenu from "components/templates/About/DropDownMenu";
 import TableView from "components/templates/About/TableView";
 import { CURRENT_SESSION } from "../../../util/common/setting";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { BannerType } from "../../molecules/BannerContainer/enum";
 import axios from "axios";
 import SectionWrapper from "components/molecules/SectionWrapper";
@@ -22,16 +22,10 @@ interface IProps {
 
 const About: NextPage<IProps> = (props: IProps) => {
   const [session, setSession] = useState(CURRENT_SESSION);
-  const [renderCounter, setRenderCounter] = useState(INITIAL_COUNTER);
   const [graduates, setGraduates] = useState(props.graduates);
+  const isFirstRun = useRef(true);
 
   useEffect(() => {
-    setRenderCounter(renderCounter + 1);
-
-    if (renderCounter <= INITIAL_COUNTER) {
-      return;
-    }
-
     const fetchAPI = async (session: number) => {
       const domain = process.env.NEXT_PUBLIC_API_ORIGIN;
       const graduates = await axios
@@ -48,7 +42,11 @@ const About: NextPage<IProps> = (props: IProps) => {
       setGraduates(graduates);
     };
 
-    fetchAPI(session);
+    if (isFirstRun.current) {
+      isFirstRun.current = false;
+    } else {
+      fetchAPI(session);
+    }
   }, [session]);
 
   return (
