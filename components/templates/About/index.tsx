@@ -7,12 +7,7 @@ import { useState, useEffect, useRef } from 'react';
 import { BannerType } from '../../molecules/BannerContainer/enum';
 import axios from 'axios';
 import SectionWrapper from 'components/molecules/SectionWrapper';
-
-interface Graduate {
-  name: string;
-  school: string;
-  department: string;
-}
+import { Graduate } from 'api/graduates';
 
 interface IProps {
   graduates: Graduate[];

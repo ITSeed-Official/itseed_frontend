@@ -1,20 +1,3 @@
-import { DEFAULT_META, DEFAULT_FAQ } from './constants';
-import { Meta } from '../components/atoms/PageMeta/PageMeta';
-import { APIResponse, FAQ } from 'util/hooks/swr/useFAQs';
-
-export const getSeos = async (path: string): Promise<Meta> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_ORIGIN}/seos?path=${path}`);
-  const data = await response.json();
-
-  if (!data.length) {
-    return DEFAULT_META;
-  }
-
-  const meta = data.pop().meta;
-
-  return meta;
-};
-
 interface GraduatesAPIData {
   id: number;
   session: number;
@@ -48,15 +31,4 @@ export const getGraduates = async (session: number): Promise<Graduate[]> => {
   });
 
   return graduates;
-};
-
-export const getFaqs = async (): Promise<FAQ[]> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_ORIGIN}/faq`);
-  const data: APIResponse = await response.json();
-
-  if (!data) {
-    return [DEFAULT_FAQ];
-  }
-
-  return data.FAQ;
 };
