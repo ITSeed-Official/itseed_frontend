@@ -1,8 +1,8 @@
-import type { FC } from "react";
+import type { FC } from 'react';
 
-import SectionWrapper from "components/molecules/SectionWrapper";
+import SectionWrapper from 'components/molecules/SectionWrapper';
 
-import styles from "./TimelineSection.module.scss";
+import styles from './TimelineSection.module.scss';
 
 const TimelineSection: FC = () => {
   return (

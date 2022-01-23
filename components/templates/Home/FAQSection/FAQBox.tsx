@@ -1,6 +1,6 @@
-import ReactMarkdown from "react-markdown";
-import CollapseBox from "components/atoms/CollapseBox";
-import styles from "./FAQBox.module.scss";
+import ReactMarkdown from 'react-markdown';
+import CollapseBox from 'components/atoms/CollapseBox';
+import styles from './FAQBox.module.scss';
 
 interface Props {
   serialNumber: number;
@@ -8,11 +8,8 @@ interface Props {
   answer: string;
 }
 
-const FAQBox = ({ serialNumber, question = "", answer = "" }: Props) => (
-  <CollapseBox
-    className={styles.questionBox}
-    title={`Q${serialNumber}. ${question}`}
-  >
+const FAQBox = ({ serialNumber, question = '', answer = '' }: Props) => (
+  <CollapseBox className={styles.questionBox} title={`Q${serialNumber}. ${question}`}>
     <ReactMarkdown>{answer}</ReactMarkdown>
   </CollapseBox>
 );

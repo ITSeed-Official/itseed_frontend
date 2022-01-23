@@ -1,14 +1,12 @@
-import type { NextPage } from "next";
+import type { NextPage } from 'next';
 
-import { ButtonIcon } from "components/atoms/Button";
-import BannerContainer, {
-  BannerType,
-} from "components/molecules/BannerContainer";
-import SummarySection from "components/templates/Home/SummarySection";
-import IntroSection from "components/templates/Home/IntroSection";
-import AlumniSection from "components/templates/Home/AlumniSection";
+import { ButtonIcon } from 'components/atoms/Button';
+import BannerContainer, { BannerType } from 'components/molecules/BannerContainer';
+import SummarySection from 'components/templates/Home/SummarySection';
+import IntroSection from 'components/templates/Home/IntroSection';
+import AlumniSection from 'components/templates/Home/AlumniSection';
 // import TimelineSection from "components/templates/Home/TimelineSection";
-import FAQSection from "components/templates/Home/FAQSection";
+import FAQSection from 'components/templates/Home/FAQSection';
 
 const Home: NextPage = () => (
   <>
@@ -26,7 +24,7 @@ const Home: NextPage = () => (
       description="報名時間 2022.6.1 - 7.11"
       ctaText="立即報名"
       ctaIcon={ButtonIcon.arrow}
-      ctaOnClick={() => console.log("click")}
+      ctaOnClick={() => console.log('click')}
     />
     <SummarySection />
     <IntroSection />

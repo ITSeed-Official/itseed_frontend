@@ -1,5 +1,5 @@
-import Head from "next/head";
-import type { NextPage } from "next";
+import Head from 'next/head';
+import type { NextPage } from 'next';
 
 export interface Meta {
   title: string;
@@ -10,31 +10,26 @@ export interface Meta {
   og_image: string;
 }
 
-const PageMeta = (Page: NextPage) => {
-  const PageHead = ({
-    title,
-    description,
-    og_title,
-    og_description,
-    og_url,
-    og_image,
-  }: Meta) => {
+const PageMeta = (Page: NextPage<any>) => {
+  const PageHead = (props: any) => {
+    const { meta } = props;
+
     return (
       <>
         <Head>
-          <title>{title}</title>
-          <meta name="description" content={description} />
-          <meta property="og:title" content={og_title} />
-          <meta property="og:description" content={og_description} />
-          <meta property="og:url" content={og_url} />
-          <meta property="og:image" content={og_image} />
+          <title>{meta.title}</title>
+          <meta name="description" content={meta.description} />
+          <meta property="og:title" content={meta.og_title} />
+          <meta property="og:description" content={meta.og_description} />
+          <meta property="og:url" content={meta.og_url} />
+          <meta property="og:image" content={meta.og_image} />
         </Head>
-        <Page />
+        <Page {...props} />
       </>
     );
   };
 
-  PageHead.displayName = "head";
+  PageHead.displayName = 'head';
 
   return PageHead;
 };

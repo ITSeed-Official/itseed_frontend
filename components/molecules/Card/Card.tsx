@@ -1,7 +1,7 @@
-import { FC } from "react";
-import classnames from "classnames";
-import Image from "next/image";
-import styles from "./Card.module.scss";
+import { FC, ReactNode } from 'react';
+import classnames from 'classnames';
+import Image from 'next/image';
+import styles from './Card.module.scss';
 
 type CardProperty = {
   wrapperClassName?: string;
@@ -11,6 +11,7 @@ type CardProperty = {
   name: string;
   character: string;
   ctaText?: string;
+  children?: ReactNode;
   onClickCta?: Function;
 };
 
@@ -21,7 +22,8 @@ const Card: FC<CardProperty> = ({
   content,
   name,
   character,
-  ctaText = "看更多",
+  ctaText = '看更多',
+  children,
   onClickCta = () => {},
 }) => {
   return (
@@ -30,15 +32,11 @@ const Card: FC<CardProperty> = ({
         <div className={styles.cardImg}>
           <Image src={imgSrc} alt="card-image" layout="fill" />
           <span className={styles.commaIconWrapper}>
-            <Image
-              src="/images/common/icons/icon-comma.png"
-              width="48px"
-              height="27px"
-              alt="decorator-comma"
-            />
+            <Image src="/images/common/icons/icon-comma.png" width="48px" height="27px" alt="decorator-comma" />
           </span>
         </div>
         <div className={styles.cardInfo}>
+          {children}
           <p className={styles.sharingWords}>{content}</p>
           <p className={styles.sharer}>{name}</p>
           <p className={styles.sharerTitle}>{character}</p>
@@ -49,12 +47,7 @@ const Card: FC<CardProperty> = ({
             }}
           >
             <span>{ctaText}</span>
-            <Image
-              src="/images/icons/icon-half-arrow-right.svg"
-              alt="icon"
-              width="24px"
-              height="24px"
-            />
+            <Image src="/images/icons/icon-half-arrow-right.svg" alt="icon" width="24px" height="24px" />
           </div>
         </div>
       </div>

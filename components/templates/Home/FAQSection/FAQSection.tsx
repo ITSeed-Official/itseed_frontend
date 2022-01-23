@@ -1,9 +1,9 @@
-import Button, { ButtonIcon, ButtonTheme } from "components/atoms/Button";
-import { useRouter } from "next/router";
-import SectionWrapper from "components/molecules/SectionWrapper";
-import styles from "./FAQSection.module.scss";
-import { useFAQs, FAQ } from "util/hooks/swr/useFAQs";
-import FAQBox from "./FAQBox";
+import Button, { ButtonIcon, ButtonTheme } from 'components/atoms/Button';
+import { useRouter } from 'next/router';
+import SectionWrapper from 'components/molecules/SectionWrapper';
+import styles from './FAQSection.module.scss';
+import { useFAQs, FAQ } from 'util/hooks/swr/useFAQs';
+import FAQBox from './FAQBox';
 
 interface Props {
   limit?: number;
@@ -14,8 +14,8 @@ const FAQSection = ({ limit }: Props) => {
   const { faqs, isLoading, isError } = useFAQs();
 
   const placeholderFaqs: FAQ[] = Array(limit || 3).fill({
-    question: "",
-    answer: "",
+    question: '',
+    answer: '',
   });
   const displayedFaqs = isLoading ? placeholderFaqs : faqs.slice(0, limit);
 
@@ -26,11 +26,7 @@ const FAQSection = ({ limit }: Props) => {
       <h2 className={styles.title}>常見問題 QA</h2>
       <div>
         {displayedFaqs.map((faq, index) => (
-          <FAQBox
-            key={index + faq.question}
-            serialNumber={index + 1}
-            {...faq}
-          />
+          <FAQBox key={index + faq.question} serialNumber={index + 1} {...faq} />
         ))}
       </div>
       {!!limit && faqs.length > limit && (
@@ -39,7 +35,7 @@ const FAQSection = ({ limit }: Props) => {
           text="全部問題"
           className={styles.button}
           onClick={() => {
-            router.push("/faq");
+            router.push('/faq');
           }}
         />
       )}
@@ -56,7 +52,7 @@ const FAQSection = ({ limit }: Props) => {
           theme={ButtonTheme.outlineReverse}
           icon={ButtonIcon.arrowReverse}
           onClick={() => {
-            router.push("joinus");
+            router.push('joinus');
           }}
         >
           立即報名

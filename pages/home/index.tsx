@@ -1,1 +1,1 @@
-export { default } from "../../components/templates/Home";
+export { default } from '../../components/templates/Home';

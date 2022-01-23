@@ -1,6 +1,6 @@
-import { FC } from "react";
-import Image from "next/image";
-import styles from "./Footer.module.scss";
+import { FC } from 'react';
+import Image from 'next/image';
+import styles from './Footer.module.scss';
 
 const Footer: FC = () => {
   return (
@@ -8,17 +8,8 @@ const Footer: FC = () => {
       <section className={styles.content}>
         <div className={styles.linksRow}>
           <span>
-            <a
-              href="https://www.facebook.com/iloveitseed"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <Image
-                alt="facebook"
-                src="/images/common/icons/icon-facebook.svg"
-                width="24"
-                height="24"
-              />
+            <a href="https://www.facebook.com/iloveitseed" target="_blank" rel="noreferrer noopener">
+              <Image alt="facebook" src="/images/common/icons/icon-facebook.svg" width="24" height="24" />
             </a>
           </span>
           <span>
@@ -27,41 +18,20 @@ const Footer: FC = () => {
               target="_blank"
               rel="noreferrer noopener"
             >
-              <Image
-                alt="medium"
-                src="/images/common/icons/icon-medium.svg"
-                width="24"
-                height="24"
-              />
+              <Image alt="medium" src="/images/common/icons/icon-medium.svg" width="24" height="24" />
             </a>
           </span>
           <span>
-            <a
-              href="mailto:itseedsystem@gmail.com"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <Image
-                alt="mail"
-                src="/images/common/icons/icon-mail.svg"
-                width="24"
-                height="24"
-              />
+            <a href="mailto:itseedsystem@gmail.com" target="_blank" rel="noreferrer noopener">
+              <Image alt="mail" src="/images/common/icons/icon-mail.svg" width="24" height="24" />
             </a>
           </span>
         </div>
         <div className={styles.ownerRow}>
           <span>主辦單位：新北市電腦商業同業公會</span>
-          <Image
-            alt="NTCA"
-            src="/images/common/icons/NTCA-logo.svg"
-            width="46"
-            height="11"
-          />
+          <Image alt="NTCA" src="/images/common/icons/NTCA-logo.svg" width="46" height="11" />
         </div>
-        <span className={styles.copywritingRow}>
-          Copyright © {new Date().getFullYear()} - 資訊種子培訓計畫
-        </span>
+        <span className={styles.copywritingRow}>Copyright © {new Date().getFullYear()} - 資訊種子培訓計畫</span>
       </section>
     </footer>
   );

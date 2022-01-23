@@ -1,11 +1,11 @@
-import { FC } from "react";
-import Image from "next/image";
-import classnames from "classnames";
+import { FC } from 'react';
+import Image from 'next/image';
+import classnames from 'classnames';
 
-import SectionWrapper from "components/molecules/SectionWrapper/SectionWrapper";
-import Button, { ButtonIcon } from "components/atoms/Button/Button";
-import styles from "./SlashBanner.module.scss";
-import { BannerType } from "./enum";
+import SectionWrapper from 'components/molecules/SectionWrapper/SectionWrapper';
+import Button, { ButtonIcon } from 'components/atoms/Button/Button';
+import styles from './SlashBanner.module.scss';
+import { BannerType } from './enum';
 
 export type SlashBannerProps = {
   type: BannerType.slash;
@@ -37,14 +37,7 @@ const SlashBanner: FC<SlashBannerProps> = ({
         </h1>
         <h2 className={styles.subTitle}>{subTitle}</h2>
         <p className={styles.description}>{description}</p>
-        {ctaText && (
-          <Button
-            text={ctaText}
-            className={styles.ctaButton}
-            icon={ctaIcon}
-            onClick={ctaOnClick}
-          />
-        )}
+        {ctaText && <Button text={ctaText} className={styles.ctaButton} icon={ctaIcon} onClick={ctaOnClick} />}
       </SectionWrapper>
       <div className={styles.infoBackground} />
       <div className={styles.bannerImageWrapper}>
@@ -53,12 +46,7 @@ const SlashBanner: FC<SlashBannerProps> = ({
       <div className={styles.ScrollHinter}>
         <span>上滑瞭解更多</span>
         <span className={styles.ScrollHinterIconWrapper}>
-          <Image
-            alt="arrow-icon"
-            src="/images/icons/icon-double-arrow-up.svg"
-            width={16}
-            height={16}
-          />
+          <Image alt="arrow-icon" src="/images/icons/icon-double-arrow-up.svg" width={16} height={16} />
         </span>
       </div>
     </div>

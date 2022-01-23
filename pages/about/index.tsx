@@ -1,12 +1,17 @@
-import About from "./About";
-import PageMeta from "../../components/atoms/PageMeta";
-import { getSeos } from "../../lib/api";
+import About from '../../components/templates/About';
+import PageMeta from '../../components/atoms/PageMeta';
+import { getSeos } from 'api/seos';
+import { getGraduates } from 'api/graduates';
+import { CURRENT_SESSION } from '../../util/common/setting';
 
 export async function getServerSideProps() {
-  const meta = getSeos("about");
+  const [meta, graduates] = await Promise.all([getSeos('graduates'), getGraduates(CURRENT_SESSION)]);
 
   return {
-    props: meta,
+    props: {
+      meta: meta,
+      graduates: graduates,
+    },
   };
 }
 

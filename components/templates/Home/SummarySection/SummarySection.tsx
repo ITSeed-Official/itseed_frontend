@@ -1,7 +1,7 @@
-import type { FC } from "react";
-import Image from "next/image";
-import SectionWrapper from "components/molecules/SectionWrapper";
-import styles from "./SummarySection.module.scss";
+import type { FC } from 'react';
+import Image from 'next/image';
+import SectionWrapper from 'components/molecules/SectionWrapper';
+import styles from './SummarySection.module.scss';
 
 const SummarySection: FC = () => {
   return (

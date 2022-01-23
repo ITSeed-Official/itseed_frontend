@@ -1,2 +1,2 @@
-export { default } from "./BannerContainer";
-export { BannerType } from "./enum";
+export { default } from './BannerContainer';
+export { BannerType } from './enum';
