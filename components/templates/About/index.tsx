@@ -8,8 +8,6 @@ import { BannerType } from '../../molecules/BannerContainer/enum';
 import axios from 'axios';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 
-const INITIAL_COUNTER = 0;
-
 interface Graduate {
   name: string;
   school: string;
