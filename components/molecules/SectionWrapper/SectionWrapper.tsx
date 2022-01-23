@@ -1,9 +1,9 @@
-import { FC } from "react";
-import classnames from "classnames";
+import { FC } from 'react';
+import classnames from 'classnames';
 
-import SectionTitle from "../../atoms/SectionTitle";
+import SectionTitle from '../../atoms/SectionTitle';
 
-import styles from "./SectionWrapper.module.scss";
+import styles from './SectionWrapper.module.scss';
 
 type SectionWrapperProperty = {
   title?: string;
@@ -11,20 +11,10 @@ type SectionWrapperProperty = {
   titleClassName?: string;
 };
 
-const SectionWrapper: FC<SectionWrapperProperty> = ({
-  children,
-  title,
-  className,
-  titleClassName,
-}) => {
+const SectionWrapper: FC<SectionWrapperProperty> = ({ children, title, className, titleClassName }) => {
   return (
     <section className={classnames(styles.sectionWrapper, className)}>
-      {title && (
-        <SectionTitle
-          title={title}
-          className={classnames(styles.title, titleClassName)}
-        />
-      )}
+      {title && <SectionTitle title={title} className={classnames(styles.title, titleClassName)} />}
       {children}
     </section>
   );

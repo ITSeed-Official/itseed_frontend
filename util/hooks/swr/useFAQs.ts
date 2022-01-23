@@ -1,5 +1,5 @@
-import useSWR from "swr";
-import axios, { AxiosError } from "axios";
+import useSWR from 'swr';
+import axios, { AxiosError } from 'axios';
 
 export interface FAQ {
   id: number;
@@ -25,10 +25,7 @@ const domain = process.env.NEXT_PUBLIC_API_ORIGIN;
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 export const useFAQs = (): Response => {
-  const { data, error } = useSWR<APIResponse, AxiosError>(
-    `${domain}/faq`,
-    fetcher
-  );
+  const { data, error } = useSWR<APIResponse, AxiosError>(`${domain}/faq`, fetcher);
 
   return {
     faqs: (data && data.FAQ) || [],

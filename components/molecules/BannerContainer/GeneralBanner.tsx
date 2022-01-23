@@ -1,14 +1,11 @@
-import { FC } from "react";
-import classnames from "classnames";
+import { FC } from 'react';
+import classnames from 'classnames';
 
-import SectionWrapper from "components/molecules/SectionWrapper/SectionWrapper";
-import Button from "components/atoms/Button/Button";
-import {
-  SectionBigTitle,
-  SubTitle,
-} from "components/atoms/SectionTitle/SectionTitle";
-import styles from "./GeneralBanner.module.scss";
-import { BannerType } from "./enum";
+import SectionWrapper from 'components/molecules/SectionWrapper/SectionWrapper';
+import Button from 'components/atoms/Button/Button';
+import { SectionBigTitle, SubTitle } from 'components/atoms/SectionTitle/SectionTitle';
+import styles from './GeneralBanner.module.scss';
+import { BannerType } from './enum';
 
 export type GeneralBannerProps = {
   type: BannerType.general;
@@ -22,11 +19,11 @@ export type GeneralBannerProps = {
 };
 
 const GeneralBanner: FC<GeneralBannerProps> = ({
-  backgroundImage = "",
-  primaryTitle = "",
-  subTitle = "",
-  subText = "",
-  buttonText = "",
+  backgroundImage = '',
+  primaryTitle = '',
+  subTitle = '',
+  subText = '',
+  buttonText = '',
   showSummaryInfo = false,
   className,
 }) => {
@@ -38,9 +35,7 @@ const GeneralBanner: FC<GeneralBannerProps> = ({
       <SectionWrapper className={styles.bannerContent}>
         <div className={styles.bannerInfo}>
           {primaryTitle && <SectionBigTitle title={primaryTitle} />}
-          {subTitle && (
-            <SubTitle title={subTitle} className={styles.subTitle} />
-          )}
+          {subTitle && <SubTitle title={subTitle} className={styles.subTitle} />}
 
           {subText && <p>{subText}</p>}
           {buttonText && <Button text={buttonText} className={styles.button} />}

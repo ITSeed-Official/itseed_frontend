@@ -1,6 +1,6 @@
 const domain = process.env.NEXT_PUBLIC_API_ORIGIN;
 
-export type ExperienceCategory = "company" | "personalization" | "interview";
+export type ExperienceCategory = 'company' | 'personalization' | 'interview';
 
 export interface CareerExperience {
   id: number;

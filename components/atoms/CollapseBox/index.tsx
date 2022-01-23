@@ -1,1 +1,1 @@
-export { default } from "./CollapseBox";
+export { default } from './CollapseBox';

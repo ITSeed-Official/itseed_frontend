@@ -1,7 +1,7 @@
-import type { FC } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import styles from "./FeatureCard.module.scss";
+import type { FC } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import styles from './FeatureCard.module.scss';
 
 type FeatureCardProperty = {
   imgSrc: string;
@@ -10,12 +10,7 @@ type FeatureCardProperty = {
   content: string[];
 };
 
-const FeatureCard: FC<FeatureCardProperty> = ({
-  imgSrc,
-  title,
-  link,
-  content = [],
-}) => {
+const FeatureCard: FC<FeatureCardProperty> = ({ imgSrc, title, link, content = [] }) => {
   return (
     <Link href={link} passHref>
       <div className={styles.wrapper}>

@@ -1,21 +1,17 @@
-import { FC, useState } from "react";
-import classnames from "classnames";
-import Image from "next/image";
+import { FC, useState } from 'react';
+import classnames from 'classnames';
+import Image from 'next/image';
 
-import arrow from "public/images/common/arrow.png";
+import arrow from 'public/images/common/arrow.png';
 
-import styles from "./CollapseBox.module.scss";
+import styles from './CollapseBox.module.scss';
 
 type CollapseBoxProperty = {
   className?: string;
   title: string;
 };
 
-const CollapseBox: FC<CollapseBoxProperty> = ({
-  className,
-  title,
-  children,
-}) => {
+const CollapseBox: FC<CollapseBoxProperty> = ({ className, title, children }) => {
   const [isOpen, setOpen] = useState(false);
 
   return (

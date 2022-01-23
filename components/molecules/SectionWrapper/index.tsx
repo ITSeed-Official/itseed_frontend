@@ -1,1 +1,1 @@
-export { default } from "./SectionWrapper";
+export { default } from './SectionWrapper';

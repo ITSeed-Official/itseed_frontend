@@ -1,5 +1,5 @@
-import Head from "next/head";
-import type { NextPage } from "next";
+import Head from 'next/head';
+import type { NextPage } from 'next';
 
 export interface Meta {
   title: string;
@@ -29,7 +29,7 @@ const PageMeta = (Page: NextPage<any>) => {
     );
   };
 
-  PageHead.displayName = "head";
+  PageHead.displayName = 'head';
 
   return PageHead;
 };

@@ -1,6 +1,6 @@
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 
-const CareerDetail = dynamic(() => import("./CareerDetail"), {
+const CareerDetail = dynamic(() => import('./CareerDetail'), {
   ssr: false,
 });
 

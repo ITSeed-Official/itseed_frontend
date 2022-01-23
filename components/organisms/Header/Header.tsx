@@ -1,17 +1,14 @@
-import { FC, useState, useEffect } from "react";
-import Image from "next/image";
-import classNames from "classnames";
-import Button, { ButtonIcon } from "components/atoms/Button";
-import SectionWrapper from "components/molecules/SectionWrapper";
-import dStyles from "./Header.desktop.module.scss";
-import mStyles from "./Header.mobile.module.scss";
-import {
-  faChevronRight,
-  faChevronDown,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { FC, useState, useEffect } from 'react';
+import Image from 'next/image';
+import classNames from 'classnames';
+import Button, { ButtonIcon } from 'components/atoms/Button';
+import SectionWrapper from 'components/molecules/SectionWrapper';
+import dStyles from './Header.desktop.module.scss';
+import mStyles from './Header.mobile.module.scss';
+import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const MobileHeader: FC = () => {
   const router = useRouter();
@@ -21,9 +18,9 @@ const MobileHeader: FC = () => {
     const closeMenu = () => {
       setIsMenuOpened(false);
     };
-    router.events.on("routeChangeStart", closeMenu);
+    router.events.on('routeChangeStart', closeMenu);
     return () => {
-      router.events.off("routeChangeStart", closeMenu);
+      router.events.off('routeChangeStart', closeMenu);
     };
   }, [router]);
 
@@ -63,14 +60,8 @@ const MobileHeader: FC = () => {
             <li className={mStyles.menuItemWrapper}>
               <div className={mStyles.menuItem}>
                 計畫內容
-                <FontAwesomeIcon
-                  className={mStyles.unexpandedSubMenuIcon}
-                  icon={faChevronRight}
-                />
-                <FontAwesomeIcon
-                  className={mStyles.expandedSubMenuIcon}
-                  icon={faChevronDown}
-                />
+                <FontAwesomeIcon className={mStyles.unexpandedSubMenuIcon} icon={faChevronRight} />
+                <FontAwesomeIcon className={mStyles.expandedSubMenuIcon} icon={faChevronDown} />
               </div>
               <ul className={mStyles.subMenuList}>
                 <li>
@@ -98,14 +89,8 @@ const MobileHeader: FC = () => {
             <li className={mStyles.menuItemWrapper}>
               <div className={mStyles.menuItem}>
                 職涯體驗
-                <FontAwesomeIcon
-                  className={mStyles.unexpandedSubMenuIcon}
-                  icon={faChevronRight}
-                />
-                <FontAwesomeIcon
-                  className={mStyles.expandedSubMenuIcon}
-                  icon={faChevronDown}
-                />
+                <FontAwesomeIcon className={mStyles.unexpandedSubMenuIcon} icon={faChevronRight} />
+                <FontAwesomeIcon className={mStyles.expandedSubMenuIcon} icon={faChevronDown} />
               </div>
               <ul className={mStyles.subMenuList}>
                 <li>
@@ -128,14 +113,8 @@ const MobileHeader: FC = () => {
             <li className={mStyles.menuItemWrapper}>
               <div className={mStyles.menuItem}>
                 校友評價
-                <FontAwesomeIcon
-                  className={mStyles.unexpandedSubMenuIcon}
-                  icon={faChevronRight}
-                />
-                <FontAwesomeIcon
-                  className={mStyles.expandedSubMenuIcon}
-                  icon={faChevronDown}
-                />
+                <FontAwesomeIcon className={mStyles.unexpandedSubMenuIcon} icon={faChevronRight} />
+                <FontAwesomeIcon className={mStyles.expandedSubMenuIcon} icon={faChevronDown} />
               </div>
               <ul className={mStyles.subMenuList}>
                 <li>
@@ -170,7 +149,7 @@ const MobileHeader: FC = () => {
             <Button
               icon={ButtonIcon.arrow}
               onClick={() => {
-                router.push("joinus");
+                router.push('joinus');
               }}
             >
               立即報名
@@ -264,7 +243,7 @@ const DesktopHeader: FC = () => {
         <Button
           icon={ButtonIcon.arrow}
           onClick={() => {
-            router.push("joinus");
+            router.push('joinus');
           }}
         >
           立即報名
