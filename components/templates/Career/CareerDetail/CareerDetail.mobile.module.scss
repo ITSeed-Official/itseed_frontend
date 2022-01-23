@@ -1,0 +1,67 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.backgroundWrapper {
+    background-color: $green-mist;
+}
+
+.titleSection {
+    padding-bottom: 40px;
+}
+
+.title {
+    margin: 0;
+}
+
+.image {
+    position: relative;
+    margin-bottom: 60px;
+    height: 440px;
+
+    @include mobile {
+        height: 215px;
+    }
+}
+
+.menteeSection, .mentorsSection {
+    padding-top: 0;
+    padding-bottom: 60px;
+}
+
+.mentor {
+    padding: 20px 32px 20px 32px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    &:not(:last-child) {
+        margin-bottom: 24px; 
+    }
+}
+
+.mentorInfo {
+    display: flex;
+}
+
+.mentorName {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+
+    & > p {
+        margin: 0;
+    }
+}
+
+.mentorInfo, .mentorDescription {
+    margin-bottom: 24px;
+}
+
+.mentorLinks {
+    display: flex;
+
+    /* icon */
+    & > div {
+        &:not(:last-child) {
+            margin-right: 24px; 
+        }
+    }
+}

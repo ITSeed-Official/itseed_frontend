@@ -1,0 +1,71 @@
+@import "/styles/mixin.scss";
+@import "/styles/variables.scss";
+
+.cardsSection {
+    & > div:not(:last-child) {
+        margin-bottom: 70px;
+    }
+}
+
+.title {
+    margin-bottom: 70px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:not(:last-child) {
+        margin-bottom: 30px;
+    }
+
+    @include mobile {
+        justify-content: center;
+    }
+}
+
+.card {
+    width: 30%;
+    min-width: 300px;
+}
+
+.jobInfo {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 16px;
+    color: $gray;
+
+    & > p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+.mentorInfo {
+    margin-bottom: 16px;
+    color: $gray;
+
+    & > p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    & > p:first-child {
+        margin-bottom: 16px;
+    }
+}
+
+.cardTitle {
+    font-size: 24px;
+    margin-right: 24px;
+}
+
+.cardSubTitle {
+    font-size: 16px;
+}
+
+.mentorsOverview {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
