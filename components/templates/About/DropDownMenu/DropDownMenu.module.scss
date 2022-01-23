@@ -1,0 +1,74 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+$drop-down-with: 12%;
+
+.dropDownMenu {
+  position: relative;
+  width: 170px;
+  margin-bottom: 40px;
+
+  @include mobile {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+}
+
+.dropDownHeader {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border: 1px solid $green-deep;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.subNavList {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  list-style: none;
+  flex-direction: column;
+  padding: 0;
+  border-radius: 4px;
+  overflow: auto;
+  color: $color-neutral-200;
+  max-height: 200px;
+  margin: initial;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.08);
+}
+
+.subNavListItem {
+  white-space: nowrap;
+  font-size: 16px;
+  padding: 12px 24px;
+  line-height: 26px;
+  background-color: $color-neutral-900;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $green-mist;
+  }
+}
+
+.title {
+  font-size: 16px;
+  color: $green-deep;
+}
+
+.arrow {
+  transition: transform 0.5s ease;
+}
+
+.arrowReverse {
+  transform: rotate(180deg);
+}
+
+.open {
+  background-color: $green-mist;
+}
