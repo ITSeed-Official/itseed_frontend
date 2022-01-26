@@ -7,6 +7,7 @@ import { useState, useEffect, useRef } from 'react';
 import { BannerType } from '../../molecules/BannerContainer/enum';
 import axios from 'axios';
 import SectionWrapper from 'components/molecules/SectionWrapper';
+import IntroSection from '../Home/IntroSection';
 import { Graduate } from 'api/graduates';
 
 interface IProps {
@@ -44,6 +45,8 @@ const About: NextPage<IProps> = (props: IProps) => {
     <>
       <BannerContainer type={BannerType.general} primaryTitle="關於資種" />
       <SectionWrapper>
+        <IntroSection displayFeatureCard={false} />
+      </SectionWrapper>
         <DropDownMenu
           changeSession={(newSession: number) => {
             setSession(newSession);
