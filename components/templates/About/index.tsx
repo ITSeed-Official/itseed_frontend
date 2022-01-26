@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import BannerContainer from 'components/molecules/BannerContainer';
 import DropDownMenu from 'components/templates/About/DropDownMenu';
 import TableView from 'components/templates/About/TableView';
+import OrganizationSection from 'components/templates/About/OrganizationSection';
 import { CURRENT_SESSION } from '../../../util/common/setting';
 import { useState, useEffect, useRef } from 'react';
 import { BannerType } from '../../molecules/BannerContainer/enum';
@@ -47,6 +48,7 @@ const About: NextPage<IProps> = (props: IProps) => {
       <SectionWrapper>
         <IntroSection displayFeatureCard={false} />
       </SectionWrapper>
+      <OrganizationSection />
         <DropDownMenu
           changeSession={(newSession: number) => {
             setSession(newSession);
