@@ -1,0 +1,22 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.backgroundWrapper {
+    background-color: $green-mist;
+}
+
+.sectionBackground {
+    background-color: $color-neutral-900;
+    padding: 40px;
+}
+
+.block {
+    margin-bottom: 40px;
+    > p {
+        font-size: 16px;
+    }
+}
+
+.icon {
+    padding: 1px;
+}
