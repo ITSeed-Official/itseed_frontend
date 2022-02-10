@@ -2,11 +2,14 @@
 @import "/styles/mixin.scss";
 
 .section {
-    background-color: $green-mist;
+    background-color: $color-neutral-900;
     padding-top: 60px;
     padding-bottom: 60px;
     padding-left: 147px;
     cursor: pointer;
+    &:hover {
+        background-color: $green-mist;
+    }
     @include mobile {
         padding-top: 60px;
         padding-bottom: 60px;

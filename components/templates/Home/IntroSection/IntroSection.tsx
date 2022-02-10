@@ -37,7 +37,7 @@ const features = [
   },
 ];
 
-const Desktop = () => (
+const Desktop = ({ displayFeatureCard }: IProps) => (
   <SectionWrapper className={classNames([styles.introSection, styles.desktopOnly])}>
     <div className={styles.intro}>
       <div className={styles.introContent}>
@@ -54,14 +54,12 @@ const Desktop = () => (
       </div>
     </div>
     <div className={styles.features}>
-      {features.map((data) => (
-        <FeatureCard key={data.title} {...data} />
-      ))}
+      {displayFeatureCard && features.map((data) => <FeatureCard key={data.title} {...data} />)}
     </div>
   </SectionWrapper>
 );
 
-const Mobile = () => (
+const Mobile = ({ displayFeatureCard }: IProps) => (
   <div className={styles.mobileOnly}>
     <SectionWrapper className={styles.introSectionMobileTop}>
       <h2 className={styles.introTitle}>計畫介紹</h2>
@@ -76,19 +74,21 @@ const Mobile = () => (
     </div>
     <SectionWrapper className={styles.introSectionMobileBottom}>
       <div className={styles.features}>
-        {features.map((data) => (
-          <FeatureCard key={data.title} {...data} />
-        ))}
+        {displayFeatureCard && features.map((data) => <FeatureCard key={data.title} {...data} />)}
       </div>
     </SectionWrapper>
   </div>
 );
 
-const IntroSection: FC = () => {
+interface IProps {
+  displayFeatureCard?: boolean;
+}
+
+const IntroSection: FC<IProps> = ({ displayFeatureCard = true }: IProps) => {
   return (
     <>
-      <Desktop />
-      <Mobile />
+      <Desktop displayFeatureCard={displayFeatureCard} />
+      <Mobile displayFeatureCard={displayFeatureCard} />
     </>
   );
 };
