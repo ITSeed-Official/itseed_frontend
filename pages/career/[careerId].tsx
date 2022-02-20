@@ -18,12 +18,13 @@ const CareerInfo: NextPage<CareerInfoProperty> = ({ detail, list }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  let detail = {};
-  if (context.params && typeof context.params.careerId === 'string') {
-    detail = await getCareerDetail(context.params.careerId);
-  }
+  const [detail, list] = await Promise.all([getCareerDetail(context!.params!.careerId as string), getCareerList()]);
 
-  const list = await getCareerList();
+  if (Object.keys(detail).length === 0) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: { detail, list },
