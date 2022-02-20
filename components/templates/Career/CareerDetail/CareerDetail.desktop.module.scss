@@ -1,6 +1,14 @@
 @import "/styles/variables.scss";
 @import "/styles/mixin.scss";
 
+.careerDetailDesktop {
+    display: block;
+    
+    @include mobile {
+        display: none;
+    }
+}
+
 .backgroundWrapper {
     background-color: $green-mist;
 }
@@ -35,6 +43,16 @@
     & > span {
         overflow: initial !important;
     }
+
+    @include large-tablet {
+        width: 533px;
+        height: 353px;
+    }
+
+    @include tablet {
+        width: 488px;
+        height: 323px;
+    }
 }
 
 .contentWrapper {
@@ -42,6 +60,16 @@
     left: 200px;
     top: -55px;
     z-index: 1;
+
+    @include large-tablet { 
+        left: 155px;
+        top: -40px;
+    }
+
+    @include tablet {
+        left: 68px;
+        top: -40px;
+    }
 }
 
 .content {
@@ -60,6 +88,25 @@
         margin: 0;
         line-height: 30px;
     }
+
+    p.company {
+        font-size: 24px;
+        margin-right: 24px;
+    }
+    
+    p.job {
+        font-size: 14px;
+    }
+    
+    @include large-tablet {
+        width: 741px;
+        height: 516px;
+    }
+
+    @include tablet {
+        width: 624px;
+        height: 568px;
+    }
 }
 
 @mixin leaf {
@@ -67,22 +114,47 @@
     height: 175px;
     border-radius: 139.115px 0px;
     position: absolute;
+
+    @include tablet {
+        width: 175px;
+        height: 97px;
+    }
 }
 
 .leaf {
     @include leaf();
     background-color: $green-tree;
     top: -100px;
-    right: 60px;
+    right: 280px;
     z-index: 2;
+
+    @include large-tablet {
+        top: -100px;
+        right: 160px;
+    }
+
+    @include tablet {
+        top: -54px;
+        right: 30px;
+    }
 }
 
 .emptyLeaf {
     @include leaf();
     border: 3px solid $green-tree;
     top: -200px;
-    right: 100px;
+    right: 320px;
     z-index: 1;
+
+    @include large-tablet {
+        top: -220px;
+        right: 200px;
+    }
+
+    @include tablet {
+        top: -108px;
+        right: 60px;
+    }
 }
 
 .rotateLeaf {
@@ -92,20 +164,20 @@
     bottom: -70px;
     left: -200px;
     z-index: 0;
+
+    @include large-tablet {
+        left: -155px;
+    }
+
+    @include tablet {
+        left: -68px;
+    }
 }
 
 .jobInfo {
     display: flex;
     align-items: baseline;
     margin-bottom: 24px;
-}
-
-.company {
-    font-size: 24px;
-}
-
-.job {
-    font-size: 14px;
 }
 
 .menteeInfo {
@@ -174,4 +246,9 @@
     & img:hover {
         transform: scale(1.1);
     }
+}
+
+.careerSwiper {
+    height: 640px;
+    margin-bottom: 100px;
 }

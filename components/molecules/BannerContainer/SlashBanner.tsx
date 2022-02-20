@@ -4,6 +4,7 @@ import classnames from 'classnames';
 
 import SectionWrapper from 'components/molecules/SectionWrapper/SectionWrapper';
 import Button, { ButtonIcon } from 'components/atoms/Button/Button';
+
 import styles from './SlashBanner.module.scss';
 import { BannerType } from './enum';
 

@@ -105,7 +105,7 @@ const MobileHeader: FC = () => {
                 </li>
                 <li>
                   <Link href="/career#interview" passHref>
-                    <a className={mStyles.subMenuItem}>職涯發展</a>
+                    <a className={mStyles.subMenuItem}>職涯訪談</a>
                   </Link>
                 </li>
               </ul>
@@ -211,7 +211,7 @@ const DesktopHeader: FC = () => {
                   <Link href="/career#company">公司實習</Link>
                 </li>
                 <li className={dStyles.subNavListItem}>
-                  <Link href="/career#interview">職涯發展</Link>
+                  <Link href="/career#interview">職涯訪談</Link>
                 </li>
               </ul>
             </div>

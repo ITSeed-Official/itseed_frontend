@@ -38,16 +38,18 @@ const Card: FC<CardProperty> = ({
         <div className={styles.cardInfo}>
           {children}
           <p className={styles.sharingWords}>{content}</p>
-          <p className={styles.sharer}>{name}</p>
-          <p className={styles.sharerTitle}>{character}</p>
-          <div
-            className={styles.cta}
-            onClick={() => {
-              onClickCta();
-            }}
-          >
-            <span>{ctaText}</span>
-            <Image src="/images/icons/icon-half-arrow-right.svg" alt="icon" width="24px" height="24px" />
+          <div className={styles.footer}>
+            <p className={styles.sharer}>{name}</p>
+            <p className={styles.sharerTitle}>{character}</p>
+            <div
+              className={styles.cta}
+              onClick={() => {
+                onClickCta();
+              }}
+            >
+              <span>{ctaText}</span>
+              <Image src="/images/icons/icon-half-arrow-right.svg" alt="icon" width="24px" height="24px" />
+            </div>
           </div>
         </div>
       </div>
