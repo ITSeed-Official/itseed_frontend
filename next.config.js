@@ -15,6 +15,9 @@ const moduleExports = {
     disableServerWebpackPlugin: !SENTRY_AUTO_RELEASE,
     disableClientWebpackPlugin: !SENTRY_AUTO_RELEASE,
   },
+  images: {
+    domains: ['www.itseed.tw', 'dev.itseed.tw', 'd1pahwu47gk4xf.cloudfront.net'],
+  },
 };
 
 const sentryWebpackPluginOptions = {
