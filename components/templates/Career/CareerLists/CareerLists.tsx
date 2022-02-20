@@ -5,33 +5,24 @@ import { CareerExperience, ExperienceCategory } from 'api/careers';
 import { categoriesTranslateMap } from 'util/helper';
 
 import CareerCards from './CareerCards';
+import type { CareerCardType } from './CareerCards/CareerCard';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 
 import styles from './CareerLists.module.scss';
 
 type ExperienceType = ExperienceCategory | 'all';
 
-export type CareerCardProperty = {
-  id: number;
-  job: string;
-  role: string;
-  name: string;
-  description: string;
-  mentorsOverview: string;
-  company: string | null;
-  imgSrc?: string;
-};
-
 const categories: ExperienceCategory[] = ['company', 'personalization', 'interview'];
 
-const filteredData = (data: CareerExperience[], experienceCategory: ExperienceCategory): CareerCardProperty[] =>
+const filteredData = (data: CareerExperience[], experienceCategory: ExperienceCategory): CareerCardType[] =>
   data
     .filter(({ category }) => category === experienceCategory)
-    .map(({ id, mentee, role, position, company, overview_content, mentors_overview }) => ({
+    .map(({ id, mentee, role, position, company, category, overview_content, mentors_overview }) => ({
       id,
       name: mentee,
       job: position,
       company,
+      category,
       role,
       description: overview_content,
       mentorsOverview: mentors_overview,
@@ -73,7 +64,6 @@ const CareerSection: FC<{ data: CareerExperience[] }> = ({ data: careerExperienc
                 <CareerCards
                   className={classnames(category !== 'personalization' && styles.greenBackground)}
                   careerCards={data[category]}
-                  category={category}
                   title={categoriesTranslateMap[category]}
                 />
               )}

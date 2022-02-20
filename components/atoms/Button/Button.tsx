@@ -21,6 +21,7 @@ export type Props = {
   theme?: ButtonTheme;
   onClick?: Function;
   icon?: ButtonIcon;
+  position?: 'left' | 'right';
 };
 
 const iconImageMap = {
@@ -33,7 +34,26 @@ const iconHoverImageMap = {
   [ButtonIcon.arrowReverse]: '/images/icons/icon-reverse-half-arrow-right--hover.svg',
 };
 
-const Button: FC<Props> = ({ text, className, theme = ButtonTheme.outline, children, onClick = () => {}, icon }) => {
+const Button: FC<Props> = ({
+  text,
+  className,
+  theme = ButtonTheme.outline,
+  children,
+  onClick = () => {},
+  icon,
+  position = 'right',
+}) => {
+  const Icons = icon && (
+    <>
+      <i className={styles.iconOriginal}>
+        <Image src={iconImageMap[icon]} alt="icon" width="24px" height="24px" />
+      </i>
+      <i className={styles.iconHover}>
+        <Image src={iconHoverImageMap[icon] || iconImageMap[icon]} alt="icon" width="24px" height="24px" />
+      </i>
+    </>
+  );
+
   return (
     <button
       className={classnames(styles.button, styles[theme], className)}
@@ -41,17 +61,13 @@ const Button: FC<Props> = ({ text, className, theme = ButtonTheme.outline, child
         onClick();
       }}
     >
-      {children || text}
-      {icon && (
-        <span className={styles.iconWrapper}>
-          <i className={styles.iconOriginal}>
-            <Image src={iconImageMap[icon]} alt="icon" width="24px" height="24px" />
-          </i>
-          <i className={styles.iconHover}>
-            <Image src={iconHoverImageMap[icon] || iconImageMap[icon]} alt="icon" width="24px" height="24px" />
-          </i>
+      {Icons && position === 'left' && (
+        <span className={styles.iconWrapper} data-position="left">
+          {Icons}
         </span>
       )}
+      {children || text}
+      {Icons && position === 'right' && <span className={styles.iconWrapper}>{Icons}</span>}
     </button>
   );
 };

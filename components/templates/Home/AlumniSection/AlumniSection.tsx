@@ -1,11 +1,12 @@
 import { FC } from 'react';
-import { useMedia } from 'util/hooks/useMedia';
-import Button, { ButtonIcon } from 'components/atoms/Button';
 import { useRouter } from 'next/router';
+
 import Card from 'components/molecules/Card';
 import SectionWrapper from 'components/molecules/SectionWrapper';
+import Swiper, { SwiperSlide } from 'components/organisms/Swiper';
+import Button, { ButtonIcon } from 'components/atoms/Button';
+
 import styles from './AlumniSection.module.scss';
-import { Swiper, SwiperSlide } from '../../../organisms/Swiper';
 
 const data = [
   {
@@ -59,13 +60,7 @@ const data = [
 ];
 
 const AlumniSection: FC = () => {
-  const media = useMedia();
   const router = useRouter();
-  const show = {
-    desktop: 3,
-    tablet: 2,
-    mobile: 1,
-  };
 
   return (
     <div className={styles.alumniContainer}>

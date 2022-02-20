@@ -17,11 +17,11 @@ const Icon: FC<IconProperty> = ({ width = 24, height = 24, link = '', iconSrc, c
   return (
     <div style={{ width, height }} className={classnames(styles.icon, className)}>
       {link ? (
-        <Link href={link}>
-          <Image src={iconSrc} layout="fill" />
+        <Link href={link} passHref>
+          <Image alt="icon" src={iconSrc} layout="fill" />
         </Link>
       ) : (
-        <Image src={iconSrc} layout="fill" />
+        <Image alt="icon" src={iconSrc} layout="fill" />
       )}
     </div>
   );

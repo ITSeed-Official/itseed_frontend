@@ -3,21 +3,8 @@ import { useState, useEffect } from 'react';
 export type Media = 'desktop' | 'mobile' | 'tablet';
 
 export const useMedia = () => {
-  const mobileMedia = window.matchMedia('(max-width: 767px)');
-  const tabletMedia = window.matchMedia('(max-width: 1439px) and (min-width: 768px)');
-  const desktopMedia = window.matchMedia('(min-width: 1440px)');
-
-  let defaultMedia: Media = 'desktop';
-
-  if (mobileMedia.matches) {
-    defaultMedia = 'mobile';
-  }
-
-  if (tabletMedia.matches) {
-    defaultMedia = 'tablet';
-  }
-
-  const [media, setMedia] = useState(defaultMedia);
+  const defaultMedia: Media = 'desktop';
+  const [media, setMedia] = useState<Media>(defaultMedia);
 
   const handleMediaChange = (mediaName: Media) => (mediaHandler: MediaQueryListEventInit) => {
     if (mediaHandler.matches && mediaName !== media) {
@@ -26,6 +13,10 @@ export const useMedia = () => {
   };
 
   useEffect(() => {
+    const mobileMedia = window.matchMedia('(max-width: 767px)');
+    const tabletMedia = window.matchMedia('(max-width: 1439px) and (min-width: 768px)');
+    const desktopMedia = window.matchMedia('(min-width: 1440px)');
+
     const mobileHandler = handleMediaChange('mobile');
     const tabletHandler = handleMediaChange('tablet');
     const desktopHandler = handleMediaChange('desktop');
