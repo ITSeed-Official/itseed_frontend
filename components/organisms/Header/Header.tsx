@@ -75,7 +75,7 @@ const MobileHeader: FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/plan#visitations" passHref>
+                  <Link href="/visitation" passHref>
                     <a className={mStyles.subMenuItem}>企業參訪</a>
                   </Link>
                 </li>
