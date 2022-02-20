@@ -28,7 +28,7 @@ const MobileComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
         />
       </div>
       <div className={styles.image}>
-        <Image alt="mentee" src={'/images/common/pics/alumni.png'} layout="fill" />
+        <Image alt="mentee" src={detail.image_url} layout="fill" />
       </div>
       <SectionWrapper className={styles.menteeSection}>
         <ReactMarkdown>{detail.content}</ReactMarkdown>

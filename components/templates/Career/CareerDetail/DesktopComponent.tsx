@@ -41,7 +41,7 @@ const DesktopComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
           titleClassName={styles.mainTitle}
         >
           <div className={classnames(styles.image, slideLeft && styles.slidein)}>
-            <Image alt="mentee" src={'/images/common/pics/alumni.png'} width={660} height={440} />
+            <Image alt="mentee" src={detail.image_url} width={660} height={440} />
           </div>
           <div className={styles.contentWrapper}>
             <div className={classnames(styles.content, slideRight && styles.slidein)}>
