@@ -1,6 +1,14 @@
 @import "/styles/variables.scss";
 @import "/styles/mixin.scss";
 
+.careerDetailMobile {
+    display: none;
+    
+    @include mobile {
+        display: block;
+    }
+}
+
 .backgroundWrapper {
     background-color: $green-mist;
 }
@@ -16,10 +24,11 @@
 .image {
     position: relative;
     margin-bottom: 60px;
-    height: 440px;
+    height: 215px;
 
-    @include mobile {
-        height: 215px;
+    & img {
+        object-fit: cover;
+        object-position: center;
     }
 }
 
@@ -64,4 +73,9 @@
             margin-right: 24px; 
         }
     }
+}
+
+.careerSwiper {
+    height: 640px;
+    margin-bottom: 60px;
 }
