@@ -1,29 +1,32 @@
 import type { NextPage, GetServerSideProps } from 'next';
-import { getCareerDetail, CareerDetailType } from 'api/careers';
+import { getCareerDetail, CareerDetailType, getCareerList, CareerExperience } from 'api/careers';
 
 import CareerLayout from 'components/templates/Career/CareerLayout';
 import CareerDetail from 'components/templates/Career/CareerDetail';
 
 interface CareerInfoProperty {
-  data: CareerDetailType;
+  detail: CareerDetailType;
+  list: CareerExperience[];
 }
 
-const CareerInfo: NextPage<CareerInfoProperty> = ({ data }) => {
+const CareerInfo: NextPage<CareerInfoProperty> = ({ detail, list }) => {
   return (
     <CareerLayout>
-      <CareerDetail data={data} />
+      <CareerDetail detail={detail} list={list} />
     </CareerLayout>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  let data = {};
+  let detail = {};
   if (context.params && typeof context.params.careerId === 'string') {
-    data = await getCareerDetail(context.params.careerId);
+    detail = await getCareerDetail(context.params.careerId);
   }
 
+  const list = await getCareerList();
+
   return {
-    props: { data },
+    props: { detail, list },
   };
 };
 
