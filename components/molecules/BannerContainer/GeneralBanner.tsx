@@ -1,8 +1,10 @@
 import { FC } from 'react';
 import classnames from 'classnames';
 import Image from 'next/image';
+
 import SectionWrapper from 'components/molecules/SectionWrapper/SectionWrapper';
-import { SectionBigTitle, SubTitle } from 'components/atoms/SectionTitle/SectionTitle';
+import { SubTitle } from 'components/atoms/SectionTitle/SectionTitle';
+
 import styles from './GeneralBanner.module.scss';
 import { BannerType } from './enum';
 
