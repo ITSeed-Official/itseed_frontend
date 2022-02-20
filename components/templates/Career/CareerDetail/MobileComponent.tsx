@@ -4,6 +4,7 @@ import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 
 import { appPath } from 'util/routing.config';
+import { categoriesTranslateMap } from 'util/helper';
 
 import type { CareerDetailProperty } from '../CareerDetail/CareerDetail';
 import CareerCard from '../CareerLists/CareerCards/CareerCard';
@@ -20,7 +21,11 @@ const MobileComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
   return (
     <div className={styles.careerDetailMobile}>
       <div className={styles.backgroundWrapper}>
-        <SectionWrapper title="公司實習" className={styles.titleSection} titleClassName={styles.title} />
+        <SectionWrapper
+          title={categoriesTranslateMap[detail.category]}
+          className={styles.titleSection}
+          titleClassName={styles.title}
+        />
       </div>
       <div className={styles.image}>
         <Image alt="mentee" src={'/images/common/pics/alumni.png'} layout="fill" />
