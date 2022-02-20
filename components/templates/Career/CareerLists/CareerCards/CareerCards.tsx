@@ -12,11 +12,10 @@ import styles from './CareerCards.module.scss';
 interface CareerCardsProperty {
   className: string;
   careerCards: CareerCardType[];
-  category: ExperienceCategory;
   title: string;
 }
 
-const CareerCards: FC<CareerCardsProperty> = ({ className, careerCards, category, title }) => {
+const CareerCards: FC<CareerCardsProperty> = ({ className, careerCards, title }) => {
   const media = useMedia();
 
   const show = {
@@ -30,7 +29,7 @@ const CareerCards: FC<CareerCardsProperty> = ({ className, careerCards, category
       <SectionWrapper className={styles.cardsSection} title={title} titleClassName={styles.title}>
         {chunkArray(careerCards, show[media]).map((cards, index) => (
           <div className={styles.cards} key={index}>
-            {cards.map(({ id, company, job, role, name, description, imgSrc, mentorsOverview }) => (
+            {cards.map(({ id, company, category, job, role, name, description, imgSrc, mentorsOverview }) => (
               <CareerCard
                 key={id}
                 id={id}

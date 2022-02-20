@@ -7,18 +7,18 @@ import { ExperienceCategory } from 'api/careers';
 import Card from 'components/molecules/Card';
 
 export type CareerCardType = {
-  id: number;
+  id: string;
   job: string;
   role: string;
   name: string;
   description: string;
   mentorsOverview: string;
   company: string | null;
+  category: ExperienceCategory;
   imgSrc?: string;
 };
 
 interface CareerCardProperty extends CareerCardType {
-  category: ExperienceCategory;
   wrapperClassName: string;
   onClick?: () => {};
 }
@@ -39,10 +39,12 @@ const CareerCard: FC<CareerCardProperty> = ({
   wrapperClassName,
 }) => {
   const router = useRouter();
+  console.log('name', name, 'category', category);
 
   return (
     <Card
       wrapperClassName={wrapperClassName}
+      cardInfoClassName={styles.cardInfo}
       name={name}
       character={role}
       content={description}

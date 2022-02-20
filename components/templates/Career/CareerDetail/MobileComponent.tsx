@@ -52,22 +52,24 @@ const MobileComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
         </SectionWrapper>
       )}
       <SectionWrapper title="看看其他人的心得分享">
-        <Swiper className={styles.careerSwiper}>
-          {list.map(({ id, company, position, role, mentee, overview_content, mentors_overview, category }) => (
-            <SwiperSlide key={id}>
-              <CareerCard
-                id={id}
-                wrapperClassName={styles.card}
-                company={company}
-                job={position}
-                role={role}
-                name={mentee}
-                description={overview_content}
-                mentorsOverview={mentors_overview}
-                category={category}
-              />
-            </SwiperSlide>
-          ))}
+        <Swiper className={styles.careerSwiper} loop={false}>
+          {list
+            .filter((experience) => experience.id !== detail.id)
+            .map(({ id, company, position, role, mentee, overview_content, mentors_overview, category }) => (
+              <SwiperSlide key={id}>
+                <CareerCard
+                  id={id}
+                  wrapperClassName={styles.card}
+                  company={company}
+                  job={position}
+                  role={role}
+                  name={mentee}
+                  description={overview_content}
+                  mentorsOverview={mentors_overview}
+                  category={category}
+                />
+              </SwiperSlide>
+            ))}
         </Swiper>
         <Button text="回職涯體驗" onClick={() => router.push(appPath.career)} icon={ButtonIcon.arrow} position="left" />
       </SectionWrapper>
