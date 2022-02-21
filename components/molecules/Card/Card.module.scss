@@ -15,11 +15,6 @@
       margin-right: 12px;
     }
   }
-
-  @include mobile {
-    width: 100%;
-    max-width: 420px;
-  }
 }
 
 .cardInfo {
