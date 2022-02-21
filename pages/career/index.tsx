@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 
 import { getCareerList, CareerExperience } from 'api/careers';
 import { getSeos } from 'api/seos';
@@ -17,7 +17,7 @@ const Career: NextPage<CareerProperty> = ({ data }) => (
   </CareerLayout>
 );
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const [meta, data] = await Promise.all([getSeos('career'), getCareerList()]);
 
   return {
@@ -25,6 +25,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       meta,
       data,
     },
+    revalidate: 1,
   };
 };
 
