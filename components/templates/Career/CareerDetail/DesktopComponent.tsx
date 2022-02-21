@@ -41,7 +41,7 @@ const DesktopComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
           titleClassName={styles.mainTitle}
         >
           <div className={classnames(styles.image, slideLeft && styles.slidein)}>
-            <Image alt="mentee" src={detail.image_url} width={660} height={440} />
+            <Image alt="mentee" src={detail.image_url} layout="fill" />
           </div>
           <div className={styles.contentWrapper}>
             <div className={classnames(styles.content, slideRight && styles.slidein)}>
@@ -104,7 +104,7 @@ const DesktopComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
         <Swiper className={styles.careerSwiper} loop={false}>
           {list
             .filter((experience) => experience.id !== detail.id)
-            .map(({ id, company, position, role, mentee, overview_content, mentors_overview, category }) => (
+            .map(({ id, company, position, role, mentee, overview_content, mentors_overview, category, image_url }) => (
               <SwiperSlide key={id}>
                 <CareerCard
                   id={id}
@@ -116,6 +116,7 @@ const DesktopComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
                   description={overview_content}
                   mentorsOverview={mentors_overview}
                   category={category}
+                  imgSrc={image_url}
                 />
               </SwiperSlide>
             ))}

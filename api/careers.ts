@@ -7,6 +7,7 @@ export interface CareerExperience {
   mentee: string;
   role: string;
   position: string;
+  image_url: string;
   company: string | null;
   content: string;
   category: ExperienceCategory;
