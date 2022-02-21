@@ -10,10 +10,15 @@
   width: 100%;
   backdrop-filter: blur(16px);
   background-color: rgba(241, 242, 244, 0.8);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.08);
 
   @include tablet {
     display: none;
   }
+}
+
+.isSubNavStuck {
+  box-shadow: none;
 }
 
 .headerContent {

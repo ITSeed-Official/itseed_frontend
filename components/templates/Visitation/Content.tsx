@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import ContentRender from '../../molecules/ContentRender';
 import { Visitation } from '../../../api/visitations';
 import TabNav from '../../molecules/TabNav';
 import SectionWrapper from '../../molecules/SectionWrapper';
 import styles from './Content.module.scss';
+import { LayoutContext } from '../../../contexts/LayoutContext';
 
 interface VisitationMap {
   [name: string]: Visitation;
@@ -14,6 +15,8 @@ interface ContentProps {
 }
 
 const Content = ({ visitations }: ContentProps) => {
+  const layoutContext = useContext(LayoutContext);
+  const elRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState('');
   const tabs = visitations.map((visitation) => ({
     text: visitation.name,
@@ -50,10 +53,19 @@ const Content = ({ visitations }: ContentProps) => {
   if (activeTab === '') {
     return null;
   }
-
   return (
-    <div className={styles.Content}>
-      <TabNav tabs={tabs} activeTab={activeTab} onTabClick={setActiveTab} />
+    <div ref={elRef} className={styles.Content}>
+      <TabNav
+        tabs={tabs}
+        activeTab={activeTab}
+        onTabClick={(tab: string) => {
+          setActiveTab(tab);
+          const headerHeight = window.document.querySelector('main')?.offsetTop || 0;
+          const contentOffsetTop = elRef.current?.offsetTop || 0;
+          window.scroll(0, contentOffsetTop - headerHeight);
+        }}
+        onStickyChange={layoutContext.setIsSubNavStuck}
+      />
       <SectionWrapper>
         <ContentRender content={markdownContent} />
       </SectionWrapper>

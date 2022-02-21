@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect, useContext } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 import Button, { ButtonIcon } from 'components/atoms/Button';
@@ -9,9 +9,11 @@ import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { LayoutContext } from '../../../contexts/LayoutContext';
 
 const MobileHeader: FC = () => {
   const router = useRouter();
+  const { isSubNavStuck } = useContext(LayoutContext);
   const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
 
   useEffect(() => {
@@ -30,7 +32,7 @@ const MobileHeader: FC = () => {
         [mStyles.isMenuOpened]: isMenuOpened,
       })}
     >
-      <nav className={mStyles.headerNav}>
+      <nav className={classNames([mStyles.headerNav, { [mStyles.isSubNavStuck]: isSubNavStuck }])}>
         <div className={mStyles.headerNavContent}>
           <Link href="/" passHref>
             <Image
@@ -164,8 +166,9 @@ const MobileHeader: FC = () => {
 
 const DesktopHeader: FC = () => {
   const router = useRouter();
+  const { isSubNavStuck } = useContext(LayoutContext);
   return (
-    <header className={dStyles.header}>
+    <header className={classNames([dStyles.header, { [dStyles.isSubNavStuck]: isSubNavStuck }])}>
       <SectionWrapper className={dStyles.headerContent}>
         <Link href="/" passHref>
           <Image

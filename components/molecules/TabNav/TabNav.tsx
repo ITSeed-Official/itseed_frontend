@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import styles from './TabNav.module.scss';
 import classnames from 'classnames';
 
@@ -30,15 +31,39 @@ interface TabNavProps {
   tabs: Tab[];
   activeTab: number | string;
   onTabClick: Function;
+  onStickyChange?: Function;
 }
 
-export const TabNav = ({ tabs, activeTab, onTabClick }: TabNavProps) => {
+export const TabNav = ({ tabs, activeTab, onTabClick, onStickyChange }: TabNavProps) => {
+  const elRef = useRef<HTMLDivElement>(null);
+  const [isStuck, setIsStuck] = useState(false);
+
+  useEffect(() => {
+    const cb = () => {
+      if (elRef.current) {
+        const headerHeight = window.document.querySelector('main')?.offsetTop || 0;
+        const rootOffsetTop = elRef.current?.offsetTop || 0;
+        console.log(window.scrollY, rootOffsetTop, headerHeight);
+        const isStuck = window.scrollY > rootOffsetTop - headerHeight;
+        setIsStuck(isStuck);
+        onStickyChange && onStickyChange(isStuck);
+      }
+    };
+    window.addEventListener('scroll', cb);
+    return () => window.removeEventListener('scroll', cb);
+  }, [onStickyChange]);
+
   return (
-    <div className={styles.nav}>
-      {tabs.map((tab) => (
-        <Tab key={tab.text} {...tab} isActive={tab.text === activeTab} onClick={onTabClick} />
-      ))}
-    </div>
+    <>
+      <div ref={elRef}></div>
+      <div className={classnames([styles.nav, styles.sticky, { [styles.stuck]: isStuck }])}>
+        <div className={styles.navContent}>
+          {tabs.map((tab) => (
+            <Tab key={tab.text} {...tab} isActive={tab.text === activeTab} onClick={onTabClick} />
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 
