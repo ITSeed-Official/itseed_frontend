@@ -22,6 +22,10 @@
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.08);
 }
 
+.isSubNavStuck {
+  box-shadow: none;
+}
+
 .headerNavContent {
   width: 100%;
   height: 100%;
@@ -183,7 +187,7 @@ $button-line-spacing: 6px;
     .unexpandedSubMenuIcon {
       display: none;
     }
-  
+
     .expandedSubMenuIcon {
       display: inline-block
     }
