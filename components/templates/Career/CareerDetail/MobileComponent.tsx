@@ -60,7 +60,7 @@ const MobileComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
         <Swiper className={styles.careerSwiper} loop={false}>
           {list
             .filter((experience) => experience.id !== detail.id)
-            .map(({ id, company, position, role, mentee, overview_content, mentors_overview, category }) => (
+            .map(({ id, company, position, role, mentee, overview_content, mentors_overview, category, image_url }) => (
               <SwiperSlide key={id}>
                 <CareerCard
                   id={id}
@@ -72,6 +72,7 @@ const MobileComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
                   description={overview_content}
                   mentorsOverview={mentors_overview}
                   category={category}
+                  imgSrc={image_url}
                 />
               </SwiperSlide>
             ))}

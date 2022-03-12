@@ -39,7 +39,6 @@ const CareerCard: FC<CareerCardProperty> = ({
   wrapperClassName,
 }) => {
   const router = useRouter();
-  console.log('name', name, 'category', category);
 
   return (
     <Card
@@ -57,6 +56,7 @@ const CareerCard: FC<CareerCardProperty> = ({
             {company && <p className={styles.cardTitle}>{company}</p>}
             <p className={styles.cardSubTitle}>{job}</p>
           </div>
+          <p className={styles.mentorsOverview}>{`Mentor: ${mentorsOverview}`}</p>
         </div>
       )}
       {category === 'interview' && (

@@ -40,8 +40,16 @@
 .image {
     @include slideEndPoint(0, -50%);
 
+    width: 660px;
+    height: 440px;
+
     & > span {
         overflow: initial !important;
+    }
+
+    & img {
+        object-fit: cover;
+        object-position: center;
     }
 
     @include large-tablet {

@@ -12,26 +12,22 @@
 }
 
 .cards {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(362px, 1fr));
+    justify-items: center;
+    grid-gap: 30px;
 
-    &:not(:last-child) {
-        margin-bottom: 30px;
+    @include tablet {
+        grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
     }
 
     @include mobile {
-        justify-content: center;
+        grid-template-columns: 100%;
     }
 }
 
 .card {
-    width: 30%;
-    min-width: 360px;
-
-    @include mobile {
-        min-width: 100%;
-    }
+    width: 100%;
 }
 
 .jobInfo {
