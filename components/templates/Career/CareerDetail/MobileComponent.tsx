@@ -10,10 +10,10 @@ import type { CareerDetailProperty } from '../CareerDetail/CareerDetail';
 import CareerCard from '../CareerLists/CareerCards/CareerCard';
 import Swiper, { SwiperSlide } from 'components/organisms/Swiper';
 import SectionWrapper from 'components/molecules/SectionWrapper';
-import Icon from 'components/atoms/Icon';
 import Button, { ButtonIcon } from 'components/atoms/Button';
 
 import styles from './CareerDetail.mobile.module.scss';
+import MentorInformation from 'components/atoms/MentorInformation';
 
 const MobileComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
   const router = useRouter();
@@ -35,24 +35,8 @@ const MobileComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
       </SectionWrapper>
       {detail.mentors && (
         <SectionWrapper className={styles.mentorsSection}>
-          {detail.mentors.map(({ id, name, image_url, description, facebook_link, linkedin_url, email_address }) => (
-            <div key={id} className={styles.mentor}>
-              <div className={styles.mentorInfo}>
-                <Icon iconSrc={'/images/common/icons/icon-headshot.svg'} width={60} height={60} />
-                <div className={styles.mentorName}>
-                  <p>Mentor</p>
-                  <p>{name}</p>
-                </div>
-              </div>
-              <ReactMarkdown className={styles.mentorDescription}>{description}</ReactMarkdown>
-              <div className={styles.mentorLinks}>
-                {facebook_link && (
-                  <Icon link={facebook_link} iconSrc="/images/common/icons/icon-facebook-deepgreen.svg" />
-                )}
-                {linkedin_url && <Icon link={linkedin_url} iconSrc="/images/common/icons/icon-medium-deepgreen.svg" />}
-                {email_address && <Icon link={email_address} iconSrc="/images/common/icons/icon-mail-deepgreen.svg" />}
-              </div>
-            </div>
+          {detail.mentors.map((mentor, index) => (
+            <MentorInformation key={index} MentorDetail={mentor} />
           ))}
         </SectionWrapper>
       )}

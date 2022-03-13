@@ -1,0 +1,78 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.mentor {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    padding: 20px 32px 20px 32px;
+    background-color: white;
+    color: $gray;
+    font-size: 16px;
+
+    &:not(:last-child){
+        margin-bottom: 24px;
+    }
+
+    @include mobile {
+        height: auto;
+        display: block;
+        font-size: 14px;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.mentorInfo {
+    display: flex;
+    margin-right: 40px;
+    @include mobile {
+        margin-bottom: 24px;
+    }
+}
+
+.mentorName {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+
+    & > p {
+        margin: 0;
+    }
+}
+
+.mentorDescription {
+    width: 704px;
+    margin-right: 40px;
+    @include mobile {
+        width: auto;
+        margin-bottom: 24px;
+    }
+}
+
+.mentorLinks {
+    display: flex;
+    justify-content: flex-end;
+    width: 120px;
+
+    @include mobile {
+        width: auto;
+        justify-content: flex-start;
+
+        & > div {
+            &:not(:last-child) {
+                margin-right: 24px; 
+            }
+        }
+    }
+}
+
+.icon {
+    &:not(:last-child) {
+        margin-right: 24px; 
+    }
+    
+    & img:hover {
+        transform: scale(1.1);
+    }
+}
