@@ -43,7 +43,6 @@ export const TabNav = ({ tabs, activeTab, onTabClick, onStickyChange }: TabNavPr
       if (elRef.current) {
         const headerHeight = window.document.querySelector('main')?.offsetTop || 0;
         const rootOffsetTop = elRef.current?.offsetTop || 0;
-        console.log(window.scrollY, rootOffsetTop, headerHeight);
         const isStuck = window.scrollY > rootOffsetTop - headerHeight;
         setIsStuck(isStuck);
         onStickyChange && onStickyChange(isStuck);
