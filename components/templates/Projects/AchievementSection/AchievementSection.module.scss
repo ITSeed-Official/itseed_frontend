@@ -1,0 +1,17 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.sectionBackground {
+    background-color: $color-neutral-900;
+}
+
+.block {
+    margin-bottom: 40px;
+    > p {
+        font-size: 16px;
+    }
+}
+
+.icon {
+    padding: 1px;
+}
