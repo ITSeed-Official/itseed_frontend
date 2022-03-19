@@ -8,40 +8,49 @@ import { ProjectName } from './enums';
 import CareerEvents from './CareerEvents/CareerEvents';
 import TabNav from 'components/molecules/TabNav';
 import { useRef, useContext, useState, useEffect } from 'react';
+import { NextRouter } from 'next/router';
 import { LayoutContext } from '../../../contexts/LayoutContext';
 import DataProjectSection from './DataProjectSection';
 import { appPath } from 'util/routing.config';
 
 const ProjectList: string[] = Object.values(ProjectName);
 
-const Projects: NextPage = () => {
+const getInitialedActiveTab = (router: NextRouter): ProjectName => {
+  let initialedActiveTab: ProjectName = ProjectName.tuv;
+  const asPath = router.asPath;
+  if (asPath.includes('#')) {
+    const activeTabFromHash = decodeURIComponent(asPath.split('#')[1]);
+    if (ProjectList.includes(activeTabFromHash)) {
+      initialedActiveTab = activeTabFromHash as ProjectName;
+    }
+  }
+  return initialedActiveTab;
+};
+const Projects: NextPage<{ router: NextRouter }> = ({ router }) => {
   const tabs = Object.values(ProjectName).map((project) => ({
     text: project,
   }));
   const elRef = useRef<HTMLDivElement>(null);
   const layoutContext = useContext(LayoutContext);
-  const [activeTab, setActiveTab] = useState('');
-  const [project, setProject] = useState(ProjectName.tuv);
+  // Todo: server side render
+  const [project, setProject] = useState<ProjectName>('' as ProjectName);
 
   useEffect(() => {
-    let activeTabFromTab = decodeURIComponent(window.location.hash.replace('#', ''));
-    if (!ProjectList.includes(activeTabFromTab)) {
-      activeTabFromTab = ProjectName.tuv;
-      window.location.hash = ProjectName.tuv;
-    }
-    setActiveTab(project);
+    const initialedActiveTab = getInitialedActiveTab(router);
+    setProject(initialedActiveTab);
+  }, [router]);
+
+  useEffect(() => {
+    window.location.hash = project;
   }, [project]);
 
-  useEffect(() => {
-    window.location.hash = activeTab as ProjectName;
-  }, [activeTab]);
-
   const changeTab = (tab: ProjectName) => {
-    setProject(tab);
-    setActiveTab(tab);
-    const headerHeight = window.document.querySelector('main')?.offsetTop || 0;
-    const contentOffsetTop = elRef.current?.offsetTop || 0;
-    window.scroll(0, contentOffsetTop - headerHeight);
+    if (elRef && elRef.current) {
+      setProject(tab);
+      const headerHeight = window.document.querySelector('main')?.offsetTop || 0;
+      const contentOffsetTop = elRef.current.offsetTop || 0;
+      window.scroll(0, contentOffsetTop - headerHeight);
+    }
   };
 
   return (
@@ -105,6 +114,8 @@ const Projects: NextPage = () => {
                   <NextSection title="企業參訪" path={appPath.visitation} />
                 </>
               );
+            default:
+              return null;
           }
         })()}
       </div>

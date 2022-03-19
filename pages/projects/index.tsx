@@ -2,7 +2,7 @@ import Projects from 'components/templates/Projects';
 import PageMeta from 'components/atoms/PageMeta';
 import { getSeos } from 'api/seos';
 import { GetServerSideProps } from 'next';
-
+import { withRouter } from 'next/router';
 export const getServerSideProps: GetServerSideProps = async () => {
   const [meta] = await Promise.all([getSeos('projects')]);
 
@@ -13,4 +13,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default PageMeta(Projects);
+export default withRouter(PageMeta(Projects));
