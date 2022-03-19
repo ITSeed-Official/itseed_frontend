@@ -20,14 +20,14 @@ const features = [
     title: '專業課程',
     imgSrc: '/images/homepage/icons/class.svg',
     // hoverImgSrc: "/images/homepage/icons/class.svg",
-    link: '/plan#classes',
+    link: appPath.class,
     content: ['擺脫學校框架', '職場軟實力培養', '突破視野侷限'],
   },
   {
     title: '校友資源',
     imgSrc: '/images/homepage/icons/resource.svg',
     // hoverImgSrc: "/images/homepage/icons/resource.svg",
-    link: '/sharing',
+    link: appPath.sharing,
     content: ['不藏私回饋', '跨代交流分享', '各界人脈建立'],
   },
   {
@@ -42,6 +42,10 @@ const features = [
 const Desktop = ({ router, displayFeatureCard }: IProps) => (
   <SectionWrapper className={classNames([styles.introSection, styles.desktopOnly])}>
     <div className={styles.intro}>
+      <div className={styles.introImageWrapper}>
+        <Image src="/images/homepage/pics/intro.png" alt="intro" layout="fill" />
+      </div>
+      <div className={styles.dummySpacing} />
       <div className={styles.introContent}>
         <h2 className={styles.introTitle}>計畫介紹</h2>
         <p className={styles.introDescription}>
@@ -55,10 +59,6 @@ const Desktop = ({ router, displayFeatureCard }: IProps) => (
           }}
           icon={ButtonIcon.arrow}
         />
-      </div>
-      <div className={styles.dummySpacing} />
-      <div className={styles.introImageWrapper}>
-        <Image src="/images/homepage/pics/intro.png" alt="intro" layout="fill" />
       </div>
     </div>
     <div className={styles.features}>

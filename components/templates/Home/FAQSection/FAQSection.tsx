@@ -43,20 +43,22 @@ const FAQSection = ({ limit }: Props) => {
         <div className={styles.ctaBg}>
           <span className={styles.ctaBgText}>ITSEED</span>
         </div>
-        <h3 className={styles.ctaTitle}>
-          迎接更多的挑戰
-          <br />
-          現在決定你的未來
-        </h3>
-        <Button
-          theme={ButtonTheme.outlineReverse}
-          icon={ButtonIcon.arrowReverse}
-          onClick={() => {
-            router.push('joinus');
-          }}
-        >
-          立即報名
-        </Button>
+        <div className={styles.ctaContent}>
+          <h3 className={styles.ctaTitle}>
+            迎接更多的挑戰
+            <br />
+            現在決定你的未來
+          </h3>
+          <Button
+            theme={ButtonTheme.outlineReverse}
+            icon={ButtonIcon.arrowReverse}
+            onClick={() => {
+              router.push('joinus');
+            }}
+          >
+            立即報名
+          </Button>
+        </div>
       </div>
     </SectionWrapper>
   );
