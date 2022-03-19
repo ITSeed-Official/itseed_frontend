@@ -4,54 +4,40 @@ import type { NextPage } from 'next';
 import AchievementSection from './AchievementSection';
 import GoalSection from './GoalSection';
 import { Goals } from './GoalSection/goals';
-import { Project, ProjectName } from './enums';
+import { ProjectName } from './enums';
 import CareerEvents from './CareerEvents/CareerEvents';
 import TabNav from 'components/molecules/TabNav';
 import { useRef, useContext, useState, useEffect } from 'react';
 import { LayoutContext } from '../../../contexts/LayoutContext';
 import DataProjectSection from './DataProjectSection';
 
-const ProjectNameMapping: { [value in Project]: ProjectName } = {
-  [Project.tuv]: ProjectName.tuv,
-  [Project.career]: ProjectName.career,
-  [Project.recruit]: ProjectName.recruit,
-  [Project.data]: ProjectName.data,
-};
-
-const ProjectMapping: { [value in ProjectName]: Project } = {
-  [ProjectName.tuv]: Project.tuv,
-  [ProjectName.career]: Project.career,
-  [ProjectName.recruit]: Project.recruit,
-  [ProjectName.data]: Project.data,
-};
-
-const ProjectList: string[] = Object.values(Project);
+const ProjectList: string[] = Object.values(ProjectName);
 
 const Projects: NextPage = () => {
-  const tabs = Object.values(Project).map((project) => ({
-    text: ProjectNameMapping[project],
+  const tabs = Object.values(ProjectName).map((project) => ({
+    text: project,
   }));
   const elRef = useRef<HTMLDivElement>(null);
   const layoutContext = useContext(LayoutContext);
   const [activeTab, setActiveTab] = useState('');
-  const [project, setProject] = useState(Project.tuv);
+  const [project, setProject] = useState(ProjectName.tuv);
 
   useEffect(() => {
     let activeTabFromTab = decodeURIComponent(window.location.hash.replace('#', ''));
     if (!ProjectList.includes(activeTabFromTab)) {
-      activeTabFromTab = Project.tuv;
-      window.location.hash = Project.tuv;
+      activeTabFromTab = ProjectName.tuv;
+      window.location.hash = ProjectName.tuv;
     }
-    setActiveTab(ProjectNameMapping[project]);
+    setActiveTab(project);
   }, [project]);
 
   useEffect(() => {
-    window.location.hash = ProjectMapping[activeTab as ProjectName];
+    window.location.hash = activeTab as ProjectName;
   }, [activeTab]);
 
   const changeTab = (tab: ProjectName) => {
-    setProject(ProjectMapping[tab]);
-    setActiveTab(ProjectMapping[tab]);
+    setProject(tab);
+    setActiveTab(tab);
     const headerHeight = window.document.querySelector('main')?.offsetTop || 0;
     const contentOffsetTop = elRef.current?.offsetTop || 0;
     window.scroll(0, contentOffsetTop - headerHeight);
@@ -69,13 +55,13 @@ const Projects: NextPage = () => {
       <div ref={elRef}>
         <TabNav
           tabs={tabs}
-          activeTab={ProjectNameMapping[project]}
+          activeTab={project}
           onTabClick={changeTab}
           onStickyChange={layoutContext.setIsSubNavStuck}
         />
         {(() => {
           switch (project) {
-            case Project.tuv:
+            case ProjectName.tuv:
               return (
                 <>
                   <GoalSection projectDescription={Goals[project].projectDescription} />
@@ -83,7 +69,7 @@ const Projects: NextPage = () => {
                   <NextSection title="職涯專案" path="/projects#career" onClick={() => changeTab(ProjectName.career)} />
                 </>
               );
-            case Project.career:
+            case ProjectName.career:
               return (
                 <>
                   <GoalSection
@@ -99,7 +85,7 @@ const Projects: NextPage = () => {
                   />
                 </>
               );
-            case Project.recruit:
+            case ProjectName.recruit:
               return (
                 <>
                   <GoalSection
@@ -111,7 +97,7 @@ const Projects: NextPage = () => {
                   <NextSection title="數據專案" path="/projects#data" onClick={() => changeTab(ProjectName.data)} />
                 </>
               );
-            case Project.data:
+            case ProjectName.data:
               return (
                 <>
                   <DataProjectSection />
