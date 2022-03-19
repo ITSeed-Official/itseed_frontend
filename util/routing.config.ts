@@ -6,4 +6,6 @@ export enum appPath {
   sharing = '/sharing',
   about = '/about',
   faq = '/faq',
+  projects = '/projects',
+  visitation = '/visitation',
 }

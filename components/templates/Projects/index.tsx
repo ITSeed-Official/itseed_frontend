@@ -10,6 +10,7 @@ import TabNav from 'components/molecules/TabNav';
 import { useRef, useContext, useState, useEffect } from 'react';
 import { LayoutContext } from '../../../contexts/LayoutContext';
 import DataProjectSection from './DataProjectSection';
+import { appPath } from 'util/routing.config';
 
 const ProjectList: string[] = Object.values(ProjectName);
 
@@ -66,7 +67,7 @@ const Projects: NextPage = () => {
                 <>
                   <GoalSection projectDescription={Goals[project].projectDescription} />
                   <AchievementSection />
-                  <NextSection title="職涯專案" path="/projects#career" onClick={() => changeTab(ProjectName.career)} />
+                  <NextSection title="職涯專案" path={appPath.projects} onClick={() => changeTab(ProjectName.career)} />
                 </>
               );
             case ProjectName.career:
@@ -80,7 +81,7 @@ const Projects: NextPage = () => {
                   <CareerEvents />
                   <NextSection
                     title="招生專案"
-                    path="/projects#recruit"
+                    path={appPath.projects}
                     onClick={() => changeTab(ProjectName.recruit)}
                   />
                 </>
@@ -94,14 +95,14 @@ const Projects: NextPage = () => {
                     content={Goals[project].content}
                     imagePath={Goals[project].imagePath}
                   />
-                  <NextSection title="數據專案" path="/projects#data" onClick={() => changeTab(ProjectName.data)} />
+                  <NextSection title="數據專案" path={appPath.projects} onClick={() => changeTab(ProjectName.data)} />
                 </>
               );
             case ProjectName.data:
               return (
                 <>
                   <DataProjectSection />
-                  <NextSection title="企業參訪" path="/visitation" />
+                  <NextSection title="企業參訪" path={appPath.visitation} />
                 </>
               );
           }
