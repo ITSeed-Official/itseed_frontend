@@ -2,11 +2,11 @@
 @import "/styles/mixin.scss";
 
 .section {
-  padding-top: 0;
+  padding-top: 100px;
 
   @include mobile {
-    padding-top: 60px;
-    padding-bottom: 80px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 
@@ -17,37 +17,43 @@
 
   @include mobile {
     font-size: 24px;
-    margin-bottom: 48px;
+    margin-bottom: 24px;
     color: $green-deep;
   }
 }
 
 .button {
   margin-top: 40px;
-
-  @include mobile {
-    margin-top: 48px;
-  }
 }
 
 .cta {
+  overflow: hidden;
   position: relative;
+  background-color: $green-tree;
+  width: 100%;
+  height: 160px;
+  margin-top: 48px;
+  padding: 0 92px 0 96px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+
+  @include mobile {
+    padding: 32px;
+    height: auto;
+  }
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 10;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  width: 100%;
-  height: 160px;
-  background-color: $green-tree;
-
-  margin-top: 100px;
-  padding: 0 92px 0 96px;
-  border-radius: 8px;
-
   @include mobile {
     flex-direction: column;
-    padding: 32px;
-    height: auto;
     font-size: 24px;
     line-height: 32px;
     justify-content: flex-start;
@@ -57,6 +63,7 @@
 
 .ctaBg {
   position: absolute;
+  z-index: 0;
   left: 27%;
   top: 50%;
   transform: translateY(-50%);

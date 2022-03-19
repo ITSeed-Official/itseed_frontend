@@ -11,7 +11,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { LayoutContext } from '../../../contexts/LayoutContext';
 import { appPath } from 'util/routing.config';
-import app from 'next/app';
 
 const MobileHeader: FC = () => {
   const router = useRouter();
@@ -183,9 +182,7 @@ const DesktopHeader: FC = () => {
         </Link>
         <ul className={dStyles.navList}>
           <li className={dStyles.navItem}>
-            <span>
-              <Link href="/plan">計畫內容</Link>
-            </span>
+            <Link href="/plan">計畫內容</Link>
             <div className={dStyles.subNavList}>
               <ul className={dStyles.subNavListContent}>
                 <li className={dStyles.subNavListItem}>
@@ -204,9 +201,7 @@ const DesktopHeader: FC = () => {
             <Link href="/admission">招生資訊</Link>
           </li>
           <li className={dStyles.navItem}>
-            <span>
-              <Link href="/career">職涯體驗</Link>
-            </span>
+            <Link href="/career">職涯體驗</Link>
             <div className={dStyles.subNavList}>
               <ul className={dStyles.subNavListContent}>
                 <li className={dStyles.subNavListItem}>

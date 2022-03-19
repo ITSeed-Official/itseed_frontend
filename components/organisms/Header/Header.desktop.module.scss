@@ -53,6 +53,8 @@
 
   & a {
     font-size: 15px;
+    line-height: 26px;
+    letter-spacing: 2%;
 
     @include tablet {
       font-size: 14px;

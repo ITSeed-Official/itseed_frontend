@@ -1,6 +1,6 @@
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import styles from './FAQSection.module.scss';
-import { useFAQs, FAQ } from 'util/hooks/swr/useFAQs';
+import { FAQ } from 'util/hooks/swr/useFAQs';
 import FAQBox from 'components/templates/Home/FAQSection/FAQBox';
 
 interface Props {

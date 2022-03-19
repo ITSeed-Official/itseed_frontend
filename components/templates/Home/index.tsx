@@ -1,14 +1,17 @@
 import type { NextPage } from 'next';
 
+import { withRouter, NextRouter } from 'next/router';
+import { appPath } from 'util/routing.config';
 import { ButtonIcon } from 'components/atoms/Button';
 import BannerContainer, { BannerType } from 'components/molecules/BannerContainer';
 import SummarySection from 'components/templates/Home/SummarySection';
 import IntroSection from 'components/templates/Home/IntroSection';
 import AlumniSection from 'components/templates/Home/AlumniSection';
-// import TimelineSection from "components/templates/Home/TimelineSection";
+import TimelineSection from 'components/templates/Home/TimelineSection';
 import FAQSection from 'components/templates/Home/FAQSection';
+import NextSection, { Type as NextSectionType } from 'components/atoms/NextSection';
 
-const Home: NextPage = () => (
+const Home: NextPage<{ router: NextRouter }> = ({ router }) => (
   <>
     <BannerContainer
       type={BannerType.slash}
@@ -24,13 +27,15 @@ const Home: NextPage = () => (
       description="報名時間 2022.6.1 - 7.11"
       ctaText="立即報名"
       ctaIcon={ButtonIcon.arrow}
-      ctaOnClick={() => console.log('click')}
+      ctaOnClick={() => router.push('/joinus')}
     />
     <SummarySection />
     <IntroSection />
     <AlumniSection />
+    <TimelineSection />
     <FAQSection limit={3} />
+    <NextSection title="計畫內容" path={appPath.plan} type={NextSectionType.green} />
   </>
 );
 
-export default Home;
+export default withRouter(Home);

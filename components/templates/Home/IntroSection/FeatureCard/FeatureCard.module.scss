@@ -11,6 +11,13 @@
   .iconWrapper {
     width: 60px;
     height: 60px;
+    transition: 0.3s
+  }
+
+  &:hover {
+    .iconWrapper {
+      transform: scale(1.16);
+    }
   }
 
   // &:hover {
@@ -30,11 +37,11 @@
   @include imageWrapper(100%);
 
   @include tablet {
-    width: calc((100% - 30px) / 2);
+    width: calc((100% - 24px) / 2);
 
     &:nth-child(1),
     &:nth-child(2) {
-      margin-bottom: 30px;
+      margin-bottom: 24px;
     }
   }
 

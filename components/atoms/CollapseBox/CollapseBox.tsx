@@ -21,13 +21,15 @@ const CollapseBox: FC<CollapseBoxProperty> = ({ className, title, children }) =>
         onClick={() => setOpen((isOpen) => !isOpen)}
       >
         <span className={styles.title}>{title}</span>
-        <Image
-          className={classnames(styles.arrow, isOpen && styles.arrowReverse)}
-          alt="arrow"
-          src={arrow}
-          width={36}
-          height={36}
-        />
+        <div className={styles.arrowWrapper}>
+          <Image
+            className={classnames(styles.arrow, isOpen && styles.arrowReverse)}
+            alt="arrow"
+            src={arrow}
+            width="36px"
+            height="36px"
+          />
+        </div>
       </div>
       {isOpen && <div className={styles.content}>{children}</div>}
     </div>

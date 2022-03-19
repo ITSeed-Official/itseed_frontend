@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';
+import { withRouter, NextRouter } from 'next/router';
 import Button, { ButtonIcon } from 'components/atoms/Button';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import FeatureCard from './FeatureCard';
@@ -19,14 +20,14 @@ const features = [
     title: '專業課程',
     imgSrc: '/images/homepage/icons/class.svg',
     // hoverImgSrc: "/images/homepage/icons/class.svg",
-    link: '/plan#classes',
+    link: appPath.class,
     content: ['擺脫學校框架', '職場軟實力培養', '突破視野侷限'],
   },
   {
     title: '校友資源',
     imgSrc: '/images/homepage/icons/resource.svg',
     // hoverImgSrc: "/images/homepage/icons/resource.svg",
-    link: '/sharing',
+    link: appPath.sharing,
     content: ['不藏私回饋', '跨代交流分享', '各界人脈建立'],
   },
   {
@@ -38,20 +39,26 @@ const features = [
   },
 ];
 
-const Desktop = ({ displayFeatureCard }: IProps) => (
+const Desktop = ({ router, displayFeatureCard }: IProps) => (
   <SectionWrapper className={classNames([styles.introSection, styles.desktopOnly])}>
     <div className={styles.intro}>
+      <div className={styles.introImageWrapper}>
+        <Image src="/images/homepage/pics/intro.png" alt="intro" layout="fill" />
+      </div>
+      <div className={styles.dummySpacing} />
       <div className={styles.introContent}>
         <h2 className={styles.introTitle}>計畫介紹</h2>
         <p className={styles.introDescription}>
           資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。透過執行 4 大專案，參與 10+
           堂來自業界講師的課程，了解業界生態，並探索自己未來的職涯方向，培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。
         </p>
-        <Button text="瞭解更多" icon={ButtonIcon.arrow} />
-      </div>
-      <div className={styles.dummySpacing} />
-      <div className={styles.introImageWrapper}>
-        <Image src="/images/homepage/pics/intro.png" alt="intro" layout="fill" />
+        <Button
+          text="計畫內容"
+          onClick={() => {
+            router.push(appPath.plan);
+          }}
+          icon={ButtonIcon.arrow}
+        />
       </div>
     </div>
     <div className={styles.features}>
@@ -60,7 +67,7 @@ const Desktop = ({ displayFeatureCard }: IProps) => (
   </SectionWrapper>
 );
 
-const Mobile = ({ displayFeatureCard }: IProps) => (
+const Mobile = ({ router, displayFeatureCard }: IProps) => (
   <div className={styles.mobileOnly}>
     <SectionWrapper className={styles.introSectionMobileTop}>
       <h2 className={styles.introTitle}>計畫介紹</h2>
@@ -68,7 +75,13 @@ const Mobile = ({ displayFeatureCard }: IProps) => (
         資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。透過執行 4 大專案，參與 10+
         堂來自業界講師的課程，了解業界生態，並探索自己未來的職涯方向，培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。
       </p>
-      <Button text="瞭解更多" icon={ButtonIcon.arrow} />
+      <Button
+        text="計畫內容"
+        onClick={() => {
+          router.push(appPath.plan);
+        }}
+        icon={ButtonIcon.arrow}
+      />
     </SectionWrapper>
     <div className={styles.introImageWrapper}>
       <Image src="/images/homepage/pics/intro.png" alt="intro" layout="fill" />
@@ -82,16 +95,17 @@ const Mobile = ({ displayFeatureCard }: IProps) => (
 );
 
 interface IProps {
+  router: NextRouter;
   displayFeatureCard?: boolean;
 }
 
-const IntroSection: FC<IProps> = ({ displayFeatureCard = true }: IProps) => {
+const IntroSection: FC<IProps> = ({ router, displayFeatureCard = true }: IProps) => {
   return (
     <>
-      <Desktop displayFeatureCard={displayFeatureCard} />
-      <Mobile displayFeatureCard={displayFeatureCard} />
+      <Desktop router={router} displayFeatureCard={displayFeatureCard} />
+      <Mobile router={router} displayFeatureCard={displayFeatureCard} />
     </>
   );
 };
 
-export default IntroSection;
+export default withRouter(IntroSection);

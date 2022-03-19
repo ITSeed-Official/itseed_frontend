@@ -2,14 +2,11 @@
 @import "/styles/mixin.scss";
 
 .section {
-    background-color: $color-neutral-900;
     padding-top: 60px;
     padding-bottom: 60px;
     padding-left: 147px;
     cursor: pointer;
-    &:hover {
-        background-color: $green-mist;
-    }
+
     @include mobile {
         padding-top: 60px;
         padding-bottom: 60px;
@@ -17,11 +14,12 @@
     }
 }
 
+
 .next {
     font-size: 24px;
-    color: $green-deep;
-	display: flex;
-    align-items: center; 
+    display: flex;
+    align-items: center;
+
     @include mobile {
         font-size: 18px;
     }
@@ -29,9 +27,37 @@
 
 .title {
     font-size: 32px;
-    color: $green-deep;
     padding-top: 16px;
+
     @include mobile {
         font-size: 24px;
+    }
+}
+
+.arrowWrapper {
+    font-size: 0;
+    margin-left: 8px;
+}
+
+.theme-green {
+    background-color: $color-neutral-900;
+    color: $green-deep;
+
+    &:hover {
+        background-color: $green-mist;
+    }
+}
+
+.theme-green {
+    background-color: $green-mist;
+
+    &:hover {
+        color: $color-neutral-900;
+
+        .arrow {
+            filter: brightness(100);
+        }
+
+        background-color: $green-tree;
     }
 }
