@@ -68,7 +68,7 @@ const AlumniSection: FC = () => {
         <h2 className={styles.title}>聽聽校友怎麼說</h2>
         <Swiper>
           {data.map(({ id, content, name, img, character }) => (
-            <SwiperSlide key={id}>
+            <SwiperSlide key={id} className={styles.SwiperSlide}>
               <Card
                 wrapperClassName={styles.cardWrapper}
                 content={content}

@@ -30,11 +30,11 @@
   @include imageWrapper(100%);
 
   @include tablet {
-    width: calc((100% - 30px) / 2);
+    width: calc((100% - 24px) / 2);
 
     &:nth-child(1),
     &:nth-child(2) {
-      margin-bottom: 30px;
+      margin-bottom: 24px;
     }
   }
 

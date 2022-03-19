@@ -5,8 +5,8 @@
   padding-top: 0;
 
   @include mobile {
-    padding-top: 60px;
-    padding-bottom: 80px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 
@@ -17,20 +17,17 @@
 
   @include mobile {
     font-size: 24px;
-    margin-bottom: 48px;
+    margin-bottom: 24px;
     color: $green-deep;
   }
 }
 
 .button {
   margin-top: 40px;
-
-  @include mobile {
-    margin-top: 48px;
-  }
 }
 
 .cta {
+  overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
@@ -40,7 +37,7 @@
   height: 160px;
   background-color: $green-tree;
 
-  margin-top: 100px;
+  margin-top: 48px;
   padding: 0 92px 0 96px;
   border-radius: 8px;
 
@@ -90,7 +87,7 @@
   }
 
   @include mobile {
-    font-size: 96px;
+    font-size: 128px;
     line-height: 180px;
   }
 }

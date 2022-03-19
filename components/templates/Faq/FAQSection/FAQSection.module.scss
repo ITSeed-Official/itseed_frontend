@@ -4,13 +4,13 @@
 .section {
   padding-top: 100px;
   @include mobile {
-    padding-top: 60px;
-    padding-bottom: 80px;
+    padding-top: 40px;
+    padding-bottom: 60px;
   }
 }
 
 .paragraph {
-  padding-top: 80px;
+  padding-top: 40px;
   @include mobile {
     padding-top: 40px;
   }

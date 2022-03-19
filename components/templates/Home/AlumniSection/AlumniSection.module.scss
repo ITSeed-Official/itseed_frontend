@@ -15,6 +15,10 @@ $padding-carouselItem-t: 10px;
     }
 }
 
+.SwiperSlide {
+    padding: 0 4px;
+}
+
 .cardWrapper {
     padding-bottom: 72px;
 
@@ -28,7 +32,7 @@ $padding-carouselItem-t: 10px;
     line-height: 140%;
     color: $color-neutral-900;
     margin-top: 0;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
 
     @include mobile {
         font-size: 24px;
