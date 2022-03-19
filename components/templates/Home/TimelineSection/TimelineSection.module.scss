@@ -88,8 +88,4 @@ $blanks-width: 180px;
 
 .button {
   margin-top: 40px;
-
-  @include mobile {
-    margin-top: 24px;
-  }
 }
