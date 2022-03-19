@@ -190,10 +190,10 @@ const DesktopHeader: FC = () => {
                   <Link href="/plan#classes">講座內容</Link>
                 </li>
                 <li className={dStyles.subNavListItem}>
-                  <Link href="/plan#projects">專案內容</Link>
+                  <Link href="/projects">專案內容</Link>
                 </li>
                 <li className={dStyles.subNavListItem}>
-                  <Link href="/plan#visitations">企業參訪</Link>
+                  <Link href="/visitation">企業參訪</Link>
                 </li>
               </ul>
             </div>
