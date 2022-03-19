@@ -49,6 +49,14 @@ const Projects: NextPage = () => {
     window.location.hash = ProjectMapping[activeTab as ProjectName];
   }, [activeTab]);
 
+  const changeTab = (tab: ProjectName) => {
+    setProject(ProjectMapping[tab]);
+    setActiveTab(ProjectMapping[tab]);
+    const headerHeight = window.document.querySelector('main')?.offsetTop || 0;
+    const contentOffsetTop = elRef.current?.offsetTop || 0;
+    window.scroll(0, contentOffsetTop - headerHeight);
+  };
+
   return (
     <>
       <BannerContainer
@@ -58,61 +66,61 @@ const Projects: NextPage = () => {
         description="資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。透過執行 4 大專案，參與 10+ 堂來自業界講師的課程，了解業界生態，並探索自己未來的職涯方向。
 培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。"
       />
-      <TabNav
-        tabs={tabs}
-        activeTab={ProjectNameMapping[project]}
-        onTabClick={(tab: ProjectName) => {
-          setProject(ProjectMapping[tab]);
-          setActiveTab(ProjectMapping[tab]);
-          const headerHeight = window.document.querySelector('main')?.offsetTop || 0;
-          const contentOffsetTop = elRef.current?.offsetTop || 0;
-          window.scroll(0, contentOffsetTop - headerHeight);
-        }}
-        onStickyChange={layoutContext.setIsSubNavStuck}
-      />
-      {(() => {
-        switch (project) {
-          case Project.tuv:
-            return (
-              <>
-                <GoalSection projectDescription={Goals[project].projectDescription} />
-                <AchievementSection />
-                <NextSection title="職涯專案" path="/projects#career" />
-              </>
-            );
-          case Project.career:
-            return (
-              <>
-                <GoalSection
-                  projectDescription={Goals[project].projectDescription}
-                  hint={Goals[project].hint}
-                  content={Goals[project].content}
-                />
-                <CareerEvents />
-                <NextSection title="招生專案" path="/projects#recruit" />
-              </>
-            );
-          case Project.recruit:
-            return (
-              <>
-                <GoalSection
-                  projectDescription={Goals[project].projectDescription}
-                  hint={Goals[project].hint}
-                  content={Goals[project].content}
-                  imagePath={Goals[project].imagePath}
-                />
-                <NextSection title="數據專案" path="/projects#data" />
-              </>
-            );
-          case Project.data:
-            return (
-              <>
-                <DataProjectSection />
-                <NextSection title="企業參訪" path="/visitation" />
-              </>
-            );
-        }
-      })()}
+      <div ref={elRef}>
+        <TabNav
+          tabs={tabs}
+          activeTab={ProjectNameMapping[project]}
+          onTabClick={changeTab}
+          onStickyChange={layoutContext.setIsSubNavStuck}
+        />
+        {(() => {
+          switch (project) {
+            case Project.tuv:
+              return (
+                <>
+                  <GoalSection projectDescription={Goals[project].projectDescription} />
+                  <AchievementSection />
+                  <NextSection title="職涯專案" path="/projects#career" onClick={() => changeTab(ProjectName.career)} />
+                </>
+              );
+            case Project.career:
+              return (
+                <>
+                  <GoalSection
+                    projectDescription={Goals[project].projectDescription}
+                    hint={Goals[project].hint}
+                    content={Goals[project].content}
+                  />
+                  <CareerEvents />
+                  <NextSection
+                    title="招生專案"
+                    path="/projects#recruit"
+                    onClick={() => changeTab(ProjectName.recruit)}
+                  />
+                </>
+              );
+            case Project.recruit:
+              return (
+                <>
+                  <GoalSection
+                    projectDescription={Goals[project].projectDescription}
+                    hint={Goals[project].hint}
+                    content={Goals[project].content}
+                    imagePath={Goals[project].imagePath}
+                  />
+                  <NextSection title="數據專案" path="/projects#data" onClick={() => changeTab(ProjectName.data)} />
+                </>
+              );
+            case Project.data:
+              return (
+                <>
+                  <DataProjectSection />
+                  <NextSection title="企業參訪" path="/visitation" />
+                </>
+              );
+          }
+        })()}
+      </div>
     </>
   );
 };

@@ -9,12 +9,22 @@ type PageProperty = {
   title: string;
   path: string;
   className?: string;
+  onClick?: Function;
 };
 
-const NextSection: FC<PageProperty> = ({ title, path, className }) => {
+const NextSection: FC<PageProperty> = ({ title, path, className, onClick }) => {
   return (
     <Link href={path} passHref>
-      <div className={classnames(styles.section, className)}>
+      <div
+        className={classnames(styles.section, className)}
+        onClick={(e) => {
+          if (onClick) {
+            e.preventDefault();
+            e.stopPropagation();
+            onClick();
+          }
+        }}
+      >
         <div className={styles.next}>
           Next
           <Image alt="read more" src="/images/common/icons/readmore.svg" width="24" height="24" />
