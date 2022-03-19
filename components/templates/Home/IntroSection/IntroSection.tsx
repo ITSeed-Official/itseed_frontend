@@ -5,13 +5,14 @@ import Button, { ButtonIcon } from 'components/atoms/Button';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import FeatureCard from './FeatureCard';
 import styles from './IntroSection.module.scss';
+import { appPath } from 'util/routing.config';
 
 const features = [
   {
     title: '專案實作',
     imgSrc: '/images/homepage/icons/project.svg',
     // hoverImgSrc: "/images/homepage/icons/project.svg",
-    link: '/plan#projects',
+    link: appPath.projects,
     content: ['累積業界實務', '職涯探索與深化', '跨領域團隊夥伴'],
   },
   {
@@ -32,7 +33,7 @@ const features = [
     title: '職涯導師',
     imgSrc: '/images/homepage/icons/mentor.png',
     // hoverImgSrc: "/images/homepage/icons/mentor.svg",
-    link: '/career',
+    link: appPath.career,
     content: ['歷屆校友共學', '提攜突破瓶頸', '共好未來發展'],
   },
 ];

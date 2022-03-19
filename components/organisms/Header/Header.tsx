@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { LayoutContext } from '../../../contexts/LayoutContext';
+import { appPath } from 'util/routing.config';
+import app from 'next/app';
 
 const MobileHeader: FC = () => {
   const router = useRouter();
@@ -72,12 +74,12 @@ const MobileHeader: FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/plan#projects" passHref>
+                  <Link href={appPath.projects} passHref>
                     <a className={mStyles.subMenuItem}>專案內容</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/visitation" passHref>
+                  <Link href={appPath.visitation} passHref>
                     <a className={mStyles.subMenuItem}>企業參訪</a>
                   </Link>
                 </li>
@@ -96,17 +98,17 @@ const MobileHeader: FC = () => {
               </div>
               <ul className={mStyles.subMenuList}>
                 <li>
-                  <Link href="/career#personal" passHref>
+                  <Link href={`${appPath.career}#personal`} passHref>
                     <a className={mStyles.subMenuItem}>個人指導</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/career#company" passHref>
+                  <Link href={`${appPath.career}#company`} passHref>
                     <a className={mStyles.subMenuItem}>公司實習</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/career#interview" passHref>
+                  <Link href={`${appPath.career}#interview`} passHref>
                     <a className={mStyles.subMenuItem}>職涯訪談</a>
                   </Link>
                 </li>
@@ -190,10 +192,10 @@ const DesktopHeader: FC = () => {
                   <Link href="/plan#classes">講座內容</Link>
                 </li>
                 <li className={dStyles.subNavListItem}>
-                  <Link href="/plan#projects">專案內容</Link>
+                  <Link href={appPath.projects}>專案內容</Link>
                 </li>
                 <li className={dStyles.subNavListItem}>
-                  <Link href="/plan#visitations">企業參訪</Link>
+                  <Link href={appPath.visitation}>企業參訪</Link>
                 </li>
               </ul>
             </div>
@@ -208,13 +210,13 @@ const DesktopHeader: FC = () => {
             <div className={dStyles.subNavList}>
               <ul className={dStyles.subNavListContent}>
                 <li className={dStyles.subNavListItem}>
-                  <Link href="/career#personal">個人指導</Link>
+                  <Link href={`${appPath.career}#personal`}>個人指導</Link>
                 </li>
                 <li className={dStyles.subNavListItem}>
-                  <Link href="/career#company">公司實習</Link>
+                  <Link href={`${appPath.career}#company`}>公司實習</Link>
                 </li>
                 <li className={dStyles.subNavListItem}>
-                  <Link href="/career#interview">職涯訪談</Link>
+                  <Link href={`${appPath.career}#interview`}>職涯訪談</Link>
                 </li>
               </ul>
             </div>

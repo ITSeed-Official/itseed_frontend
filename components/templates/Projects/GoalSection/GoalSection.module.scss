@@ -1,0 +1,38 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.goalSection {
+    background-color: $green-mist;
+}
+
+.hint {
+    width: 1146px;
+    height: 58px;
+    border: 1px solid #003816;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    padding: 16px 24px;
+    margin-top: 40px;
+
+  @include mobile {
+      width: 311px;
+      height: 110px;
+  }
+}
+
+.imageSection {
+    margin: 80px 0px
+}
+
+.block {
+    height: 80px;
+}
+
+.section {
+    > p {
+        size: 16px;
+        margin-top: 40px;
+        color: #333333;
+    }
+}

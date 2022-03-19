@@ -32,7 +32,7 @@ export const getCareerList = async () => {
   }
 };
 
-type MentorDetailType = {
+export type MentorDetailType = {
   id: string;
   name: string;
   image_url: string;
