@@ -11,7 +11,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { LayoutContext } from '../../../contexts/LayoutContext';
 import { appPath } from 'util/routing.config';
-import app from 'next/app';
 
 const MobileHeader: FC = () => {
   const router = useRouter();
