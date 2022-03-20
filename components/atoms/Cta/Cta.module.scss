@@ -1,0 +1,15 @@
+@import "/styles/variables.scss";
+
+.cta {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: $green-tree;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+      
+    > span {
+      transition: 0.3s;
+      margin-right: 8px;
+    }
+}
