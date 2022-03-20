@@ -1,0 +1,152 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.backgroundWrapper {
+    background-color: $green-mist;
+}
+
+.courseIntro {
+    display: flex;
+    justify-content: space-between;
+
+    @include mobile {
+        display: block;
+        justify-content: unset;
+    }
+}
+
+.courseInfo {
+    width: calc( ( 100% - 80px ) / 2);
+    margin-right: 80px;
+
+    @include mobile {
+        width: 100%;
+        margin-right: 0;
+    }
+    
+    & > h2 {
+        font-size: 32px;
+        margin: 0 0 40px 0;
+
+        @include mobile {
+            font-size: 24px;
+            margin: 0 0 24px 0;
+        }
+    }
+
+    & > p.experience {
+        font-size: 16px;
+        line-height: 25.6px;
+        margin: 0 0 40px 0;
+    }
+}
+
+.name {
+    font-size: 16px;
+    line-height: 25.6px;
+    margin: 0;
+}
+
+.personalInfo {
+    font-size: 12px;
+    line-height: 19.2px;
+    margin: 0;
+}
+
+.courseImageDesktop {
+    width: calc( ( 100% - 80px ) / 2);
+    height: 316px;
+    position: relative;
+
+    & img {
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    @include mobile {
+        display: none;
+    }
+}
+
+.courseImageMobile {
+    display: none;
+    position: relative;
+    width: 100%; 
+    height: 230px;
+
+    & img {
+        object-fit: cover;
+        object-position: center;
+    }
+
+    @include mobile {
+        display: block;
+    }
+}
+
+.agenda {
+    width: 45%;
+    margin-right: 8%;
+
+    @include mobile {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+.title {
+    margin: 0;
+
+    & > span {
+        font-size: 24px;
+        line-height: 33.6px;
+        margin-left: 4px;
+    }
+}
+
+.subTitle {
+    margin-top: 16px;
+}
+
+.content {
+    margin-top: 40px;
+    
+    & p {
+        margin: 0;
+        white-space: pre-line;
+        font-size: 18px;
+        line-height: 28.8px;
+
+        @include mobile {
+            font-size: 16px;
+            line-height: 25.6px;
+        }
+    }
+}
+
+.line {
+    width: 1px;
+    height: 250px;
+    background-color: $gray-neutral;
+
+    @include mobile {
+        width: 100%;
+        height: 1px;
+        margin: 40px 0;
+    }
+}
+
+.lecturer {
+    width: 45%;
+    margin-left: 8%;
+
+    @include mobile {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.courseSwiper {
+    height: 381px;
+    margin-bottom: 40px;
+}
