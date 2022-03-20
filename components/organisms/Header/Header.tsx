@@ -68,8 +68,8 @@ const MobileHeader: FC = () => {
               </div>
               <ul className={mStyles.subMenuList}>
                 <li>
-                  <Link href="/plan#classes" passHref>
-                    <a className={mStyles.subMenuItem}>講座內容</a>
+                  <Link href={appPath.courses} passHref>
+                    <a className={mStyles.subMenuItem}>講座課程</a>
                   </Link>
                 </li>
                 <li>
@@ -186,7 +186,7 @@ const DesktopHeader: FC = () => {
             <div className={dStyles.subNavList}>
               <ul className={dStyles.subNavListContent}>
                 <li className={dStyles.subNavListItem}>
-                  <Link href="/plan#classes">講座內容</Link>
+                  <Link href={appPath.courses}>講座課程</Link>
                 </li>
                 <li className={dStyles.subNavListItem}>
                   <Link href={appPath.projects}>專案內容</Link>

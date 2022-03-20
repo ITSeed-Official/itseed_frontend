@@ -20,7 +20,7 @@ const features = [
     title: '專業課程',
     imgSrc: '/images/homepage/icons/class.svg',
     // hoverImgSrc: "/images/homepage/icons/class.svg",
-    link: appPath.class,
+    link: appPath.courses,
     content: ['擺脫學校框架', '職場軟實力培養', '突破視野侷限'],
   },
   {
