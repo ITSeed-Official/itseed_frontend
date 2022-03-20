@@ -62,6 +62,6 @@ export const getCareerDetail: (id: string) => Promise<CareerDetailType> = async 
     const data: CareerDetailType = await response.json();
     return data;
   } catch (error) {
-    return {};
+    return {} as CareerDetailType;
   }
 };

@@ -39,6 +39,6 @@ export const getCourseDetail: (id: string) => Promise<CourseDetailType> = async 
     const data: CourseDetailType = await response.json();
     return data;
   } catch (error) {
-    return {};
+    return {} as CourseDetailType;
   }
 };

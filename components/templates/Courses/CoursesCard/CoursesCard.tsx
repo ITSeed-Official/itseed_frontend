@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import classnames from 'classnames';
 
-import type { CourseDetail } from 'api/courses';
+import type { CourseDetailType } from 'api/courses';
 
 import Cta from 'components/atoms/Cta';
 
@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 import { appPath } from 'util/routing.config';
 
 export type CoursesCardProperty = {
-  data: CourseDetail;
+  data: CourseDetailType;
   courseNumber: string;
   className?: string;
 };

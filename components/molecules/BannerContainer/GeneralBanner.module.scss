@@ -86,6 +86,8 @@ $height-bannerInfo-m: 300px;
   font-size: 16px;
   line-height: 160%;
   color: $color-neutral-900;
+  margin: 0;
+  
   @include mobile {
     margin-top: 40px;
   }
