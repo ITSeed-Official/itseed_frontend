@@ -1,15 +1,12 @@
 @import "/styles/variables.scss";
 @import "/styles/mixin.scss";
 
-.backgroundWrapper {
+.controlBar {
     background-color: $green-mist;
     position: sticky;
     top: 0;
     left: 0;
     z-index: 10000;
-}
-
-.controlBar {
     display: flex;
     height: 70px;
     padding: 0;

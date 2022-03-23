@@ -12,7 +12,6 @@ import type { CareerDetailProperty } from '../CareerDetail/CareerDetail';
 import CareerCard from '../CareerLists/CareerCards/CareerCard';
 import Swiper, { SwiperSlide } from 'components/organisms/Swiper';
 import SectionWrapper from 'components/molecules/SectionWrapper';
-import Icon from 'components/atoms/Icon';
 import Button, { ButtonIcon } from 'components/atoms/Button';
 
 import styles from './CareerDetail.desktop.module.scss';
@@ -35,40 +34,39 @@ const DesktopComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
 
   return (
     <div className={styles.careerDetailDesktop}>
-      <div className={styles.backgroundWrapper}>
-        <SectionWrapper
-          className={styles.menteeSection}
-          title={categoriesTranslateMap[detail.category]}
-          titleClassName={styles.mainTitle}
-        >
-          <div className={classnames(styles.image, slideLeft && styles.slidein)}>
-            <Image alt="mentee" src={detail.image_url} layout="fill" />
-          </div>
-          <div className={styles.contentWrapper}>
-            <div className={classnames(styles.content, slideRight && styles.slidein)}>
-              <div className={styles.jobInfo}>
-                {detail.company && <p className={styles.company}>{detail.company}</p>}
-                <p className={classnames(detail.company ? styles.job : styles.company)}>{detail.position}</p>
-              </div>
-              <div className={styles.menteeInfo}>
-                <p>{detail.mentee_school}</p>
-                <p>{detail.mentee}</p>
-              </div>
-              <ReactMarkdown className={styles.detail}>{detail.content}</ReactMarkdown>
+      <SectionWrapper
+        className={styles.menteeSection}
+        title={categoriesTranslateMap[detail.category]}
+        titleClassName={styles.mainTitle}
+        isBackgroundGreen
+      >
+        <div className={classnames(styles.image, slideLeft && styles.slidein)}>
+          <Image alt="mentee" src={detail.image_url} layout="fill" />
+        </div>
+        <div className={styles.contentWrapper}>
+          <div className={classnames(styles.content, slideRight && styles.slidein)}>
+            <div className={styles.jobInfo}>
+              {detail.company && <p className={styles.company}>{detail.company}</p>}
+              <p className={classnames(detail.company ? styles.job : styles.company)}>{detail.position}</p>
             </div>
-            <div className={styles.leaf} />
-            <div className={styles.emptyLeaf} />
-            <div className={styles.rotateLeaf} />
+            <div className={styles.menteeInfo}>
+              <p>{detail.mentee_school}</p>
+              <p>{detail.mentee}</p>
+            </div>
+            <ReactMarkdown className={styles.detail}>{detail.content}</ReactMarkdown>
           </div>
+          <div className={styles.leaf} />
+          <div className={styles.emptyLeaf} />
+          <div className={styles.rotateLeaf} />
+        </div>
+      </SectionWrapper>
+      {detail.mentors && (
+        <SectionWrapper className={styles.mentorsSection}>
+          {detail.mentors.map((mentor, index) => (
+            <MentorInformation key={index} MentorDetail={mentor} />
+          ))}
         </SectionWrapper>
-        {detail.mentors && (
-          <SectionWrapper className={styles.mentorsSection}>
-            {detail.mentors.map((mentor, index) => (
-              <MentorInformation key={index} MentorDetail={mentor} />
-            ))}
-          </SectionWrapper>
-        )}
-      </div>
+      )}
       <SectionWrapper title="看看其他人的心得分享">
         <Swiper className={styles.careerSwiper} loop={false}>
           {list
