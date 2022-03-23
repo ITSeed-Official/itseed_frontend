@@ -13,8 +13,8 @@
 
 .title {
   margin-bottom: 40px;
+}
 
-  @include mobile {
-    margin-bottom: 24px;
-  }
+.backgroundWrapper {
+  background-color: $green-mist;
 }
