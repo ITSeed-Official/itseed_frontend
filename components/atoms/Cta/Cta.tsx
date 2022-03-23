@@ -6,7 +6,7 @@ import Icon from 'components/atoms/Icon';
 import styles from './Cta.module.scss';
 
 type CtaProperty = {
-  ctaText: string;
+  ctaText?: string;
   className?: string;
   onClickCta?: () => {};
 };

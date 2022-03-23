@@ -1,10 +1,6 @@
 @import "/styles/variables.scss";
 @import "/styles/mixin.scss";
 
-.backgroundWrapper {
-    background-color: $green-mist;
-}
-
 .courseIntro {
     display: flex;
     justify-content: space-between;
