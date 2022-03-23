@@ -1,16 +1,33 @@
 @import "/styles/variables.scss";
 @import "/styles/mixin.scss";
 
-.backgroundWrapper {
-    background-color: $green-mist;
-}
-
-.courses {
+.coursesDesktop, .coursesMobile {
     margin-bottom: 40px;
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(264px, 1fr));
     justify-items: center;
     grid-gap: 30px;
+}
+
+.coursesMobile, .icon {
+    display: none;
+}
+
+@include mobile {
+    .coursesDesktop {
+        display: none;
+    }
+    .coursesMobile {
+        display: grid;
+    }
+    .icon {
+        display: block;
+        margin: 40px auto;
+    }
+}
+
+.none {
+    display: none;
 }
 
 .card {
