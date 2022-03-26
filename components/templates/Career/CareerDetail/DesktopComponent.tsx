@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import classnames from 'classnames';
 
 import { categoriesTranslateMap } from 'util/helper';
-import { useScroll } from 'util/hooks/event';
+import { useScroll } from 'util/hooks/useEvent';
 import { appPath } from 'util/routing.config';
 
 import type { CareerDetailProperty } from '../CareerDetail/CareerDetail';
