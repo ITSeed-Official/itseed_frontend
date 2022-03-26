@@ -1,4 +1,4 @@
-import { useRef, useContext, useState, useEffect, useMemo } from 'react';
+import { useRef, useMemo } from 'react';
 import type { NextPage } from 'next';
 import { NextRouter } from 'next/router';
 
@@ -21,7 +21,7 @@ const Projects: NextPage<{ router: NextRouter }> = ({ router }) => {
       Object.values(ProjectName).map((project) => ({
         text: project,
       })),
-    [ProjectName]
+    []
   );
   const elRef = useRef<HTMLDivElement>(null);
   const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs);
