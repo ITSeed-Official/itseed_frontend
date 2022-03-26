@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useMemo } from 'react';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { CourseDetailType } from 'api/courses';
 import { Visitation } from 'api/visitations';
 import { appPath } from 'util/routing.config';
-import { LayoutContext } from 'contexts/LayoutContext';
+import { useTab } from 'util/hooks/useTab';
 
 import { CourseListSection } from 'components/templates/Courses/CoursesLists';
 import BannerContainer from 'components/molecules/BannerContainer';
@@ -23,7 +23,9 @@ interface PlanProperty {
   visitations: Visitation[];
 }
 
-const plans = ['講座課程', '四大實作專案', '計畫時程總覽', '歷屆企業參訪紀錄'];
+type PlanContentType = '講座課程' | '四大實作專案' | '計畫時程總覽' | '歷屆企業參訪紀錄';
+
+const plans: PlanContentType[] = ['講座課程', '四大實作專案', '計畫時程總覽', '歷屆企業參訪紀錄'];
 
 const projects = [
   {
@@ -51,9 +53,8 @@ const projects = [
 
 const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
   const router = useRouter();
-  const layoutContext = useContext(LayoutContext);
-  const [activeTab, setActiveTab] = useState('');
-  const tabs = plans.map((p) => ({ text: p }));
+  const tabs = useMemo(() => plans.map((p) => ({ text: p })), [plans]);
+  const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs);
 
   return (
     <>
@@ -70,14 +71,14 @@ const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
       <TabNav
         tabs={tabs}
         activeTab={activeTab}
-        onTabClick={(tab: string) => {
+        onTabClick={(tab: PlanContentType) => {
           if (activeTab !== tab) {
             setActiveTab(tab);
             return;
           }
           setActiveTab('');
         }}
-        onStickyChange={layoutContext.setIsSubNavStuck}
+        onStickyChange={setIsSubNavStuck}
       />
       {(activeTab === '' || activeTab === '講座課程') && (
         <CourseListSection
