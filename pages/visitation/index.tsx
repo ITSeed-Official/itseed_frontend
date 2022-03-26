@@ -1,9 +1,12 @@
-import Visitation from 'components/templates/Visitation';
-import PageMeta from 'components/atoms/PageMeta';
+import { GetStaticProps } from 'next';
+
 import { getVisitations } from 'api/visitations';
 import { getSeos } from 'api/seos';
 
-export async function getServerSideProps() {
+import Visitation from 'components/templates/Visitation';
+import PageMeta from 'components/atoms/PageMeta';
+
+export const getStaticProps: GetStaticProps = async () => {
   const [meta, visitations] = await Promise.all([getSeos('visitation'), getVisitations()]);
 
   return {
@@ -11,7 +14,8 @@ export async function getServerSideProps() {
       meta,
       visitations,
     },
+    revalidate: 1,
   };
-}
+};
 
 export default PageMeta(Visitation);

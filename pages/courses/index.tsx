@@ -11,7 +11,7 @@ const Courses: NextPage<{ courses: CourseDetailType[] }> = ({ courses }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const [meta, courses] = await Promise.all([getSeos('seo'), getCourses()]);
+  const [meta, courses] = await Promise.all([getSeos('courses'), getCourses()]);
 
   return {
     props: {
