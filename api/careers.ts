@@ -56,12 +56,12 @@ export interface CareerDetailType {
   published_at: string;
 }
 
-export const getCareerDetail = async (id: string) => {
+export const getCareerDetail: (id: string) => Promise<CareerDetailType> = async (id) => {
   try {
     const response = await fetch(`${domain}/careers/${id}`);
     const data: CareerDetailType = await response.json();
     return data;
   } catch (error) {
-    return {};
+    return {} as CareerDetailType;
   }
 };

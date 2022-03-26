@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import { FC, Fragment } from 'react';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
@@ -68,8 +68,8 @@ const TimelineSection: FC = () => {
         <div className={styles.content}>
           {cards.map((card, idx) => {
             return (
-              <>
-                <Card key={card.imgSrc} {...card} />
+              <Fragment key={card.imgSrc}>
+                <Card {...card} />
                 {idx !== cards.length - 1 && (
                   <div className={styles.cardBlank}>
                     <Image
@@ -81,7 +81,7 @@ const TimelineSection: FC = () => {
                     />
                   </div>
                 )}
-              </>
+              </Fragment>
             );
           })}
         </div>

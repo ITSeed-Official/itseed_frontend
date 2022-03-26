@@ -1,8 +1,10 @@
 import type { NextPage, GetStaticPaths, GetStaticProps } from 'next';
 import { getCareerDetail, CareerDetailType, getCareerList, CareerExperience } from 'api/careers';
+import { appPath } from 'util/routing.config';
 
 import CareerLayout from 'components/templates/Career/CareerLayout';
 import CareerDetail from 'components/templates/Career/CareerDetail';
+import PageMeta from 'components/atoms/PageMeta';
 
 interface CareerInfoProperty {
   detail: CareerDetailType;
@@ -36,10 +38,19 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
+  const meta = {
+    title: `${detail.mentee} ${detail.position}`,
+    description: detail.image_url,
+    og_title: `${detail.mentee} ${detail.position}`,
+    og_description: detail.overview_content,
+    og_url: `${appPath.career}/${detail.id}`,
+    og_image: detail.image_url,
+  };
+
   return {
-    props: { detail, list },
+    props: { detail, list, meta },
     revalidate: 1,
   };
 };
 
-export default CareerInfo;
+export default PageMeta(CareerInfo);

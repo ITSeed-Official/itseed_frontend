@@ -9,7 +9,7 @@ type IconProperty = {
   width?: number;
   height?: number;
   link?: string;
-  iconSrc: string;
+  iconSrc: string | StaticImageData;
   className?: string;
 };
 

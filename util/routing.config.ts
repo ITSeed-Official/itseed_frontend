@@ -1,12 +1,12 @@
 export enum appPath {
   home = '/',
+  about = '/about',
   admission = '/admission',
   career = '/career',
-  plan = '/plan',
-  class = '/class',
-  sharing = '/sharing',
-  about = '/about',
+  courses = '/courses',
   faq = '/faq',
+  sharing = '/sharing',
+  plan = '/plan',
   projects = '/projects',
   visitation = '/visitation',
 }
