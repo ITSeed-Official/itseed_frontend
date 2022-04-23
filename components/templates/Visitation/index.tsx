@@ -8,7 +8,7 @@ interface IProps {
   visitations: Visitation[];
 }
 
-const Faq: NextPage<IProps> = ({ visitations }: IProps) => {
+const Visitation: NextPage<IProps> = ({ visitations }: IProps) => {
   return (
     <>
       <BannerContainer
@@ -25,4 +25,4 @@ const Faq: NextPage<IProps> = ({ visitations }: IProps) => {
   );
 };
 
-export default Faq;
+export default Visitation;

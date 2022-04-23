@@ -1,0 +1,27 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.introTitle {
+    padding-left: 40px;
+    margin-bottom: 0;
+}
+
+.sectionBackground {
+    background-color: $color-neutral-900;
+    padding: 40px;
+}
+
+.block {
+    margin-bottom: 40px;
+    display:flex;
+    justify-content: space-between;
+
+    >p {
+        font-size: 16px;
+    }
+}
+
+.infoBlock {
+    width: 490px;
+    height: 84px;
+}
