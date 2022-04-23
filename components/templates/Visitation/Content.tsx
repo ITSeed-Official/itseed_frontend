@@ -1,10 +1,13 @@
-import { useState, useEffect, useRef, useContext } from 'react';
-import ContentRender from '../../molecules/ContentRender';
-import { Visitation } from '../../../api/visitations';
-import TabNav from '../../molecules/TabNav';
-import SectionWrapper from '../../molecules/SectionWrapper';
+import { useRef, useMemo } from 'react';
+
+import { Visitation } from 'api/visitations';
+import { useTab } from 'util/hooks/useTab';
+
+import ContentRender from 'components/molecules/ContentRender';
+import TabNav from 'components/molecules/TabNav';
+import SectionWrapper from 'components/molecules/SectionWrapper';
+
 import styles from './Content.module.scss';
-import { LayoutContext } from '../../../contexts/LayoutContext';
 
 interface VisitationMap {
   [name: string]: Visitation;
@@ -15,27 +18,19 @@ interface ContentProps {
 }
 
 const Content = ({ visitations }: ContentProps) => {
-  const layoutContext = useContext(LayoutContext);
   const elRef = useRef<HTMLDivElement>(null);
-  const [activeTab, setActiveTab] = useState('');
-  const tabs = visitations.map((visitation) => ({
-    text: visitation.name,
-  }));
+  const tabs = useMemo(
+    () =>
+      visitations.map((visitation) => ({
+        text: visitation.name,
+      })),
+    [visitations]
+  );
 
-  useEffect(() => {
-    let activeTabFromTab = decodeURIComponent(window.location.hash.replace('#', ''));
-    if (!visitations.map((t) => t.name).includes(activeTabFromTab)) {
-      activeTabFromTab = visitations[0].name;
-      window.location.hash = visitations[0].name;
-    }
-    setActiveTab(activeTabFromTab);
-  }, [visitations]);
-
-  useEffect(() => {
-    window.location.hash = activeTab;
-  }, [activeTab]);
+  const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs, true);
 
   let markdownContent: string = '';
+
   if (activeTab) {
     const visitationMap = visitations.reduce((map, visitation) => {
       map[visitation.name] = visitation;
@@ -64,7 +59,7 @@ const Content = ({ visitations }: ContentProps) => {
           const contentOffsetTop = elRef.current?.offsetTop || 0;
           window.scroll(0, contentOffsetTop - headerHeight);
         }}
-        onStickyChange={layoutContext.setIsSubNavStuck}
+        onStickyChange={setIsSubNavStuck}
       />
       <SectionWrapper>
         <ContentRender content={markdownContent} />

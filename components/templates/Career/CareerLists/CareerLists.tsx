@@ -1,18 +1,21 @@
-import { FC, Fragment, useMemo, useState } from 'react';
+import { FC, Fragment, useMemo, useRef } from 'react';
 import classnames from 'classnames';
 
 import { CareerExperience, ExperienceCategory } from 'api/careers';
 import { categoriesTranslateMap } from 'util/helper';
+import { useTab } from 'util/hooks/useTab';
 
 import CareerCards from './CareerCards';
 import type { CareerCardType } from './CareerCards/CareerCard';
-import SectionWrapper from 'components/molecules/SectionWrapper';
+import TabNav from 'components/molecules/TabNav';
 
 import styles from './CareerLists.module.scss';
 
-type ExperienceType = ExperienceCategory | 'all';
-
-const categories: ExperienceCategory[] = ['company', 'personalization', 'interview'];
+const categories: { name: string; type: ExperienceCategory }[] = [
+  { name: '公司實習', type: 'company' },
+  { name: '個人指導', type: 'personalization' },
+  { name: '職涯訪談', type: 'interview' },
+];
 
 const filteredData = (data: CareerExperience[], experienceCategory: ExperienceCategory): CareerCardType[] =>
   data
@@ -30,8 +33,9 @@ const filteredData = (data: CareerExperience[], experienceCategory: ExperienceCa
     }));
 
 const CareerSection: FC<{ data: CareerExperience[] }> = ({ data: careerExperiences }) => {
-  const [selectedType, setSelectedType] = useState<ExperienceType>('all');
-
+  const elRef = useRef<HTMLDivElement>(null);
+  const tabs = useMemo(() => categories.map((c) => ({ text: c.name })), []);
+  const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs, false);
   const data = useMemo(
     () => ({
       company: filteredData(careerExperiences, 'company'),
@@ -42,35 +46,38 @@ const CareerSection: FC<{ data: CareerExperience[] }> = ({ data: careerExperienc
   );
 
   return (
-    <>
-      <SectionWrapper className={styles.controlBar} isBackgroundGreen>
-        {categories.map((category: ExperienceCategory) => (
-          <div
-            key={category}
-            role="button"
-            onClick={() => setSelectedType((type) => (type === category ? 'all' : category))}
-            className={classnames(selectedType === category && styles.selected, styles.categoryButton)}
-          >
-            {categoriesTranslateMap[category]}
-          </div>
-        ))}
-      </SectionWrapper>
+    <div ref={elRef}>
+      <TabNav
+        tabs={tabs}
+        activeTab={activeTab}
+        onTabClick={(tab: string) => {
+          if (activeTab !== tab) {
+            setActiveTab(tab);
+            const headerHeight = window.document.querySelector('main')?.offsetTop || 0;
+            const contentOffsetTop = elRef.current?.offsetTop || 0;
+            window.scrollTo({ left: 0, top: contentOffsetTop - headerHeight, behavior: 'smooth' });
+            return;
+          }
+          setActiveTab('');
+        }}
+        onStickyChange={setIsSubNavStuck}
+      />
       {careerExperiences.length > 0 && (
         <>
-          {categories.map((category: ExperienceCategory) => (
-            <Fragment key={category}>
-              {data[category].length > 0 && (selectedType === 'all' || selectedType === category) && (
+          {categories.map(({ name, type }) => (
+            <Fragment key={type}>
+              {data[type].length > 0 && (activeTab === '' || activeTab === name) && (
                 <CareerCards
-                  className={classnames(category !== 'personalization' && styles.greenBackground)}
-                  careerCards={data[category]}
-                  title={categoriesTranslateMap[category]}
+                  className={classnames(type !== 'personalization' && styles.greenBackground)}
+                  careerCards={data[type]}
+                  title={categoriesTranslateMap[type]}
                 />
               )}
             </Fragment>
           ))}
         </>
       )}
-    </>
+    </div>
   );
 };
 
