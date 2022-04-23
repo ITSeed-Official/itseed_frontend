@@ -43,20 +43,18 @@ const CareerSection: FC<{ data: CareerExperience[] }> = ({ data: careerExperienc
 
   return (
     <>
-      <div className={styles.backgroundWrapper}>
-        <SectionWrapper className={styles.controlBar}>
-          {categories.map((category: ExperienceCategory) => (
-            <div
-              key={category}
-              role="button"
-              onClick={() => setSelectedType((type) => (type === category ? 'all' : category))}
-              className={classnames(selectedType === category && styles.selected, styles.categoryButton)}
-            >
-              {categoriesTranslateMap[category]}
-            </div>
-          ))}
-        </SectionWrapper>
-      </div>
+      <SectionWrapper className={styles.controlBar} isBackgroundGreen>
+        {categories.map((category: ExperienceCategory) => (
+          <div
+            key={category}
+            role="button"
+            onClick={() => setSelectedType((type) => (type === category ? 'all' : category))}
+            className={classnames(selectedType === category && styles.selected, styles.categoryButton)}
+          >
+            {categoriesTranslateMap[category]}
+          </div>
+        ))}
+      </SectionWrapper>
       {careerExperiences.length > 0 && (
         <>
           {categories.map((category: ExperienceCategory) => (

@@ -20,13 +20,12 @@ const MobileComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
 
   return (
     <div className={styles.careerDetailMobile}>
-      <div className={styles.backgroundWrapper}>
-        <SectionWrapper
-          title={categoriesTranslateMap[detail.category]}
-          className={styles.titleSection}
-          titleClassName={styles.title}
-        />
-      </div>
+      <SectionWrapper
+        title={categoriesTranslateMap[detail.category]}
+        className={styles.titleSection}
+        titleClassName={styles.title}
+        isBackgroundGreen
+      />
       <div className={styles.image}>
         <Image alt="mentee" src={detail.image_url} layout="fill" />
       </div>

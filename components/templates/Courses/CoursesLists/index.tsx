@@ -1,1 +1,1 @@
-export { default } from './CoursesLists';
+export { default, CourseListSection } from './CoursesLists';

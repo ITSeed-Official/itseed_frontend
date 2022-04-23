@@ -43,22 +43,21 @@ const CoursesDetail: FC<CoursesDetailProperty> = ({ detail, list }) => {
 
   return (
     <CoursesLayout primaryTitle={title} subTitle={subtitle} description={overview}>
-      <div className={styles.backgroundWrapper}>
-        <SectionWrapper className={styles.courseIntro}>
-          <div className={styles.courseInfo}>
-            <h2>課程心得</h2>
-            <p className={styles.experience}>{experience}</p>
-            <p className={styles.name}>{sharer}</p>
-            <p className={styles.personalInfo}>{sharer_education}</p>
-          </div>
-          <div className={styles.courseImageDesktop}>
-            <Image src={image.url} alt={image.name} layout="fill" />
-          </div>
-        </SectionWrapper>
-        <div className={styles.courseImageMobile}>
+      <SectionWrapper className={styles.courseIntro} isBackgroundGreen>
+        <div className={styles.courseInfo}>
+          <h2>課程心得</h2>
+          <p className={styles.experience}>{experience}</p>
+          <p className={styles.name}>{sharer}</p>
+          <p className={styles.personalInfo}>{sharer_education}</p>
+        </div>
+        <div className={styles.courseImageDesktop}>
           <Image src={image.url} alt={image.name} layout="fill" />
         </div>
+      </SectionWrapper>
+      <div className={styles.courseImageMobile}>
+        <Image src={image.url} alt={image.name} layout="fill" />
       </div>
+
       <SectionWrapper className={styles.courseIntro}>
         <div className={styles.agenda}>
           <div className={styles.title}>
@@ -84,41 +83,40 @@ const CoursesDetail: FC<CoursesDetailProperty> = ({ detail, list }) => {
           <ReactMarkdown className={styles.content}>{lecturer_background}</ReactMarkdown>
         </div>
       </SectionWrapper>
-      <div className={styles.backgroundWrapper}>
-        <SectionWrapper title="更多課程回顧">
-          <Swiper
-            className={styles.courseSwiper}
-            breakpoints={{
-              '768': {
-                slidesPerView: 3,
-                spaceBetween: 40,
-              },
-              '1024': {
-                slidesPerView: 4,
-                spaceBetween: 30,
-              },
-            }}
-          >
-            {list
-              .filter(({ id: courseId }) => courseId !== id)
-              .map((course) => (
-                <SwiperSlide key={course.id}>
-                  <CoursesCard
-                    key={course.id}
-                    data={course}
-                    courseNumber={parseInt(course.id) < 10 ? `0${course.id}` : course.id}
-                  />
-                </SwiperSlide>
-              ))}
-          </Swiper>
-          <Button
-            text="回講座課程"
-            onClick={() => router.push(appPath.courses)}
-            icon={ButtonIcon.arrow}
-            position="right"
-          />
-        </SectionWrapper>
-      </div>
+
+      <SectionWrapper title="更多課程回顧" isBackgroundGreen>
+        <Swiper
+          className={styles.courseSwiper}
+          breakpoints={{
+            '768': {
+              slidesPerView: 3,
+              spaceBetween: 40,
+            },
+            '1024': {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+          }}
+        >
+          {list
+            .filter(({ id: courseId }) => courseId !== id)
+            .map((course) => (
+              <SwiperSlide key={course.id}>
+                <CoursesCard
+                  key={course.id}
+                  data={course}
+                  courseNumber={parseInt(course.id) < 10 ? `0${course.id}` : course.id}
+                />
+              </SwiperSlide>
+            ))}
+        </Swiper>
+        <Button
+          text="回講座課程"
+          onClick={() => router.push(appPath.courses)}
+          icon={ButtonIcon.arrow}
+          position="right"
+        />
+      </SectionWrapper>
       <NextSection title="專案實作" path={appPath.projects} />
     </CoursesLayout>
   );
