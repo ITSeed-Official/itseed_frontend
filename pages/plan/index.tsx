@@ -8,7 +8,7 @@ import Plan from 'components/templates/Plan';
 import PageMeta from 'components/atoms/PageMeta';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const [meta, courses, visitations] = await Promise.all([getSeos('seo'), getCourses(), getVisitations()]);
+  const [meta, courses, visitations] = await Promise.all([getSeos('plan'), getCourses(), getVisitations()]);
 
   return {
     props: {
