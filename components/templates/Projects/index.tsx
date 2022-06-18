@@ -9,7 +9,6 @@ import AchievementSection from './AchievementSection';
 import GoalSection from './GoalSection';
 import { Goals } from './GoalSection/goals';
 import { ProjectName } from './enums';
-import DataProjectSection from './DataProjectSection';
 import CareerEvents from './CareerEvents/CareerEvents';
 import NextSection from 'components/atoms/NextSection';
 import BannerContainer, { BannerType } from 'components/molecules/BannerContainer';
@@ -81,13 +80,6 @@ const Projects: NextPage<{ router: NextRouter }> = ({ router }) => {
                     content={Goals[activeTab].content}
                     imagePath={Goals[activeTab].imagePath}
                   />
-                  <NextSection title="數據專案" path={appPath.projects} onClick={() => changeTab(ProjectName.data)} />
-                </>
-              );
-            case ProjectName.data:
-              return (
-                <>
-                  <DataProjectSection />
                   <NextSection title="企業參訪" path={appPath.visitation} />
                 </>
               );
