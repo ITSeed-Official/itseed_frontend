@@ -1,40 +1,41 @@
+import { FC } from 'react';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import Icon from 'components/atoms/Icon';
 import SproutIcon from 'public/images/common/icons/sprout.png';
 import styles from './Information.module.scss';
-import { informations, Information } from './informations';
+import { informations, Information } from './data';
 
-const Information = () => {
+const InformationBlock: FC<{ information: Information }> = ({ information }) => (
+  <div className={styles.block}>
+    <h3>
+      <Icon iconSrc={SproutIcon} />
+      {information.title}
+    </h3>
+    <hr />
+    <p>{information.description}</p>
+  </div>
+);
+
+const Information: FC = () => {
   return (
-    <>
-      <SectionWrapper>
-        <div>
-          <div>
-            <h2 className={styles.introTitle}>招生資訊</h2>
-            <div className={styles.sectionBackground}>
-              {informations.map((information_group: Information[], index: number) => {
-                return (
-                  <div className={styles.block} key={index}>
-                    {information_group.map((information: Information, infoBlockIndex: number) => {
-                      return (
-                        <div className={styles.infoBlock} key={infoBlockIndex}>
-                          <h3>
-                            <Icon iconSrc={SproutIcon} />
-                            {information.title}
-                          </h3>
-                          <hr />
-                          <p>{information.description}</p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+    <SectionWrapper title="招生資訊">
+      <div className={styles.content}>
+        <div className={styles.blocks}>
+          {informations
+            .filter((_, index) => index % 2 === 0)
+            .map((information: Information) => (
+              <InformationBlock key={information.title} information={information} />
+            ))}
         </div>
-      </SectionWrapper>
-    </>
+        <div className={styles.blocks}>
+          {informations
+            .filter((_, index) => index % 2 === 1)
+            .map((information: Information) => (
+              <InformationBlock key={information.title} information={information} />
+            ))}
+        </div>
+      </div>
+    </SectionWrapper>
   );
 };
 

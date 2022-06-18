@@ -1,27 +1,34 @@
 @import "/styles/variables.scss";
 @import "/styles/mixin.scss";
 
-.introTitle {
-    padding-left: 40px;
-    margin-bottom: 0;
-}
-
-.sectionBackground {
-    background-color: $color-neutral-900;
-    padding: 40px;
-}
-
-.block {
-    margin-bottom: 40px;
-    display:flex;
-    justify-content: space-between;
-
-    >p {
-        font-size: 16px;
+.informationSection {
+    padding-top: 50px; // 因為桌機版 Timer 往上移動 50px，因此這個 section 的 padding-top 要減少 50px (100 => 50)
+    
+    @include mobile {
+        padding-top: $padding-height-m;
     }
 }
 
-.infoBlock {
+.content {
+    display: flex;
+    justify-content: space-between;
+
+    @include mobile {
+        display: block;
+    }
+}
+
+.block {
     width: 490px;
     height: 84px;
+
+    &:not(:last-child) {
+        margin-bottom: 40px;
+    }
+
+    @include mobile {
+        width: 100%;
+        height: 77px;
+        margin-bottom: 40px;
+    }
 }
