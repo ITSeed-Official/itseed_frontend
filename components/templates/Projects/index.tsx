@@ -55,7 +55,7 @@ const Projects: NextPage = () => {
                   <GoalSection projectDescription={Goals[activeTab].projectDescription} />
                   <AchievementSection />
                   <NextSection
-                    title="職涯專案"
+                    title={translateMap.projects.career}
                     path={appPath.projects}
                     onClick={() => changeTab(translateMap.projects.career)}
                   />
@@ -71,7 +71,7 @@ const Projects: NextPage = () => {
                   />
                   <CareerEvents />
                   <NextSection
-                    title="招生專案"
+                    title={translateMap.projects.recruit}
                     path={appPath.projects}
                     onClick={() => changeTab(translateMap.projects.recruit)}
                   />
