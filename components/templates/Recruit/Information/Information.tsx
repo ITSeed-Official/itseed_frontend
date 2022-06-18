@@ -18,7 +18,7 @@ const InformationBlock: FC<{ information: Information }> = ({ information }) => 
 
 const Information: FC = () => {
   return (
-    <SectionWrapper title="招生資訊">
+    <SectionWrapper title="招生資訊" className={styles.informationSection}>
       <div className={styles.content}>
         <div className={styles.blocks}>
           {informations
