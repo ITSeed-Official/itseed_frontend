@@ -97,17 +97,17 @@ const MobileHeader: FC = () => {
               </div>
               <ul className={mStyles.subMenuList}>
                 <li>
-                  <Link href={`${appPath.careerPersonalization}`} passHref>
+                  <Link href={appPath.careerPersonalization} passHref>
                     <a className={mStyles.subMenuItem}>個人指導</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href={`${appPath.careerCompany}`} passHref>
+                  <Link href={appPath.careerCompany} passHref>
                     <a className={mStyles.subMenuItem}>公司實習</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href={`${appPath.careerInterview}`} passHref>
+                  <Link href={appPath.careerInterview} passHref>
                     <a className={mStyles.subMenuItem}>職涯訪談</a>
                   </Link>
                 </li>
@@ -168,6 +168,7 @@ const MobileHeader: FC = () => {
 const DesktopHeader: FC = () => {
   const router = useRouter();
   const { isSubNavStuck } = useContext(LayoutContext);
+
   return (
     <header className={classNames([dStyles.header, { [dStyles.isSubNavStuck]: isSubNavStuck }])}>
       <SectionWrapper className={dStyles.headerContent}>
@@ -205,13 +206,13 @@ const DesktopHeader: FC = () => {
             <div className={dStyles.subNavList}>
               <ul className={dStyles.subNavListContent}>
                 <li className={dStyles.subNavListItem}>
-                  <Link href={`${appPath.careerPersonalization}`}>個人指導</Link>
+                  <Link href={appPath.careerPersonalization}>個人指導</Link>
                 </li>
                 <li className={dStyles.subNavListItem}>
-                  <Link href={`${appPath.careerCompany}`}>公司實習</Link>
+                  <Link href={appPath.careerCompany}>公司實習</Link>
                 </li>
                 <li className={dStyles.subNavListItem}>
-                  <Link href={`${appPath.careerInterview}`}>職涯訪談</Link>
+                  <Link href={appPath.careerInterview}>職涯訪談</Link>
                 </li>
               </ul>
             </div>
