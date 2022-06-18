@@ -1,23 +1,25 @@
 import { useRef, useMemo } from 'react';
 import type { NextPage } from 'next';
-import { NextRouter } from 'next/router';
 
 import { appPath } from 'util/routing.config';
 import { useTab } from 'util/hooks/useTab';
+import { translateMap } from 'util/translate';
+import { ValueOf } from 'util/type';
 
 import AchievementSection from './AchievementSection';
 import GoalSection from './GoalSection';
 import { Goals } from './GoalSection/goals';
-import { ProjectName } from './enums';
 import CareerEvents from './CareerEvents/CareerEvents';
 import NextSection from 'components/atoms/NextSection';
 import BannerContainer, { BannerType } from 'components/molecules/BannerContainer';
 import TabNav from 'components/molecules/TabNav';
 
-const Projects: NextPage<{ router: NextRouter }> = ({ router }) => {
+export type ProjectsType = typeof translateMap.projects;
+
+const Projects: NextPage = () => {
   const tabs = useMemo(
     () =>
-      Object.values(ProjectName).map((project) => ({
+      Object.values(translateMap.projects).map((project) => ({
         text: project,
       })),
     []
@@ -25,7 +27,7 @@ const Projects: NextPage<{ router: NextRouter }> = ({ router }) => {
   const elRef = useRef<HTMLDivElement>(null);
   const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs);
 
-  const changeTab = (tab: ProjectName) => {
+  const changeTab = (tab: ValueOf<ProjectsType>) => {
     if (elRef && elRef.current) {
       setActiveTab(tab);
       const headerHeight = window.document.querySelector('main')?.offsetTop || 0;
@@ -47,15 +49,19 @@ const Projects: NextPage<{ router: NextRouter }> = ({ router }) => {
         <TabNav tabs={tabs} activeTab={activeTab} onTabClick={changeTab} onStickyChange={setIsSubNavStuck} />
         {(() => {
           switch (activeTab) {
-            case ProjectName.tuv:
+            case translateMap.projects.tuv:
               return (
                 <>
                   <GoalSection projectDescription={Goals[activeTab].projectDescription} />
                   <AchievementSection />
-                  <NextSection title="職涯專案" path={appPath.projects} onClick={() => changeTab(ProjectName.career)} />
+                  <NextSection
+                    title={translateMap.projects.career}
+                    path={appPath.projects}
+                    onClick={() => changeTab(translateMap.projects.career)}
+                  />
                 </>
               );
-            case ProjectName.career:
+            case translateMap.projects.career:
               return (
                 <>
                   <GoalSection
@@ -65,13 +71,13 @@ const Projects: NextPage<{ router: NextRouter }> = ({ router }) => {
                   />
                   <CareerEvents />
                   <NextSection
-                    title="招生專案"
+                    title={translateMap.projects.recruit}
                     path={appPath.projects}
-                    onClick={() => changeTab(ProjectName.recruit)}
+                    onClick={() => changeTab(translateMap.projects.recruit)}
                   />
                 </>
               );
-            case ProjectName.recruit:
+            case translateMap.projects.recruit:
               return (
                 <>
                   <GoalSection

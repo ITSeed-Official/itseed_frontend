@@ -1,4 +1,4 @@
-import { Image } from 'util/common/entities';
+import { Image } from 'util/type';
 
 const domain = process.env.NEXT_PUBLIC_API_ORIGIN;
 

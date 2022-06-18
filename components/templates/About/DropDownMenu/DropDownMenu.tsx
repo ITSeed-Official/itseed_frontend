@@ -5,7 +5,7 @@ import Image from 'next/image';
 import arrow from 'public/images/common/arrow.png';
 
 import styles from './DropDownMenu.module.scss';
-import { CURRENT_SESSION } from '../../../../util/common/setting';
+import { CURRENT_SESSION } from 'util/const';
 
 type ChangeSession = (newSession: number) => void;
 

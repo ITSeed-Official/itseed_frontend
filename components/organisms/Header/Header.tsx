@@ -97,17 +97,17 @@ const MobileHeader: FC = () => {
               </div>
               <ul className={mStyles.subMenuList}>
                 <li>
-                  <Link href={`${appPath.career}#personal`} passHref>
+                  <Link href={`${appPath.careerPersonalization}`} passHref>
                     <a className={mStyles.subMenuItem}>個人指導</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href={`${appPath.career}#company`} passHref>
+                  <Link href={`${appPath.careerCompany}`} passHref>
                     <a className={mStyles.subMenuItem}>公司實習</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href={`${appPath.career}#interview`} passHref>
+                  <Link href={`${appPath.careerInterview}`} passHref>
                     <a className={mStyles.subMenuItem}>職涯訪談</a>
                   </Link>
                 </li>
@@ -205,13 +205,13 @@ const DesktopHeader: FC = () => {
             <div className={dStyles.subNavList}>
               <ul className={dStyles.subNavListContent}>
                 <li className={dStyles.subNavListItem}>
-                  <Link href={`${appPath.career}#personal`}>個人指導</Link>
+                  <Link href={`${appPath.careerPersonalization}`}>個人指導</Link>
                 </li>
                 <li className={dStyles.subNavListItem}>
-                  <Link href={`${appPath.career}#company`}>公司實習</Link>
+                  <Link href={`${appPath.careerCompany}`}>公司實習</Link>
                 </li>
                 <li className={dStyles.subNavListItem}>
-                  <Link href={`${appPath.career}#interview`}>職涯訪談</Link>
+                  <Link href={`${appPath.careerInterview}`}>職涯訪談</Link>
                 </li>
               </ul>
             </div>
