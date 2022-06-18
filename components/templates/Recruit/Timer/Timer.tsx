@@ -9,7 +9,7 @@ interface TimerProps {
 
 const Timer = ({ endTime }: TimerProps) => {
   const leftTime = moment(endTime).unix() - moment().unix();
-  var duration = moment.duration(leftTime, 'seconds');
+  let duration = moment.duration(leftTime, 'seconds');
 
   const [currentDuration, setCurrentDuration] = useState(duration);
 
@@ -23,41 +23,30 @@ const Timer = ({ endTime }: TimerProps) => {
   }, [currentDuration]);
 
   return (
-    <>
-      <div className={styles.desktopOnly}>
-        <SectionWrapper className={styles.content}>
-          <div className={styles.card}>
-            <div className={styles.cardWrapper}>
-              <div>
-                <em>報名倒數</em>
-              </div>
-              <br />
-            </div>
-            <div className={styles.timerBlock}>
-              <div className={styles.block}>
-                <div>{currentDuration.days()}</div>
-                <div>Days</div>
-              </div>
-              <hr />
-              <div className={styles.block}>
-                <div>{currentDuration.hours()}</div>
-                <div>Hours</div>
-              </div>
-              <hr />
-              <div className={styles.block}>
-                <div>{currentDuration.minutes()}</div>
-                <div>Minutes</div>
-              </div>
-              <hr />
-              <div className={styles.block}>
-                <div>{currentDuration.seconds()}</div>
-                <div>Seconds</div>
-              </div>
-            </div>
-          </div>
-        </SectionWrapper>
+    <SectionWrapper className={styles.timerSection}>
+      <h2>報名倒數</h2>
+      <div className={styles.blocks}>
+        <div className={styles.block}>
+          <div className={styles.number}>{currentDuration.days()}</div>
+          <div className={styles.unit}>Days</div>
+        </div>
+        <hr />
+        <div className={styles.block}>
+          <div className={styles.number}>{currentDuration.hours()}</div>
+          <div className={styles.unit}>Hours</div>
+        </div>
+        <hr />
+        <div className={styles.block}>
+          <div className={styles.number}>{currentDuration.minutes()}</div>
+          <div className={styles.unit}>Minutes</div>
+        </div>
+        <hr />
+        <div className={styles.block}>
+          <div className={styles.number}>{currentDuration.seconds()}</div>
+          <div className={styles.unit}>Seconds</div>
+        </div>
       </div>
-    </>
+    </SectionWrapper>
   );
 };
 
