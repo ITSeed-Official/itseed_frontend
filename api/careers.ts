@@ -1,3 +1,5 @@
+import { Image } from 'util/common/entities';
+
 const domain = process.env.NEXT_PUBLIC_API_ORIGIN;
 
 export type ExperienceCategory = 'company' | 'personalization' | 'interview';
@@ -7,7 +9,7 @@ export interface CareerExperience {
   mentee: string;
   role: string;
   position: string;
-  image_url: string;
+  image: Image;
   company: string | null;
   content: string;
   category: ExperienceCategory;
@@ -35,7 +37,7 @@ export const getCareerList = async () => {
 export type MentorDetailType = {
   id: string;
   name: string;
-  image_url: string;
+  image: Image;
   description: string;
   facebook_link: string;
   linkedin_url: string;
@@ -51,7 +53,7 @@ export interface CareerDetailType {
   category: ExperienceCategory;
   overview_content: string;
   company: string;
-  image_url: string;
+  image: Image;
   mentors?: MentorDetailType[];
   published_at: string;
 }

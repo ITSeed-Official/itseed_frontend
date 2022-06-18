@@ -1,3 +1,5 @@
+import { Image } from 'util/common/entities';
+
 const domain = process.env.NEXT_PUBLIC_API_ORIGIN;
 
 export type CourseDetailType = {
@@ -16,11 +18,7 @@ export type CourseDetailType = {
   published_at: string;
   created_at: string;
   updated_at: string;
-  image: {
-    id: string;
-    name: string;
-    url: string;
-  };
+  image: Image;
 };
 
 export const getCourses = async () => {

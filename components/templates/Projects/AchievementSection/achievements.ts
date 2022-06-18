@@ -30,7 +30,11 @@ export const achievements: Achievement[] = [
       {
         id: '1',
         name: '陳顥仁',
-        image_url: '',
+        image: {
+          id: '',
+          name: '',
+          url: '',
+        },
         description: '- 券券文化創辦人 \n - 資訊種子第 2 屆 學員',
         facebook_link: 'facebook',
         linkedin_url: 'linkedin',
@@ -54,7 +58,11 @@ export const achievements: Achievement[] = [
       {
         id: '1',
         name: '王皓',
-        image_url: '',
+        image: {
+          id: '',
+          name: '',
+          url: '',
+        },
         description: '- Mixxin 創辦人 \n - 資訊種子第 7 屆 學員',
         facebook_link: 'facebook',
         linkedin_url: 'linkedin',
@@ -79,7 +87,11 @@ export const achievements: Achievement[] = [
       {
         id: '1',
         name: '林宜儒',
-        image_url: '',
+        image: {
+          id: '',
+          name: '',
+          url: '',
+        },
         description: '- 開課快手 創辦人 \n - 資訊種子第 4 屆 學員',
         facebook_link: 'facebook',
         linkedin_url: 'linkedin',
@@ -103,7 +115,11 @@ export const achievements: Achievement[] = [
       {
         id: '1',
         name: '陳識傑',
-        image_url: '',
+        image: {
+          id: '',
+          name: '',
+          url: '',
+        },
         description: '- MEFA蒙特梭利教育發展學會 行銷總監 \n - 資訊種子第 7 屆 學員',
         facebook_link: 'facebook',
         linkedin_url: 'linkedin',
@@ -126,7 +142,11 @@ export const achievements: Achievement[] = [
       {
         id: '1',
         name: '曾筱芸',
-        image_url: '',
+        image: {
+          id: '',
+          name: '',
+          url: '',
+        },
         description: '- 盤古銀髮 共同創辦人／營運長 \n - 資訊種子第 3 屆 學員',
         facebook_link: 'facebook',
         linkedin_url: 'linkedin',

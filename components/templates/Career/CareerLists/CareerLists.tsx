@@ -20,7 +20,7 @@ const categories: { name: string; type: ExperienceCategory }[] = [
 const filteredData = (data: CareerExperience[], experienceCategory: ExperienceCategory): CareerCardType[] =>
   data
     .filter(({ category }) => category === experienceCategory)
-    .map(({ id, mentee, role, position, company, category, overview_content, mentors_overview, image_url }) => ({
+    .map(({ id, mentee, role, position, company, category, overview_content, mentors_overview, image }) => ({
       id,
       name: mentee,
       job: position,
@@ -29,7 +29,7 @@ const filteredData = (data: CareerExperience[], experienceCategory: ExperienceCa
       role,
       description: overview_content,
       mentorsOverview: mentors_overview,
-      imgSrc: image_url,
+      imgSrc: image.url,
     }));
 
 const CareerSection: FC<{ data: CareerExperience[] }> = ({ data: careerExperiences }) => {

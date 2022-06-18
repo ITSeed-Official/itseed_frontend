@@ -40,11 +40,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const meta = {
     title: `${detail.mentee} ${detail.position}`,
-    description: detail.image_url,
+    description: detail.image.url,
     og_title: `${detail.mentee} ${detail.position}`,
     og_description: detail.overview_content,
     og_url: `${appPath.career}/${detail.id}`,
-    og_image: detail.image_url,
+    og_image: detail.image.url,
   };
 
   return {
