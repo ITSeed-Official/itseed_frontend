@@ -7,6 +7,6 @@ export enum appPath {
   faq = '/faq',
   sharing = '/sharing',
   plan = '/plan',
-  projects = '/projects',
+  projects = '/projects#TUV專案',
   visitation = '/visitation',
 }
