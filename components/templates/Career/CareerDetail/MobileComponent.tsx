@@ -27,7 +27,7 @@ const MobileComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
         isBackgroundGreen
       />
       <div className={styles.image}>
-        <Image alt="mentee" src={detail.image_url} layout="fill" />
+        <Image alt="mentee" src={detail.image.url} layout="fill" />
       </div>
       <SectionWrapper className={styles.menteeSection}>
         <ReactMarkdown>{detail.content}</ReactMarkdown>
@@ -43,7 +43,7 @@ const MobileComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
         <Swiper className={styles.careerSwiper} loop={false}>
           {list
             .filter((experience) => experience.id !== detail.id)
-            .map(({ id, company, position, role, mentee, overview_content, mentors_overview, category, image_url }) => (
+            .map(({ id, company, position, role, mentee, overview_content, mentors_overview, category, image }) => (
               <SwiperSlide key={id}>
                 <CareerCard
                   id={id}
@@ -55,7 +55,7 @@ const MobileComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
                   description={overview_content}
                   mentorsOverview={mentors_overview}
                   category={category}
-                  imgSrc={image_url}
+                  imgSrc={image.url}
                 />
               </SwiperSlide>
             ))}
