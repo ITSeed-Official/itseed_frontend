@@ -1,7 +1,5 @@
 import type { FC } from 'react';
 
-import { chunkArray } from 'util/helper';
-
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import CareerCard, { CareerCardType } from './CareerCard';
 
