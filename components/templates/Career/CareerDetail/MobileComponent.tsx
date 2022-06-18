@@ -4,7 +4,7 @@ import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 
 import { appPath } from 'util/routing.config';
-import { categoriesTranslateMap } from 'util/helper';
+import { translateMap } from 'util/translate';
 
 import type { CareerDetailProperty } from '../CareerDetail/CareerDetail';
 import CareerCard from '../CareerLists/CareerCards/CareerCard';
@@ -21,7 +21,7 @@ const MobileComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
   return (
     <div className={styles.careerDetailMobile}>
       <SectionWrapper
-        title={categoriesTranslateMap[detail.category]}
+        title={translateMap.career[detail.category]}
         className={styles.titleSection}
         titleClassName={styles.title}
         isBackgroundGreen

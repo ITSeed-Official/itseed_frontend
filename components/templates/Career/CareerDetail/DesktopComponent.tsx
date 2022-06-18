@@ -4,7 +4,7 @@ import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import classnames from 'classnames';
 
-import { categoriesTranslateMap } from 'util/helper';
+import { translateMap } from 'util/translate';
 import { useScroll } from 'util/hooks/useEvent';
 import { appPath } from 'util/routing.config';
 
@@ -36,7 +36,7 @@ const DesktopComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
     <div className={styles.careerDetailDesktop}>
       <SectionWrapper
         className={styles.menteeSection}
-        title={categoriesTranslateMap[detail.category]}
+        title={translateMap.career[detail.category]}
         titleClassName={styles.mainTitle}
         isBackgroundGreen
       >

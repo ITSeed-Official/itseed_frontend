@@ -2,7 +2,7 @@ import { FC, Fragment, useMemo, useRef } from 'react';
 import classnames from 'classnames';
 
 import { CareerExperience, ExperienceCategory } from 'api/careers';
-import { categoriesTranslateMap } from 'util/helper';
+import { translateMap } from 'util/translate';
 import { useTab } from 'util/hooks/useTab';
 
 import CareerCards from './CareerCards';
@@ -11,11 +11,10 @@ import TabNav from 'components/molecules/TabNav';
 
 import styles from './CareerLists.module.scss';
 
-const categories: { name: string; type: ExperienceCategory }[] = [
-  { name: '公司實習', type: 'company' },
-  { name: '個人指導', type: 'personalization' },
-  { name: '職涯訪談', type: 'interview' },
-];
+const categories: { type: ExperienceCategory; name: string }[] = Object.keys(translateMap.career).map((type) => ({
+  type: type as ExperienceCategory,
+  name: translateMap.career[type as ExperienceCategory],
+}));
 
 const filteredData = (data: CareerExperience[], experienceCategory: ExperienceCategory): CareerCardType[] =>
   data
@@ -32,7 +31,7 @@ const filteredData = (data: CareerExperience[], experienceCategory: ExperienceCa
       imgSrc: image.url,
     }));
 
-const CareerSection: FC<{ data: CareerExperience[] }> = ({ data: careerExperiences }) => {
+const CareerLists: FC<{ data: CareerExperience[] }> = ({ data: careerExperiences }) => {
   const elRef = useRef<HTMLDivElement>(null);
   const tabs = useMemo(() => categories.map((c) => ({ text: c.name })), []);
   const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs, false);
@@ -64,13 +63,13 @@ const CareerSection: FC<{ data: CareerExperience[] }> = ({ data: careerExperienc
       />
       {careerExperiences.length > 0 && (
         <>
-          {categories.map(({ name, type }) => (
+          {categories.map(({ type, name }) => (
             <Fragment key={type}>
               {data[type].length > 0 && (activeTab === '' || activeTab === name) && (
                 <CareerCards
                   className={classnames(type !== 'personalization' && styles.greenBackground)}
                   careerCards={data[type]}
-                  title={categoriesTranslateMap[type]}
+                  title={name}
                 />
               )}
             </Fragment>
@@ -81,4 +80,4 @@ const CareerSection: FC<{ data: CareerExperience[] }> = ({ data: careerExperienc
   );
 };
 
-export default CareerSection;
+export default CareerLists;
