@@ -23,9 +23,9 @@ interface PlanProperty {
   visitations: Visitation[];
 }
 
-type PlanContentType = '講座課程' | '四大實作專案' | '計畫時程總覽' | '歷屆企業參訪紀錄';
+type PlanContentType = '講座課程' | '三大實作專案' | '計畫時程總覽' | '歷屆企業參訪紀錄';
 
-const plans: PlanContentType[] = ['講座課程', '四大實作專案', '計畫時程總覽', '歷屆企業參訪紀錄'];
+const plans: PlanContentType[] = ['講座課程', '三大實作專案', '計畫時程總覽', '歷屆企業參訪紀錄'];
 
 const projects = [
   {
@@ -88,8 +88,8 @@ const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
           courseLimit={8}
         />
       )}
-      {(activeTab === '' || activeTab === '四大實作專案') && (
-        <SectionWrapper title="四大實作專案">
+      {(activeTab === '' || activeTab === '三大實作專案') && (
+        <SectionWrapper title="三大實作專案">
           {projects.map(({ id, name, description, imgUrl }, index) => (
             <div key={id} className={styles.projectCard}>
               <div className={styles.projectImage}>
@@ -105,7 +105,7 @@ const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
               </div>
             </div>
           ))}
-          <Button text="四大實作專案" icon={ButtonIcon.arrow} onClick={() => router.push(appPath.projects)} />
+          <Button text="三大實作專案" icon={ButtonIcon.arrow} onClick={() => router.push(appPath.projects)} />
         </SectionWrapper>
       )}
       {(activeTab === '' || activeTab === '計畫時程總覽') && (
