@@ -9,11 +9,12 @@ type CardProperty = {
   cardInfoClassName?: string;
   imgSrc: string;
   content: string;
-  name: string;
-  character: string;
+  name?: string;
+  character?: string;
   ctaText?: string;
   children?: ReactNode;
   onClickCta?: Function;
+  needCommna?: boolean;
 };
 
 const Card: FC<CardProperty> = ({
@@ -22,27 +23,30 @@ const Card: FC<CardProperty> = ({
   className,
   imgSrc,
   content,
-  name,
-  character,
+  name = '',
+  character = '',
   ctaText = '看更多',
   children,
   onClickCta = () => {},
+  needCommna = true,
 }) => {
   return (
     <div className={classnames(wrapperClassName)}>
       <div className={classnames(styles.card, className)}>
         <div className={styles.cardImg}>
           <Image src={imgSrc} alt="card-image" layout="fill" />
-          <span className={styles.commaIconWrapper}>
-            <Image src="/images/common/icons/icon-comma.png" width="48px" height="27px" alt="decorator-comma" />
-          </span>
+          {needCommna && (
+            <span className={styles.commaIconWrapper}>
+              <Image src="/images/common/icons/icon-comma.png" width="48px" height="27px" alt="decorator-comma" />
+            </span>
+          )}
         </div>
         <div className={classnames(styles.cardInfo, cardInfoClassName)}>
           {children}
           <p className={styles.sharingWords}>{content}</p>
           <div className={styles.footer}>
-            <p className={styles.sharer}>{name}</p>
-            <p className={styles.sharerTitle}>{character}</p>
+            {name && <p className={styles.sharer}>{name}</p>}
+            {character && <p className={styles.sharerTitle}>{character}</p>}
             <div
               className={styles.cta}
               onClick={() => {
