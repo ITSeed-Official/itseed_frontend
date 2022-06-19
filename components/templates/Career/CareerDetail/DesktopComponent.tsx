@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import ReactMarkdown from 'react-markdown';
 import classnames from 'classnames';
 
 import { translateMap } from 'util/translate';
@@ -9,8 +8,9 @@ import { useScroll } from 'util/hooks/useEvent';
 import { appPath } from 'util/routing.config';
 
 import type { CareerDetailProperty } from '../CareerDetail/CareerDetail';
-import CareerCard from '../CareerLists/CareerCards/CareerCard';
+import CareerCard from '../CareerCard';
 import Swiper, { SwiperSlide } from 'components/organisms/Swiper';
+import Markdown from 'components/molecules/Markdown';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import Button, { ButtonIcon } from 'components/atoms/Button';
 
@@ -53,7 +53,7 @@ const DesktopComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
               <p>{detail.mentee_school}</p>
               <p>{detail.mentee}</p>
             </div>
-            <ReactMarkdown className={styles.detail}>{detail.content}</ReactMarkdown>
+            <Markdown text={detail.content} />
           </div>
           <div className={styles.leaf} />
           <div className={styles.emptyLeaf} />

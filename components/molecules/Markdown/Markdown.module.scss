@@ -1,0 +1,16 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.markdown {
+    & h3 {
+        margin-bottom: 24px;
+    }
+
+    & p:not(:last-child) {
+        margin-bottom: 80px;
+
+        @include mobile {
+            margin-bottom: 40px;
+        }
+    }
+}
