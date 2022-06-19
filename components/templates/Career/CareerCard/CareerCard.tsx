@@ -19,7 +19,7 @@ export type CareerCardType = {
 };
 
 interface CareerCardProperty extends CareerCardType {
-  wrapperClassName: string;
+  wrapperClassName?: string;
   onClick?: () => {};
 }
 
@@ -36,7 +36,7 @@ const CareerCard: FC<CareerCardProperty> = ({
   category,
   imgSrc = '',
   onClick,
-  wrapperClassName,
+  wrapperClassName = '',
 }) => {
   const router = useRouter();
 
