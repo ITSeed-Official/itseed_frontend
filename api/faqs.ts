@@ -1,4 +1,4 @@
-import { DEFAULT_FAQ } from 'lib/constants';
+import { DEFAULT_FAQ } from 'util/const';
 import { APIResponse, FAQ } from 'util/hooks/swr/useFAQs';
 
 export const getFaqs = async (): Promise<FAQ[]> => {
