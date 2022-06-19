@@ -1,0 +1,59 @@
+@import "/styles/variables.scss";
+@import "/styles/mixin.scss";
+
+.headerSection {
+    display: flex;
+
+    @include mobile {
+        display: block;
+    }
+}
+
+.image {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin-right: 60px;
+
+    & img {
+        border-radius: 20px;
+    }
+
+    @include mobile {
+        margin-right: 0;
+        margin-bottom: 40px;
+        width: 100%;
+        
+        & img {
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & > .name {
+        margin-top: 16px;
+    }
+
+    & > .position {
+        font-size: 12px;
+        margin: 0;
+    }
+}
+
+.button {
+    margin-top: 80px;
+
+    @include mobile {
+        margin-top: 40px;
+    }
+}
+
+.swiper {
+    height: 480px;
+}
