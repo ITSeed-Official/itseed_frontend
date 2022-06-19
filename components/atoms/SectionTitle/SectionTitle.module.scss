@@ -2,28 +2,28 @@
 @import "/styles/mixin.scss";
 
 .sectionBigTitle {
-  font-size: $font-bigTitle-d;
+  font-size: $font-h1-d;
   margin: 0;
 
   @include mobile {
-    font-size: $font-bigTitle-m;
+    font-size: $font-h1-m;
   }
 }
 
 .sectionTitle {
-  font-size: $font-title-d;
+  font-size: $font-h2-d;
   margin: 0;
 
   @include mobile {
-    font-size: $font-title-m;
+    font-size: $font-h2-m;
   }
 }
 
 .subTitle {
-  font-size: $font-subTitle-d;
+  font-size: $font-h3-d;
   margin: 0;
 
   @include mobile {
-    font-size: $font-subTitle-m;
+    font-size: $font-h3-m;
   }
 }

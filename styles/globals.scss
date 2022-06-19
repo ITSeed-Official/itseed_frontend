@@ -19,3 +19,36 @@ a {
   font-style: normal;
   font-weight: normal;
 }
+
+h1 {
+  font-size: $font-h1-d;
+  margin: 0;
+}
+
+h2 {
+  font-size: $font-h2-d;
+  margin: 0;
+}
+
+h3 {
+  font-size: $font-h3-d;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+@include mobile {
+  h1 {
+    font-size: $font-h1-m;
+  }
+  
+  h2 {
+    font-size: $font-h2-m;
+  }
+  
+  h3 {
+    font-size: $font-h3-m;
+  }
+}
