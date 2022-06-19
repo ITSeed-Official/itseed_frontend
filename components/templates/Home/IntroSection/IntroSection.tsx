@@ -27,7 +27,7 @@ const features = [
     title: '校友資源',
     imgSrc: '/images/homepage/icons/resource.svg',
     // hoverImgSrc: "/images/homepage/icons/resource.svg",
-    link: appPath.sharing,
+    link: appPath.alumni,
     content: ['不藏私回饋', '跨代交流分享', '各界人脈建立'],
   },
   {

@@ -1,15 +1,18 @@
 import type { NextPage } from 'next';
-import BannerContainer from 'components/molecules/BannerContainer';
+import { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
+
+import { domain } from 'util/const';
+import { CURRENT_SESSION } from 'util/const';
+import { Graduate } from 'api/graduates';
+
+import IntroSection from '../Home/IntroSection';
 import DropDownMenu from 'components/templates/About/DropDownMenu';
 import TableView from 'components/templates/About/TableView';
 import OrganizationSection from 'components/templates/About/OrganizationSection';
-import { CURRENT_SESSION } from 'util/const';
-import { useState, useEffect, useRef } from 'react';
-import { BannerType } from '../../molecules/BannerContainer/enum';
-import axios from 'axios';
+import BannerContainer from 'components/molecules/BannerContainer';
+import { BannerType } from 'components/molecules/BannerContainer/enum';
 import SectionWrapper from 'components/molecules/SectionWrapper';
-import IntroSection from '../Home/IntroSection';
-import { Graduate } from 'api/graduates';
 import NextSection from 'components/atoms/NextSection';
 
 interface IProps {
@@ -23,7 +26,6 @@ const About: NextPage<IProps> = (props: IProps) => {
 
   useEffect(() => {
     const fetchAPI = async (session: number) => {
-      const domain = process.env.NEXT_PUBLIC_API_ORIGIN;
       const graduates = await axios.get(`${domain}/graduates?session=${session}`).then((res: any) => {
         return res.data.map((graduate: Graduate) => {
           return {
