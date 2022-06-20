@@ -7,17 +7,16 @@ import { CourseDetailType } from 'api/courses';
 import { Visitation } from 'api/visitations';
 import { appPath } from 'util/routing.config';
 import { useTab } from 'util/hooks/useTab';
+import { translateMap } from 'util/translate';
 
+import TemplateWrapper from 'components/organisms/TemplateWrapper';
 import { CourseListSection } from 'components/templates/Courses/CoursesLists';
-import BannerContainer from 'components/molecules/BannerContainer';
-import { BannerType } from 'components/molecules/BannerContainer/enum';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import TabNav from 'components/molecules/TabNav';
 import Cta from 'components/atoms/Cta';
 import Button, { ButtonIcon } from 'components/atoms/Button';
 
 import styles from './Plan.module.scss';
-import { translateMap } from 'util/translate';
 
 interface PlanProperty {
   courses: CourseDetailType[];
@@ -58,17 +57,17 @@ const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
   const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs);
 
   return (
-    <>
-      <BannerContainer
-        desktopBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
-        mobileBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
-        primaryTitle="計畫內容"
-        description="資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。
-        透過執行 4 大專案，參與 10+ 堂來自業界講師的課程，了解業界生態，
-        並探索自己未來的職涯方向。
-        培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。"
-        type={BannerType.general}
-      />
+    <TemplateWrapper
+      desktopBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
+      mobileBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
+      primaryTitle="計畫內容"
+      description="資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。
+    透過執行 4 大專案，參與 10+ 堂來自業界講師的課程，了解業界生態，
+    並探索自己未來的職涯方向。
+    培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。"
+      nextSectionPath={appPath.recruit}
+      nextSectionTitle="招生資訊"
+    >
       <TabNav
         tabs={tabs}
         activeTab={activeTab}
@@ -136,7 +135,7 @@ const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
           <Button text="歷屆企業參訪" icon={ButtonIcon.arrow} onClick={() => router.push(appPath.visitation)} />
         </SectionWrapper>
       )}
-    </>
+    </TemplateWrapper>
   );
 };
 
