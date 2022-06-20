@@ -5,8 +5,8 @@ import { CareerExperience, ExperienceCategory } from 'api/careers';
 import { translateMap } from 'util/translate';
 import { useTab } from 'util/hooks/useTab';
 
-import CareerCards from './CareerCards';
-import type { CareerCardType } from './CareerCards/CareerCard';
+import CareerCards from '../CareerCards';
+import type { CareerCardType } from '../CareerCard';
 import TabNav from 'components/molecules/TabNav';
 
 import styles from './CareerLists.module.scss';

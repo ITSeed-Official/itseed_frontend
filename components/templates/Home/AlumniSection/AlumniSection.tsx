@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { useRouter } from 'next/router';
 
+import { appPath } from 'util/routing.config';
+
 import Card from 'components/molecules/Card';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import Swiper, { SwiperSlide } from 'components/organisms/Swiper';
@@ -84,7 +86,7 @@ const AlumniSection: FC = () => {
           className={styles.button}
           icon={ButtonIcon.arrow}
           onClick={() => {
-            router.push('/sharing');
+            router.push(appPath.alumni);
           }}
         />
       </SectionWrapper>

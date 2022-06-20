@@ -1,5 +1,6 @@
-import useSWR from 'swr';
 import axios, { AxiosError } from 'axios';
+import { domain } from 'util/const';
+import useSWR from 'swr';
 
 import { CareerExperience } from 'api/careers';
 
@@ -11,7 +12,6 @@ interface Response {
   isError: boolean;
 }
 
-const domain = process.env.NEXT_PUBLIC_API_ORIGIN;
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 export const useCareerList = (): Response => {

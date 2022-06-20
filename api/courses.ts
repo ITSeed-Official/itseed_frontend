@@ -1,6 +1,5 @@
 import { Image } from 'util/type';
-
-const domain = process.env.NEXT_PUBLIC_API_ORIGIN;
+import { domain } from 'util/const';
 
 export type CourseDetailType = {
   id: string;

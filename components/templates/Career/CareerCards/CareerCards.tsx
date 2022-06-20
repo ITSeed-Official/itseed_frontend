@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 
 import SectionWrapper from 'components/molecules/SectionWrapper';
-import CareerCard, { CareerCardType } from './CareerCard';
+import CareerCard, { CareerCardType } from '../CareerCard';
 
 import styles from './CareerCards.module.scss';
 

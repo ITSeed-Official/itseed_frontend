@@ -14,4 +14,11 @@ export const translateMap = {
     career: '職涯專案',
     recruit: '招生專案',
   },
+
+  // 校友評價
+  alumni: {
+    senior: '學長姐怎麼看',
+    leader: '領導者怎麼看',
+    junior: '學員怎麼看',
+  },
 };

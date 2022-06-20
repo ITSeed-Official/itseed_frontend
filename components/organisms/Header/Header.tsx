@@ -1,16 +1,18 @@
 import { FC, useState, useEffect, useContext } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import classNames from 'classnames';
+import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { LayoutContext } from 'contexts/LayoutContext';
+import { appPath } from 'util/routing.config';
+
 import Button, { ButtonIcon } from 'components/atoms/Button';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import dStyles from './Header.desktop.module.scss';
 import mStyles from './Header.mobile.module.scss';
-import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { LayoutContext } from '../../../contexts/LayoutContext';
-import { appPath } from 'util/routing.config';
 
 const MobileHeader: FC = () => {
   const router = useRouter();
@@ -121,17 +123,17 @@ const MobileHeader: FC = () => {
               </div>
               <ul className={mStyles.subMenuList}>
                 <li>
-                  <Link href="/sharing#graduate" passHref>
+                  <Link href={appPath.alumniSenior} passHref>
                     <a className={mStyles.subMenuItem}>學長姐怎麼看</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/sharing#leader" passHref>
+                  <Link href={appPath.alumniLeader} passHref>
                     <a className={mStyles.subMenuItem}>領導者怎麼看</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/sharing#trainee" passHref>
+                  <Link href={appPath.alumniJunior} passHref>
                     <a className={mStyles.subMenuItem}>學員怎麼看</a>
                   </Link>
                 </li>
@@ -218,17 +220,17 @@ const DesktopHeader: FC = () => {
             </div>
           </li>
           <li className={dStyles.navItem}>
-            <Link href="/sharing">校友評價</Link>
+            <Link href={appPath.alumni}>校友評價</Link>
             <div className={dStyles.subNavList}>
               <ul className={dStyles.subNavListContent}>
                 <li className={dStyles.subNavListItem}>
-                  <Link href="/sharing#graduate">學長姐怎麼看</Link>
+                  <Link href={appPath.alumniSenior}>學長姐怎麼看</Link>
                 </li>
                 <li className={dStyles.subNavListItem}>
-                  <Link href="/sharing#leader">領導者怎麼看</Link>
+                  <Link href={appPath.alumniLeader}>領導者怎麼看</Link>
                 </li>
                 <li className={dStyles.subNavListItem}>
-                  <Link href="/sharing#trainee">學員怎麼看</Link>
+                  <Link href={appPath.alumniJunior}>學員怎麼看</Link>
                 </li>
               </ul>
             </div>

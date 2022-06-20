@@ -1,6 +1,5 @@
 import type { FC } from 'react';
 import Image from 'next/image';
-import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/router';
 
 import type { CourseDetailType } from 'api/courses';
@@ -16,6 +15,7 @@ import Icon from 'components/atoms/Icon';
 import SproutIcon from 'public/images/common/icons/sprout.png';
 
 import styles from './CoursesDetail.module.scss';
+import Markdown from 'components/molecules/Markdown';
 
 type CoursesDetailProperty = {
   detail: CourseDetailType;
@@ -64,7 +64,7 @@ const CoursesDetail: FC<CoursesDetailProperty> = ({ detail, list }) => {
             <Icon iconSrc={SproutIcon} />
             <span>課程大綱</span>
           </div>
-          <ReactMarkdown className={styles.content}>{agenda}</ReactMarkdown>
+          <Markdown className={styles.content} text={agenda} />
         </div>
         <div className={styles.line} />
         <div className={styles.lecturer}>
@@ -80,7 +80,7 @@ const CoursesDetail: FC<CoursesDetailProperty> = ({ detail, list }) => {
               </p>
             )}
           </div>
-          <ReactMarkdown className={styles.content}>{lecturer_background}</ReactMarkdown>
+          <Markdown className={styles.content} text={lecturer_background} />
         </div>
       </SectionWrapper>
 

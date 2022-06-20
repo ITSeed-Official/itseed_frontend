@@ -1,0 +1,35 @@
+@import "/styles/mixin.scss";
+@import "/styles/variables.scss";
+
+.cardsSectionDesktop {
+    @include desktopOnly;
+
+    & > div:not(:last-child) {
+        margin-bottom: 70px;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(362px, 1fr));
+        justify-items: center;
+        grid-gap: 30px;
+    
+        @include tablet {
+            grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+        }
+    
+        @include mobile {
+            grid-template-columns: 100%;
+        }
+    }
+}
+
+.cardsSectionMobile {
+    @include mobileOnly;
+
+    & .swiper {
+        height: 480px;
+    }
+}
+
+

@@ -21,7 +21,7 @@ interface Response {
   isError: boolean;
 }
 
-const domain = process.env.NEXT_PUBLIC_API_ORIGIN;
+import { domain } from 'util/const';
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 export const useFAQs = (): Response => {
