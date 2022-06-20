@@ -66,11 +66,7 @@ const CareerLists: FC<{ data: CareerExperience[] }> = ({ data: careerExperiences
           {categories.map(({ type, name }) => (
             <Fragment key={type}>
               {data[type].length > 0 && (activeTab === '' || activeTab === name) && (
-                <CareerCards
-                  className={classnames(type !== 'personalization' && styles.greenBackground)}
-                  careerCards={data[type]}
-                  title={name}
-                />
+                <CareerCards isBackgroundGreen={type !== 'personalization'} careerCards={data[type]} title={name} />
               )}
             </Fragment>
           ))}
