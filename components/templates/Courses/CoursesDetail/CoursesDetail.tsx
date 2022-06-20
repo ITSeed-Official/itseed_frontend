@@ -10,7 +10,6 @@ import CoursesCard from '../CoursesCard';
 import Swiper, { SwiperSlide } from 'components/organisms/Swiper';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import Button, { ButtonIcon } from 'components/atoms/Button';
-import NextSection from 'components/atoms/NextSection';
 import Icon from 'components/atoms/Icon';
 import SproutIcon from 'public/images/common/icons/sprout.png';
 
@@ -42,7 +41,7 @@ const CoursesDetail: FC<CoursesDetailProperty> = ({ detail, list }) => {
   const router = useRouter();
 
   return (
-    <CoursesLayout primaryTitle={title} subTitle={subtitle} description={overview}>
+    <CoursesLayout subTitle={subtitle} description={overview}>
       <SectionWrapper className={styles.courseIntro} isBackgroundGreen>
         <div className={styles.courseInfo}>
           <h2>課程心得</h2>
@@ -57,7 +56,6 @@ const CoursesDetail: FC<CoursesDetailProperty> = ({ detail, list }) => {
       <div className={styles.courseImageMobile}>
         <Image src={image.url} alt={image.name} layout="fill" />
       </div>
-
       <SectionWrapper className={styles.courseIntro}>
         <div className={styles.agenda}>
           <div className={styles.title}>
@@ -83,7 +81,6 @@ const CoursesDetail: FC<CoursesDetailProperty> = ({ detail, list }) => {
           <Markdown className={styles.content} text={lecturer_background} />
         </div>
       </SectionWrapper>
-
       <SectionWrapper title="更多課程回顧" isBackgroundGreen>
         <Swiper
           className={styles.courseSwiper}
@@ -117,7 +114,6 @@ const CoursesDetail: FC<CoursesDetailProperty> = ({ detail, list }) => {
           position="right"
         />
       </SectionWrapper>
-      <NextSection title="專案實作" path={appPath.projects} />
     </CoursesLayout>
   );
 };

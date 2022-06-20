@@ -1,31 +1,23 @@
 import type { FC } from 'react';
-import { BannerType } from 'components/molecules/BannerContainer/enum';
-import BannerContainer from 'components/molecules/BannerContainer';
 
-type CoursesLayoutProperty = {
-  primaryTitle?: string;
-  subTitle?: string;
-  description?: string;
-};
+import { appPath } from 'util/routing.config';
+import TemplateWrapper, { TemplateWrapperProperty } from 'components/organisms/TemplateWrapper';
 
-const CoursesLayout: FC<CoursesLayoutProperty> = ({
-  primaryTitle = '講座課程',
-  subTitle = '',
-  description = '',
-  children,
-}) => {
+type CourseLayoutProperty = Pick<TemplateWrapperProperty, 'subTitle' | 'description'>;
+
+const CoursesLayout: FC<CourseLayoutProperty> = ({ children, subTitle, description }) => {
   return (
-    <>
-      <BannerContainer
-        desktopBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
-        mobileBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
-        primaryTitle={primaryTitle}
-        subTitle={subTitle}
-        description={description}
-        type={BannerType.general}
-      />
+    <TemplateWrapper
+      desktopBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
+      mobileBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
+      primaryTitle="講座課程"
+      subTitle={subTitle}
+      description={description}
+      nextSectionPath={appPath.projects}
+      nextSectionTitle="專案實作"
+    >
       {children}
-    </>
+    </TemplateWrapper>
   );
 };
 
