@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react';
-import GeneralBanner, { GeneralBannerProps } from 'components/molecules/BannerContainer/GeneralBanner';
+
+import GeneralBanner, { GeneralBannerProps } from 'components/molecules/GeneralBanner/GeneralBanner';
 import NextSection from 'components/atoms/NextSection';
 
 export interface TemplateWrapperProperty extends GeneralBannerProps {
