@@ -1,18 +1,20 @@
 import { FC } from 'react';
-import styles from './OrganizationSection.module.scss';
+
 import SectionWrapper from 'components/molecules/SectionWrapper';
-import Image from 'next/image';
+import Icon from 'components/atoms/Icon';
 import sprout from 'public/images/common/icons/sprout.png';
+
+import styles from './OrganizationSection.module.scss';
 
 const OrganizationSection: FC = () => {
   return (
     <SectionWrapper isBackgroundGreen title="組織架構">
       <div className={styles.content}>
         <div className={styles.block}>
-          <h3>
-            <Image className={styles.icon} alt="sprout" src={sprout} width={24} height={24} />
-            校友會
-          </h3>
+          <div className={styles.title}>
+            <Icon iconSrc={sprout} />
+            <h3>校友會</h3>
+          </div>
           <hr />
           <p>
             從2003年至今已累積 500
@@ -20,18 +22,18 @@ const OrganizationSection: FC = () => {
           </p>
         </div>
         <div className={styles.block}>
-          <h3>
-            <Image className={styles.icon} alt="sprout" src={sprout} width={24} height={24} />
-            校友會培訓部
-          </h3>
+          <div className={styles.title}>
+            <Icon iconSrc={sprout} />
+            <h3>校友會培訓部</h3>
+          </div>
           <hr />
           <p>負責協助當屆專案的進行及年度課程規劃，為學員與公會、校友會溝通的橋樑。</p>
         </div>
         <div className={styles.block}>
-          <h3>
-            <Image className={styles.icon} alt="sprout" src={sprout} width={24} height={24} />
-            學員幹部
-          </h3>
+          <div className={styles.title}>
+            <Icon iconSrc={sprout} />
+            <h3>學員幹部</h3>
+          </div>
           <hr />
           <p>
             由當屆學員選舉產生，主要負責凝聚學員情感，以及團隊溝通協調。第十八屆幹部團隊包含：

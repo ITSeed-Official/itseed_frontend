@@ -8,11 +8,21 @@
 
 .block {
     margin-bottom: 40px;
-    > p {
+
+    & > .title {
+        display: flex;
+        align-items: center;
+
+        & > h3 {
+            margin-left: 4px;
+        }
+    }
+    
+    & > p {
         font-size: 16px;
     }
-}
 
-.icon {
-    padding: 1px;
+    & > hr {
+        margin: 12px 0;
+    }
 }
