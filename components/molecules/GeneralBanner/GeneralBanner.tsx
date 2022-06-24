@@ -5,10 +5,8 @@ import Image from 'next/image';
 import SectionWrapper from 'components/molecules/SectionWrapper/SectionWrapper';
 import { SubTitle } from 'components/atoms/SectionTitle/SectionTitle';
 import styles from './GeneralBanner.module.scss';
-import { BannerType } from './enum';
 
 export type GeneralBannerProps = {
-  type: BannerType.general;
   desktopBackgroundImage?: string;
   mobileBackgroundImage?: string;
   primaryTitle: string;

@@ -53,16 +53,13 @@ export const TabNav = ({ tabs, activeTab, onTabClick, onStickyChange }: TabNavPr
   }, [onStickyChange]);
 
   return (
-    <>
-      <div ref={elRef}></div>
-      <div className={classnames([styles.nav, styles.sticky, { [styles.stuck]: isStuck }])}>
-        <div className={styles.navContent}>
-          {tabs.map((tab) => (
-            <Tab key={tab.text} {...tab} isActive={tab.text === activeTab} onClick={onTabClick} />
-          ))}
-        </div>
+    <div ref={elRef} className={classnames([styles.nav, styles.sticky, { [styles.stuck]: isStuck }])}>
+      <div className={styles.navContent}>
+        {tabs.map((tab) => (
+          <Tab key={tab.text} {...tab} isActive={tab.text === activeTab} onClick={onTabClick} />
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 

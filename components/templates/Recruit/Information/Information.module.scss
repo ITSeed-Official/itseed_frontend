@@ -19,16 +19,11 @@
 }
 
 .block {
-    width: 490px;
-    height: 84px;
-
     &:not(:last-child) {
         margin-bottom: 40px;
     }
 
     @include mobile {
-        width: 100%;
-        height: 77px;
         margin-bottom: 40px;
     }
 }

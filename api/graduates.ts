@@ -21,13 +21,13 @@ export const getGraduates = async (session: number): Promise<Graduate[]> => {
   const data: GraduatesAPIData[] = await response.json();
 
   if (!data.length) {
-    return [{ name: '', school: '', department: '' }];
+    return [];
   }
-  const graduates: Graduate[] = data.map((graduate: GraduatesAPIData) => {
+  const graduates: Graduate[] = data.map(({ name, school, department }) => {
     return {
-      name: graduate.name,
-      school: graduate.school,
-      department: graduate.department,
+      name,
+      school,
+      department,
     };
   });
 

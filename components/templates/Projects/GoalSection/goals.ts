@@ -1,7 +1,7 @@
 import { translateMap } from 'util/translate';
 import { ValueOf } from 'util/type';
 
-import { ProjectsType } from '../index';
+import { ProjectsType } from '../Projects';
 
 export interface Goal {
   projectDescription: string;

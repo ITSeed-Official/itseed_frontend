@@ -1,3 +1,5 @@
+import type { GetStaticProps } from 'next';
+
 import About from 'components/templates/About';
 import PageMeta from 'components/atoms/PageMeta';
 
@@ -6,7 +8,7 @@ import { getGraduates } from 'api/graduates';
 
 import { CURRENT_SESSION } from 'util/const';
 
-export async function getServerSideProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const [meta, graduates] = await Promise.all([getSeos('graduates'), getGraduates(CURRENT_SESSION)]);
 
   return {
@@ -14,7 +16,8 @@ export async function getServerSideProps() {
       meta: meta,
       graduates: graduates,
     },
+    revalidate: 1,
   };
-}
+};
 
 export default PageMeta(About);

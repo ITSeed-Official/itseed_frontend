@@ -61,9 +61,13 @@ const Desktop = ({ router, displayFeatureCard }: IProps) => (
         />
       </div>
     </div>
-    <div className={styles.features}>
-      {displayFeatureCard && features.map((data) => <FeatureCard key={data.title} {...data} />)}
-    </div>
+    {displayFeatureCard && (
+      <div className={styles.features}>
+        {features.map((data) => (
+          <FeatureCard key={data.title} {...data} />
+        ))}
+      </div>
+    )}
   </SectionWrapper>
 );
 
@@ -86,11 +90,15 @@ const Mobile = ({ router, displayFeatureCard }: IProps) => (
     <div className={styles.introImageWrapper}>
       <Image src="/images/homepage/pics/intro.png" alt="intro" layout="fill" />
     </div>
-    <SectionWrapper className={styles.introSectionMobileBottom}>
-      <div className={styles.features}>
-        {displayFeatureCard && features.map((data) => <FeatureCard key={data.title} {...data} />)}
-      </div>
-    </SectionWrapper>
+    {displayFeatureCard && (
+      <SectionWrapper className={styles.introSectionMobileBottom}>
+        <div className={styles.features}>
+          {features.map((data) => (
+            <FeatureCard key={data.title} {...data} />
+          ))}
+        </div>
+      </SectionWrapper>
+    )}
   </div>
 );
 

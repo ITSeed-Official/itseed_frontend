@@ -3,18 +3,18 @@ import type { NextPage } from 'next';
 import { withRouter, NextRouter } from 'next/router';
 import { appPath } from 'util/routing.config';
 import { ButtonIcon } from 'components/atoms/Button';
-import BannerContainer, { BannerType } from 'components/molecules/BannerContainer';
+
 import SummarySection from 'components/templates/Home/SummarySection';
 import IntroSection from 'components/templates/Home/IntroSection';
 import AlumniSection from 'components/templates/Home/AlumniSection';
 import TimelineSection from 'components/templates/Home/TimelineSection';
 import FAQSection from 'components/templates/Home/FAQSection';
+import SlashBanner from 'components/molecules/SlashBanner';
 import NextSection, { Type as NextSectionType } from 'components/atoms/NextSection';
 
 const Home: NextPage<{ router: NextRouter }> = ({ router }) => (
   <>
-    <BannerContainer
-      type={BannerType.slash}
+    <SlashBanner
       bannerImage="/images/homepage/pics/banner@2x.png"
       PrimaryTitleContent={() => (
         <>

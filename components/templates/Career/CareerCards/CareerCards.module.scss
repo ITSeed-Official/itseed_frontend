@@ -1,71 +1,29 @@
 @import "/styles/mixin.scss";
 @import "/styles/variables.scss";
 
-.cardsSection {
+.cardsSectionDesktop {
+    @include desktopOnly;
+
     & > div:not(:last-child) {
         margin-bottom: 70px;
     }
-}
 
-.title {
-    margin-bottom: 70px;
-}
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(362px, 1fr));
-    justify-items: center;
-    grid-gap: 30px;
-
-    @include tablet {
-        grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
-    }
-
-    @include mobile {
-        grid-template-columns: 100%;
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(362px, 1fr));
+        justify-items: center;
+        grid-gap: 30px;
+    
+        @include tablet {
+            grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+        }
     }
 }
 
-.card {
-    width: 100%;
-}
+.cardsSectionMobile {
+    @include mobileOnly;
 
-.jobInfo {
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 16px;
-    color: $gray;
-
-    & > p {
-        margin-top: 0;
-        margin-bottom: 0;
+    & .swiper {
+        height: 620px;
     }
-}
-
-.mentorInfo {
-    margin-bottom: 16px;
-    color: $gray;
-
-    & > p {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
-    & > p:first-child {
-        margin-bottom: 16px;
-    }
-}
-
-.cardTitle {
-    font-size: 24px;
-    margin-right: 24px;
-}
-
-.cardSubTitle {
-    font-size: 16px;
-}
-
-.mentorsOverview {
-    margin-top: 0;
-    margin-bottom: 16px;
 }

@@ -66,9 +66,8 @@ const CoursesLists: FC<CoursesListsProperty> = ({ courses }) => {
   const router = useRouter();
 
   return (
-    <CoursesLayout primaryTitle="講座課程">
+    <CoursesLayout>
       <CourseListSection courses={courses} onClick={() => router.push(appPath.plan)} ctaText={'回到計畫內容'} />
-      <NextSection title="專案實作" path={appPath.projects} />
     </CoursesLayout>
   );
 };

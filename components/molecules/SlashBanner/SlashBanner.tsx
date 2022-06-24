@@ -6,10 +6,8 @@ import SectionWrapper from 'components/molecules/SectionWrapper/SectionWrapper';
 import Button, { ButtonIcon } from 'components/atoms/Button/Button';
 
 import styles from './SlashBanner.module.scss';
-import { BannerType } from './enum';
 
 export type SlashBannerProps = {
-  type: BannerType.slash;
   className?: string;
   bannerImage: string;
   PrimaryTitleContent: FC<any>;

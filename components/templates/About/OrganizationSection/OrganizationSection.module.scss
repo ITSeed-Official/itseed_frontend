@@ -1,18 +1,28 @@
 @import "/styles/variables.scss";
 @import "/styles/mixin.scss";
 
-.sectionBackground {
+.content {
     background-color: $color-neutral-900;
     padding: 40px;
 }
 
 .block {
     margin-bottom: 40px;
-    > p {
+
+    & > .title {
+        display: flex;
+        align-items: center;
+
+        & > h3 {
+            margin-left: 4px;
+        }
+    }
+    
+    & > p {
         font-size: 16px;
     }
-}
 
-.icon {
-    padding: 1px;
+    & > hr {
+        margin: 12px 0;
+    }
 }
