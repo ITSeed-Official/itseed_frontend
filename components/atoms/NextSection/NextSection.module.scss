@@ -42,6 +42,15 @@
 .theme-white {
     background-color: $color-neutral-900;
     color: $green-deep;
+    .arrow {
+        &.white {
+            display: none;
+        }
+    
+        &.green {
+            display: block;
+        }
+    }
 
     &:hover {
         background-color: $green-mist;
@@ -50,6 +59,7 @@
 
 .theme-green {
     background-color: $green-mist;
+    color: $green-deep;
 
     .arrow {
         margin-left: 8px;
