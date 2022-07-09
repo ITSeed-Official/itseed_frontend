@@ -25,6 +25,7 @@ const Content = ({ visitations }: IProps) => {
   const tabs = useMemo(
     () =>
       visitations.map((visitation) => ({
+        key: visitation.name,
         text: visitation.name,
       })),
     [visitations]

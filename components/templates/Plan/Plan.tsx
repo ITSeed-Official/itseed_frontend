@@ -53,7 +53,7 @@ const projects = [
 
 const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
   const router = useRouter();
-  const tabs = useMemo(() => plans.map((p) => ({ text: p })), []);
+  const tabs = useMemo(() => plans.map((p) => ({ key: p, text: p })), []);
   const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs);
 
   return (

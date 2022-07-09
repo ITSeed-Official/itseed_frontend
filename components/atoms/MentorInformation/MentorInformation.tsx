@@ -9,10 +9,10 @@ type Prop = {
 };
 
 const MentorInformation: FC<Prop> = ({ MentorDetail }) => {
-  const { id, name, description, facebook_link, linkedin_url, email_address } = MentorDetail;
+  const { name, description, facebook_link, linkedin_url, email_address } = MentorDetail;
 
   return (
-    <div key={id} className={styles.mentor}>
+    <div className={styles.mentor}>
       <div className={styles.mentorInfo}>
         <Icon iconSrc={'/images/common/icons/icon-headshot.svg'} width={60} height={60} />
         <div className={styles.mentorName}>
@@ -21,21 +21,27 @@ const MentorInformation: FC<Prop> = ({ MentorDetail }) => {
         </div>
       </div>
       <ReactMarkdown className={styles.mentorDescription}>{description}</ReactMarkdown>
-      <div className={styles.mentorLinks}>
-        {facebook_link && (
-          <Icon
-            className={styles.icon}
-            link={facebook_link}
-            iconSrc="/images/common/icons/icon-facebook-deepgreen.svg"
-          />
-        )}
-        {linkedin_url && (
-          <Icon className={styles.icon} link={linkedin_url} iconSrc="/images/common/icons/icon-medium-deepgreen.svg" />
-        )}
-        {email_address && (
-          <Icon className={styles.icon} link={email_address} iconSrc="/images/common/icons/icon-mail-deepgreen.svg" />
-        )}
-      </div>
+      {facebook_link || linkedin_url || email_address ? (
+        <div className={styles.mentorLinks}>
+          {facebook_link && (
+            <Icon
+              className={styles.icon}
+              link={facebook_link}
+              iconSrc="/images/common/icons/icon-facebook-deepgreen.svg"
+            />
+          )}
+          {linkedin_url && (
+            <Icon
+              className={styles.icon}
+              link={linkedin_url}
+              iconSrc="/images/common/icons/icon-medium-deepgreen.svg"
+            />
+          )}
+          {email_address && (
+            <Icon className={styles.icon} link={email_address} iconSrc="/images/common/icons/icon-mail-deepgreen.svg" />
+          )}
+        </div>
+      ) : null}
     </div>
   );
 };

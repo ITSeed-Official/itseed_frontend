@@ -38,9 +38,9 @@ export type MentorDetailType = {
   name: string;
   image: Image;
   description: string;
-  facebook_link: string;
-  linkedin_url: string;
-  email_address: string;
+  facebook_link?: string;
+  linkedin_url?: string;
+  email_address?: string;
 };
 
 export interface CareerDetailType {

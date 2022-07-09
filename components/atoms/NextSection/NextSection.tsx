@@ -38,7 +38,6 @@ const NextSection: FC<PageProperty> = ({ title, path, className, onClick, type =
           <Icon iconSrc="/images/icons/icon-readmore-green.svg" className={classnames(styles.arrow, styles.green)} />
           <Icon iconSrc="/images/icons/icon-readmore-white.svg" className={classnames(styles.arrow, styles.white)} />
         </div>
-        <div className={styles.title}>{title}</div>
       </div>
     </Link>
   );

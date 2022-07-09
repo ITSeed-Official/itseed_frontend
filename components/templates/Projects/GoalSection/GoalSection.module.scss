@@ -5,6 +5,19 @@
     background-color: $green-mist;
 }
 
+.title {
+    margin-bottom: 24px;
+    line-height: 140%;
+    font-weight: 500;
+}
+
+.description {
+    size: 16px;
+    line-height: 26px;
+    margin-top: 20px;
+    color: #333333;
+}
+
 .hint {
     width: 1146px;
     height: 58px;
@@ -27,12 +40,4 @@
 
 .block {
     height: 80px;
-}
-
-.section {
-    > p {
-        size: 16px;
-        margin-top: 40px;
-        color: #333333;
-    }
 }

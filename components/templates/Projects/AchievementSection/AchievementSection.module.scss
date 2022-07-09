@@ -5,13 +5,40 @@
     background-color: $color-neutral-900;
 }
 
-.block {
+.icon {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    margin-right: 4px;
+}
+
+.title {
     margin-bottom: 40px;
-    > p {
-        font-size: 16px;
+    line-height: 150%;
+    font-weight: 500;
+}
+
+.achievementsTitle {
+    display: flex;
+    align-items: center;
+}
+
+.achievementsContent {
+    font-size: 16px;
+    line-height: 160%;
+
+    hr {
+        margin: 12px 0;
     }
 }
 
-.icon {
-    padding: 1px;
+.achievementBlock {
+    margin-top: 40px;
+    @include mobile {
+        margin-top: 24px;
+    }
+}
+
+.mentorInformationBlock {
+    margin-top: 40px;
 }

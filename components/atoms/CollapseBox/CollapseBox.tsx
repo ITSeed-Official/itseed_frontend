@@ -7,20 +7,22 @@ import arrow from 'public/images/common/arrow.png';
 import styles from './CollapseBox.module.scss';
 
 type CollapseBoxProperty = {
+  size?: 'sm' | 'md';
   className?: string;
   title: string;
+  defaultOpen?: boolean;
 };
 
-const CollapseBox: FC<CollapseBoxProperty> = ({ className, title, children }) => {
-  const [isOpen, setOpen] = useState(false);
+const CollapseBox: FC<CollapseBoxProperty> = ({ size = 'sm', className, title, children, defaultOpen = false }) => {
+  const [isOpen, setOpen] = useState(defaultOpen);
 
   return (
-    <div className={classnames(styles.collapseBox, className)}>
+    <div className={classnames(size === 'sm' ? styles.collapseBox : styles.collapseBoxMd, className)}>
       <div
         className={classnames(styles.collapseHeader, isOpen && styles.open)}
         onClick={() => setOpen((isOpen) => !isOpen)}
       >
-        <span className={styles.title}>{title}</span>
+        <span className={size === 'sm' ? styles.title : styles.titleMd}>{title}</span>
         <div className={styles.arrowWrapper}>
           <Image
             className={classnames(styles.arrow, isOpen && styles.arrowReverse)}
@@ -31,7 +33,7 @@ const CollapseBox: FC<CollapseBoxProperty> = ({ className, title, children }) =>
           />
         </div>
       </div>
-      {isOpen && <div className={styles.content}>{children}</div>}
+      {isOpen && <div className={size === 'sm' ? styles.content : styles.contentMd}>{children}</div>}
     </div>
   );
 };

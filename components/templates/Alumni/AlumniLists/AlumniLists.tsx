@@ -17,7 +17,7 @@ const filteredData = (data: Alumni[], alumniCategory: AlumniType): Alumni[] =>
 
 const AlumniLists: FC<{ data: Alumni[] }> = ({ data: alumnies }) => {
   const elRef = useRef<HTMLDivElement>(null);
-  const tabs = useMemo(() => categories.map((c) => ({ text: c.name })), []);
+  const tabs = useMemo(() => categories.map((c) => ({ key: c.name, text: c.name })), []);
   const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs, false);
   const data = useMemo(
     () => ({

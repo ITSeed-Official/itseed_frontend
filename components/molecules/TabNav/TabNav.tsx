@@ -1,36 +1,32 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from './TabNav.module.scss';
 import classnames from 'classnames';
+import { Tab as TabBaseProps } from 'util/type';
 
-interface Tab {
-  text: string;
-}
-
-interface TabActive {
+interface TabProps {
+  tabKey: string; // Due to the naming conflict with React.key, so add a tab prefix here
+  tabText: string;
   isActive: boolean;
+  onClick: (tabKey: any) => void;
 }
 
-interface TabClick {
-  onClick: Function;
-}
-
-export const Tab = ({ isActive, text, onClick }: Tab & TabActive & TabClick) => {
+export const Tab = ({ isActive, tabKey, tabText, onClick }: TabProps) => {
   return (
     <div
       className={classnames(styles.tab, { [styles['tab-active']]: isActive })}
       onClick={() => {
-        onClick(text);
+        onClick(tabKey);
       }}
     >
-      {text}
+      {tabText}
     </div>
   );
 };
 
 interface TabNavProps {
-  tabs: Tab[];
+  tabs: TabBaseProps[];
   activeTab: number | string;
-  onTabClick: Function;
+  onTabClick: (tabKey: any) => void;
   onStickyChange?: Function;
 }
 
@@ -56,7 +52,13 @@ export const TabNav = ({ tabs, activeTab, onTabClick, onStickyChange }: TabNavPr
     <div ref={elRef} className={classnames([styles.nav, styles.sticky, { [styles.stuck]: isStuck }])}>
       <div className={styles.navContent}>
         {tabs.map((tab) => (
-          <Tab key={tab.text} {...tab} isActive={tab.text === activeTab} onClick={onTabClick} />
+          <Tab
+            key={tab.key}
+            tabKey={tab.key}
+            tabText={tab.text}
+            isActive={tab.key === activeTab}
+            onClick={onTabClick}
+          />
         ))}
       </div>
     </div>

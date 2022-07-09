@@ -1,33 +1,30 @@
-import { useRef, useMemo } from 'react';
+import { useRef } from 'react';
 import type { NextPage } from 'next';
 
 import { appPath } from 'util/routing.config';
 import { useTab } from 'util/hooks/useTab';
-import { translateMap } from 'util/translate';
-import { ValueOf } from 'util/type';
+import { Project } from 'util/enum';
+import { COPYWRITING } from 'util/copywriting';
 
 import AchievementSection from './AchievementSection';
 import GoalSection from './GoalSection';
 import { Goals } from './GoalSection/goals';
 import CareerEvents from './CareerEvents/CareerEvents';
-import NextSection from 'components/atoms/NextSection';
+import NextSection, { Type as NextSectionType } from 'components/atoms/NextSection';
 import TabNav from 'components/molecules/TabNav';
 import TemplateWrapper from 'components/organisms/TemplateWrapper';
 
-export type ProjectsType = typeof translateMap.projects;
+const TABS = [
+  { key: Project.ps, text: COPYWRITING[Project.ps] },
+  { key: Project.career, text: COPYWRITING[Project.career] },
+  { key: Project.recruit, text: COPYWRITING[Project.recruit] },
+];
 
 const Projects: NextPage = () => {
-  const tabs = useMemo(
-    () =>
-      Object.values(translateMap.projects).map((project) => ({
-        text: project,
-      })),
-    []
-  );
   const elRef = useRef<HTMLDivElement>(null);
-  const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs);
+  const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(TABS, true);
 
-  const changeTab = (tab: ValueOf<ProjectsType>) => {
+  const changeTab = (tab: Project) => {
     if (elRef && elRef.current) {
       setActiveTab(tab);
       const headerHeight = window.document.querySelector('main')?.offsetTop || 0;
@@ -41,25 +38,26 @@ const Projects: NextPage = () => {
       primaryTitle="三大實作專案"
       subTitle=""
       description="資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。透過執行 4 大專案，參與 10+ 堂來自業界講師的課程，了解業界生態，並探索自己未來的職涯方向。
-培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。"
+    培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。"
     >
       <div ref={elRef}>
-        <TabNav tabs={tabs} activeTab={activeTab} onTabClick={changeTab} onStickyChange={setIsSubNavStuck} />
+        <TabNav tabs={TABS} activeTab={activeTab} onTabClick={changeTab} onStickyChange={setIsSubNavStuck} />
         {(() => {
           switch (activeTab) {
-            case translateMap.projects.tuv:
+            case Project.ps:
               return (
                 <>
                   <GoalSection projectDescription={Goals[activeTab].projectDescription} />
                   <AchievementSection />
                   <NextSection
-                    title={translateMap.projects.career}
+                    title={COPYWRITING[Project.career]}
+                    type={NextSectionType.green}
                     path={appPath.projects}
-                    onClick={() => changeTab(translateMap.projects.career)}
+                    onClick={() => changeTab(Project.career)}
                   />
                 </>
               );
-            case translateMap.projects.career:
+            case Project.career:
               return (
                 <>
                   <GoalSection
@@ -69,13 +67,13 @@ const Projects: NextPage = () => {
                   />
                   <CareerEvents />
                   <NextSection
-                    title={translateMap.projects.recruit}
+                    title={COPYWRITING[Project.recruit]}
                     path={appPath.projects}
-                    onClick={() => changeTab(translateMap.projects.recruit)}
+                    onClick={() => changeTab(Project.recruit)}
                   />
                 </>
               );
-            case translateMap.projects.recruit:
+            case Project.recruit:
               return (
                 <>
                   <GoalSection

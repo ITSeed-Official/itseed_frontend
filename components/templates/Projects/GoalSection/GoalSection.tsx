@@ -9,16 +9,15 @@ const GoalSection = ({ projectDescription, hint, content, imagePath }: Goal) => 
     <div className={styles.goalSection}>
       <SectionWrapper>
         <div className={styles.section}>
-          <h2>專案宗旨</h2>
+          <h2 className={styles.title}>專案宗旨</h2>
           {hint && <div className={styles.hint}>{hint}</div>}
-          <p>{projectDescription}</p>
+          <p className={styles.description}>{projectDescription}</p>
         </div>
         {imagePath && (
           <div className={styles.imageSection}>
             <Image src={imagePath} alt="goal-banner" width="527px" height="316px" />
           </div>
         )}
-        {!imagePath && <div className={styles.block} />}
         {content && (
           <>
             <div className={styles.section}>
