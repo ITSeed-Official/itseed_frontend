@@ -104,9 +104,14 @@ $height-bannerInfo-m: 300px;
 
   @include mobile {
     @include imageWrapper(122%);
+    width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    img {
+      object-fit: cover;
+    }
   }
 }
 
