@@ -33,7 +33,7 @@ const filteredData = (data: CareerExperience[], experienceCategory: ExperienceCa
 
 const CareerLists: FC<{ data: CareerExperience[] }> = ({ data: careerExperiences }) => {
   const elRef = useRef<HTMLDivElement>(null);
-  const tabs = useMemo(() => categories.map((c) => ({ text: c.name })), []);
+  const tabs = useMemo(() => categories.map((c) => ({ key: c.name, text: c.name })), []);
   const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs, false);
   const data = useMemo(
     () => ({

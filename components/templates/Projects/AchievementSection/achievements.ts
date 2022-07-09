@@ -2,6 +2,8 @@ import { MentorDetailType } from 'api/careers';
 
 export type Achievement = {
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   alt: string;
   problem: string;
   subject: string;
@@ -15,8 +17,10 @@ export type Achievement = {
 export const achievements: Achievement[] = [
   {
     image: '/images/projects/pics/ps_group_one.jpg',
+    imageWidth: 414,
+    imageHeight: 171,
     alt: 'group_one',
-    problem: '如何將超商咖啡消費者轉向到券券即將開發的咖啡聯盟寄杯系統上',
+    problem: '如何將超商咖啡消費者轉向到券券即將開發的咖啡聯盟寄杯系統上？',
     subject:
       '券券想聯合其他一千多家獨立咖啡廳做聯盟寄杯，因而開發一套聯盟寄杯系統，專案希望學員能提出一個方案，協助券券聯盟寄盃系統達成題目目標。',
     solveProcess:
@@ -36,14 +40,16 @@ export const achievements: Achievement[] = [
           url: '',
         },
         description: '- 券券文化創辦人 \n - 資訊種子第 2 屆 學員',
-        facebook_link: 'facebook',
-        linkedin_url: 'linkedin',
-        email_address: 'email',
+        facebook_link: undefined,
+        linkedin_url: undefined,
+        email_address: undefined,
       },
     ],
   },
   {
     image: '/images/projects/pics/ps_group_two.jpg',
+    imageWidth: 414,
+    imageHeight: 171,
     alt: 'group_two',
     problem: '提升群眾募資商品的揀貨效率',
     subject: '因出貨速度會受到人力、包貨流程的影響，希望學員能研究題目並提出能讓揀貨效率提升的方案。',
@@ -64,14 +70,16 @@ export const achievements: Achievement[] = [
           url: '',
         },
         description: '- Mixxin 創辦人 \n - 資訊種子第 7 屆 學員',
-        facebook_link: 'facebook',
-        linkedin_url: 'linkedin',
-        email_address: 'email',
+        facebook_link: undefined,
+        linkedin_url: undefined,
+        email_address: undefined,
       },
     ],
   },
   {
     image: '/images/projects/pics/ps_group_three.jpg',
+    imageWidth: 414,
+    imageHeight: 171,
     alt: 'group_three',
     problem: '規劃大學生會有興趣購買的電玩技能',
     subject:
@@ -93,14 +101,16 @@ export const achievements: Achievement[] = [
           url: '',
         },
         description: '- 開課快手 創辦人 \n - 資訊種子第 4 屆 學員',
-        facebook_link: 'facebook',
-        linkedin_url: 'linkedin',
-        email_address: 'email',
+        facebook_link: undefined,
+        linkedin_url: undefined,
+        email_address: undefined,
       },
     ],
   },
   {
     image: '/images/projects/pics/ps_group_four.jpg',
+    imageWidth: 360,
+    imageHeight: 149,
     alt: 'group_four',
     problem: '提升蒙特梭利課程平台會員註冊人數',
     subject:
@@ -121,14 +131,16 @@ export const achievements: Achievement[] = [
           url: '',
         },
         description: '- MEFA蒙特梭利教育發展學會 行銷總監 \n - 資訊種子第 7 屆 學員',
-        facebook_link: 'facebook',
-        linkedin_url: 'linkedin',
-        email_address: 'email',
+        facebook_link: undefined,
+        linkedin_url: undefined,
+        email_address: undefined,
       },
     ],
   },
   {
     image: '/images/projects/pics/ps_group_five.jpg',
+    imageWidth: 360,
+    imageHeight: 149,
     alt: 'group_five',
     problem: '提升拾夢家營業額',
     subject:
@@ -148,9 +160,9 @@ export const achievements: Achievement[] = [
           url: '',
         },
         description: '- 盤古銀髮 共同創辦人／營運長 \n - 資訊種子第 3 屆 學員',
-        facebook_link: 'facebook',
-        linkedin_url: 'linkedin',
-        email_address: 'email',
+        facebook_link: undefined,
+        linkedin_url: undefined,
+        email_address: undefined,
       },
     ],
   },

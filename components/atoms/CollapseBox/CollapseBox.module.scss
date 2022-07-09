@@ -9,6 +9,17 @@
     }
 }
 
+.collapseBoxMd {
+    width: 100%;
+
+    +.collapseBoxMd {
+        margin-top: 24px;
+        @include mobile {
+            margin-top: 12px;
+        }
+    }
+}
+
 .collapseHeader {
     width: 100%;
     display: inline-flex;
@@ -27,8 +38,20 @@
     color: $green-deep;
 }
 
+.titleMd {
+    font-size: 24px;
+    line-height: 140%;
+    color: $green-deep;
+    @include mobile {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 150%;
+    }
+}
+
 .arrowWrapper {
     flex: 0 0 36px;
+    margin-left: 10px;
 
     @include mobile {
         flex: 0 0 24px;
@@ -57,4 +80,9 @@
 
 .content {
     @include markdownContent;
+}
+
+.contentMd {
+    @include markdownContent;
+    padding-bottom: 24px;
 }

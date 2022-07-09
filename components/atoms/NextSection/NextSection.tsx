@@ -22,7 +22,7 @@ const NextSection: FC<PageProperty> = ({ title, path, className, onClick, type =
   return (
     <Link href={path} passHref>
       <div
-        className={classnames([styles.section, className, styles[`theme-${type}`]])}
+        className={classnames([styles.nextSection, className, styles[`theme-${type}`]])}
         onClick={(e) => {
           if (onClick) {
             e.preventDefault();
@@ -31,19 +31,21 @@ const NextSection: FC<PageProperty> = ({ title, path, className, onClick, type =
           }
         }}
       >
-        <div className={styles.next}>
-          Next
-          <span className={styles.arrowWrapper}>
-            <Image
-              alt="read more"
-              src="/images/common/icons/readmore.svg"
-              width="24"
-              height="24"
-              className={styles.arrow}
-            />
-          </span>
+        <div className={styles.content}>
+          <div className={styles.next}>
+            Next
+            <span className={styles.arrowWrapper}>
+              <Image
+                alt="read more"
+                src="/images/common/icons/readmore.svg"
+                width="24"
+                height="24"
+                className={styles.arrow}
+              />
+            </span>
+          </div>
+          <div className={styles.title}>{title}</div>
         </div>
-        <div className={styles.title}>{title}</div>
       </div>
     </Link>
   );

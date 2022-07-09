@@ -18,7 +18,7 @@ interface IProps {
   graduates: Graduate[];
 }
 
-const tabs = ['計畫簡介', '組織架構', '歷屆名單'].map((text) => ({ text }));
+const tabs = ['計畫簡介', '組織架構', '歷屆名單'].map((text) => ({ key: text, text }));
 
 const About: NextPage<IProps> = ({ graduates: data }) => {
   const [session, setSession] = useState(CURRENT_SESSION);

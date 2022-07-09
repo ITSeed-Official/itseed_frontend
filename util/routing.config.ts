@@ -13,6 +13,6 @@ export enum appPath {
   alumniLeader = '/alumni#領導者怎麼看',
   alumniJunior = '/alumni#學員怎麼看',
   plan = '/plan',
-  projects = '/projects#TUV專案',
+  projects = '/projects#ps',
   visitation = '/visitation',
 }

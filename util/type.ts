@@ -7,3 +7,8 @@ export type Image = {
 };
 
 export type ValueOf<T> = T[keyof T];
+
+export type Tab = {
+  key: string;
+  text: string;
+};
