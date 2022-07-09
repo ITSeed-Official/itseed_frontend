@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 import { appPath } from 'util/routing.config';
-import { translateMap } from 'util/translate';
+import { COPYWRITING } from 'util/copywriting';
 
 import type { CareerDetailProperty } from '../CareerDetail/CareerDetail';
 import CareerCard from '../CareerCard';
@@ -21,7 +21,7 @@ const MobileComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
   return (
     <div className={styles.careerDetailMobile}>
       <SectionWrapper
-        title={translateMap.career[detail.category]}
+        title={COPYWRITING[detail.category]}
         className={styles.titleSection}
         titleClassName={styles.title}
         isBackgroundGreen

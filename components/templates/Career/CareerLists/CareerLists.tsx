@@ -1,24 +1,21 @@
 import { FC, Fragment, useMemo, useRef } from 'react';
-import classnames from 'classnames';
-
-import { CareerExperience, ExperienceCategory } from 'api/careers';
-import { translateMap } from 'util/translate';
+import { COPYWRITING } from 'util/copywriting';
+import { CareerCategory } from 'util/enum';
+import { CareerExperience } from 'api/careers';
 import { useTab } from 'util/hooks/useTab';
 
 import CareerCards from '../CareerCards';
 import type { CareerCardType } from '../CareerCard';
 import TabNav from 'components/molecules/TabNav';
 
-import styles from './CareerLists.module.scss';
-
-const categories: { type: ExperienceCategory; name: string }[] = Object.keys(translateMap.career).map((type) => ({
-  type: type as ExperienceCategory,
-  name: translateMap.career[type as ExperienceCategory],
+const categories: { type: CareerCategory; name: string }[] = Object.values(CareerCategory).map((cate) => ({
+  type: cate,
+  name: COPYWRITING[cate],
 }));
 
-const filteredData = (data: CareerExperience[], experienceCategory: ExperienceCategory): CareerCardType[] =>
+const filteredData = (data: CareerExperience[], careerCategory: CareerCategory): CareerCardType[] =>
   data
-    .filter(({ category }) => category === experienceCategory)
+    .filter(({ category }) => category === careerCategory)
     .map(({ id, mentee, role, position, company, category, overview_content, mentors_overview, image }) => ({
       id,
       name: mentee,
@@ -37,9 +34,9 @@ const CareerLists: FC<{ data: CareerExperience[] }> = ({ data: careerExperiences
   const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs, false);
   const data = useMemo(
     () => ({
-      company: filteredData(careerExperiences, 'company'),
-      personalization: filteredData(careerExperiences, 'personalization'),
-      interview: filteredData(careerExperiences, 'interview'),
+      company: filteredData(careerExperiences, CareerCategory.company),
+      personalization: filteredData(careerExperiences, CareerCategory.personalization),
+      interview: filteredData(careerExperiences, CareerCategory.interview),
     }),
     [careerExperiences]
   );

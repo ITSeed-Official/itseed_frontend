@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import classnames from 'classnames';
 
-import { translateMap } from 'util/translate';
+import { COPYWRITING } from 'util/copywriting';
 import { useScroll } from 'util/hooks/useEvent';
 import { appPath } from 'util/routing.config';
 
@@ -36,7 +36,7 @@ const DesktopComponent: FC<CareerDetailProperty> = ({ detail, list }) => {
     <div className={styles.careerDetailDesktop}>
       <SectionWrapper
         className={styles.menteeSection}
-        title={translateMap.career[detail.category]}
+        title={COPYWRITING[detail.category]}
         titleClassName={styles.mainTitle}
         isBackgroundGreen
       >

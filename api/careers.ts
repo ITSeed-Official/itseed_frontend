@@ -1,7 +1,6 @@
 import { Image } from 'util/type';
 import { domain } from 'util/const';
-
-export type ExperienceCategory = 'company' | 'personalization' | 'interview';
+import { CareerCategory } from 'util/enum';
 
 export interface CareerExperience {
   id: string;
@@ -11,7 +10,7 @@ export interface CareerExperience {
   image: Image;
   company: string | null;
   content: string;
-  category: ExperienceCategory;
+  category: CareerCategory;
   overview_content: string;
   published_at: string;
   created_at: string;
@@ -49,7 +48,7 @@ export interface CareerDetailType {
   mentee_school: string;
   position: string;
   content: string;
-  category: ExperienceCategory;
+  category: CareerCategory;
   overview_content: string;
   company: string;
   image: Image;

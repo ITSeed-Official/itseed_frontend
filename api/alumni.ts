@@ -1,14 +1,13 @@
 import { Image } from 'util/type';
 import { domain } from 'util/const';
-
-export type AlumniType = 'senior' | 'leader' | 'junior';
+import { AlumniCategory } from 'util/enum';
 
 export interface Alumni {
   id: number;
   name: string;
   title: string;
   position: string;
-  category: string;
+  category: AlumniCategory;
   content: string;
   published_at: string;
   created_at: string;

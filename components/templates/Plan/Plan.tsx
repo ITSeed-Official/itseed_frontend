@@ -7,7 +7,8 @@ import { CourseDetailType } from 'api/courses';
 import { Visitation } from 'api/visitations';
 import { appPath } from 'util/routing.config';
 import { useTab } from 'util/hooks/useTab';
-import { translateMap } from 'util/translate';
+import { Project } from 'util/enum';
+import { COPYWRITING } from 'util/copywriting';
 
 import TemplateWrapper from 'components/organisms/TemplateWrapper';
 import { CourseListSection } from 'components/templates/Courses/CoursesLists';
@@ -30,21 +31,21 @@ const plans: PlanContentType[] = ['講座課程', '三大實作專案', '計畫�
 const projects = [
   {
     id: 1,
-    name: translateMap.projects.tuv,
+    name: COPYWRITING[Project.ps],
     description:
       '專案全名 — Problem Solving 透過業主所佈達的題目，讓學員早日與業界接軌，並解決企業問題。從中學習如何團隊合作，以及向上管理的方法，並培養解決問題的邏輯與方法。',
     imgUrl: '/images/homepage/pics/intro.png',
   },
   {
     id: 2,
-    name: translateMap.projects.career,
+    name: COPYWRITING[Project.career],
     description:
       '專案全名 — Problem Solving 透過業主所佈達的題目，讓學員早日與業界接軌，並解決企業問題。從中學習如何團隊合作，以及向上管理的方法，並培養解決問題的邏輯與方法。',
     imgUrl: '/images/homepage/pics/intro.png',
   },
   {
     id: 3,
-    name: translateMap.projects.recruit,
+    name: COPYWRITING[Project.recruit],
     description:
       '專案全名 — Problem Solving 透過業主所佈達的題目，讓學員早日與業界接軌，並解決企業問題。從中學習如何團隊合作，以及向上管理的方法，並培養解決問題的邏輯與方法。',
     imgUrl: '/images/homepage/pics/intro.png',

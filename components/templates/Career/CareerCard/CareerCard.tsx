@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { useRouter } from 'next/router';
 
 import { appPath } from 'util/routing.config';
-import { ExperienceCategory } from 'api/careers';
+import { CareerCategory } from 'util/enum';
 
 import Card from 'components/molecules/Card';
 
@@ -14,7 +14,7 @@ export type CareerCardType = {
   description: string;
   mentorsOverview: string;
   company: string | null;
-  category: ExperienceCategory;
+  category: CareerCategory;
   imgSrc?: string;
 };
 

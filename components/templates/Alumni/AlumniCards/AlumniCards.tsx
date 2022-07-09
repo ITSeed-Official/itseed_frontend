@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import { Alumni, AlumniType } from 'api/alumni';
+import { Alumni } from 'api/alumni';
 import AlumniCard from '../AlumniCard';
 import Swiper, { SwiperSlide } from 'components/organisms/Swiper';
 import SectionWrapper from 'components/molecules/SectionWrapper';

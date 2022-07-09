@@ -1,18 +1,19 @@
 import { FC, Fragment, useMemo, useRef } from 'react';
 
-import { Alumni, AlumniType } from 'api/alumni';
-import { translateMap } from 'util/translate';
+import { AlumniCategory } from 'util/enum';
+import { Alumni } from 'api/alumni';
+import { COPYWRITING } from 'util/copywriting';
 import { useTab } from 'util/hooks/useTab';
 
 import AlumniCards from '../AlumniCards';
 import TabNav from 'components/molecules/TabNav';
 
-const categories: { type: AlumniType; name: string }[] = Object.keys(translateMap.alumni).map((type) => ({
-  type: type as AlumniType,
-  name: translateMap.alumni[type as AlumniType],
+const categories: { type: AlumniCategory; name: string }[] = Object.values(AlumniCategory).map((ctg) => ({
+  type: ctg,
+  name: COPYWRITING[ctg],
 }));
 
-const filteredData = (data: Alumni[], alumniCategory: AlumniType): Alumni[] =>
+const filteredData = (data: Alumni[], alumniCategory: AlumniCategory): Alumni[] =>
   data.filter(({ category }) => category === alumniCategory);
 
 const AlumniLists: FC<{ data: Alumni[] }> = ({ data: alumnies }) => {
@@ -21,9 +22,9 @@ const AlumniLists: FC<{ data: Alumni[] }> = ({ data: alumnies }) => {
   const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs, false);
   const data = useMemo(
     () => ({
-      senior: filteredData(alumnies, 'senior'),
-      leader: filteredData(alumnies, 'leader'),
-      junior: filteredData(alumnies, 'junior'),
+      [AlumniCategory.senior]: filteredData(alumnies, AlumniCategory.senior),
+      [AlumniCategory.leader]: filteredData(alumnies, AlumniCategory.leader),
+      [AlumniCategory.junior]: filteredData(alumnies, AlumniCategory.junior),
     }),
     [alumnies]
   );
