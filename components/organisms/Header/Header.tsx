@@ -142,24 +142,19 @@ const MobileHeader: FC = () => {
               </ul>
             </li>
             <li className={mStyles.menuItemWrapper}>
-              <Link href="/about" passHref>
+              <Link href={appPath.about} passHref>
                 <a className={mStyles.menuItem}>關於資種</a>
               </Link>
             </li>
             <li className={mStyles.menuItemWrapper}>
-              <Link href="/faq">
+              <Link href={appPath.faq}>
                 <a className={mStyles.menuItem}>常見問題</a>
               </Link>
             </li>
           </ul>
           <div className={mStyles.buttonWrapper}>
-            <Button
-              icon={ButtonIcon.arrow}
-              onClick={() => {
-                router.push('joinus');
-              }}
-            >
-              立即報名
+            <Button icon={ButtonIcon.arrow}>
+              <Link href={appPath.apply}>立即報名</Link>
             </Button>
           </div>
         </div>
@@ -170,7 +165,6 @@ const MobileHeader: FC = () => {
 };
 
 const DesktopHeader: FC = () => {
-  const router = useRouter();
   const { isSubNavStuck } = useContext(LayoutContext);
 
   return (
@@ -189,7 +183,7 @@ const DesktopHeader: FC = () => {
         </Link>
         <ul className={dStyles.navList}>
           <li className={dStyles.navItem}>
-            <Link href="/plan">計畫內容</Link>
+            <Link href={appPath.plan}>計畫內容</Link>
             <div className={dStyles.subNavList}>
               <ul className={dStyles.subNavListContent}>
                 <li className={dStyles.subNavListItem}>
@@ -208,7 +202,7 @@ const DesktopHeader: FC = () => {
             <Link href={appPath.recruit}>招生資訊</Link>
           </li>
           <li className={dStyles.navItem}>
-            <Link href="/career">職涯體驗</Link>
+            <Link href={appPath.career}>職涯體驗</Link>
             <div className={dStyles.subNavList}>
               <ul className={dStyles.subNavListContent}>
                 <li className={dStyles.subNavListItem}>
@@ -240,25 +234,20 @@ const DesktopHeader: FC = () => {
             </div>
           </li>
           <li className={dStyles.navItem}>
-            <Link href="/about">關於資種</Link>
+            <Link href={appPath.about}>關於資種</Link>
           </li>
-
           <li className={dStyles.navItem}>
-            <Link href="/faq">常見問題</Link>
+            <Link href={appPath.faq}>常見問題</Link>
           </li>
         </ul>
-        <Button
-          icon={ButtonIcon.arrow}
-          onClick={() => {
-            router.push('joinus');
-          }}
-        >
-          立即報名
+        <Button icon={ButtonIcon.arrow}>
+          <Link href={appPath.apply}>立即報名</Link>
         </Button>
       </SectionWrapper>
     </header>
   );
 };
+
 const Header: FC = () => {
   return (
     <>

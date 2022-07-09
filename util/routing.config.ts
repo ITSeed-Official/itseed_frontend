@@ -15,4 +15,5 @@ export enum appPath {
   plan = '/plan',
   projects = '/projects#TUV專案',
   visitation = '/visitation',
+  apply = '/apply',
 }
