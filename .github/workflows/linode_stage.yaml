@@ -20,14 +20,6 @@ jobs:
       run: yarn run lint
     - name: Run build task
       run: NODE_ENV=production NEXT_PUBLIC_API_ORIGIN=${{ secrets.NEXT_PUBLIC_API_ORIGIN }} SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }} SENTRY_AUTO_RELEASE=true yarn run build
-    - name: Upload static assets to cdn's S3
-      uses: shallwefootball/s3-upload-action@master
-      with:
-        aws_key_id: ${{ secrets.CDN_AWS_KEY_ID }}
-        aws_secret_access_key: ${{ secrets.CDN_AWS_SECRET_ACCESS_KEY }}
-        aws_bucket: ${{ secrets.CDN_AWS_BUCKET }}
-        source_dir: '.next/static'
-        destination_dir: '_next/static'
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
       env:
