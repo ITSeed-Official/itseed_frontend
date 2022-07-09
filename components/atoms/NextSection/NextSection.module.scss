@@ -36,7 +36,6 @@
 
     @include mobile {
         font-size: 24px;
-        
     }
 }
 
@@ -65,7 +64,12 @@
     }
 
     &:hover {
-        color: $color-neutral-900;
+        .title {
+            color: $color-neutral-900;
+        }
+        .next {
+            color: $color-neutral-900;
+        }
 
         .arrow {
             filter: brightness(100);

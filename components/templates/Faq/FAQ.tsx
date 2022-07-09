@@ -5,6 +5,7 @@ import { appPath } from 'util/routing.config';
 import FAQBox from 'components/templates/Home/FAQSection/FAQBox';
 import TemplateWrapper from 'components/organisms/TemplateWrapper';
 import SectionWrapper from 'components/molecules/SectionWrapper';
+import { Type as NextSectionType } from 'components/atoms/NextSection';
 
 import styles from './FAQ.module.scss';
 
@@ -21,6 +22,7 @@ const Faq: NextPage<IProps> = ({ faqs }) => {
       mobileBackgroundImage="/images/faq/pics/banner--mobile.png"
       nextSectionPath={appPath.plan}
       nextSectionTitle="計畫介紹"
+      nextSectionType={NextSectionType.green}
     >
       <SectionWrapper className={styles.section}>
         <div>

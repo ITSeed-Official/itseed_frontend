@@ -1,10 +1,11 @@
 import { FC, ReactNode } from 'react';
 
 import GeneralBanner, { GeneralBannerProps } from 'components/molecules/GeneralBanner/GeneralBanner';
-import NextSection from 'components/atoms/NextSection';
+import NextSection, { Type as NextSectionType } from 'components/atoms/NextSection';
 
 export interface TemplateWrapperProperty extends GeneralBannerProps {
   children: ReactNode;
+  nextSectionType?: NextSectionType;
   nextSectionTitle?: string;
   nextSectionPath?: string;
 }
@@ -17,6 +18,7 @@ const TemplateWrapper: FC<TemplateWrapperProperty> = ({
   desktopBackgroundImage,
   mobileBackgroundImage,
   nextSectionTitle,
+  nextSectionType,
   nextSectionPath,
 }) => {
   return (
@@ -29,7 +31,9 @@ const TemplateWrapper: FC<TemplateWrapperProperty> = ({
         mobileBackgroundImage={mobileBackgroundImage}
       />
       {children}
-      {nextSectionTitle && nextSectionPath && <NextSection title={nextSectionTitle} path={nextSectionPath} />}
+      {nextSectionTitle && nextSectionPath && (
+        <NextSection title={nextSectionTitle} path={nextSectionPath} type={nextSectionType} />
+      )}
     </>
   );
 };
