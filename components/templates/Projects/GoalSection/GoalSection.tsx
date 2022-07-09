@@ -20,9 +20,9 @@ const GoalSection = ({ projectDescription, hint, content, imagePath }: Goal) => 
         )}
         {content && (
           <>
-            <div className={styles.section}>
-              <h2>專案內容</h2>
-              <p>{content}</p>
+            <div className={styles.secondSection}>
+              <h2 className={styles.title}>專案內容</h2>
+              <p className={styles.description}>{content}</p>
             </div>
           </>
         )}

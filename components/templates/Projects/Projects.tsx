@@ -68,6 +68,7 @@ const Projects: NextPage = () => {
                   <CareerEvents />
                   <NextSection
                     title={COPYWRITING[Project.recruit]}
+                    type={NextSectionType.green}
                     path={appPath.projects}
                     onClick={() => changeTab(Project.recruit)}
                   />

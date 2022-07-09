@@ -17,7 +17,7 @@ const CareerEvents = () => {
           {Events.map((careerEvent: Event, index: number) => {
             return (
               <div key={index} className={styles.eventSection}>
-                <h2>
+                <h2 className={styles.eventTitle}>
                   <div className={styles.circle}>{index + 1}</div>
                   {careerEvent.title}
                 </h2>
