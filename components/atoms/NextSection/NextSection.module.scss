@@ -34,12 +34,7 @@
     }
 }
 
-.arrowWrapper {
-    font-size: 0;
-    margin-left: 8px;
-}
-
-.theme-green {
+.theme-white {
     background-color: $color-neutral-900;
     color: $green-deep;
 
@@ -51,11 +46,31 @@
 .theme-green {
     background-color: $green-mist;
 
+    .arrow {
+        margin-left: 4px;
+    
+        &.white {
+            display: none;
+        }
+    
+        &.green {
+            display: block;
+        }
+    }
+
     &:hover {
         color: $color-neutral-900;
 
         .arrow {
             filter: brightness(100);
+
+            &.white {
+                display: block;
+            }
+        
+            &.green {
+                display: none;
+            }
         }
 
         background-color: $green-tree;

@@ -3,6 +3,8 @@ import classnames from 'classnames';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import Icon from 'components/atoms/Icon';
+
 import styles from './NextSection.module.scss';
 
 export enum Type {
@@ -22,7 +24,7 @@ const NextSection: FC<PageProperty> = ({ title, path, className, onClick, type =
   return (
     <Link href={path} passHref>
       <div
-        className={classnames([styles.section, className, styles[`theme-${type}`]])}
+        className={classnames(styles.section, className, styles[`theme-${type}`])}
         onClick={(e) => {
           if (onClick) {
             e.preventDefault();
@@ -33,15 +35,8 @@ const NextSection: FC<PageProperty> = ({ title, path, className, onClick, type =
       >
         <div className={styles.next}>
           Next
-          <span className={styles.arrowWrapper}>
-            <Image
-              alt="read more"
-              src="/images/common/icons/readmore.svg"
-              width="24"
-              height="24"
-              className={styles.arrow}
-            />
-          </span>
+          <Icon iconSrc="/images/icons/icon-readmore-green.svg" className={classnames(styles.arrow, styles.green)} />
+          <Icon iconSrc="/images/icons/icon-readmore-white.svg" className={classnames(styles.arrow, styles.white)} />
         </div>
         <div className={styles.title}>{title}</div>
       </div>
