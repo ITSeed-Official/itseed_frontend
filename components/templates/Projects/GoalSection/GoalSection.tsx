@@ -15,7 +15,7 @@ const GoalSection = ({ projectDescription, hint, content, imagePath }: Goal) => 
         </div>
         {imagePath && (
           <div className={styles.imageSection}>
-            <Image src={imagePath} alt="goal-banner" width="527px" height="316px" />
+            <Image src={imagePath} alt="goal-banner" layout="responsive" width="143px" height="75px" />
           </div>
         )}
         {content && (

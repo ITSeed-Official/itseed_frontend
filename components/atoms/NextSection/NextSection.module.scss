@@ -12,7 +12,7 @@
 }
 
 .content {
-    @include contentMaxLimit(0px, 0px, 0px, 0px, 0px);
+    @include contentMaxLimit(0px, 0px, 0px, 0px, $padding-width-m);
 }
 
 

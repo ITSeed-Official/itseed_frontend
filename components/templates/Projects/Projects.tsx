@@ -7,6 +7,7 @@ import { Project } from 'util/enum';
 import { COPYWRITING } from 'util/copywriting';
 
 import AchievementSection from './AchievementSection';
+import EmptySection from './EmptySection';
 import GoalSection from './GoalSection';
 import { Goals } from './GoalSection/goals';
 import CareerEvents from './CareerEvents/CareerEvents';
@@ -18,6 +19,7 @@ const TABS = [
   { key: Project.ps, text: COPYWRITING[Project.ps] },
   { key: Project.career, text: COPYWRITING[Project.career] },
   { key: Project.recruit, text: COPYWRITING[Project.recruit] },
+  { key: Project.technical_media, text: COPYWRITING[Project.technical_media] },
 ];
 
 const Projects: NextPage = () => {
@@ -35,10 +37,10 @@ const Projects: NextPage = () => {
 
   return (
     <TemplateWrapper
-      primaryTitle="三大實作專案"
+      primaryTitle="四大實作專案"
       subTitle=""
       description="資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。透過執行 4 大專案，參與 10+ 堂來自業界講師的課程，了解業界生態，並探索自己未來的職涯方向。
-    培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。"
+      培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。"
     >
       <div ref={elRef}>
         <TabNav tabs={TABS} activeTab={activeTab} onTabClick={changeTab} onStickyChange={setIsSubNavStuck} />
@@ -83,7 +85,14 @@ const Projects: NextPage = () => {
                     content={Goals[activeTab].content}
                     imagePath={Goals[activeTab].imagePath}
                   />
-                  <NextSection title="企業參訪" path={appPath.visitation} />
+                  <NextSection title="歷屆參訪紀錄" path={appPath.visitation} />
+                </>
+              );
+            case Project.technical_media:
+              return (
+                <>
+                  <EmptySection />
+                  <NextSection title="歷屆參訪紀錄" type={NextSectionType.green} path={appPath.visitation} />
                 </>
               );
             default:

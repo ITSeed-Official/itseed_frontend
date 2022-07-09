@@ -46,7 +46,16 @@
 }
 
 .imageSection {
-    margin: 80px 0px
+    display: block;
+    width: 100%;
+    @include imageWrapper(52.2);
+    overflow: hidden;
+
+    max-width: 527px;
+    margin: 80px 0px;
+    @include mobile {
+        margin: 40px 0px;
+    }
 }
 
 .block {
