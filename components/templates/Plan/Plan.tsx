@@ -18,6 +18,7 @@ import Cta from 'components/atoms/Cta';
 import Button, { ButtonIcon } from 'components/atoms/Button';
 
 import styles from './Plan.module.scss';
+import { Type } from 'components/atoms/NextSection';
 
 interface PlanProperty {
   courses: CourseDetailType[];
@@ -68,6 +69,7 @@ const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
     培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。"
       nextSectionPath={appPath.recruit}
       nextSectionTitle="招生資訊"
+      nextSectionType={Type.green}
     >
       <TabNav
         tabs={tabs}
