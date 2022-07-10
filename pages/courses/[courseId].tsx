@@ -20,7 +20,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: paramsList,
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
