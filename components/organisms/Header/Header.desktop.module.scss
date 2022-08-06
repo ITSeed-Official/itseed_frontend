@@ -109,15 +109,15 @@
 
 .subNavListItem {
   white-space: nowrap;
-  font-size: 16px;
-  padding: 12px 24px;
-  line-height: 26px;
   background-color: $color-neutral-900;
   border: none;
   cursor: pointer;
 
-  >span {
+  >a, span {
     display: block;
+    font-size: 16px;
+    padding: 12px 24px;
+    line-height: 26px;
   }
 
   &:hover {

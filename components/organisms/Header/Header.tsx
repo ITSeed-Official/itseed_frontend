@@ -18,14 +18,18 @@ const MobileHeader: FC = () => {
   const router = useRouter();
   const { isSubNavStuck } = useContext(LayoutContext);
   const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
+  const closeMenu = () => {
+    setIsMenuOpened(false);
+  };
 
   useEffect(() => {
-    const closeMenu = () => {
-      setIsMenuOpened(false);
-    };
     router.events.on('routeChangeStart', closeMenu);
+    window.addEventListener('hashchange', () => {
+      closeMenu();
+    });
     return () => {
       router.events.off('routeChangeStart', closeMenu);
+      window.removeEventListener('hashchange', closeMenu);
     };
   }, [router]);
 
@@ -38,15 +42,13 @@ const MobileHeader: FC = () => {
       <nav className={classNames([mStyles.headerNav, { [mStyles.isSubNavStuck]: isSubNavStuck }])}>
         <div className={mStyles.headerNavContent}>
           <Link href="/" passHref>
-            <div>
-              <Image
-                alt="logo"
-                layout="fixed"
-                src="/images/common/pics/header_mobile_logo@3x.png"
-                width={131}
-                height={24}
-              />
-            </div>
+            <Image
+              alt="logo"
+              layout="fixed"
+              src="/images/common/pics/header_mobile_logo@3x.png"
+              width={131}
+              height={24}
+            />
           </Link>
           <button
             onClick={() => {
@@ -100,17 +102,17 @@ const MobileHeader: FC = () => {
                 <FontAwesomeIcon className={mStyles.expandedSubMenuIcon} icon={faChevronDown} />
               </div>
               <ul className={mStyles.subMenuList}>
-                <li>
+                <li onClick={closeMenu}>
                   <Link href={appPath.careerCompany} passHref>
                     <a className={mStyles.subMenuItem}>公司實習</a>
                   </Link>
                 </li>
-                <li>
+                <li onClick={closeMenu}>
                   <Link href={appPath.careerPersonalization} passHref>
                     <a className={mStyles.subMenuItem}>個人指導</a>
                   </Link>
                 </li>
-                <li>
+                <li onClick={closeMenu}>
                   <Link href={appPath.careerInterview} passHref>
                     <a className={mStyles.subMenuItem}>職涯訪談</a>
                   </Link>
@@ -124,17 +126,17 @@ const MobileHeader: FC = () => {
                 <FontAwesomeIcon className={mStyles.expandedSubMenuIcon} icon={faChevronDown} />
               </div>
               <ul className={mStyles.subMenuList}>
-                <li>
+                <li onClick={closeMenu}>
                   <Link href={appPath.alumniSenior} passHref>
                     <a className={mStyles.subMenuItem}>學長姐怎麼看</a>
                   </Link>
                 </li>
-                <li>
+                <li onClick={closeMenu}>
                   <Link href={appPath.alumniLeader} passHref>
                     <a className={mStyles.subMenuItem}>領導者怎麼看</a>
                   </Link>
                 </li>
-                <li>
+                <li onClick={closeMenu}>
                   <Link href={appPath.alumniJunior} passHref>
                     <a className={mStyles.subMenuItem}>學員怎麼看</a>
                   </Link>
@@ -202,7 +204,7 @@ const DesktopHeader: FC = () => {
             <Link href={appPath.recruit}>招生資訊</Link>
           </li>
           <li className={dStyles.navItem}>
-            <Link href={appPath.career}>職涯體驗</Link>
+            <Link href={appPath.careerCompany}>職涯體驗</Link>
             <div className={dStyles.subNavList}>
               <ul className={dStyles.subNavListContent}>
                 <li className={dStyles.subNavListItem}>

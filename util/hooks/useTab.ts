@@ -1,10 +1,12 @@
 import { useEffect, useState, useContext } from 'react';
+import { useRouter } from 'next/router';
 import { Tab } from 'util/type';
 import { LayoutContext } from 'contexts/LayoutContext';
 
 export const useTab = (tabs: Tab[], isDivided: boolean = false) => {
   const layoutContext = useContext(LayoutContext);
   const [activeTab, setActiveTab] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
     let activeTabFromTab = decodeURIComponent(window.location.hash.replace('#', ''));
@@ -23,6 +25,14 @@ export const useTab = (tabs: Tab[], isDivided: boolean = false) => {
   useEffect(() => {
     window.location.hash = activeTab;
   }, [activeTab]);
+
+  useEffect(() => {
+    if (router.asPath.indexOf('#') > -1) {
+      const hash = router.asPath.split('#')[1];
+      console.log(router.asPath, decodeURIComponent(hash.replace('#', '')));
+      setActiveTab(decodeURIComponent(hash.replace('#', '')));
+    }
+  }, [router.asPath]);
 
   return {
     setIsSubNavStuck: layoutContext.setIsSubNavStuck,
