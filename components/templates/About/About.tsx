@@ -14,7 +14,6 @@ import OrganizationSection from 'components/templates/About/OrganizationSection'
 import TemplateWrapper from 'components/organisms/TemplateWrapper';
 import TabNav from 'components/molecules/TabNav';
 import SectionWrapper from 'components/molecules/SectionWrapper';
-import { Type } from 'components/atoms/NextSection';
 
 interface IProps {
   graduates: Graduate[];
@@ -65,12 +64,7 @@ const About: NextPage<IProps> = ({ graduates: data }) => {
   }, [activeTab, introRef, organizationRef, rosterRef]);
 
   return (
-    <TemplateWrapper
-      primaryTitle="關於資種"
-      nextSectionPath={appPath.plan}
-      nextSectionTitle="計畫內容"
-      nextSectionType={Type.green}
-    >
+    <TemplateWrapper primaryTitle="關於資種" nextSectionPath={appPath.faq} nextSectionTitle="常見問題">
       <TabNav
         tabs={tabs}
         activeTab={activeTab}
