@@ -39,7 +39,9 @@ export const TabNav = ({ tabs, activeTab, onTabClick, onStickyChange }: TabNavPr
       if (elRef.current) {
         const headerHeight = window.document.querySelector('main')?.offsetTop || 0;
         const rootOffsetTop = elRef.current?.offsetTop || 0;
-        const isStuck = window.scrollY > rootOffsetTop - headerHeight;
+        const navOffsetTop = rootOffsetTop - headerHeight;
+        // 在 stuck 的位置有時候會有 0.5px 落差
+        const isStuck = Math.abs(window.scrollY - navOffsetTop) < 1;
         setIsStuck(isStuck);
         onStickyChange && onStickyChange(isStuck);
       }
