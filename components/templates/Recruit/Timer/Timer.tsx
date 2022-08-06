@@ -9,14 +9,14 @@ interface TimerProps {
 
 const Timer = ({ endTime }: TimerProps) => {
   const leftTime = moment(endTime).unix() - moment().unix();
-  let duration = moment.duration(leftTime, 'seconds');
+  const duration = moment.duration(leftTime, 'seconds');
 
   const [currentDuration, setCurrentDuration] = useState(duration);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      duration = moment.duration(currentDuration.asSeconds() - 1, 'seconds');
-      setCurrentDuration(duration);
+      const newD = moment.duration(currentDuration.asSeconds() - 1, 'seconds');
+      setCurrentDuration(newD);
     }, 1000);
 
     return () => clearTimeout(timer);
