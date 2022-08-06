@@ -18,7 +18,7 @@ type PageProperty = {
   type?: Type;
 };
 
-const NextSection: FC<PageProperty> = ({ title, path, className, onClick, type = Type.white }) => {
+const NextSection: FC<PageProperty> = ({ title, path, className, onClick, type = Type.green }) => {
   return (
     <Link href={path} passHref>
       <div
