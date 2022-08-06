@@ -66,6 +66,8 @@ export const CourseListSection = forwardRef<HTMLDivElement, CourseListSectionPro
   }
 );
 
+CourseListSection.displayName = 'CourseListSection';
+
 const CoursesLists: FC<CoursesListsProperty> = ({ courses }) => {
   const router = useRouter();
 

@@ -48,4 +48,6 @@ const AlumniCards = forwardRef<HTMLDivElement, AlumniCardsProperty>(({ isBackgro
   );
 });
 
+AlumniCards.displayName = 'AlumniCards';
+
 export default AlumniCards;
