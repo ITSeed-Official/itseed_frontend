@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import { FC, forwardRef } from 'react';
 
 import { Alumni } from 'api/alumni';
 import AlumniCard from '../AlumniCard';
@@ -39,13 +39,13 @@ const MobileComponent: FC<AlumniCardsProperty> = ({ isBackgroundGreen, alumnies,
   );
 };
 
-const AlumniCards: FC<AlumniCardsProperty> = ({ isBackgroundGreen, alumnies, title }) => {
+const AlumniCards = forwardRef<HTMLDivElement, AlumniCardsProperty>(({ isBackgroundGreen, alumnies, title }, ref) => {
   return (
-    <>
+    <div ref={ref}>
       <DesktopComponent isBackgroundGreen={isBackgroundGreen} alumnies={alumnies} title={title} />
       <MobileComponent isBackgroundGreen={isBackgroundGreen} alumnies={alumnies} title={title} />
-    </>
+    </div>
   );
-};
+});
 
 export default AlumniCards;

@@ -1,9 +1,10 @@
-import { FC, Fragment, useMemo, useRef } from 'react';
+import { FC, Fragment, useMemo, useRef, useEffect } from 'react';
 
 import { AlumniCategory } from 'util/enum';
 import { Alumni } from 'api/alumni';
 import { COPYWRITING } from 'util/copywriting';
 import { useTab } from 'util/hooks/useTab';
+import { scrollTo } from 'util/scroll';
 
 import AlumniCards from '../AlumniCards';
 import TabNav from 'components/molecules/TabNav';
@@ -17,7 +18,19 @@ const filteredData = (data: Alumni[], alumniCategory: AlumniCategory): Alumni[] 
   data.filter(({ category }) => category === alumniCategory);
 
 const AlumniLists: FC<{ data: Alumni[] }> = ({ data: alumnies }) => {
-  const elRef = useRef<HTMLDivElement>(null);
+  const seniorAlumniRef = useRef<HTMLDivElement>(null);
+  const leaderAlumniRef = useRef<HTMLDivElement>(null);
+  const juniorAlumniRef = useRef<HTMLDivElement>(null);
+
+  const AlumniRefMap = useMemo(
+    () => ({
+      [AlumniCategory.senior]: seniorAlumniRef,
+      [AlumniCategory.leader]: leaderAlumniRef,
+      [AlumniCategory.junior]: juniorAlumniRef,
+    }),
+    []
+  );
+
   const tabs = useMemo(() => categories.map((c) => ({ key: c.name, text: c.name })), []);
   const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs, true);
   const data = useMemo(
@@ -29,17 +42,28 @@ const AlumniLists: FC<{ data: Alumni[] }> = ({ data: alumnies }) => {
     [alumnies]
   );
 
+  useEffect(() => {
+    switch (activeTab) {
+      case COPYWRITING[AlumniCategory.junior]:
+        scrollTo(AlumniRefMap[AlumniCategory.junior]);
+        break;
+      case COPYWRITING[AlumniCategory.senior]:
+        scrollTo(AlumniRefMap[AlumniCategory.senior]);
+        break;
+      case COPYWRITING[AlumniCategory.leader]:
+        scrollTo(AlumniRefMap[AlumniCategory.leader]);
+        break;
+    }
+  }, [activeTab, AlumniRefMap]);
+
   return (
-    <div ref={elRef}>
+    <>
       <TabNav
         tabs={tabs}
         activeTab={activeTab}
-        onTabClick={(tab: string) => {
+        onTabClick={(tab: AlumniCategory) => {
           if (activeTab !== tab) {
             setActiveTab(tab);
-            const headerHeight = window.document.querySelector('main')?.offsetTop || 0;
-            const contentOffsetTop = elRef.current?.offsetTop || 0;
-            window.scrollTo({ left: 0, top: contentOffsetTop - headerHeight, behavior: 'smooth' });
             return;
           }
           setActiveTab('');
@@ -50,14 +74,19 @@ const AlumniLists: FC<{ data: Alumni[] }> = ({ data: alumnies }) => {
         <>
           {categories.map(({ type, name }) => (
             <Fragment key={type}>
-              {data[type].length > 0 && (activeTab === '' || activeTab === name) && (
-                <AlumniCards isBackgroundGreen={type !== 'leader'} alumnies={data[type]} title={name} />
+              {data[type].length > 0 && (
+                <AlumniCards
+                  isBackgroundGreen={type !== 'leader'}
+                  alumnies={data[type]}
+                  title={name}
+                  ref={AlumniRefMap[type]}
+                />
               )}
             </Fragment>
           ))}
         </>
       )}
-    </div>
+    </>
   );
 };
 

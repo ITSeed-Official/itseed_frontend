@@ -5,6 +5,7 @@ import { CURRENT_SESSION } from 'util/const';
 import { appPath } from 'util/routing.config';
 import { useTab } from 'util/hooks/useTab';
 import { getGraduates, Graduate } from 'api/graduates';
+import { scrollTo } from 'util/scroll';
 
 import IntroSection from 'components/templates/Home/IntroSection';
 import DropDownMenu from 'components/templates/About/DropDownMenu';
@@ -25,8 +26,11 @@ const About: NextPage<IProps> = ({ graduates: data }) => {
   const [session, setSession] = useState(CURRENT_SESSION);
   const [graduates, setGraduates] = useState(data);
   const [isFirstRender, setIsFirstRender] = useState(true);
-  const elRef = useRef<HTMLDivElement>(null);
   const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs, false);
+
+  const introRef = useRef<HTMLDivElement>(null);
+  const organizationRef = useRef<HTMLDivElement>(null);
+  const rosterRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (session !== CURRENT_SESSION || !isFirstRender) {
@@ -44,42 +48,57 @@ const About: NextPage<IProps> = ({ graduates: data }) => {
     }
   }, [session, isFirstRender]);
 
+  useEffect(() => {
+    if (!introRef && !organizationRef && !rosterRef) return;
+
+    switch (activeTab) {
+      case '計畫簡介':
+        scrollTo(introRef);
+        break;
+      case '組織架構':
+        scrollTo(organizationRef);
+        break;
+      case '歷屆名單':
+        scrollTo(rosterRef);
+        break;
+    }
+  }, [activeTab, introRef, organizationRef, rosterRef]);
+
   return (
     <TemplateWrapper
       primaryTitle="關於資種"
       nextSectionPath={appPath.plan}
-      nextSectionTitle="計畫介紹"
+      nextSectionTitle="計畫內容"
       nextSectionType={Type.green}
     >
-      <div ref={elRef}>
-        <TabNav
-          tabs={tabs}
-          activeTab={activeTab}
-          onTabClick={(tab: string) => {
-            if (activeTab !== tab) {
-              setActiveTab(tab);
-              const headerHeight = window.document.querySelector('main')?.offsetTop || 0;
-              const contentOffsetTop = elRef.current?.offsetTop || 0;
-              window.scrollTo({ left: 0, top: contentOffsetTop - headerHeight, behavior: 'smooth' });
-              return;
-            }
-            setActiveTab('');
-          }}
-          onStickyChange={setIsSubNavStuck}
-        />
-        {(activeTab === '' || activeTab === '計畫簡介') && <IntroSection displayFeatureCard={false} />}
-        {(activeTab === '' || activeTab === '組織架構') && <OrganizationSection />}
-        {(activeTab === '' || activeTab === '歷屆名單') && (
-          <SectionWrapper title="歷屆名單">
-            <DropDownMenu
-              changeSession={(newSession: number) => {
-                setSession(newSession);
-              }}
-              session={session}
-            />
-            <TableView graduates={graduates} />
-          </SectionWrapper>
-        )}
+      <TabNav
+        tabs={tabs}
+        activeTab={activeTab}
+        onTabClick={(tab: string) => {
+          if (activeTab !== tab) {
+            setActiveTab(tab);
+            return;
+          }
+          setActiveTab('');
+        }}
+        onStickyChange={setIsSubNavStuck}
+      />
+      <div ref={introRef}>
+        <IntroSection displayFeatureCard={false} />
+      </div>
+      <div ref={organizationRef}>
+        <OrganizationSection />
+      </div>
+      <div ref={rosterRef}>
+        <SectionWrapper title="歷屆名單">
+          <DropDownMenu
+            changeSession={(newSession: number) => {
+              setSession(newSession);
+            }}
+            session={session}
+          />
+          <TableView graduates={graduates} />
+        </SectionWrapper>
       </div>
     </TemplateWrapper>
   );

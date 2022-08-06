@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
@@ -9,6 +9,7 @@ import { appPath } from 'util/routing.config';
 import { useTab } from 'util/hooks/useTab';
 import { Project } from 'util/enum';
 import { COPYWRITING } from 'util/copywriting';
+import { scrollTo } from 'util/scroll';
 
 import TemplateWrapper from 'components/organisms/TemplateWrapper';
 import { CourseListSection } from 'components/templates/Courses/CoursesLists';
@@ -57,6 +58,29 @@ const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
   const router = useRouter();
   const tabs = useMemo(() => plans.map((p) => ({ key: p, text: p })), []);
   const { setIsSubNavStuck, activeTab, setActiveTab } = useTab(tabs);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const coursesRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const visitationRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!coursesRef && !projectsRef && !timelineRef && !visitationRef) return;
+
+    switch (activeTab) {
+      case '講座課程':
+        scrollTo(coursesRef);
+        break;
+      case '三大實作專案':
+        scrollTo(projectsRef);
+        break;
+      case '計畫時程總覽':
+        scrollTo(timelineRef);
+        break;
+      case '歷屆企業參訪紀錄':
+        scrollTo(visitationRef);
+        break;
+    }
+  }, [activeTab, coursesRef, projectsRef, timelineRef, visitationRef]);
 
   return (
     <TemplateWrapper
@@ -83,15 +107,14 @@ const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
         }}
         onStickyChange={setIsSubNavStuck}
       />
-      {(activeTab === '' || activeTab === '講座課程') && (
-        <CourseListSection
-          courses={courses}
-          onClick={() => router.push(appPath.courses)}
-          ctaText={'所有講座課程'}
-          courseLimit={8}
-        />
-      )}
-      {(activeTab === '' || activeTab === '三大實作專案') && (
+      <CourseListSection
+        courses={courses}
+        onClick={() => router.push(appPath.courses)}
+        ctaText={'所有講座課程'}
+        courseLimit={12}
+        ref={coursesRef}
+      />
+      <div ref={projectsRef}>
         <SectionWrapper title="三大實作專案">
           {projects.map(({ id, name, description, imgUrl }, index) => (
             <div key={id} className={styles.projectCard}>
@@ -108,10 +131,11 @@ const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
               </div>
             </div>
           ))}
+
           <Button text="三大實作專案" icon={ButtonIcon.arrow} onClick={() => router.push(appPath.projects)} />
         </SectionWrapper>
-      )}
-      {(activeTab === '' || activeTab === '計畫時程總覽') && (
+      </div>
+      <div ref={timelineRef}>
         <SectionWrapper title="計畫時程總覽" isBackgroundGreen titleClassName={styles.title}>
           <h5 className={styles.subTitle}>雙週六的課程＋實作專案時程總覽</h5>
           <div className={styles.scheduleOverflowWrapper}>
@@ -120,8 +144,8 @@ const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
             </div>
           </div>
         </SectionWrapper>
-      )}
-      {(activeTab === '' || activeTab === '歷屆企業參訪紀錄') && (
+      </div>
+      <div ref={visitationRef}>
         <SectionWrapper title="歷屆企業參訪紀錄">
           <div className={styles.visitation}>
             {visitations.map(({ id, name }) => (
@@ -137,7 +161,7 @@ const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
           </div>
           <Button text="歷屆企業參訪" icon={ButtonIcon.arrow} onClick={() => router.push(appPath.visitation)} />
         </SectionWrapper>
-      )}
+      </div>
     </TemplateWrapper>
   );
 };
