@@ -29,7 +29,6 @@ export const useTab = (tabs: Tab[], isDivided: boolean = false) => {
   useEffect(() => {
     if (router.asPath.indexOf('#') > -1) {
       const hash = router.asPath.split('#')[1];
-      console.log(router.asPath, decodeURIComponent(hash.replace('#', '')));
       setActiveTab(decodeURIComponent(hash.replace('#', '')));
     }
   }, [router.asPath]);
