@@ -42,13 +42,15 @@ const MobileHeader: FC = () => {
       <nav className={classNames([mStyles.headerNav, { [mStyles.isSubNavStuck]: isSubNavStuck }])}>
         <div className={mStyles.headerNavContent}>
           <Link href="/" passHref>
-            <Image
-              alt="logo"
-              layout="fixed"
-              src="/images/common/pics/header_mobile_logo@3x.png"
-              width={131}
-              height={24}
-            />
+            <a className={mStyles.logoWrapper}>
+              <Image
+                alt="logo"
+                layout="fixed"
+                src="/images/common/pics/header_mobile_logo@3x.png"
+                width={131}
+                height={24}
+              />
+            </a>
           </Link>
           <button
             onClick={() => {
@@ -172,8 +174,8 @@ const DesktopHeader: FC = () => {
   return (
     <header className={classNames([dStyles.header, { [dStyles.isSubNavStuck]: isSubNavStuck }])}>
       <SectionWrapper className={dStyles.headerContent}>
-        <Link href="/" passHref>
-          <div>
+        <Link href="/">
+          <a className={dStyles.logoWrapper}>
             <Image
               className={dStyles.headerLogo}
               alt="logo"
@@ -181,7 +183,7 @@ const DesktopHeader: FC = () => {
               width={170}
               height={31}
             />
-          </div>
+          </a>
         </Link>
         <ul className={dStyles.navList}>
           <li className={dStyles.navItem}>
