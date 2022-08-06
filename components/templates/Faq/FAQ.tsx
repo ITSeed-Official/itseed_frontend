@@ -21,7 +21,7 @@ const Faq: NextPage<IProps> = ({ faqs }) => {
       desktopBackgroundImage="/images/faq/pics/banner--desktop.png"
       mobileBackgroundImage="/images/faq/pics/banner--mobile.png"
       nextSectionPath={appPath.plan}
-      nextSectionTitle="計畫介紹"
+      nextSectionTitle="計畫內容"
       nextSectionType={NextSectionType.green}
     >
       <SectionWrapper className={styles.section}>

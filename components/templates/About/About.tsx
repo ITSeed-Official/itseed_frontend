@@ -48,7 +48,7 @@ const About: NextPage<IProps> = ({ graduates: data }) => {
     <TemplateWrapper
       primaryTitle="關於資種"
       nextSectionPath={appPath.plan}
-      nextSectionTitle="計畫介紹"
+      nextSectionTitle="計畫內容"
       nextSectionType={Type.green}
     >
       <div ref={elRef}>

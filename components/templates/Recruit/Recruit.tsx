@@ -18,7 +18,7 @@ const Recruit: NextPage = () => {
       desktopBackgroundImage="/images/recruit/pics/banner--desktop.png"
       mobileBackgroundImage="/images/recruit/pics/banner--mobile.png"
       nextSectionPath={appPath.plan}
-      nextSectionTitle="計畫介紹"
+      nextSectionTitle="計畫內容"
     >
       <Timer endTime={endTime} />
       <Information />

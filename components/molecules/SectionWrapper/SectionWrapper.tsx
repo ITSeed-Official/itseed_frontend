@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, forwardRef } from 'react';
 import classnames from 'classnames';
 
 import SectionTitle from '../../atoms/SectionTitle';

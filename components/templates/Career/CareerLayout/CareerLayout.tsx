@@ -7,7 +7,7 @@ const CareerLayout: FC = ({ children }) => {
   return (
     <TemplateWrapper
       primaryTitle="職涯體驗"
-      nextSectionTitle="計畫介紹"
+      nextSectionTitle="計畫內容"
       nextSectionPath={appPath.plan}
       desktopBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
       mobileBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
