@@ -6,6 +6,9 @@ body {
   padding: 0;
   margin: 0;
   color: $color-neutral-200;
+  font-size: 16px;
+  line-height: 160%;
+  letter-spacing: 2%;
 }
 
 a {
@@ -18,9 +21,6 @@ a {
   font-family: 'Mulish', 'Noto Sans TC', sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 160%;
-  letter-spacing: 2%;
 }
 
 h1 {
