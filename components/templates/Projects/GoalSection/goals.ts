@@ -28,7 +28,4 @@ export const Goals: { [key in Project]: Goal } = {
       '學員透過選擇自己適合的職務，執行如行銷布局、活動規劃、網頁架構、美編設計的工作，讓大二至碩一有興趣加入資種的學生，得以了解資訊種子培訓計畫是一個能讓他們培養實戰力、簡報力、職場就業力、拓展人脈並積極尋找自己生涯方向的地方。 藉此傳遞資訊種子的價值。邀請對資種有興趣的同學們，歡迎加入資訊種子第十九屆，成為資種大家庭的成員！',
     imagePath: '/images/projects/pics/recruit_banner.svg',
   },
-  [Project.technical_media]: {
-    projectDescription: '',
-  },
 };

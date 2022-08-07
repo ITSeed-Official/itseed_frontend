@@ -2,7 +2,6 @@ export enum Project {
   ps = 'ps',
   career = 'career',
   recruit = 'recruit',
-  technical_media = 'technical_media',
 }
 
 export enum CareerCategory {

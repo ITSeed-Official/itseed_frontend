@@ -12,7 +12,6 @@ export const COPYWRITING: Copywriting = {
   [Project.ps]: 'PS 專案',
   [Project.career]: '職涯專案',
   [Project.recruit]: '招生專案',
-  [Project.technical_media]: '科技媒體專案',
   [CareerCategory.company]: '公司實習',
   [CareerCategory.personalization]: '個人指導',
   [CareerCategory.interview]: '職涯訪談',

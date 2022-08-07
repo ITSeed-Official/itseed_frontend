@@ -19,7 +19,6 @@ const TABS = [
   { key: Project.ps, text: COPYWRITING[Project.ps] },
   { key: Project.career, text: COPYWRITING[Project.career] },
   { key: Project.recruit, text: COPYWRITING[Project.recruit] },
-  { key: Project.technical_media, text: COPYWRITING[Project.technical_media] },
 ];
 
 const Projects: NextPage = () => {
@@ -37,9 +36,9 @@ const Projects: NextPage = () => {
 
   return (
     <TemplateWrapper
-      primaryTitle="四大實作專案"
+      primaryTitle="三大實作專案"
       subTitle=""
-      description="資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。透過執行 4 大專案，參與 10+ 堂來自業界講師的課程，了解業界生態，並探索自己未來的職涯方向。
+      description="資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。透過執行 3 大專案，參與 10+ 堂來自業界講師的課程，了解業界生態，並探索自己未來的職涯方向。
       培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。"
     >
       <div ref={elRef}>
@@ -86,13 +85,6 @@ const Projects: NextPage = () => {
                     imagePath={Goals[activeTab].imagePath}
                   />
                   <NextSection title="歷屆參訪紀錄" path={appPath.visitation} />
-                </>
-              );
-            case Project.technical_media:
-              return (
-                <>
-                  <EmptySection />
-                  <NextSection title="歷屆參訪紀錄" type={NextSectionType.green} path={appPath.visitation} />
                 </>
               );
             default:
