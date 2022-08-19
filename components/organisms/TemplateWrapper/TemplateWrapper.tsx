@@ -12,9 +12,9 @@ export interface TemplateWrapperProperty extends GeneralBannerProps {
 
 const TemplateWrapper: FC<TemplateWrapperProperty> = ({
   children,
-  primaryTitle = '標題',
-  subTitle = '副標題',
-  description = '內文',
+  primaryTitle = '',
+  subTitle = '',
+  description = '',
   desktopBackgroundImage,
   mobileBackgroundImage,
   nextSectionTitle,
