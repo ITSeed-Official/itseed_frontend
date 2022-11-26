@@ -2,6 +2,7 @@ import { GetStaticProps } from 'next';
 
 import { getFaqs } from 'api/faqs';
 import { getSeos } from 'api/seos';
+import { DEFAULT_REVALIDATE } from 'util/const';
 
 import Faq from 'components/templates/Faq';
 import PageMeta from 'components/atoms/PageMeta';
@@ -14,7 +15,7 @@ export const getStaticProps: GetStaticProps = async () => {
       meta: meta,
       faqs: faqs,
     },
-    revalidate: 1,
+    revalidate: DEFAULT_REVALIDATE,
   };
 };
 

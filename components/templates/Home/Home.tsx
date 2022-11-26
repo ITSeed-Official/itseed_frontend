@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 
 import { withRouter, NextRouter } from 'next/router';
 import { appPath } from 'util/routing.config';
+import { Alumni } from 'api/alumni';
 import { ButtonIcon } from 'components/atoms/Button';
 
 import SummarySection from 'components/templates/Home/SummarySection';
@@ -12,7 +13,11 @@ import FAQSection from 'components/templates/Home/FAQSection';
 import SlashBanner from 'components/molecules/SlashBanner';
 import NextSection, { Type as NextSectionType } from 'components/atoms/NextSection';
 
-const Home: NextPage<{ router: NextRouter }> = ({ router }) => (
+interface HomeData {
+  alumniList: Alumni[];
+}
+
+const Home: NextPage<{ data: HomeData; router: NextRouter }> = ({ router, data }) => (
   <>
     <SlashBanner
       bannerImage="/images/homepage/pics/banner@2x.png"
@@ -31,7 +36,7 @@ const Home: NextPage<{ router: NextRouter }> = ({ router }) => (
     />
     <SummarySection />
     <IntroSection />
-    <AlumniSection />
+    <AlumniSection alumniList={(data && data.alumniList) || []} />
     <TimelineSection />
     <FAQSection limit={3} />
     <NextSection title="計畫內容" path={appPath.plan} type={NextSectionType.green} />

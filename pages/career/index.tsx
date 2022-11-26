@@ -2,6 +2,7 @@ import type { NextPage, GetStaticProps } from 'next';
 
 import { getCareerList, CareerExperience } from 'api/careers';
 import { getSeos } from 'api/seos';
+import { DEFAULT_REVALIDATE } from 'util/const';
 
 import CareerLayout from 'components/templates/Career/CareerLayout';
 import CareerLists from 'components/templates/Career/CareerLists';
@@ -25,7 +26,7 @@ export const getStaticProps: GetStaticProps = async () => {
       meta,
       data,
     },
-    revalidate: 1,
+    revalidate: DEFAULT_REVALIDATE,
   };
 };
 

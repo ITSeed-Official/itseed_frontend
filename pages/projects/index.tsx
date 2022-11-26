@@ -2,6 +2,7 @@ import { GetStaticProps } from 'next';
 import { withRouter } from 'next/router';
 
 import { getSeos } from 'api/seos';
+import { DEFAULT_REVALIDATE } from 'util/const';
 
 import Projects from 'components/templates/Projects';
 import PageMeta from 'components/atoms/PageMeta';
@@ -13,7 +14,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       meta: meta,
     },
-    revalidate: 1,
+    revalidate: DEFAULT_REVALIDATE,
   };
 };
 

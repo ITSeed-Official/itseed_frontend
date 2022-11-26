@@ -1,15 +1,23 @@
 import { GetStaticProps } from 'next';
 
-import Home from 'components/templates/Home';
-import PageMeta from '../components/atoms/PageMeta';
 import { getSeos } from 'api/seos';
-import { Meta } from '../components/atoms/PageMeta/PageMeta';
+import { getAlumniList } from 'api/alumni';
+import { DEFAULT_REVALIDATE } from 'util/const';
+
+import Home from 'components/templates/Home';
+import PageMeta from 'components/atoms/PageMeta';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const meta: Meta = await getSeos('home');
+  const [meta, alumniList] = await Promise.all([getSeos('home'), getAlumniList()]);
 
   return {
-    props: { meta: meta },
+    props: {
+      meta,
+      data: {
+        alumniList,
+      },
+    },
+    revalidate: DEFAULT_REVALIDATE,
   };
 };
 

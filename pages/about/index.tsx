@@ -6,7 +6,7 @@ import PageMeta from 'components/atoms/PageMeta';
 import { getSeos } from 'api/seos';
 import { getGraduates } from 'api/graduates';
 
-import { CURRENT_SESSION } from 'util/const';
+import { CURRENT_SESSION, DEFAULT_REVALIDATE } from 'util/const';
 
 export const getStaticProps: GetStaticProps = async () => {
   const [meta, graduates] = await Promise.all([getSeos('graduates'), getGraduates(CURRENT_SESSION)]);
@@ -16,7 +16,7 @@ export const getStaticProps: GetStaticProps = async () => {
       meta: meta,
       graduates: graduates,
     },
-    revalidate: 1,
+    revalidate: DEFAULT_REVALIDATE,
   };
 };
 

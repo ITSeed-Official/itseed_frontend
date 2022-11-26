@@ -1,6 +1,7 @@
 import type { NextPage, GetStaticPaths, GetStaticProps } from 'next';
 import { getCourseDetail, CourseDetailType, getCourses } from 'api/courses';
 import { appPath } from 'util/routing.config';
+import { DEFAULT_REVALIDATE } from 'util/const';
 
 import CourseDetail from 'components/templates/Courses/CoursesDetail';
 import PageMeta from 'components/atoms/PageMeta';
@@ -44,7 +45,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: { detail, list, meta },
-    revalidate: 1,
+    revalidate: DEFAULT_REVALIDATE,
   };
 };
 

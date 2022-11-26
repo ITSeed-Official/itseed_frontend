@@ -1,6 +1,7 @@
 import type { NextPage, GetStaticPaths, GetStaticProps } from 'next';
 import { getCareerDetail, CareerDetailType, getCareerList, CareerExperience } from 'api/careers';
 import { appPath } from 'util/routing.config';
+import { DEFAULT_REVALIDATE } from 'util/const';
 
 import CareerLayout from 'components/templates/Career/CareerLayout';
 import CareerDetail from 'components/templates/Career/CareerDetail';
@@ -49,7 +50,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: { detail, list, meta },
-    revalidate: 1,
+    revalidate: DEFAULT_REVALIDATE,
   };
 };
 

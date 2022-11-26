@@ -22,3 +22,4 @@ export const DEFAULT_FAQ: FAQ = {
 export const CURRENT_SESSION = 18;
 export const DEFAULT_END_TIME = '2027-12-31 23:59:59';
 export const domain = process.env.NEXT_PUBLIC_API_ORIGIN;
+export const DEFAULT_REVALIDATE = Number(process.env.DEFAULT_REVALIDATE) || 60;

@@ -2,6 +2,7 @@ import type { NextPage, GetStaticProps } from 'next';
 
 import { getAlumniList, Alumni } from 'api/alumni';
 import { getSeos } from 'api/seos';
+import { DEFAULT_REVALIDATE } from 'util/const';
 
 import AlumniLayout from 'components/templates/Alumni/AlumniLayout';
 import AlumniLists from 'components/templates/Alumni/AlumniLists';
@@ -25,7 +26,7 @@ export const getStaticProps: GetStaticProps = async () => {
       meta,
       data,
     },
-    revalidate: 1,
+    revalidate: DEFAULT_REVALIDATE,
   };
 };
 

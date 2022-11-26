@@ -2,6 +2,7 @@ import type { NextPage, GetStaticProps } from 'next';
 
 import { getSeos } from 'api/seos';
 import { getCourses, CourseDetailType } from 'api/courses';
+import { DEFAULT_REVALIDATE } from 'util/const';
 
 import CoursesLists from 'components/templates/Courses/CoursesLists';
 import PageMeta from 'components/atoms/PageMeta';
@@ -18,7 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
       meta,
       courses,
     },
-    revalidate: 1,
+    revalidate: DEFAULT_REVALIDATE,
   };
 };
 

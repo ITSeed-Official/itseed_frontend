@@ -1,6 +1,7 @@
 import type { NextPage, GetStaticPaths, GetStaticProps } from 'next';
 import { getAlumniDetail, getAlumniList, Alumni } from 'api/alumni';
 import { appPath } from 'util/routing.config';
+import { DEFAULT_REVALIDATE } from 'util/const';
 
 import AlumniLayout from 'components/templates/Alumni/AlumniLayout';
 import AlumniDetail from 'components/templates/Alumni/AlumniDetail';
@@ -49,7 +50,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: { detail, list, meta },
-    revalidate: 1,
+    revalidate: DEFAULT_REVALIDATE,
   };
 };
 

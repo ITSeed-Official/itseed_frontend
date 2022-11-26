@@ -32,7 +32,12 @@ const Card: FC<CardProperty> = ({
 }) => {
   return (
     <div className={classnames(wrapperClassName)}>
-      <div className={classnames(styles.card, className)}>
+      <div
+        className={classnames(styles.card, className)}
+        onClick={() => {
+          onClickCta();
+        }}
+      >
         <div className={styles.cardImg}>
           <Image src={imgSrc} alt="card-image" layout="fill" />
           {needCommna && (
@@ -47,12 +52,7 @@ const Card: FC<CardProperty> = ({
           <div className={styles.footer}>
             {name && <p className={styles.sharer}>{name}</p>}
             {character && <p className={styles.sharerTitle}>{character}</p>}
-            <div
-              className={styles.cta}
-              onClick={() => {
-                onClickCta();
-              }}
-            >
+            <div className={styles.cta}>
               <span>{ctaText}</span>
               <Image src="/images/icons/icon-half-arrow-right.svg" alt="icon" width="24px" height="24px" />
             </div>
