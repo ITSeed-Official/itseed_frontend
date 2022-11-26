@@ -19,7 +19,7 @@ jobs:
     - name: Run linter
       run: yarn run lint
     - name: Run build task
-      run: NODE_ENV=production NEXT_PUBLIC_API_ORIGIN=${{ secrets.NEXT_PUBLIC_API_ORIGIN }} NEXT_PUBLIC_API_ORIGIN=${{ secrets.NEXT_PUBLIC_API2_ORIGIN }} SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }} SENTRY_AUTO_RELEASE=true yarn run build
+      run: NODE_ENV=production NEXT_PUBLIC_API_ORIGIN=${{ secrets.NEXT_PUBLIC_API_ORIGIN }} NEXT_PUBLIC_API2_ORIGIN=${{ secrets.NEXT_PUBLIC_API2_ORIGIN }} SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }} SENTRY_AUTO_RELEASE=true yarn run build
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
       env:
