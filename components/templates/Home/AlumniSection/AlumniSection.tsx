@@ -15,7 +15,10 @@ interface IProps {
 
 const AlumniSection: FC<IProps> = ({ alumniList }) => {
   const router = useRouter();
-  if (alumniList.length == 0) {
+
+  const list = alumniList.filter(({ title }) => title && title.length > 0).slice(0, 6);
+
+  if (list.length == 0) {
     return null;
   }
 
@@ -24,11 +27,11 @@ const AlumniSection: FC<IProps> = ({ alumniList }) => {
       <SectionWrapper>
         <h2 className={styles.title}>聽聽校友怎麼說</h2>
         <Swiper>
-          {alumniList.slice(0, 6).map(({ id, content, name, image, position }) => (
+          {list.map(({ id, title, name, image, position }) => (
             <SwiperSlide key={id} className={styles.SwiperSlide}>
               <Card
                 wrapperClassName={styles.cardWrapper}
-                content={content}
+                content={title || ''}
                 name={name}
                 imgSrc={image.url}
                 character={position}
