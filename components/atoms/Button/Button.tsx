@@ -22,6 +22,7 @@ export type Props = {
   onClick?: Function;
   icon?: ButtonIcon;
   position?: 'left' | 'right';
+  disabled?: boolean;
 };
 
 const iconImageMap = {
@@ -42,6 +43,7 @@ const Button: FC<Props> = ({
   onClick = () => {},
   icon,
   position = 'right',
+  disabled = false,
 }) => {
   const Icons = icon && (
     <>
@@ -60,6 +62,7 @@ const Button: FC<Props> = ({
       onClick={(e) => {
         onClick();
       }}
+      disabled={disabled}
     >
       {Icons && position === 'left' && (
         <span className={styles.iconWrapper} data-position="left">
