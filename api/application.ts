@@ -38,7 +38,8 @@ type UploadFileResponse = {
 
 export const uploadFile = async (file: File, type: FileType): Promise<UploadFileResponse> => {
   let formData = new FormData();
-  formData.append('file', file, file.name);
+  formData.append('file', file);
+  formData.append('name', file.name);
   formData.append('type', type);
 
   const response = await fetch(`${API2_DOMAIN}/files`, {
