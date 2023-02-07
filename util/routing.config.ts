@@ -16,4 +16,5 @@ export enum appPath {
   projects = '/projects#ps',
   visitation = '/visitation',
   apply = '/apply',
+  applySteps = '/apply/steps',
 }

@@ -62,17 +62,14 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields }
 
     if (e.dataTransfer.items) {
       // Use DataTransferItemList interface to access the file(s)
-      [...e.dataTransfer.items].forEach((item, i) => {
-        // If dropped items aren't files, reject them
-        if (item.kind === 'file') {
-          file = item.getAsFile();
-        }
-      });
+      const item = e.dataTransfer.items[0];
+      if (item.kind === 'file') {
+        file = item.getAsFile();
+      }
     } else {
       // Use DataTransfer interface to access the file(s)
-      [...e.dataTransfer.files].forEach((item, i) => {
-        file = item;
-      });
+      const item = e.dataTransfer.files[0];
+      file = item;
     }
 
     if (!file) return;

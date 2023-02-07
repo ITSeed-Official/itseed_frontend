@@ -44,10 +44,10 @@ const ApplySteps: FC = () => {
   };
 
   const { currentStepIndex, step, isFirstStep, isLastStep, back, next } = useMultistepForm([
-    <DiscStepForm />,
-    <PersonalInfoStepForm data={formData.info} updateFields={updateFields} />,
-    <QuestionsStepForm data={formData.answer} updateFields={updateFields} />,
-    <FilesUploadStepForm data={formData} updateFields={updateFields} />,
+    <DiscStepForm key="survey" />,
+    <PersonalInfoStepForm key="info" data={formData.info} updateFields={updateFields} />,
+    <QuestionsStepForm key="question" data={formData.answer} updateFields={updateFields} />,
+    <FilesUploadStepForm key="files" data={formData} updateFields={updateFields} />,
   ]);
 
   return (
