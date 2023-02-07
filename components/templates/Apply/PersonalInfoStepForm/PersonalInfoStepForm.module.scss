@@ -1,0 +1,59 @@
+@import "/styles/variables.scss";
+
+.row {
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.fullRow {
+    margin-bottom: 40px;
+}
+
+.field {
+    width: 307px;
+    margin-right: 40px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    & input {
+        border: 0;
+        border-bottom: 1px solid $gray-neutral;
+        padding-bottom: 8px;
+
+        &::placeholder { 
+            color: $gray-neutral;
+        }          
+    }
+
+
+}
+
+.fieldName {
+    display: block;
+    margin-bottom: 8px;
+
+    &::after {
+        content: "*";
+    }
+}
+
+.notRequired {
+    &::after {
+        content: none;
+    }
+}
+
+.dropdown {
+    width: 50%;
+}
+
+.checkboxes {
+    margin-bottom: 8px;
+}
+
+.checkbox {
+    margin-right: 16px;
+}
