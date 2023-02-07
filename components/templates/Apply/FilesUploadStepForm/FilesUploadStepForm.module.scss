@@ -1,0 +1,45 @@
+.title {
+    margin-bottom: 16px;
+}
+
+.description {
+    margin-bottom: 16px;
+}
+
+.uploadBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #D9D9D9;
+    border-radius: 4px;
+    height: 142px;
+    margin-bottom: 8px;
+    cursor: pointer;
+
+    &.onDrag {
+        background-color: #E9E9E9;
+    }
+}
+
+.fileName {
+    color: #1472E0;
+    margin-bottom: 8px;
+}
+
+.divisionLine {
+    height: 0;
+    border:1px solid #E9E9E9;
+    margin: 40px 0;
+}
+
+.block {
+    margin: 16px 0;
+    padding: 20px 16px;
+    border: 1px solid #E9E9E9;
+    border-radius: 8px;
+    display: flex;
+
+    & > p {
+        margin-right: 10px;
+    }
+}
