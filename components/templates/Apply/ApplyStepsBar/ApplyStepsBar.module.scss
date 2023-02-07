@@ -1,0 +1,41 @@
+@import "/styles/variables.scss";
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    height: 98px;
+    margin-bottom: 24px;
+}
+
+.step {
+    width: 60px;
+    height: 100%;
+    margin-right: 70px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.title {
+    text-align: center;
+    margin: 0;
+}
+
+.stepIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #E9E9E9;
+    border-radius: 50%;
+    background-color: $color-neutral-900;
+}
+
+.curStep {
+    color: $green-deep;
+    fill: $green-deep;
+}
