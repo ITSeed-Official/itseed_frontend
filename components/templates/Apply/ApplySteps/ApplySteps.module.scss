@@ -1,0 +1,50 @@
+@import "/styles/variables.scss";
+
+.backgroundWrapper {
+    background-color: $green-mist;
+}
+
+.applySteps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 774px;
+}
+
+.title {
+    color: $green-deep;
+    margin-bottom: 24px;
+}
+
+.formContainer {
+    width: 100%;
+    margin-bottom: 24px;
+    padding: 40px 60px;
+    background-color: $color-neutral-900;
+}
+
+.stepManager {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 46px;
+}
+
+.save {
+    margin-right: 24px;
+    color: $green-deep;
+    cursor: pointer;
+}
+
+.buttonBack {
+    margin-right: 24px;
+}
+
+.note {
+    margin-top: 0;
+    margin-bottom: 100px;
+}
