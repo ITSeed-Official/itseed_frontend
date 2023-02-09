@@ -2,9 +2,35 @@
 @import "/styles/mixin.scss";
 
 .section {
-  padding-top: 100px;
+  padding-top: 40px;
+  
   @include mobile {
-    padding-top: 40px;
     padding-bottom: 60px;
   }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  padding: 40px;
+  background-color: white;
+}
+
+.buttons {
+  display: flex;
+
+  & button {
+    margin-right: 8px;
+  }
+}
+
+.title {
+  margin-bottom: 24px;
+}
+
+.description {
+  margin-bottom: 40px;
 }

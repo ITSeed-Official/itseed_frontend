@@ -7,6 +7,7 @@ import { GOOGLE_LOGIN_LINK } from 'util/const';
 import { appPath } from 'util/routing.config';
 
 interface Context {
+  isLogin: boolean;
   nickname: string | undefined;
   avatar: string | undefined;
   signIn: Function;
@@ -14,6 +15,7 @@ interface Context {
 }
 
 const defaultValue: Context = {
+  isLogin: false,
   nickname: '',
   avatar: '',
   signIn: () => {},
@@ -36,6 +38,7 @@ export const AuthProvider: FC = ({ children }) => {
   }, []);
 
   const value = {
+    isLogin: userInfo !== null,
     nickname: userInfo?.nickname,
     avatar: userInfo?.avatar,
     signIn: () => {
