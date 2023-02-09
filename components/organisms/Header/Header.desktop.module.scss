@@ -128,3 +128,10 @@
     background-color: $green-mist;
   }
 }
+
+.avatar {
+  & img {
+    border-radius: 50%;
+  }
+}
+  

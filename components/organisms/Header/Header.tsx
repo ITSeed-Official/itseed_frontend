@@ -7,16 +7,20 @@ import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { LayoutContext } from 'contexts/LayoutContext';
+import { AuthContext } from 'contexts/AuthContext';
 import { appPath } from 'util/routing.config';
 
 import Button, { ButtonIcon } from 'components/atoms/Button';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import dStyles from './Header.desktop.module.scss';
 import mStyles from './Header.mobile.module.scss';
+import Icon from 'components/atoms/Icon';
 
 const MobileHeader: FC = () => {
   const router = useRouter();
   const { isSubNavStuck } = useContext(LayoutContext);
+  const { nickname, avatar, signOut } = useContext(AuthContext);
+
   const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
   const closeMenu = () => {
     setIsMenuOpened(false);
@@ -156,11 +160,17 @@ const MobileHeader: FC = () => {
               </Link>
             </li>
           </ul>
-          <div className={mStyles.buttonWrapper}>
-            <Button icon={ButtonIcon.arrow}>
-              <Link href={appPath.apply}>立即報名</Link>
-            </Button>
-          </div>
+          <>
+            {nickname ? (
+              <p>{nickname}</p>
+            ) : (
+              <div className={mStyles.buttonWrapper}>
+                <Button icon={ButtonIcon.arrow}>
+                  <Link href={appPath.apply}>立即報名</Link>
+                </Button>
+              </div>
+            )}
+          </>
         </div>
         <div className={mStyles.mask}></div>
       </div>
@@ -170,6 +180,7 @@ const MobileHeader: FC = () => {
 
 const DesktopHeader: FC = () => {
   const { isSubNavStuck } = useContext(LayoutContext);
+  const { nickname, avatar, signOut } = useContext(AuthContext);
 
   return (
     <header className={classNames([dStyles.header, { [dStyles.isSubNavStuck]: isSubNavStuck }])}>
@@ -244,9 +255,15 @@ const DesktopHeader: FC = () => {
             <Link href={appPath.faq}>常見問題</Link>
           </li>
         </ul>
-        <Button icon={ButtonIcon.arrow}>
-          <Link href={appPath.apply}>立即報名</Link>
-        </Button>
+        <>
+          {avatar ? (
+            <Icon iconSrc={avatar} className={dStyles.avatar} />
+          ) : (
+            <Button icon={ButtonIcon.arrow}>
+              <Link href={appPath.apply}>立即報名</Link>
+            </Button>
+          )}
+        </>
       </SectionWrapper>
     </header>
   );
