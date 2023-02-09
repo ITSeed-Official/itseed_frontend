@@ -17,6 +17,7 @@ import styles from './ApplySteps.module.scss';
 
 const ApplySteps: FC = () => {
   const [formData, setFormData] = useState(INITIAL_DATA);
+  console.log('formData', formData);
 
   const getData = async () => {
     try {
@@ -37,8 +38,7 @@ const ApplySteps: FC = () => {
     getData();
   }, []);
 
-  console.log('formData', formData);
-
+  // 更新前端某個表單 state 中的單一欄位
   const updateFields = (fields: Partial<FormDataType>) => {
     setFormData((prev) => ({ ...prev, ...fields }));
   };
@@ -50,6 +50,24 @@ const ApplySteps: FC = () => {
     <FilesUploadStepForm key="files" data={formData} updateFields={updateFields} />,
   ]);
 
+  // 將前端某個表單 state 儲存到後端
+  const updateStepForm = () => {
+    switch (currentStepIndex) {
+      case 0:
+        updateFormData({ survey: formData.survey });
+        break;
+      case 1:
+        updateFormData({ info: formData.info });
+        break;
+      case 2:
+        updateFormData({ answer: formData.answer });
+        break;
+      case 3:
+        updateFormData({ files: formData.files });
+        break;
+    }
+  };
+
   return (
     <div className={styles.backgroundWrapper}>
       <div className={styles.applySteps}>
@@ -58,25 +76,7 @@ const ApplySteps: FC = () => {
         <div className={styles.formContainer}>
           {step}
           <div className={styles.stepManager}>
-            <u
-              className={styles.save}
-              onClick={() => {
-                switch (currentStepIndex) {
-                  case 0:
-                    updateFormData({ survey: formData.survey });
-                    break;
-                  case 1:
-                    updateFormData({ info: formData.info });
-                    break;
-                  case 2:
-                    updateFormData({ answer: formData.answer });
-                    break;
-                  case 3:
-                    updateFormData({ files: formData.files });
-                    break;
-                }
-              }}
-            >
+            <u className={styles.save} onClick={updateStepForm}>
               儲存資料
             </u>
             {!isFirstStep && (
@@ -84,7 +84,14 @@ const ApplySteps: FC = () => {
                 回上一階段
               </Button>
             )}
-            <Button icon={ButtonIcon.arrow} disabled={isLastStep} onClick={next}>
+            <Button
+              icon={ButtonIcon.arrow}
+              disabled={isLastStep}
+              onClick={() => {
+                updateStepForm();
+                next();
+              }}
+            >
               下一步
             </Button>
           </div>

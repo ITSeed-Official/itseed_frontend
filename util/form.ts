@@ -12,6 +12,7 @@ export type Referer = {
 
 export type Info = {
   nickname: string;
+  avatar: string;
   gender: string;
   phone: string;
   school: string;
@@ -48,6 +49,7 @@ export const INITIAL_DATA: FormDataType = {
   info: {
     // optional
     nickname: '',
+    avatar: '',
     gender: '',
     phone: '',
     school: '',
