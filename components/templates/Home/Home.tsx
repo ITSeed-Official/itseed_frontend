@@ -32,7 +32,7 @@ const Home: NextPage<{ data: HomeData; router: NextRouter }> = ({ router, data }
       description="報名時間 2022.6.1 - 7.11"
       ctaText="立即報名"
       ctaIcon={ButtonIcon.arrow}
-      ctaOnClick={() => router.push('/joinus')}
+      ctaOnClick={() => router.push(appPath.apply)}
     />
     <SummarySection />
     <IntroSection />
