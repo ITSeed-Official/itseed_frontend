@@ -2,7 +2,12 @@
 @import "/styles/mixin.scss";
 
 .section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 774px;
   padding-top: 40px;
+  text-align: center;
   
   @include mobile {
     padding-bottom: 60px;
@@ -15,7 +20,9 @@
   justify-content: center;
   align-items: center;
   margin-top: 40px;
+  margin-bottom: 24px;
   padding: 40px;
+  width: 100%;
   background-color: white;
 }
 
@@ -27,10 +34,18 @@
   }
 }
 
+.image {
+  margin-bottom: 24px;
+}
+
 .title {
   margin-bottom: 24px;
 }
 
 .description {
   margin-bottom: 40px;
+}
+
+.loginIcon {
+  margin-right: 12px;
 }
