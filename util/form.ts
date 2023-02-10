@@ -20,9 +20,10 @@ export type Info = {
   grade: Grade[];
   recommender: string;
   referer: Referer[];
+  step: number;
 };
 export type Survey = { number: number; answerNumber: number }[];
-export type Answer = { number: number; answer: string }[];
+export type Answer = { title: string; number: number; answer: string; limit: number }[];
 export type Files = {
   resume: {
     file: File | null;
@@ -67,6 +68,7 @@ export const INITIAL_DATA: FormDataType = {
       { title: '海報', value: 'poster', selected: false },
       { title: '說明會', value: 'conf', selected: false },
     ],
+    step: 1,
   },
   survey: [
     // optional
@@ -77,28 +79,40 @@ export const INITIAL_DATA: FormDataType = {
   ],
   answer: [
     {
+      title: '',
       number: 1,
       answer: '第一題的回答',
+      limit: 300,
     },
     {
+      title: '',
       number: 2,
       answer: '第二題的回答',
+      limit: 300,
     },
     {
+      title: '',
       number: 3,
       answer: '第三題的回答',
+      limit: 300,
     },
     {
+      title: '',
       number: 4,
       answer: '第四題的回答',
+      limit: 300,
     },
     {
+      title: '',
       number: 5,
       answer: '第五題的回答',
+      limit: 300,
     },
     {
+      title: '',
       number: 6,
       answer: '第六題的回答',
+      limit: 300,
     },
   ],
   files: {

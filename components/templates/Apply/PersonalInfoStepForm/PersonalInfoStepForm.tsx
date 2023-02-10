@@ -17,7 +17,7 @@ const PersonalInfoStepForm: FC<PersonalInfoStepFormProps> = ({ data, updateField
     if (fieldName === 'referer') {
       const referer = [...data.referer];
       const index = referer.findIndex((v) => {
-        v.title === e.target.value;
+        return v.value === e.target.value;
       });
       referer[index].selected = !referer[index].selected;
 
