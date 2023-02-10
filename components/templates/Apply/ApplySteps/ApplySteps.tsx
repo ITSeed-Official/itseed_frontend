@@ -43,12 +43,15 @@ const ApplySteps: FC = () => {
     setFormData((prev) => ({ ...prev, ...fields }));
   };
 
-  const { currentStepIndex, step, isFirstStep, isLastStep, back, next } = useMultistepForm([
-    <DiscStepForm key="survey" />,
-    <PersonalInfoStepForm key="info" data={formData.info} updateFields={updateFields} />,
-    <QuestionsStepForm key="question" data={formData.answer} updateFields={updateFields} />,
-    <FilesUploadStepForm key="files" data={formData} updateFields={updateFields} />,
-  ]);
+  const { currentStepIndex, step, isFirstStep, isLastStep, back, next, goTo } = useMultistepForm(
+    [
+      <DiscStepForm key="survey" />,
+      <PersonalInfoStepForm key="info" data={formData.info} updateFields={updateFields} />,
+      <QuestionsStepForm key="question" data={formData.answer} updateFields={updateFields} />,
+      <FilesUploadStepForm key="files" data={formData} updateFields={updateFields} />,
+    ],
+    formData.info.step
+  );
 
   // 將前端某個表單 state 儲存到後端
   const updateStepForm = () => {
@@ -72,7 +75,7 @@ const ApplySteps: FC = () => {
     <div className={styles.backgroundWrapper}>
       <div className={styles.applySteps}>
         <h3 className={styles.title}>報名專區</h3>
-        <ApplyStepsBar curStep={currentStepIndex} />
+        <ApplyStepsBar curStep={currentStepIndex} goTo={goTo} />
         <div className={styles.formContainer}>
           {step}
           <div className={styles.stepManager}>
