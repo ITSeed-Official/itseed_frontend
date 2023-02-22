@@ -26,25 +26,54 @@
     background-color: $color-neutral-900;
 }
 
+.formsCheckSection {
+    & .block {
+        margin: 16px 0;
+        padding: 20px 16px;
+        border: 1px solid #E9E9E9;
+        border-radius: 8px;
+        display: flex;
+    
+        & > p {
+            margin-right: 10px;
+        }
+    }
+    
+    & .edit {
+        margin-left: auto;
+    }
+}
+
 .stepManager {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
     height: 46px;
-}
+    margin-top: 40px;
 
-.save {
-    margin-right: 24px;
-    color: $green-deep;
-    cursor: pointer;
-}
-
-.buttonBack {
-    margin-right: 24px;
-}
-
-.note {
-    margin-top: 0;
-    margin-bottom: 100px;
+    & .save {
+        margin-right: 24px;
+        color: $green-deep;
+        cursor: pointer;
+    }
+    
+    & .buttonBack {
+        margin-right: 24px;
+    }
+    
+    & .note {
+        margin-top: 0;
+        margin-bottom: 100px;
+    }
+    
+    & .questionNum {
+        font-size: 16px;
+        color: $gray-neutral;
+        margin-right: auto;
+    }
+    
+    & .next {
+        margin-left: 24px;
+    }
 }
