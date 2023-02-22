@@ -31,15 +31,3 @@
     border:1px solid #E9E9E9;
     margin: 40px 0;
 }
-
-.block {
-    margin: 16px 0;
-    padding: 20px 16px;
-    border: 1px solid #E9E9E9;
-    border-radius: 8px;
-    display: flex;
-
-    & > p {
-        margin-right: 10px;
-    }
-}

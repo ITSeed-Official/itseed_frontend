@@ -1,16 +1,15 @@
 import { FC, useRef, ChangeEvent, DragEvent, useState } from 'react';
 import classnames from 'classnames';
 
-import { FormDataType, FileType } from 'util/form';
+import { FileType, Files } from 'util/form';
 import { uploadFile } from 'api/application';
 
-import Icon from 'components/atoms/Icon';
 import Button from 'components/atoms/Button';
 
 import styles from './FilesUploadStepForm.module.scss';
 
 type FilesUploadStepFormType = {
-  data: FormDataType;
+  data: Files;
   updateFields: Function;
 };
 
@@ -41,7 +40,7 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields }
 
     updateFields({
       files: {
-        ...data.files,
+        ...data,
         [fileType]: {
           file,
           name: reponse.data.name,
@@ -78,7 +77,7 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields }
     const reponse = await uploadFile(file, fileType);
     updateFields({
       files: {
-        ...data.files,
+        ...data,
         [fileType]: {
           file,
           name: reponse.data.name,
@@ -99,7 +98,7 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields }
   return (
     <>
       <div>
-        <h3 className={styles.title}>1.個人資料</h3>
+        <h3 className={styles.title}>1.個人履歷</h3>
         <div className={styles.description}>
           <p>請以「pdf」上傳限制大小為 5 MB</p>
           <p>內容</p>
@@ -124,7 +123,7 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields }
           onChange={(e) => handleFileChange(e, 'resume')}
           style={{ display: 'none' }}
         />
-        {data.files.resume && <p className={styles.fileName}>{data.files.resume.name}</p>}
+        {data.resume && <p className={styles.fileName}>{data.resume.name}</p>}
         <Button onClick={() => handleUploadClick('resume')}>檔案上傳</Button>
       </div>
       <div className={styles.divisionLine} />
@@ -151,27 +150,10 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields }
           onChange={(e) => handleFileChange(e, 'certification')}
           style={{ display: 'none' }}
         />
-        {data.files.certification && <p className={styles.fileName}>{data.files.certification.name}</p>}
+        {data.certification && <p className={styles.fileName}>{data.certification.name}</p>}
         <Button onClick={() => handleUploadClick('certification')}>檔案上傳</Button>
       </div>
       <div className={styles.divisionLine} />
-      <div>
-        <h3 className={styles.title}>3.資料確認</h3>
-        <p>確認完成後點擊下方按鈕完成書審資料</p>
-        <div className={styles.block}>
-          <p>1.基本資料</p>
-          <Icon iconSrc="/images/icons/icon-cancel.svg" />
-        </div>
-        <div className={styles.block}>
-          <p>2.個人履歷</p>
-          <Icon iconSrc="/images/icons/icon-cancel.svg" />
-        </div>
-        <div className={styles.block}>
-          <p>3.書審問題</p>
-          <Icon iconSrc="/images/icons/icon-cancel.svg" />
-        </div>
-        <Button>確認完成</Button>
-      </div>
     </>
   );
 };

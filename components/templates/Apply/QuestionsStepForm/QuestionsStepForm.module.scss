@@ -5,7 +5,11 @@
 
 .questionBlock {
     width: 100%;
-    margin-bottom: 24px;
+    
+    &:not(:last-child) {
+        margin-bottom: 40px;
+    }
+   
 
     & > p {
         margin-bottom: 8px;
