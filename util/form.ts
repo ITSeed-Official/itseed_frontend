@@ -22,7 +22,17 @@ export type Info = {
   referer: Referer[];
   step: number;
 };
-export type Survey = { number: number; answerNumber: number }[];
+export type Survey = {
+  title: string;
+  number: number;
+  options: [
+    {
+      number: number;
+      description: string;
+    }
+  ];
+  answer: number;
+}[];
 export type Answer = { title: string; number: number; answer: string; limit: number }[];
 export type Files = {
   resume: {
@@ -73,8 +83,15 @@ export const INITIAL_DATA: FormDataType = {
   survey: [
     // optional
     {
+      title: '請選擇符合您的敘述',
       number: 1,
-      answerNumber: 1,
+      options: [
+        {
+          number: 1,
+          description: '',
+        },
+      ],
+      answer: 1,
     },
   ],
   answer: [
