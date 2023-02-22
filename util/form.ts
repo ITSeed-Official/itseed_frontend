@@ -22,6 +22,7 @@ export type Info = {
   referer: Referer[];
   step: number;
 };
+
 export type Survey = {
   title: string;
   number: number;
@@ -33,7 +34,9 @@ export type Survey = {
   ];
   answer: number;
 }[];
+
 export type Answer = { title: string; number: number; answer: string; limit: number }[];
+
 export type Files = {
   resume: {
     file: File | null;
@@ -68,7 +71,7 @@ export const INITIAL_DATA: FormDataType = {
     grade: [
       { title: '大一', value: 1, selected: false },
       { title: '大二', value: 2, selected: false },
-      { title: '大三', value: 3, selected: true },
+      { title: '大三', value: 3, selected: false },
       { title: '大四', value: 4, selected: false },
       { title: '大五', value: 5, selected: false },
       { title: '碩一', value: 6, selected: false },
@@ -147,4 +150,12 @@ export const INITIAL_DATA: FormDataType = {
   },
 };
 
-export const formValidation = (data: FormDataType) => {};
+export const formValidation = (data: FormDataType) => {
+  const isInfoValid = data.info;
+
+  return {
+    info: true,
+    answer: true,
+    files: true,
+  };
+};

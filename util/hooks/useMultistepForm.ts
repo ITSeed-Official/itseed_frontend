@@ -1,7 +1,14 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 
 export function useMultistepForm(steps: ReactElement[], initialStep: number) {
-  const [currentStepIndex, setCurrentStepIndex] = useState(initialStep - 1); // 後端是用 1 表示第一步
+  const [currentStepIndex, setCurrentStepIndex] = useState(0);
+
+  useEffect(() => {
+    // 加入 if 條件，防止一開始 render 兩次，確定在跟後端拿完 step 資料後才更改現在的 step 數
+    if (initialStep > 1) {
+      setCurrentStepIndex(initialStep - 1); // 後端是用 1 表示第一步
+    }
+  }, [initialStep]);
 
   function next() {
     setCurrentStepIndex((i) => {

@@ -8,8 +8,6 @@ import './inject.scss';
 import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  console.log('MyApp', Component, pageProps);
-
   return (
     <AuthProvider>
       <LayoutContextProvider>
