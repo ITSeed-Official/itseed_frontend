@@ -9,7 +9,7 @@ type ApplyStepsBarProps = {
   goTo: Function;
 };
 
-const steps = ['DISC', '個人資料', '書審問題', '檔案上傳', '前往繳費'];
+const steps = ['DISC', '基本資料', '書審問題', '檔案上傳', '前往繳費'];
 
 const ApplyStepsBar: FC<ApplyStepsBarProps> = ({ curStep = 0, goTo }) => {
   return (
