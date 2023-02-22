@@ -1,0 +1,32 @@
+@import "/styles/variables.scss";
+
+.discStepForm {
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.option {
+    width: 100%;
+    border: 1px solid $green-deep;
+    border-radius: 4px;
+    padding: 16px 24px;
+    cursor: pointer;
+
+    &:not(:last-child) {
+        margin-bottom: 24px;
+    }
+
+    &:hover {
+        background-color: $green-grass;
+        color: white;
+    }
+}
+
+.choosed {
+    background-color: $green-grass;
+    color: white;
+}
