@@ -4,6 +4,7 @@ import SectionWrapper from 'components/molecules/SectionWrapper';
 import styles from './FAQSection.module.scss';
 import { useFAQs, FAQ } from 'util/hooks/swr/useFAQs';
 import FAQBox from './FAQBox';
+import { appPath } from 'util/routing.config';
 
 interface Props {
   limit?: number;
@@ -53,7 +54,7 @@ const FAQSection = ({ limit }: Props) => {
             theme={ButtonTheme.outlineReverse}
             icon={ButtonIcon.arrowReverse}
             onClick={() => {
-              router.push('joinus');
+              router.push(appPath.apply);
             }}
           >
             立即報名
