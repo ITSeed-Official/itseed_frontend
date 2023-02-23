@@ -151,11 +151,32 @@ export const INITIAL_DATA: FormDataType = {
 };
 
 export const formValidation = (data: FormDataType) => {
-  const isInfoValid = data.info;
+  const isInfoValid =
+    Object.entries(data.info).find(([key, value]) => {
+      if (key === 'grade') {
+        const grades = value as Grade[];
+        return (
+          grades.find(({ selected }) => {
+            return selected === true;
+          }) === undefined
+        );
+      }
 
-  return {
-    info: true,
-    answer: true,
-    files: true,
-  };
+      // 非必填
+      if (key === 'recommender' || 'referer') return false;
+
+      return value === '';
+    }) === undefined;
+
+  const isAnswerValid =
+    Object.values(data.answer).find(({ answer }) => {
+      return answer === '';
+    }) === undefined;
+
+  const isFilesValid =
+    Object.values(data.files).find(({ name, path }) => {
+      return name === '' || path === '';
+    }) === undefined && Object.keys(data.files).length > 0;
+
+  return [isInfoValid, isAnswerValid, isFilesValid];
 };

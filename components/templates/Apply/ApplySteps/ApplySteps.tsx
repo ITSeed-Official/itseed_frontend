@@ -2,7 +2,7 @@ import { FC, useEffect, useState, useRef } from 'react';
 
 import { useMultistepForm } from 'util/hooks/useMultistepForm';
 import { GOOGLE_LOGIN_LINK } from 'util/const';
-import { FormDataType, INITIAL_DATA } from 'util/form';
+import { FormDataType, formValidation, INITIAL_DATA } from 'util/form';
 import { ErrorCode, ErrorWithCode } from 'util/error';
 import { getFormData, updateFormData } from 'api/application';
 
@@ -20,6 +20,7 @@ import { scrollTo } from 'util/scroll';
 const ApplySteps: FC = () => {
   const [formData, setFormData] = useState(INITIAL_DATA);
   const [surveyIndex, setSurveyIndex] = useState<number>(0); // DISC 題目號碼
+  const [isFormValid, setIsFormValid] = useState<boolean[]>([false, false, false]);
   const ref = useRef<HTMLDivElement | null>(null);
 
   console.log('formData', formData);
@@ -75,6 +76,13 @@ const ApplySteps: FC = () => {
     ],
     formData.info.step
   );
+
+  useEffect(() => {
+    if (currentStepIndex === 3) {
+      const result = formValidation(formData);
+      setIsFormValid(result);
+    }
+  }, [currentStepIndex, formData]);
 
   const lastStep = () => {
     back();
@@ -146,17 +154,29 @@ const ApplySteps: FC = () => {
       <p>確認完成後點擊下方按鈕完成書審資料</p>
       <div className={styles.block}>
         <p>1. 基本資料</p>
-        <Icon iconSrc="/images/icons/icon-cancel.svg" />
+        {isFormValid[0] ? (
+          <Icon iconSrc="/images/icons/icon-checkcircle.svg" />
+        ) : (
+          <Icon iconSrc="/images/icons/icon-cancel.svg" />
+        )}
         <Icon className={styles.edit} iconSrc="/images/icons/icon-edit.svg" onClick={() => goTo(1)} />
       </div>
       <div className={styles.block}>
         <p>2. 書審問題</p>
-        <Icon iconSrc="/images/icons/icon-cancel.svg" />
+        {isFormValid[1] ? (
+          <Icon iconSrc="/images/icons/icon-checkcircle.svg" />
+        ) : (
+          <Icon iconSrc="/images/icons/icon-cancel.svg" />
+        )}
         <Icon className={styles.edit} iconSrc="/images/icons/icon-edit.svg" onClick={() => goTo(2)} />
       </div>
       <div className={styles.block}>
         <p>3. 檔案上傳</p>
-        <Icon iconSrc="/images/icons/icon-cancel.svg" />
+        {isFormValid[2] ? (
+          <Icon iconSrc="/images/icons/icon-checkcircle.svg" />
+        ) : (
+          <Icon iconSrc="/images/icons/icon-cancel.svg" />
+        )}
         <Icon className={styles.edit} iconSrc="/images/icons/icon-edit.svg" onClick={() => scrollTo(ref)} />
       </div>
       <Button>確認完成</Button>
@@ -167,7 +187,7 @@ const ApplySteps: FC = () => {
     <div ref={ref} className={styles.backgroundWrapper}>
       <div className={styles.applySteps}>
         <h3 className={styles.title}>報名專區</h3>
-        <ApplyStepsBar curStep={currentStepIndex} goTo={goTo} />
+        <ApplyStepsBar curStep={currentStepIndex} goTo={goTo} updateStepForm={() => updateStepForm(currentStepIndex)} />
         <div className={styles.formContainer}>
           {step}
           {currentStepIndex === 3 && formsCheckSection}
