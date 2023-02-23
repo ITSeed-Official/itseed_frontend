@@ -1,3 +1,5 @@
+import { isValidPhoneNumber } from 'libphonenumber-js';
+
 export type Grade = {
   title: string;
   value: number;
@@ -153,6 +155,8 @@ export const INITIAL_DATA: FormDataType = {
 export const formValidation = (data: FormDataType) => {
   const isInfoValid =
     Object.entries(data.info).find(([key, value]) => {
+      console.log(key, value);
+
       if (key === 'grade') {
         const grades = value as Grade[];
         return (
@@ -162,8 +166,12 @@ export const formValidation = (data: FormDataType) => {
         );
       }
 
+      if (key === 'phone') {
+        return !isValidPhoneNumber(value as string, 'TW');
+      }
+
       // 非必填
-      if (key === 'recommender' || 'referer') return false;
+      if (key === 'recommender' || key === 'referer') return false;
 
       return value === '';
     }) === undefined;
@@ -175,7 +183,7 @@ export const formValidation = (data: FormDataType) => {
 
   const isFilesValid =
     Object.values(data.files).find(({ name, path }) => {
-      return name === '' || path === '';
+      return name === null || path === null;
     }) === undefined && Object.keys(data.files).length > 0;
 
   return [isInfoValid, isAnswerValid, isFilesValid];
