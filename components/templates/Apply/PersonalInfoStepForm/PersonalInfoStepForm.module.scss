@@ -22,8 +22,11 @@
         &::placeholder { 
             color: $gray-neutral;
         }          
-    }
 
+        &:focus {
+            border-bottom: 1px solid $green-tree;
+        }
+    }
 
 }
 

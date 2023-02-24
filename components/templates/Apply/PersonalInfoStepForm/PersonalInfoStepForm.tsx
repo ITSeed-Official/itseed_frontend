@@ -14,10 +14,12 @@ type PersonalInfoStepFormProps = {
 
 const PersonalInfoStepForm: FC<PersonalInfoStepFormProps> = ({ data, updateFields }) => {
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>, fieldName: string) => {
+    let value = e.target.value;
+
     if (fieldName === 'referer') {
       const referer = [...data.referer];
       const index = referer.findIndex((v) => {
-        return v.value === e.target.value;
+        return v.value === value;
       });
       referer[index].selected = !referer[index].selected;
 
@@ -27,13 +29,20 @@ const PersonalInfoStepForm: FC<PersonalInfoStepFormProps> = ({ data, updateField
           referer,
         },
       });
-    } else
-      updateFields({
-        info: {
-          ...data,
-          [fieldName]: e.target.value,
-        },
-      });
+
+      return;
+    }
+
+    if (fieldName === 'phone') {
+      value = value.replace(/[^0-9]/g, '');
+    }
+
+    updateFields({
+      info: {
+        ...data,
+        [fieldName]: value,
+      },
+    });
   };
 
   const grades = data.grade.map(({ title }) => title);
