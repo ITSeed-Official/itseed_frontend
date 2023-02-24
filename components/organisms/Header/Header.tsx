@@ -1,7 +1,7 @@
-import { FC, useState, useEffect, useContext } from 'react';
+import { FC, useState, useEffect, useContext, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import router, { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { LayoutContext } from 'contexts/LayoutContext';
 import { AuthContext } from 'contexts/AuthContext';
 import { appPath } from 'util/routing.config';
+import { useOnClickOutside } from 'util/hooks/useOnclickOutside';
 
 import Button, { ButtonIcon } from 'components/atoms/Button';
 import SectionWrapper from 'components/molecules/SectionWrapper';
@@ -180,10 +181,18 @@ const MobileHeader: FC = () => {
 
 const DesktopHeader: FC = () => {
   const { isSubNavStuck } = useContext(LayoutContext);
-  const { nickname, avatar, signOut } = useContext(AuthContext);
+  const { avatar, signOut } = useContext(AuthContext);
+  const [isPanelShow, setIsPanelShow] = useState(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  const handleClickOutside = () => {
+    setIsPanelShow(false);
+  };
+
+  useOnClickOutside(ref, handleClickOutside);
 
   return (
-    <header className={classNames([dStyles.header, { [dStyles.isSubNavStuck]: isSubNavStuck }])}>
+    <header ref={ref} className={classNames([dStyles.header, { [dStyles.isSubNavStuck]: isSubNavStuck }])}>
       <SectionWrapper className={dStyles.headerContent}>
         <Link href="/">
           <a className={dStyles.logoWrapper}>
@@ -257,7 +266,15 @@ const DesktopHeader: FC = () => {
         </ul>
         <>
           {avatar ? (
-            <Icon iconSrc={avatar} className={dStyles.avatar} />
+            <div className={dStyles.user}>
+              <Icon iconSrc={avatar} className={dStyles.avatar} onClick={() => setIsPanelShow(true)} />
+              {isPanelShow && (
+                <div ref={ref} className={dStyles.panel}>
+                  <p onClick={() => router.push(appPath.applySteps)}>報名進度</p>
+                  <p onClick={() => signOut()}>登出</p>
+                </div>
+              )}
+            </div>
           ) : (
             <Button icon={ButtonIcon.arrow}>
               <Link href={appPath.apply}>立即報名</Link>
