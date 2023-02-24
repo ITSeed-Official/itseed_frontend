@@ -55,7 +55,10 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields }
     // Prevent default behavior (Prevent file from being opened)
     e.preventDefault();
 
-    if (!e.dataTransfer) return;
+    if (!e.dataTransfer) {
+      setIsOnDrag(null);
+      return;
+    }
 
     let file = null;
 
@@ -71,9 +74,16 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields }
       file = item;
     }
 
-    if (!file) return;
+    if (!file) {
+      setIsOnDrag(null);
+      return;
+    }
 
-    // TODO: send file to backend
+    if (file.type !== 'application/pdf') {
+      setIsOnDrag(null);
+      return;
+    }
+
     const reponse = await uploadFile(file, fileType);
     updateFields({
       files: {
