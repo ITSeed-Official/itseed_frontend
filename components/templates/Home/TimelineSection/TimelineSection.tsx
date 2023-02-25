@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Button, { ButtonIcon } from 'components/atoms/Button';
 import styles from './TimelineSection.module.scss';
+import { appPath } from 'util/routing.config';
 
 interface ICard {
   step: number;
@@ -90,7 +91,7 @@ const TimelineSection: FC = () => {
           text="立即報名"
           className={styles.button}
           onClick={() => {
-            router.push('/joinus');
+            router.push(appPath.apply);
           }}
         />
       </SectionWrapper>

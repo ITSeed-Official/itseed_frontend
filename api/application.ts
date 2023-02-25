@@ -12,7 +12,7 @@ export const getFormData = async (): Promise<any> => {
   return result;
 };
 
-export const updateFormData = async (formData: Partial<FormDataType>): Promise<any> => {
+export const updateFormData = async (formData: Partial<FormDataType> | FormDataType): Promise<any> => {
   const response = await fetch(`${API2_DOMAIN}/applications/me`, {
     method: 'PUT',
     credentials: 'include',

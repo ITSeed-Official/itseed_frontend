@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import { AuthContext } from 'contexts/AuthContext';
 import { appPath } from 'util/routing.config';
+import { EMAIL } from 'util/const';
 
 import TemplateWrapper from 'components/organisms/TemplateWrapper';
 import SectionWrapper from 'components/molecules/SectionWrapper';
@@ -24,6 +25,7 @@ const Apply: NextPage<any> = () => {
           {isLogin ? (
             <>
               <Image
+                alt="welcome"
                 className={styles.image}
                 src={'/images/apply/pics/welcome.png'}
                 width={212}
@@ -54,8 +56,8 @@ const Apply: NextPage<any> = () => {
           )}
         </div>
         <p>
-          目前僅開放Google帳號註冊/登入，如有任何其他相關問題，請私訊 資訊種子粉絲專頁，或寄信至 ITseed
-          信箱（itseed19th@gmail.com）將由專人為您解答！
+          目前僅開放Google帳號註冊/登入，如有任何其他相關問題，請私訊 資訊種子粉絲專頁，或寄信至 ITseed 信箱（{EMAIL}
+          ）將由專人為您解答！
         </p>
       </SectionWrapper>
     </TemplateWrapper>

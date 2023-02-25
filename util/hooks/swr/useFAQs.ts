@@ -21,11 +21,11 @@ interface Response {
   isError: boolean;
 }
 
-import { domain } from 'util/const';
+import { DOMAIN } from 'util/const';
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 export const useFAQs = (): Response => {
-  const { data, error } = useSWR<APIResponse, AxiosError>(`${domain}/faq`, fetcher);
+  const { data, error } = useSWR<APIResponse, AxiosError>(`${DOMAIN}/faq`, fetcher);
 
   return {
     faqs: (data && data.FAQ) || [],

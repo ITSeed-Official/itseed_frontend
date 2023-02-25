@@ -14,6 +14,8 @@ const steps = ['DISC', '基本資料', '書審問題', '檔案上傳', '前往�
 
 const ApplyStepsBar: FC<ApplyStepsBarProps> = ({ curStep = 0, goTo, updateStepForm }) => {
   const onClickHandler = (index: number) => {
+    if (index === 4) return; // 繳費不能直接點選
+
     updateStepForm();
     goTo(index);
   };

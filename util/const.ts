@@ -20,8 +20,11 @@ export const DEFAULT_FAQ: FAQ = {
 };
 
 export const CURRENT_SESSION = 18;
+export const NEW_SESSION = new Date().getFullYear() - 2002;
+export const EMAIL = `itseed${NEW_SESSION}th@gmail.com`;
 export const DEFAULT_END_TIME = '2027-12-31 23:59:59';
-export const domain = process.env.NEXT_PUBLIC_API_ORIGIN;
+
+export const DOMAIN = process.env.NEXT_PUBLIC_API_ORIGIN;
 export const API2_DOMAIN = process.env.NEXT_PUBLIC_API2_ORIGIN;
 export const GOOGLE_LOGIN_LINK = `${process.env.NEXT_PUBLIC_API2_ORIGIN}/auth/google/redirect`;
 export const DEFAULT_REVALIDATE = Number(process.env.DEFAULT_REVALIDATE) || 60;

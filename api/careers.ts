@@ -1,5 +1,5 @@
 import { Image } from 'util/type';
-import { domain } from 'util/const';
+import { DOMAIN } from 'util/const';
 import { CareerCategory } from 'util/enum';
 
 export interface CareerExperience {
@@ -24,7 +24,7 @@ export interface CareerExperience {
 
 export const getCareerList = async () => {
   try {
-    const response = await fetch(`${domain}/careers`);
+    const response = await fetch(`${DOMAIN}/careers`);
     const data: CareerExperience[] = await response.json();
     return data;
   } catch (error) {
@@ -58,7 +58,7 @@ export interface CareerDetailType {
 
 export const getCareerDetail: (id: string) => Promise<CareerDetailType> = async (id) => {
   try {
-    const response = await fetch(`${domain}/careers/${id}`);
+    const response = await fetch(`${DOMAIN}/careers/${id}`);
     const data: CareerDetailType = await response.json();
     return data;
   } catch (error) {

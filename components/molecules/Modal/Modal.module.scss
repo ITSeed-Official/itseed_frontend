@@ -1,0 +1,35 @@
+@import 'styles/mixin.scss';
+
+.modal {
+  width: 436px;
+  height: auto;
+  background-color: white;
+
+  position: fixed;
+  left: 50%;
+  top: 30vh;
+  transform: translate(-50%);
+  z-index: 4;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  border-radius: 8px;
+
+  @include slideInFromTop(30vh, 500ms);
+
+  @include mobile {
+    width: min(500px, 80%);
+  }
+}
+
+.icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}

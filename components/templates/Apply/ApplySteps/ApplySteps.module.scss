@@ -44,6 +44,21 @@
     }
 }
 
+.modalControl {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 50px;
+
+    & .button {
+        width: 166px;
+        height: 46px;
+        padding: 10px 20px;
+    }
+}
+
 .stepManager {
     display: flex;
     justify-content: flex-end;

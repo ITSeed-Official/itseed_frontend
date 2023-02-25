@@ -122,3 +122,19 @@ $width-tablet: 768px;
     width: 100%;
   }
 }
+
+@mixin slideInFromTop($top, $duration) {
+  @keyframes slideInFromTop {
+    from {
+      opacity: 0;
+      top: 0;
+    }
+    to {
+      opacity: 1;
+      top: $top;
+    }
+  }
+
+  animation-name: slideInFromTop;
+  animation-duration: $duration;
+}

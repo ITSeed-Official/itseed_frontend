@@ -1,9 +1,11 @@
-import { FC, useEffect, useState, useRef } from 'react';
+import { FC, useEffect, useState, useRef, useContext } from 'react';
 
+import { ModalContext } from 'contexts/ModalContext';
 import { useMultistepForm } from 'util/hooks/useMultistepForm';
 import { GOOGLE_LOGIN_LINK } from 'util/const';
 import { FormDataType, formValidation, INITIAL_DATA } from 'util/form';
 import { ErrorCode, ErrorWithCode } from 'util/error';
+import { EMAIL } from 'util/const';
 import { getFormData, updateFormData } from 'api/application';
 
 import ApplyStepsBar from '../ApplyStepsBar';
@@ -11,6 +13,9 @@ import DiscStepForm from '../DiscStepForm';
 import PersonalInfoStepForm from '../PersonalInfoStepForm';
 import FilesUploadStepForm from '../FilesUploadStepForm';
 import QuestionsStepForm from '../QuestionsStepForm';
+import PaymentStep from '../PaymentStep';
+
+import Modal from 'components/molecules/Modal';
 import Button, { ButtonIcon } from 'components/atoms/Button';
 import Icon from 'components/atoms/Icon';
 
@@ -20,8 +25,11 @@ import { scrollTo } from 'util/scroll';
 const ApplySteps: FC = () => {
   const [formData, setFormData] = useState(INITIAL_DATA);
   const [surveyIndex, setSurveyIndex] = useState<number>(0); // DISC 題目號碼
-  const [isFormValid, setIsFormValid] = useState<boolean[]>([false, false, false]);
+  const [isFormValid, setIsFormValid] = useState<boolean[]>([false, false, false]); // 單一表單頁面是否符合格式(=完成)
+  const [isFormComplete, setIsFormComplete] = useState<boolean>(false); // 所有表單是否已經送出，代表不能更改
+
   const ref = useRef<HTMLDivElement | null>(null);
+  const { isOpen, closeModal, openModal } = useContext(ModalContext);
 
   console.log('formData', formData);
 
@@ -50,8 +58,12 @@ const ApplySteps: FC = () => {
   };
 
   // 將前端某個表單 state 儲存到後端
-  const updateStepForm = (currentStepIndex: number) => {
+  const updateStepForm = async (currentStepIndex?: number) => {
     switch (currentStepIndex) {
+      default:
+        // 更新全部 data
+        updateFormData(formData);
+        break;
       case 0:
         updateFormData({ survey: formData.survey });
         break;
@@ -73,6 +85,7 @@ const ApplySteps: FC = () => {
       <PersonalInfoStepForm key="info" data={formData.info} updateFields={updateFields} />,
       <QuestionsStepForm key="question" data={formData.answer} updateFields={updateFields} />,
       <FilesUploadStepForm key="files" data={formData.files} updateFields={updateFields} />,
+      <PaymentStep key="payment" />,
     ],
     formData.info.step
   );
@@ -136,15 +149,17 @@ const ApplySteps: FC = () => {
           回上一階段
         </Button>
       )}
-      <Button
-        icon={ButtonIcon.arrow}
-        disabled={isLastStep}
-        onClick={() => {
-          nextStep();
-        }}
-      >
-        下一步
-      </Button>
+      {!isLastStep && (
+        <Button
+          icon={ButtonIcon.arrow}
+          disabled={isLastStep}
+          onClick={() => {
+            nextStep();
+          }}
+        >
+          下一步
+        </Button>
+      )}
     </>
   );
 
@@ -179,7 +194,45 @@ const ApplySteps: FC = () => {
         )}
         <Icon className={styles.edit} iconSrc="/images/icons/icon-edit.svg" onClick={() => scrollTo(ref)} />
       </div>
-      <Button>確認完成</Button>
+      <Button
+        onClick={() => {
+          openModal();
+        }}
+      >
+        確認完成
+      </Button>
+      {isOpen && (
+        <Modal>
+          <h3>確定繳交嗎？不能再更改囉!</h3>
+          <div className={styles.modalControl}>
+            <Button
+              className={styles.button}
+              onClick={() => {
+                closeModal();
+              }}
+            >
+              取消
+            </Button>
+            <Button
+              className={styles.button}
+              onClick={async () => {
+                await updateStepForm();
+                const { data } = await getFormData();
+                closeModal();
+                if (data.info.step === 4) {
+                  setIsFormComplete(true);
+                  goTo(4);
+                  scrollTo(ref);
+                } else {
+                  alert('ERROR: 儲存資料失敗，請稍後再試');
+                }
+              }}
+            >
+              確認繳交
+            </Button>
+          </div>
+        </Modal>
+      )}
     </div>
   );
 
@@ -192,13 +245,12 @@ const ApplySteps: FC = () => {
           {step}
           {currentStepIndex === 3 && formsCheckSection}
           <div className={styles.stepManager}>
-            {currentStepIndex === 0 ? discFormStepManager : otherFormsStepManager}
+            {currentStepIndex === 0 ? discFormStepManager : currentStepIndex < 4 && otherFormsStepManager}
           </div>
         </div>
         <div>
           <h5 className={styles.note}>
-            如有任何其他相關問題，請私訊 資訊種子粉絲專頁，或寄信至 ITseed
-            信箱（itseed19th@gmail.com）將由專人為您解答！
+            如有任何其他相關問題，請私訊 資訊種子粉絲專頁，或寄信至 ITseed 信箱（{EMAIL}）將由專人為您解答！
           </h5>
         </div>
       </div>
