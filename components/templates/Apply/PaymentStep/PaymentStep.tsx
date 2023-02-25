@@ -34,7 +34,7 @@ const PaymentStep: FC = () => {
         layout="fixed"
       />
       <Button>
-        <a href={'https://itseed20.backme.tw/checkout/2899/24205?locale=zh-TW'} target="_blank">
+        <a href={'https://itseed20.backme.tw/checkout/2899/24205?locale=zh-TW'} target="_blank" rel="noreferrer">
           前往繳費
         </a>
       </Button>

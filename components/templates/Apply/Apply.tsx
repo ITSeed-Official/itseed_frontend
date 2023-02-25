@@ -25,6 +25,7 @@ const Apply: NextPage<any> = () => {
           {isLogin ? (
             <>
               <Image
+                alt="welcome"
                 className={styles.image}
                 src={'/images/apply/pics/welcome.png'}
                 width={212}
