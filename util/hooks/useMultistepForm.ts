@@ -6,7 +6,7 @@ export function useMultistepForm(steps: ReactElement[], initialStep: number) {
   useEffect(() => {
     // 加入 if 條件，防止一開始 render 兩次，確定在跟後端拿完 step 資料後才更改現在的 step 數
     if (initialStep > 1) {
-      setCurrentStepIndex(initialStep - 1); // 後端是用 1 表示第一步
+      setCurrentStepIndex(initialStep);
     }
   }, [initialStep]);
 
@@ -33,7 +33,7 @@ export function useMultistepForm(steps: ReactElement[], initialStep: number) {
     step: steps[currentStepIndex],
     steps,
     isFirstStep: currentStepIndex === 0,
-    isLastStep: currentStepIndex === steps.length - 1,
+    isLastStep: currentStepIndex === steps.length - 2, // 檔案上傳的 index
     goTo,
     next,
     back,
