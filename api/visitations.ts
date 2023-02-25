@@ -1,4 +1,4 @@
-import { domain } from 'util/const';
+import { DOMAIN } from 'util/const';
 
 export interface Visitation {
   id: number;
@@ -8,7 +8,7 @@ export interface Visitation {
 
 export const getVisitations = async () => {
   try {
-    const response = await fetch(`${domain}/visitations`);
+    const response = await fetch(`${DOMAIN}/visitations`);
     const data: Visitation[] = await response.json();
     return data;
   } catch (error) {

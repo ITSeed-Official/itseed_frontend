@@ -1,5 +1,5 @@
 import { Image } from 'util/type';
-import { domain } from 'util/const';
+import { DOMAIN } from 'util/const';
 import { AlumniCategory } from 'util/enum';
 
 export interface Alumni {
@@ -17,7 +17,7 @@ export interface Alumni {
 
 export const getAlumniList: () => Promise<Alumni[]> = async () => {
   try {
-    const response = await fetch(`${domain}/testimonies`);
+    const response = await fetch(`${DOMAIN}/testimonies`);
     const data: Alumni[] = await response.json();
     return data;
   } catch (error) {
@@ -27,7 +27,7 @@ export const getAlumniList: () => Promise<Alumni[]> = async () => {
 
 export const getAlumniDetail: (id: string) => Promise<Alumni> = async (id) => {
   try {
-    const response = await fetch(`${domain}/testimonies/${id}`);
+    const response = await fetch(`${DOMAIN}/testimonies/${id}`);
     const data: Alumni = await response.json();
     return data;
   } catch (error) {

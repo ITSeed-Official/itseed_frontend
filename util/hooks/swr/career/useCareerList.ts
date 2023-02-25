@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import { domain } from 'util/const';
+import { DOMAIN } from 'util/const';
 import useSWR from 'swr';
 
 import { CareerExperience } from 'api/careers';
@@ -15,7 +15,7 @@ interface Response {
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 export const useCareerList = (): Response => {
-  const { data, error } = useSWR<APIResponse, AxiosError>(`${domain}/careers`, fetcher);
+  const { data, error } = useSWR<APIResponse, AxiosError>(`${DOMAIN}/careers`, fetcher);
 
   return {
     careerExperiences: data || [],

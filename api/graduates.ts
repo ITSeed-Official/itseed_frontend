@@ -1,4 +1,4 @@
-import { domain } from 'util/const';
+import { DOMAIN } from 'util/const';
 interface GraduatesAPIData {
   id: number;
   session: number;
@@ -17,7 +17,7 @@ export interface Graduate {
 }
 
 export const getGraduates = async (session: number): Promise<Graduate[]> => {
-  const response = await fetch(`${domain}/graduates?session=${session}`);
+  const response = await fetch(`${DOMAIN}/graduates?session=${session}`);
   const data: GraduatesAPIData[] = await response.json();
 
   if (!data.length) {

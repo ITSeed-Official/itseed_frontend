@@ -1,5 +1,5 @@
 import { Image } from 'util/type';
-import { domain } from 'util/const';
+import { DOMAIN } from 'util/const';
 
 export type CourseDetailType = {
   id: string;
@@ -22,7 +22,7 @@ export type CourseDetailType = {
 
 export const getCourses = async () => {
   try {
-    const response = await fetch(`${domain}/courses`);
+    const response = await fetch(`${DOMAIN}/courses`);
     const data: CourseDetailType[] = await response.json();
     return data;
   } catch (error) {
@@ -32,7 +32,7 @@ export const getCourses = async () => {
 
 export const getCourseDetail: (id: string) => Promise<CourseDetailType> = async (id) => {
   try {
-    const response = await fetch(`${domain}/courses/${id}`);
+    const response = await fetch(`${DOMAIN}/courses/${id}`);
     const data: CourseDetailType = await response.json();
     return data;
   } catch (error) {
