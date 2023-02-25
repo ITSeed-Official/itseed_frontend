@@ -12,10 +12,13 @@ import TimelineSection from 'components/templates/Home/TimelineSection';
 import FAQSection from 'components/templates/Home/FAQSection';
 import SlashBanner from 'components/molecules/SlashBanner';
 import NextSection, { Type as NextSectionType } from 'components/atoms/NextSection';
+import { NEW_SESSION } from 'util/const';
 
 interface HomeData {
   alumniList: Alumni[];
 }
+
+const session = `第 ${NEW_SESSION} 屆資訊種子培訓計畫`;
 
 const Home: NextPage<{ data: HomeData; router: NextRouter }> = ({ router, data }) => (
   <>
@@ -28,7 +31,7 @@ const Home: NextPage<{ data: HomeData; router: NextRouter }> = ({ router, data }
           每一份<em>獨特</em>
         </>
       )}
-      subTitle="第十九屆資訊種子培訓計畫"
+      subTitle={session}
       description="報名時間 2022.6.1 - 7.11"
       ctaText="立即報名"
       ctaIcon={ButtonIcon.arrow}
