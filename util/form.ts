@@ -158,6 +158,11 @@ export const formValidation = (data: FormDataType) => {
   const isInfoValid =
     Object.entries(data.info).find(([key, value]) => {
       console.log(key, value);
+      // 非必填
+      if (key === 'recommender' || key === 'referer' || key === 'city') return false;
+
+      // 是 null 就一定不給過
+      if (value === null) return true;
 
       if (key === 'grade') {
         const grades = value as Grade[];
@@ -171,9 +176,6 @@ export const formValidation = (data: FormDataType) => {
       if (key === 'phone') {
         return !isValidPhoneNumber(value as string, 'TW');
       }
-
-      // 非必填
-      if (key === 'recommender' || key === 'referer') return false;
 
       return value === '';
     }) === undefined;
