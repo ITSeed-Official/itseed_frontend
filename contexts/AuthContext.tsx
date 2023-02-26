@@ -10,6 +10,7 @@ interface Context {
   isLogin: boolean;
   nickname: string | undefined;
   avatar: string | undefined;
+  step: number | undefined;
   signIn: Function;
   signOut: Function;
 }
@@ -18,6 +19,7 @@ const defaultValue: Context = {
   isLogin: false,
   nickname: '',
   avatar: '',
+  step: 0,
   signIn: () => {},
   signOut: () => {},
 };
@@ -41,6 +43,7 @@ export const AuthProvider: FC = ({ children }) => {
     isLogin: userInfo !== null,
     nickname: userInfo?.nickname,
     avatar: userInfo?.avatar,
+    step: userInfo?.step,
     signIn: () => {
       window.location.href = GOOGLE_LOGIN_LINK;
     },

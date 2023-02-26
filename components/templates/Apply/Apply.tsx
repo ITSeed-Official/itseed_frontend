@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Link from 'next/link';
 
 import { AuthContext } from 'contexts/AuthContext';
@@ -13,9 +13,17 @@ import Icon from 'components/atoms/Icon';
 
 import styles from './Apply.module.scss';
 import Image from 'next/image';
+import { stepMap } from 'util/form';
+import router from 'next/router';
 
 const Apply: NextPage<any> = () => {
-  const { isLogin, nickname, signIn, signOut } = useContext(AuthContext);
+  const { isLogin, nickname, step, signIn, signOut } = useContext(AuthContext);
+
+  // 已經完成報名，直接跳轉至繳費頁面
+  if (step === 4) {
+    router.push(appPath.applySteps);
+    return <></>;
+  }
 
   return (
     <TemplateWrapper primaryTitle="立即報名" description="報名">
@@ -34,8 +42,20 @@ const Apply: NextPage<any> = () => {
               />
               <h2 className={styles.title}>{nickname}，您好！</h2>
               <p className={styles.description}>
-                歡迎來到資訊種子培訓計畫報名頁面！接下來將邀請您填寫報名相關資訊，
-                總共分為五個部分，需時約X小時（可儲存進度），還請您耐心填寫。
+                {step && step === 0 && (
+                  <>
+                    歡迎來到資訊種子培訓計畫報名頁面！接下來將邀請您填寫報名相關資訊，
+                    總共分為五個部分，需時約X小時（可儲存進度），還請您耐心填寫。
+                  </>
+                )}
+                {step && step > 0 && (
+                  <>
+                    歡迎回到資訊種子培訓計畫報名頁面，您先前已填寫至
+                    <span className={styles.stepName}> {stepMap[step - 1]} </span>
+                    ，點選下方「開始填寫」按鈕前往下一階段：<span className={styles.stepName}> {stepMap[step]} </span>
+                    繼續進行報名流程。
+                  </>
+                )}
               </p>
               <div className={styles.buttons}>
                 <Button>
