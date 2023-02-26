@@ -15,10 +15,14 @@ const ApplyStepsBar: FC<ApplyStepsBarProps> = ({ curStep = 0 }) => {
   return (
     <div className={styles.container}>
       {stepMap.map((title, index) => (
-        <div key={title} className={classnames(styles.step, curStep === index && styles.curStep)}>
+        <div key={title} className={classnames(styles.step)}>
           <h5 className={styles.title}>{title}</h5>
           <div className={classnames(styles.stepIcon, curStep === index && styles.curStep)}>
-            <Icon width={36} height={36} iconSrc={`/images/apply/icons/step${index + 1}.svg`} />
+            {curStep === index ? (
+              <Icon width={36} height={36} iconSrc={`/images/apply/icons/step${index + 1}-green.svg`} />
+            ) : (
+              <Icon width={36} height={36} iconSrc={`/images/apply/icons/step${index + 1}.svg`} />
+            )}
           </div>
         </div>
       ))}
