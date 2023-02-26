@@ -35,9 +35,7 @@ export const AuthProvider: FC = ({ children }) => {
       .then((res) => {
         setUserInfo(res.data.info);
       })
-      .catch((e) => {
-        alert('登入失敗，請稍後再試');
-      });
+      .catch((e) => {});
   }, []);
 
   const value = {
