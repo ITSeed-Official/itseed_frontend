@@ -33,10 +33,11 @@ export const AuthProvider: FC = ({ children }) => {
   useEffect(() => {
     getFormData()
       .then((res) => {
-        console.log('res', res);
         setUserInfo(res.data.info);
       })
-      .catch((e) => {});
+      .catch((e) => {
+        alert('登入失敗，請稍後再試');
+      });
   }, []);
 
   const value = {
