@@ -61,6 +61,8 @@ export type FormDataType = {
   files: Files;
 };
 
+export const stepMap = ['DISC', '基本資料', '書審問題', '檔案上傳', '前往繳費'];
+
 export const INITIAL_DATA: FormDataType = {
   info: {
     // optional
