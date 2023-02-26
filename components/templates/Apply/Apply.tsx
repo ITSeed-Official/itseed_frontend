@@ -41,22 +41,24 @@ const Apply: NextPage<any> = () => {
                 layout="fixed"
               />
               <h2 className={styles.title}>{nickname}，您好！</h2>
-              <p className={styles.description}>
-                {step && step === 0 && (
-                  <>
-                    歡迎來到資訊種子培訓計畫報名頁面！接下來將邀請您填寫報名相關資訊，
-                    總共分為五個部分，需時約X小時（可儲存進度），還請您耐心填寫。
-                  </>
-                )}
-                {step && step > 0 && (
-                  <>
-                    歡迎回到資訊種子培訓計畫報名頁面，您先前已填寫至
-                    <span className={styles.stepName}> {stepMap[step - 1]} </span>
-                    ，點選下方「開始填寫」按鈕前往下一階段：<span className={styles.stepName}> {stepMap[step]} </span>
-                    繼續進行報名流程。
-                  </>
-                )}
-              </p>
+              {step !== undefined && (
+                <p className={styles.description}>
+                  {step === 0 ? (
+                    <>
+                      歡迎來到資訊種子培訓計畫報名頁面！接下來將邀請您填寫報名相關資訊，
+                      總共分為五個部分，需時約X小時（可儲存進度），還請您耐心填寫。
+                    </>
+                  ) : (
+                    <>
+                      歡迎回到資訊種子培訓計畫報名頁面，您先前已填寫至
+                      <span className={styles.stepName}> {stepMap[step - 1]} </span>
+                      ，點選下方「開始填寫」按鈕前往下一階段：
+                      <span className={styles.stepName}> {stepMap[step]} </span>
+                      繼續進行報名流程。
+                    </>
+                  )}
+                </p>
+              )}
               <div className={styles.buttons}>
                 <Button>
                   <Link href={appPath.applySteps}>開始填寫</Link>

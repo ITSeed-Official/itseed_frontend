@@ -85,7 +85,7 @@ export const INITIAL_DATA: FormDataType = {
       { title: '海報', value: 'poster', selected: false },
       { title: '說明會', value: 'conf', selected: false },
     ],
-    step: 1,
+    step: 0,
   },
   survey: [
     // optional
