@@ -33,6 +33,10 @@
     border: 1px solid #E9E9E9;
     border-radius: 50%;
     background-color: $color-neutral-900;
+    
+    & * {
+        cursor: unset;
+    }
 }
 
 .curStep {
