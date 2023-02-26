@@ -11,16 +11,17 @@ import styles from './FilesUploadStepForm.module.scss';
 type FilesUploadStepFormType = {
   data: Files;
   updateFields: Function;
+  updateFormData: Function;
 };
 
-const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields }) => {
+const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, updateFormData }) => {
   const [isOnDrag, setIsOnDrag] = useState<FileType | null>(null);
+  const [errorMessages, setErrorMessages] = useState<string[]>(['', '']);
   const resumeInputRef = useRef<HTMLInputElement | null>(null);
   const certificationInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleUploadClick = (fileType: FileType) => {
     // redirect the click event onto the hidden input element
-    console.log('click');
     if (fileType === 'resume') resumeInputRef.current?.click();
     else certificationInputRef.current?.click();
   };
@@ -31,23 +32,60 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields }
     }
 
     // 超過 5MB 就擋住
-    if (e.target.files[0].size > 1048576 * 5) {
+    if (e.target.files[0].size > 1048576 * 3) {
+      console.log('BLOCK FILE');
+
+      if (fileType === 'resume')
+        setErrorMessages((prev) => {
+          let next = [...prev];
+          next[0] = '檔案大小超過 5MB';
+          return next;
+        });
+      else if (fileType === 'certification')
+        setErrorMessages((prev) => {
+          let next = [...prev];
+          next[1] = '檔案大小超過 5MB';
+          return next;
+        });
       return;
     }
 
     const file = e.target.files[0];
-    const reponse = await uploadFile(file, fileType);
 
-    updateFields({
-      files: {
+    try {
+      const reponse = await uploadFile(file, fileType);
+
+      const updatedFiles = {
         ...data,
         [fileType]: {
           file,
           name: reponse.data.name,
           path: reponse.data.path,
         },
-      },
-    });
+      };
+
+      updateFields({
+        files: updatedFiles,
+      });
+
+      await updateFormData({ files: updatedFiles });
+    } catch (error) {
+      console.log(error);
+      alert('檔案上傳失敗，請稍後再試');
+    }
+
+    if (fileType === 'resume' && errorMessages[0] !== '')
+      setErrorMessages((prev) => {
+        let next = [...prev];
+        next[0] = '';
+        return next;
+      });
+    else if (fileType === 'certification' && errorMessages[1] !== '')
+      setErrorMessages((prev) => {
+        let next = [...prev];
+        next[1] = '';
+        return next;
+      });
   };
 
   // https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop
@@ -81,20 +119,74 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields }
 
     if (file.type !== 'application/pdf') {
       setIsOnDrag(null);
+
+      if (fileType === 'resume')
+        setErrorMessages((prev) => {
+          let next = [...prev];
+          next[0] = '僅限 pdf 格式';
+          return next;
+        });
+      else if (fileType === 'certification')
+        setErrorMessages((prev) => {
+          let next = [...prev];
+          next[1] = '僅限 pdf 格式';
+          return next;
+        });
+
       return;
     }
 
-    const reponse = await uploadFile(file, fileType);
-    updateFields({
-      files: {
+    if (file.size > 1048576 * 3) {
+      setIsOnDrag(null);
+
+      if (fileType === 'resume')
+        setErrorMessages((prev) => {
+          let next = [...prev];
+          next[0] = '檔案大小超過 5MB';
+          return next;
+        });
+      else if (fileType === 'certification')
+        setErrorMessages((prev) => {
+          let next = [...prev];
+          next[1] = '檔案大小超過 5MB';
+          return next;
+        });
+      return;
+    }
+
+    try {
+      const reponse = await uploadFile(file, fileType);
+      const updatedFiles = {
         ...data,
         [fileType]: {
           file,
           name: reponse.data.name,
           path: reponse.data.path,
         },
-      },
-    });
+      };
+
+      updateFields({
+        files: updatedFiles,
+      });
+
+      await updateFormData({ files: updatedFiles });
+    } catch (error) {
+      console.log(error);
+      alert('檔案上傳失敗，請稍後再試');
+    }
+
+    if (fileType === 'resume' && errorMessages[0] !== '')
+      setErrorMessages((prev) => {
+        let next = [...prev];
+        next[0] = '';
+        return next;
+      });
+    else if (fileType === 'certification' && errorMessages[1] !== '')
+      setErrorMessages((prev) => {
+        let next = [...prev];
+        next[1] = '';
+        return next;
+      });
 
     setIsOnDrag(null);
   };
@@ -135,6 +227,7 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields }
         />
         {data.resume && <p className={styles.fileName}>{data.resume.name}</p>}
         <Button onClick={() => handleUploadClick('resume')}>檔案上傳</Button>
+        {errorMessages[0] && <p className={styles.error}>{errorMessages[0]}</p>}
       </div>
       <div className={styles.divisionLine} />
       <div>
@@ -156,12 +249,14 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields }
         </div>
         <input
           type="file"
+          accept=".pdf"
           ref={certificationInputRef}
           onChange={(e) => handleFileChange(e, 'certification')}
           style={{ display: 'none' }}
         />
         {data.certification && <p className={styles.fileName}>{data.certification.name}</p>}
         <Button onClick={() => handleUploadClick('certification')}>檔案上傳</Button>
+        {errorMessages[1] && <p className={styles.error}>{errorMessages[1]}</p>}
       </div>
       <div className={styles.divisionLine} />
     </>
