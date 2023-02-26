@@ -3,7 +3,7 @@ import { FC, useEffect, useState, useRef, useContext } from 'react';
 import { ModalContext } from 'contexts/ModalContext';
 import { useMultistepForm } from 'util/hooks/useMultistepForm';
 import { GOOGLE_LOGIN_LINK } from 'util/const';
-import { FormDataType, formValidation, INITIAL_DATA } from 'util/form';
+import { FormDataType, formValidation, INITIAL_DATA, stepMap } from 'util/form';
 import { ErrorCode, ErrorWithCode } from 'util/error';
 import { EMAIL } from 'util/const';
 import { getFormData, updateFormData } from 'api/application';
@@ -23,7 +23,7 @@ import styles from './ApplySteps.module.scss';
 import { scrollTo } from 'util/scroll';
 
 const ApplySteps: FC = () => {
-  const [formData, setFormData] = useState(INITIAL_DATA);
+  const [formData, setFormData] = useState<FormDataType>(INITIAL_DATA);
   const [surveyIndex, setSurveyIndex] = useState<number>(0); // DISC 題目號碼
   const [isFormValid, setIsFormValid] = useState<boolean[]>([false, false, false]); // 單一表單頁面是否符合格式(=完成)
   const [isFormComplete, setIsFormComplete] = useState<boolean>(false); // 所有表單是否已經送出，代表不能更改
@@ -84,7 +84,12 @@ const ApplySteps: FC = () => {
       <DiscStepForm key="survey" data={formData.survey} updateFields={updateFields} surveyIndex={surveyIndex} />,
       <PersonalInfoStepForm key="info" data={formData.info} updateFields={updateFields} />,
       <QuestionsStepForm key="question" data={formData.answer} updateFields={updateFields} />,
-      <FilesUploadStepForm key="files" data={formData.files} updateFields={updateFields} />,
+      <FilesUploadStepForm
+        key="files"
+        data={formData.files}
+        updateFields={updateFields}
+        updateFormData={updateFormData}
+      />,
       <PaymentStep key="payment" />,
     ],
     formData.info.step
@@ -168,7 +173,7 @@ const ApplySteps: FC = () => {
       <h3 className={styles.title}>3.資料確認</h3>
       <p>確認完成後點擊下方按鈕完成書審資料</p>
       <div className={styles.block}>
-        <p>1. 基本資料</p>
+        <p>1. {stepMap[1]}</p>
         {isFormValid[0] ? (
           <Icon iconSrc="/images/icons/icon-checkcircle.svg" />
         ) : (
@@ -177,7 +182,7 @@ const ApplySteps: FC = () => {
         <Icon className={styles.edit} iconSrc="/images/icons/icon-edit.svg" onClick={() => goTo(1)} />
       </div>
       <div className={styles.block}>
-        <p>2. 書審問題</p>
+        <p>2. {stepMap[2]}</p>
         {isFormValid[1] ? (
           <Icon iconSrc="/images/icons/icon-checkcircle.svg" />
         ) : (
@@ -186,7 +191,7 @@ const ApplySteps: FC = () => {
         <Icon className={styles.edit} iconSrc="/images/icons/icon-edit.svg" onClick={() => goTo(2)} />
       </div>
       <div className={styles.block}>
-        <p>3. 檔案上傳</p>
+        <p>3. {stepMap[3]}</p>
         {isFormValid[2] ? (
           <Icon iconSrc="/images/icons/icon-checkcircle.svg" />
         ) : (
@@ -240,19 +245,27 @@ const ApplySteps: FC = () => {
     <div ref={ref} className={styles.backgroundWrapper}>
       <div className={styles.applySteps}>
         <h3 className={styles.title}>報名專區</h3>
-        <ApplyStepsBar curStep={currentStepIndex} goTo={goTo} updateStepForm={() => updateStepForm(currentStepIndex)} />
-        <div className={styles.formContainer}>
-          {step}
-          {currentStepIndex === 3 && formsCheckSection}
-          <div className={styles.stepManager}>
-            {currentStepIndex === 0 ? discFormStepManager : currentStepIndex < 4 && otherFormsStepManager}
+        <ApplyStepsBar curStep={currentStepIndex} />
+        {formData.info.nickname === '' ? (
+          <div className={styles.loadingPage}>
+            <span className={styles.loader}></span>
           </div>
-        </div>
-        <div>
-          <h5 className={styles.note}>
-            如有任何其他相關問題，請私訊 資訊種子粉絲專頁，或寄信至 ITseed 信箱（{EMAIL}）將由專人為您解答！
-          </h5>
-        </div>
+        ) : (
+          <>
+            <div className={styles.formContainer}>
+              {step}
+              {currentStepIndex === 3 && formsCheckSection}
+              <div className={styles.stepManager}>
+                {currentStepIndex === 0 ? discFormStepManager : currentStepIndex < 4 && otherFormsStepManager}
+              </div>
+            </div>
+            <div>
+              <h5 className={styles.note}>
+                如有任何其他相關問題，請私訊 資訊種子粉絲專頁，或寄信至 ITseed 信箱（{EMAIL}）將由專人為您解答！
+              </h5>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
