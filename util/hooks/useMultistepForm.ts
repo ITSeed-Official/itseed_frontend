@@ -5,7 +5,7 @@ export function useMultistepForm(steps: ReactElement[], initialStep: number) {
 
   useEffect(() => {
     // 加入 if 條件，防止一開始 render 兩次，確定在跟後端拿完 step 資料後才更改現在的 step 數
-    if (initialStep > 1) {
+    if (initialStep >= 1) {
       setCurrentStepIndex(initialStep);
     }
   }, [initialStep]);
