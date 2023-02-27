@@ -200,6 +200,11 @@ const ApplySteps: FC = () => {
         <Icon className={styles.edit} iconSrc="/images/icons/icon-edit.svg" onClick={() => scrollTo(ref)} />
       </div>
       <Button
+        disabled={
+          isFormValid.find((isValid) => {
+            return !isValid;
+          }) !== undefined
+        }
         onClick={() => {
           openModal();
         }}
