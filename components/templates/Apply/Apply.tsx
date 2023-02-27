@@ -17,7 +17,11 @@ import { stepMap } from 'util/form';
 import router from 'next/router';
 
 const Apply: NextPage<any> = () => {
-  const { isLogin, nickname, step, signIn, signOut } = useContext(AuthContext);
+  const { isLogin, nickname, step, signIn, signOut, updateUserInfo } = useContext(AuthContext);
+
+  useEffect(() => {
+    updateUserInfo(); // 每次回此畫面就重新抓一次 step 的資訊
+  }, []);
 
   // 已經完成報名，直接跳轉至繳費頁面
   if (step === 4) {

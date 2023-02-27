@@ -13,6 +13,7 @@ interface Context {
   step: number | undefined;
   signIn: Function;
   signOut: Function;
+  updateUserInfo: Function;
 }
 
 const defaultValue: Context = {
@@ -22,6 +23,7 @@ const defaultValue: Context = {
   step: 0,
   signIn: () => {},
   signOut: () => {},
+  updateUserInfo: () => {},
 };
 
 export const AuthContext = createContext(defaultValue);
@@ -30,12 +32,16 @@ export const AuthProvider: FC = ({ children }) => {
   const router = useRouter();
   const [userInfo, setUserInfo] = useState<Info | null>(null);
 
-  useEffect(() => {
+  const updateUserInfo = () => {
     getFormData()
       .then((res) => {
         setUserInfo(res.data.info);
       })
       .catch((e) => {});
+  };
+
+  useEffect(() => {
+    updateUserInfo();
   }, []);
 
   const value = {
@@ -51,6 +57,7 @@ export const AuthProvider: FC = ({ children }) => {
       setUserInfo(null);
       router.push(appPath.home);
     },
+    updateUserInfo,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
