@@ -21,6 +21,7 @@ import Icon from 'components/atoms/Icon';
 
 import styles from './ApplySteps.module.scss';
 import { scrollTo } from 'util/scroll';
+import SectionWrapper from 'components/molecules/SectionWrapper';
 
 const ApplySteps: FC = () => {
   const [formData, setFormData] = useState<FormDataType>(INITIAL_DATA);
@@ -120,6 +121,7 @@ const ApplySteps: FC = () => {
       </h5>
       {surveyIndex > 0 && (
         <Button
+          className={styles.buttonBack}
           onClick={() => {
             setSurveyIndex((prev) => (prev -= 1));
           }}
@@ -128,7 +130,7 @@ const ApplySteps: FC = () => {
         </Button>
       )}
       <Button
-        className={styles.next}
+        className={styles.buttonNext}
         icon={ButtonIcon.arrow}
         disabled={!formData.survey[surveyIndex].answer}
         onClick={() => {
@@ -156,6 +158,7 @@ const ApplySteps: FC = () => {
       )}
       {!isLastStep && (
         <Button
+          className={styles.buttonNext}
           icon={ButtonIcon.arrow}
           disabled={isLastStep}
           onClick={() => {
@@ -200,6 +203,7 @@ const ApplySteps: FC = () => {
         <Icon className={styles.edit} iconSrc="/images/icons/icon-edit.svg" onClick={() => scrollTo(ref)} />
       </div>
       <Button
+        className={styles.buttonConfirm}
         disabled={
           isFormValid.find((isValid) => {
             return !isValid;
@@ -248,7 +252,7 @@ const ApplySteps: FC = () => {
 
   return (
     <div ref={ref} className={styles.backgroundWrapper}>
-      <div className={styles.applySteps}>
+      <SectionWrapper className={styles.applySteps}>
         <h3 className={styles.title}>報名專區</h3>
         <ApplyStepsBar curStep={currentStepIndex} />
         {formData.info.nickname === '' ? (
@@ -271,7 +275,7 @@ const ApplySteps: FC = () => {
             </div>
           </>
         )}
-      </div>
+      </SectionWrapper>
     </div>
   );
 };

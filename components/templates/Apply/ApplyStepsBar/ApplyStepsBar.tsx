@@ -19,9 +19,9 @@ const ApplyStepsBar: FC<ApplyStepsBarProps> = ({ curStep = 0 }) => {
           <h5 className={styles.title}>{title}</h5>
           <div className={classnames(styles.stepIcon, curStep === index && styles.curStep)}>
             {curStep === index ? (
-              <Icon width={36} height={36} iconSrc={`/images/apply/icons/step${index + 1}-green.svg`} />
+              <Icon iconSrc={`/images/apply/icons/step${index + 1}-green.svg`} />
             ) : (
-              <Icon width={36} height={36} iconSrc={`/images/apply/icons/step${index + 1}.svg`} />
+              <Icon iconSrc={`/images/apply/icons/step${index + 1}.svg`} />
             )}
           </div>
         </div>

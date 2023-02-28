@@ -1,4 +1,5 @@
 @import "/styles/variables.scss";
+@import "/styles/mixin.scss";
 
 .backgroundWrapper {
     background-color: $green-mist;
@@ -11,7 +12,15 @@
     padding-top: 40px;
     margin-left: auto;
     margin-right: auto;
-    width: 774px;
+    
+    @include laptop {
+        width: 774px;
+    }
+    
+    @include mobile {
+        width: 100%;
+        padding: 24px;
+    }
 }
 
 .title {
@@ -51,6 +60,10 @@
     margin-bottom: 24px;
     padding: 40px 60px;
     background-color: $color-neutral-900;
+
+    @include mobile {
+        padding: 24px;
+    }
 }
 
 .formsCheckSection {
@@ -68,6 +81,11 @@
     
     & .edit {
         margin-left: auto;
+    }
+
+    & .buttonConfirm {
+        width: 282px;
+        margin: 0 auto;
     }
 }
 
@@ -98,10 +116,25 @@
         margin-right: 24px;
         color: $green-deep;
         cursor: pointer;
+
+        @include mobile {
+            margin-right: 0;
+        }
     }
     
     & .buttonBack {
         margin-right: 24px;
+
+        @include mobile {
+            width: 100%;
+            margin: 16px 0 16px 0;
+        }
+    }
+
+    & .buttonNext {
+        @include mobile {
+            width: 100%;
+        }
     }
     
     & .note {
@@ -113,9 +146,14 @@
         font-size: 16px;
         color: $gray-neutral;
         margin-right: auto;
+
+        @include mobile {
+            margin: 0;
+        }
     }
-    
-    & .next {
-        margin-left: 24px;
+
+    @include mobile {
+        flex-direction: column;
+        height: auto;
     }
 }

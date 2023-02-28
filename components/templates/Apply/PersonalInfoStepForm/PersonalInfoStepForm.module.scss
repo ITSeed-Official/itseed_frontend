@@ -1,13 +1,20 @@
 @import "/styles/variables.scss";
+@import "/styles/mixin.scss";
 
 .row {
     display: flex;
     width: 100%;
     margin-bottom: 30px;
+
+    @include mobile {
+        display: block;
+        margin-bottom: 0;
+    }
 }
 
 .field {
     width: 307px;
+    margin-bottom: 30px;
     margin-right: 40px;
 
     &:last-child {
@@ -28,6 +35,13 @@
         }
     }
 
+    @include mobile {
+       width: 100%;
+
+       & > input {
+        width: 100%;
+       }
+    }
 }
 
 .fieldName {

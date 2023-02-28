@@ -64,7 +64,7 @@ const PersonalInfoStepForm: FC<PersonalInfoStepFormProps> = ({ data, updateField
         </div>
         <div className={styles.field}>
           <p className={styles.fieldName}>性別</p>
-          <>
+          <label htmlFor="female">
             <input
               type="radio"
               id="female"
@@ -74,9 +74,9 @@ const PersonalInfoStepForm: FC<PersonalInfoStepFormProps> = ({ data, updateField
               onChange={(e) => onChangeHandler(e, 'gender')}
               required
             />
-            <label htmlFor="female">女性</label>
-          </>
-          <>
+            女性
+          </label>
+          <label htmlFor="male">
             <input
               type="radio"
               id="male"
@@ -85,9 +85,9 @@ const PersonalInfoStepForm: FC<PersonalInfoStepFormProps> = ({ data, updateField
               checked={data.gender === 'male'}
               onChange={(e) => onChangeHandler(e, 'gender')}
             />
-            <label htmlFor="male">男性</label>
-          </>
-          <>
+            男性
+          </label>
+          <label htmlFor="other">
             <input
               type="radio"
               id="other"
@@ -96,8 +96,8 @@ const PersonalInfoStepForm: FC<PersonalInfoStepFormProps> = ({ data, updateField
               checked={data.gender === 'other'}
               onChange={(e) => onChangeHandler(e, 'gender')}
             />
-            <label htmlFor="other">其他</label>
-          </>
+            其他
+          </label>
         </div>
       </div>
       <div className={styles.row}>

@@ -32,7 +32,7 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
     }
 
     // 超過 5MB 就擋住
-    if (e.target.files[0].size > 1048576 * 3) {
+    if (e.target.files[0].size > 1048576 * 5) {
       console.log('BLOCK FILE');
 
       if (fileType === 'resume')
@@ -172,6 +172,7 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
       await updateFormData({ files: updatedFiles });
     } catch (error) {
       console.log(error);
+
       alert('檔案上傳失敗，請稍後再試');
     }
 
@@ -209,6 +210,7 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
           <p>檔案命名規則「姓名_個人履歷」</p>
           <p>(如：報名者 陳資種，則將檔案命名為 「陳資種_個人履歷」)</p>
         </div>
+        {data.resume && <p className={styles.fileName}>{data.resume.name}</p>}
         <div
           className={classnames(styles.uploadBlock, isOnDrag === 'resume' && styles.onDrag)}
           onDragEnter={() => setIsOnDrag('resume')}
@@ -216,7 +218,7 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
           onDrop={(e) => handleDrop(e, 'resume')}
           onDragOver={handleDragOver}
         >
-          可拖曳檔案至此或點選檔案上傳
+          可拖曳檔案至此
         </div>
         <input
           type="file"
@@ -225,8 +227,10 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
           onChange={(e) => handleFileChange(e, 'resume')}
           style={{ display: 'none' }}
         />
-        {data.resume && <p className={styles.fileName}>{data.resume.name}</p>}
-        <Button onClick={() => handleUploadClick('resume')}>檔案上傳</Button>
+        <p className={styles.or}>或</p>
+        <Button className={styles.uploadButton} onClick={() => handleUploadClick('resume')}>
+          檔案上傳
+        </Button>
         {errorMessages[0] && <p className={styles.error}>{errorMessages[0]}</p>}
       </div>
       <div className={styles.divisionLine} />
@@ -238,6 +242,7 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
           <p>1. 學生證正反面影本或照片、研究所錄取證明書影本或照片 檔案命名規則「姓名_學生證明」</p>
           <p>(如：報名者 陳資種，則將檔案命名為 「陳資種_學生證明」)</p>
         </div>
+        {data.certification && <p className={styles.fileName}>{data.certification.name}</p>}
         <div
           className={classnames(styles.uploadBlock, isOnDrag && styles.onDrag)}
           onDragEnter={() => setIsOnDrag('certification')}
@@ -245,7 +250,7 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
           onDrop={(e) => handleDrop(e, 'certification')}
           onDragOver={handleDragOver}
         >
-          可拖曳檔案至此或點選檔案上傳
+          可拖曳檔案至此
         </div>
         <input
           type="file"
@@ -254,8 +259,10 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
           onChange={(e) => handleFileChange(e, 'certification')}
           style={{ display: 'none' }}
         />
-        {data.certification && <p className={styles.fileName}>{data.certification.name}</p>}
-        <Button onClick={() => handleUploadClick('certification')}>檔案上傳</Button>
+        <p className={styles.or}>或</p>
+        <Button className={styles.uploadButton} onClick={() => handleUploadClick('certification')}>
+          檔案上傳
+        </Button>
         {errorMessages[1] && <p className={styles.error}>{errorMessages[1]}</p>}
       </div>
       <div className={styles.divisionLine} />

@@ -25,14 +25,9 @@ const PaymentStep: FC = () => {
           若三天內未收到回覆（請記得檢查垃圾信件），請來信至 {EMAIL} 詢問
         </p>
       </div>
-      <Image
-        className={styles.img}
-        src={'/images/apply/pics/backme.png'}
-        alt="backme"
-        width={312}
-        height={162}
-        layout="fixed"
-      />
+      <div className={styles.img}>
+        <Image src={'/images/apply/pics/backme.png'} alt="backme" layout="fill" />
+      </div>
       <Button>
         <a href={'https://itseed20.backme.tw/checkout/2899/24205?locale=zh-TW'} target="_blank" rel="noreferrer">
           前往繳費
