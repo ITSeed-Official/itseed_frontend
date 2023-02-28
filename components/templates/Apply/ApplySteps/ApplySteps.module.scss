@@ -86,6 +86,10 @@
     & .buttonConfirm {
         width: 282px;
         margin: 0 auto;
+
+        @include mobile {
+            width: 100%;
+        }
     }
 }
 
