@@ -255,7 +255,7 @@ const ApplySteps: FC = () => {
       <SectionWrapper className={styles.applySteps}>
         <h3 className={styles.title}>報名專區</h3>
         <ApplyStepsBar curStep={currentStepIndex} />
-        {formData.info.nickname === '' ? (
+        {formData.info.nickname === undefined ? (
           <div className={styles.loadingPage}>
             <span className={styles.loader}></span>
           </div>

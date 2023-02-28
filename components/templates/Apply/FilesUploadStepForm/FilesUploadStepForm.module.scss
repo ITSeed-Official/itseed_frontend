@@ -1,3 +1,5 @@
+@import "/styles/mixin.scss";
+
 .title {
     margin-bottom: 16px;
 }
@@ -19,6 +21,10 @@
     &.onDrag {
         background-color: #E9E9E9;
     }
+
+    @include mobile {
+        display: none;
+    }
 }
 
 .fileName {
@@ -29,11 +35,19 @@
 .or {
     font-size: 16px;
     text-align: center;
+    
+    @include mobile {
+        display: none;
+    }
 }
 
 .uploadButton {
     width: 282px;
     margin: 0 auto;
+
+    @include mobile {
+        width: 100%;
+    }
 }
 
 .error {

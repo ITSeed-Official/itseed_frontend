@@ -13,7 +13,7 @@ export type Referer = {
 };
 
 export type Info = {
-  nickname: string;
+  nickname: string | undefined;
   avatar: string;
   gender: string;
   phone: string;
@@ -66,7 +66,7 @@ export const stepMap = ['DISC', '基本資料', '書審問題', '檔案上傳', 
 export const INITIAL_DATA: FormDataType = {
   info: {
     // optional
-    nickname: '',
+    nickname: undefined,
     avatar: '',
     gender: '',
     phone: '',
