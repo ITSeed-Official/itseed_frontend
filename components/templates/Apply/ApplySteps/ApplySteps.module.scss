@@ -105,6 +105,10 @@
         width: 166px;
         height: 46px;
         padding: 10px 20px;
+
+        @include mobile {
+            width: 127.5px;
+        }
     }
 }
 
