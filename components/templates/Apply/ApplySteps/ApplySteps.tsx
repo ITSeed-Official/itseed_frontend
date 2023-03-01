@@ -34,7 +34,7 @@ const ApplySteps: FC = () => {
   const ref = useRef<HTMLDivElement | null>(null);
   //const { isOpen, closeModal, openModal } = useContext(ModalContext);
 
-  console.log('formData', formData);
+  console.log('formData', formData, 'isFormUpdateSuccess', isFormUpdateSuccess);
 
   const getData = async () => {
     try {
@@ -84,9 +84,9 @@ const ApplySteps: FC = () => {
           break;
       }
 
-      setIsFormUpdateSuccess(isSuccess);
+      return isSuccess;
     } catch (error) {
-      setIsFormUpdateSuccess(false);
+      return false;
     }
   };
 
@@ -160,8 +160,9 @@ const ApplySteps: FC = () => {
     <>
       <u
         className={styles.save}
-        onClick={() => {
-          updateStepForm(currentStepIndex);
+        onClick={async () => {
+          const isSuccess = await updateStepForm(currentStepIndex);
+          setIsFormUpdateSuccess(isSuccess);
           setModalState(1);
         }}
       >
