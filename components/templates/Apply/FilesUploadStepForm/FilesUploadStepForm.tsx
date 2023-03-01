@@ -1,9 +1,11 @@
 import { FC, useRef, ChangeEvent, DragEvent, useState } from 'react';
 import classnames from 'classnames';
 
+import { useModals } from 'util/hooks/useModals';
 import { FileType, Files } from 'util/form';
 import { uploadFile } from 'api/application';
 
+import ModalSave from 'components/molecules/ModalSave';
 import Button from 'components/atoms/Button';
 
 import styles from './FilesUploadStepForm.module.scss';
@@ -17,8 +19,12 @@ type FilesUploadStepFormType = {
 const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, updateFormData }) => {
   const [isOnDrag, setIsOnDrag] = useState<FileType | null>(null);
   const [errorMessages, setErrorMessages] = useState<string[]>(['', '']);
+  const [isFormUpdateSuccess, setIsFormUpdateSuccess] = useState<boolean>(false);
+
   const resumeInputRef = useRef<HTMLInputElement | null>(null);
   const certificationInputRef = useRef<HTMLInputElement | null>(null);
+
+  const { isModalOpen, setModalState } = useModals([false]);
 
   const handleUploadClick = (fileType: FileType) => {
     // redirect the click event onto the hidden input element
@@ -68,10 +74,12 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
         files: updatedFiles,
       });
 
-      await updateFormData({ files: updatedFiles });
+      const isSuccess = await updateFormData({ files: updatedFiles });
+      setIsFormUpdateSuccess(isSuccess);
+      setModalState(0);
     } catch (error) {
-      console.log(error);
-      alert('檔案上傳失敗，請稍後再試');
+      setIsFormUpdateSuccess(false);
+      setModalState(0);
     }
 
     if (fileType === 'resume' && errorMessages[0] !== '')
@@ -169,11 +177,13 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
         files: updatedFiles,
       });
 
-      await updateFormData({ files: updatedFiles });
+      const isSuccess = await updateFormData({ files: updatedFiles });
+      setIsFormUpdateSuccess(isSuccess);
+      setModalState(0);
     } catch (error) {
       console.log(error);
-
-      alert('檔案上傳失敗，請稍後再試');
+      setIsFormUpdateSuccess(false);
+      setModalState(0);
     }
 
     if (fileType === 'resume' && errorMessages[0] !== '')
@@ -266,6 +276,7 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
         {errorMessages[1] && <p className={styles.error}>{errorMessages[1]}</p>}
       </div>
       <div className={styles.divisionLine} />
+      {isModalOpen[0] && <ModalSave isFormUpdateSuccess={isFormUpdateSuccess} closeModal={() => setModalState(0)} />}
     </>
   );
 };

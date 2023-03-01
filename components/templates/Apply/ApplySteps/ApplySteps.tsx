@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, useRef, useContext } from 'react';
+import { FC, useEffect, useState, useRef } from 'react';
 
 import { useMultistepForm } from 'util/hooks/useMultistepForm';
 import { useModals } from 'util/hooks/useModals';
@@ -16,6 +16,7 @@ import QuestionsStepForm from '../QuestionsStepForm';
 import PaymentStep from '../PaymentStep';
 
 import Modal from 'components/molecules/Modal';
+import ModalSave from 'components/molecules/ModalSave';
 import Button, { ButtonIcon } from 'components/atoms/Button';
 import Icon from 'components/atoms/Icon';
 
@@ -27,8 +28,8 @@ const ApplySteps: FC = () => {
   const [formData, setFormData] = useState<FormDataType>(INITIAL_DATA);
   const [surveyIndex, setSurveyIndex] = useState<number>(0); // DISC 題目號碼
   const [isFormValid, setIsFormValid] = useState<boolean[]>([false, false, false]); // 單一表單頁面是否符合格式(=完成)
-  const [isFormComplete, setIsFormComplete] = useState<boolean>(false); // 所有表單是否已經送出，代表不能更改
-  const { isModalOpen, setModalState } = useModals([false]);
+  const [isFormUpdateSuccess, setIsFormUpdateSuccess] = useState<boolean>(false);
+  const { isModalOpen, setModalState } = useModals([false, false]); // 0 是確認繳交的 state, 1 是儲存資料的 state
 
   const ref = useRef<HTMLDivElement | null>(null);
   //const { isOpen, closeModal, openModal } = useContext(ModalContext);
@@ -61,23 +62,31 @@ const ApplySteps: FC = () => {
 
   // 將前端某個表單 state 儲存到後端
   const updateStepForm = async (currentStepIndex?: number) => {
-    switch (currentStepIndex) {
-      default:
-        // 更新全部 data
-        updateFormData(formData);
-        break;
-      case 0:
-        updateFormData({ survey: formData.survey });
-        break;
-      case 1:
-        updateFormData({ info: formData.info });
-        break;
-      case 2:
-        updateFormData({ answer: formData.answer });
-        break;
-      case 3:
-        updateFormData({ files: formData.files });
-        break;
+    try {
+      let isSuccess = false;
+
+      switch (currentStepIndex) {
+        default:
+          // 更新全部 data
+          isSuccess = await updateFormData(formData);
+          break;
+        case 0:
+          isSuccess = await updateFormData({ survey: formData.survey });
+          break;
+        case 1:
+          isSuccess = await updateFormData({ info: formData.info });
+          break;
+        case 2:
+          isSuccess = await updateFormData({ answer: formData.answer });
+          break;
+        case 3:
+          isSuccess = await updateFormData({ files: formData.files });
+          break;
+      }
+
+      setIsFormUpdateSuccess(isSuccess);
+    } catch (error) {
+      setIsFormUpdateSuccess(false);
     }
   };
 
@@ -149,7 +158,13 @@ const ApplySteps: FC = () => {
 
   const otherFormsStepManager = (
     <>
-      <u className={styles.save} onClick={() => updateStepForm(currentStepIndex)}>
+      <u
+        className={styles.save}
+        onClick={() => {
+          updateStepForm(currentStepIndex);
+          setModalState(1);
+        }}
+      >
         儲存資料
       </u>
       {!isFirstStep && (
@@ -169,6 +184,7 @@ const ApplySteps: FC = () => {
           下一步
         </Button>
       )}
+      {isModalOpen[1] && <ModalSave isFormUpdateSuccess={isFormUpdateSuccess} closeModal={() => setModalState(1)} />}
     </>
   );
 
@@ -235,11 +251,11 @@ const ApplySteps: FC = () => {
                 const { data } = await getFormData();
                 setModalState(0);
                 if (data.info.step === 4) {
-                  setIsFormComplete(true);
                   goTo(4);
                   scrollTo(ref);
                 } else {
-                  alert('ERROR: 儲存資料失敗，請稍後再試');
+                  setIsFormUpdateSuccess(false);
+                  setModalState(1);
                 }
               }}
             >
