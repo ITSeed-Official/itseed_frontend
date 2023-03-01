@@ -22,7 +22,7 @@ const ModalSave: FC<ModalProps> = ({ closeModal = () => {}, isFormUpdateSuccess 
       ) : (
         <>
           <Icon className={styles.saveIcon} iconSrc="/images/icons/icon-cancel.svg" />
-          儲存失敗
+          儲存失敗，請再試一次
         </>
       )}
     </Modal>

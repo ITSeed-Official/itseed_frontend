@@ -2,14 +2,14 @@
 @import "/styles/mixin.scss";
 
 .modalSave {
-  width: 164px;
+  width:max-content;
   height: 58px;
   display: flex;
   flex-direction: row;
   padding: 16px 24px;
 
-  color: $green-deep;
-  background-color: $color-neutral-900;
+  color: $color-neutral-900;
+  background-color: $green-deep;
   border: 1px solid $green-deep;
   
   /* Dp 3 */
