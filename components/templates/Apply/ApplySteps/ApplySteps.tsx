@@ -1,7 +1,7 @@
 import { FC, useEffect, useState, useRef, useContext } from 'react';
 
-import { ModalContext } from 'contexts/ModalContext';
 import { useMultistepForm } from 'util/hooks/useMultistepForm';
+import { useModals } from 'util/hooks/useModals';
 import { GOOGLE_LOGIN_LINK } from 'util/const';
 import { FormDataType, formValidation, INITIAL_DATA, stepMap } from 'util/form';
 import { ErrorCode, ErrorWithCode } from 'util/error';
@@ -28,9 +28,10 @@ const ApplySteps: FC = () => {
   const [surveyIndex, setSurveyIndex] = useState<number>(0); // DISC 題目號碼
   const [isFormValid, setIsFormValid] = useState<boolean[]>([false, false, false]); // 單一表單頁面是否符合格式(=完成)
   const [isFormComplete, setIsFormComplete] = useState<boolean>(false); // 所有表單是否已經送出，代表不能更改
+  const { isModalOpen, setModalState } = useModals([false]);
 
   const ref = useRef<HTMLDivElement | null>(null);
-  const { isOpen, closeModal, openModal } = useContext(ModalContext);
+  //const { isOpen, closeModal, openModal } = useContext(ModalContext);
 
   console.log('formData', formData);
 
@@ -210,19 +211,19 @@ const ApplySteps: FC = () => {
           }) !== undefined
         }
         onClick={() => {
-          openModal();
+          setModalState(0);
         }}
       >
         送出申請
       </Button>
-      {isOpen && (
-        <Modal>
+      {isModalOpen[0] && (
+        <Modal closeModal={() => setModalState(0)}>
           <h3>確定繳交嗎？不能再更改囉!</h3>
           <div className={styles.modalControl}>
             <Button
               className={styles.button}
               onClick={() => {
-                closeModal();
+                setModalState(0);
               }}
             >
               取消
@@ -232,7 +233,7 @@ const ApplySteps: FC = () => {
               onClick={async () => {
                 await updateStepForm();
                 const { data } = await getFormData();
-                closeModal();
+                setModalState(0);
                 if (data.info.step === 4) {
                   setIsFormComplete(true);
                   goTo(4);
