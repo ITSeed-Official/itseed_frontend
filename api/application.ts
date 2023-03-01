@@ -12,7 +12,7 @@ export const getFormData = async (): Promise<any> => {
   return result;
 };
 
-export const updateFormData = async (formData: Partial<FormDataType> | FormDataType): Promise<any> => {
+export const updateFormData = async (formData: Partial<FormDataType> | FormDataType): Promise<boolean> => {
   const response = await fetch(`${API2_DOMAIN}/applications/me`, {
     method: 'PUT',
     credentials: 'include',
@@ -22,11 +22,17 @@ export const updateFormData = async (formData: Partial<FormDataType> | FormDataT
     }),
   });
 
+  console.log('updateFormData status:', response.status);
+
   if (response.status === 401) {
     throw new ErrorWithCode('No auth', ErrorCode.NoAuth);
   }
 
-  console.log('updateFormData status:', response.status);
+  if (response.status !== 200) {
+    return false;
+  }
+
+  return true;
 };
 
 type UploadFileResponse = {
