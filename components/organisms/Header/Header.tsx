@@ -160,11 +160,30 @@ const MobileHeader: FC = () => {
                 <a className={mStyles.menuItem}>常見問題</a>
               </Link>
             </li>
+            {nickname && (
+              <li className={mStyles.menuItemWrapper}>
+                <div className={mStyles.menuItem}>
+                  歡迎，{nickname}
+                  <FontAwesomeIcon className={mStyles.unexpandedSubMenuIcon} icon={faChevronRight} />
+                  <FontAwesomeIcon className={mStyles.expandedSubMenuIcon} icon={faChevronDown} />
+                </div>
+                <ul className={mStyles.subMenuList}>
+                  <li onClick={closeMenu}>
+                    <Link href={appPath.applySteps} passHref>
+                      <a className={mStyles.subMenuItem}>報名進度</a>
+                    </Link>
+                  </li>
+                  <li onClick={closeMenu}>
+                    <a className={mStyles.subMenuItem} onClick={() => signOut()}>
+                      登出
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            )}
           </ul>
           <>
-            {nickname ? (
-              <p>{nickname}</p>
-            ) : (
+            {nickname === undefined && (
               <div className={mStyles.buttonWrapper}>
                 <Button icon={ButtonIcon.arrow}>
                   <Link href={appPath.apply}>立即報名</Link>

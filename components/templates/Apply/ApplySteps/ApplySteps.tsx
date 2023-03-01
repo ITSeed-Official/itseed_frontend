@@ -174,7 +174,7 @@ const ApplySteps: FC = () => {
   const formsCheckSection = (
     <div className={styles.formsCheckSection}>
       <h3 className={styles.title}>3.資料確認</h3>
-      <p>確認完成後點擊下方按鈕完成書審資料</p>
+      <p>確認完成後點擊下方「送出申請」按鈕繳交書審資料</p>
       <div className={styles.block}>
         <p>1. {stepMap[1]}</p>
         {isFormValid[0] ? (
@@ -213,7 +213,7 @@ const ApplySteps: FC = () => {
           openModal();
         }}
       >
-        確認完成
+        送出申請
       </Button>
       {isOpen && (
         <Modal>
