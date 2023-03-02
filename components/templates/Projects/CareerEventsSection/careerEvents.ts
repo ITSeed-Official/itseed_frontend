@@ -1,9 +1,9 @@
-export type Event = {
+export type CareerEventType = {
   title: string;
   description: string;
 };
 
-export const Events: Event[] = [
+export const careerEvents: CareerEventType[] = [
   {
     title: '職涯工作坊',
     description:
