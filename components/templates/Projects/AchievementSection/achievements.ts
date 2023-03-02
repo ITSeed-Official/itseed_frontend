@@ -1,6 +1,6 @@
 import { MentorDetailType } from 'api/careers';
 
-export type Achievement = {
+export type AchievementType = {
   image: string;
   imageWidth: number;
   imageHeight: number;
@@ -14,7 +14,7 @@ export type Achievement = {
   mentors: MentorDetailType[];
 };
 
-export const achievements: Achievement[] = [
+export const achievements: AchievementType[] = [
   {
     image: '/images/projects/pics/ps_group_one.jpg',
     imageWidth: 414,

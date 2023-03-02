@@ -1,14 +1,13 @@
 import { Project } from 'util/enum';
 
-export interface Goal {
+export interface GoalType {
   projectDescription: string;
   hint?: string;
-  solvingText?: string;
   content?: string;
   imagePath?: string;
 }
 
-export const Goals: { [key in Project]: Goal } = {
+export const goals: { [key in Project]: GoalType } = {
   [Project.ps]: {
     projectDescription:
       '專案全名 — Problem Solving ，透過業主所佈達的題目，讓學員早日與業界接軌，並解決企業問題。從中學習如何團隊合作，以及向上管理的方法，並培養解決問題的邏輯與方法。',
