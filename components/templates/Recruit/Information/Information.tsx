@@ -1,14 +1,16 @@
 import { FC } from 'react';
+
+import { informations, Information } from './data';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import Icon from 'components/atoms/Icon';
-import SproutIcon from 'public/images/common/icons/sprout.png';
+
+import sproutIcon from 'public/images/common/icons/sprout.png';
 import styles from './Information.module.scss';
-import { informations, Information } from './data';
 
 const InformationBlock: FC<{ information: Information }> = ({ information }) => (
   <div className={styles.block}>
     <h3>
-      <Icon iconSrc={SproutIcon} />
+      <Icon iconSrc={sproutIcon} />
       {information.title}
     </h3>
     <hr />

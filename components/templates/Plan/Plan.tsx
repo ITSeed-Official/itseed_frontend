@@ -17,9 +17,9 @@ import SectionWrapper from 'components/molecules/SectionWrapper';
 import TabNav from 'components/molecules/TabNav';
 import Cta from 'components/atoms/Cta';
 import Button, { ButtonIcon } from 'components/atoms/Button';
+import { Type } from 'components/atoms/NextSection';
 
 import styles from './Plan.module.scss';
-import { Type } from 'components/atoms/NextSection';
 
 interface PlanProperty {
   courses: CourseDetailType[];

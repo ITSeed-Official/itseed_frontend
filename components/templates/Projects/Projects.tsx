@@ -7,10 +7,9 @@ import { Project } from 'util/enum';
 import { COPYWRITING } from 'util/copywriting';
 
 import AchievementSection from './AchievementSection';
-import EmptySection from './EmptySection';
 import GoalSection from './GoalSection';
-import { Goals } from './GoalSection/goals';
-import CareerEvents from './CareerEvents/CareerEvents';
+import { goals } from './GoalSection/goals';
+import CareerEventsSection from './CareerEventsSection';
 import NextSection, { Type as NextSectionType } from 'components/atoms/NextSection';
 import TabNav from 'components/molecules/TabNav';
 import TemplateWrapper from 'components/organisms/TemplateWrapper';
@@ -48,7 +47,7 @@ const Projects: NextPage = () => {
             case Project.ps:
               return (
                 <>
-                  <GoalSection projectDescription={Goals[activeTab].projectDescription} />
+                  <GoalSection projectDescription={goals[activeTab].projectDescription} />
                   <AchievementSection />
                   <NextSection
                     title={COPYWRITING[Project.career]}
@@ -62,11 +61,11 @@ const Projects: NextPage = () => {
               return (
                 <>
                   <GoalSection
-                    projectDescription={Goals[activeTab].projectDescription}
-                    hint={Goals[activeTab].hint}
-                    content={Goals[activeTab].content}
+                    projectDescription={goals[activeTab].projectDescription}
+                    hint={goals[activeTab].hint}
+                    content={goals[activeTab].content}
                   />
-                  <CareerEvents />
+                  <CareerEventsSection />
                   <NextSection
                     title={COPYWRITING[Project.recruit]}
                     type={NextSectionType.green}
@@ -79,10 +78,10 @@ const Projects: NextPage = () => {
               return (
                 <>
                   <GoalSection
-                    projectDescription={Goals[activeTab].projectDescription}
-                    hint={Goals[activeTab].hint}
-                    content={Goals[activeTab].content}
-                    imagePath={Goals[activeTab].imagePath}
+                    projectDescription={goals[activeTab].projectDescription}
+                    hint={goals[activeTab].hint}
+                    content={goals[activeTab].content}
+                    imagePath={goals[activeTab].imagePath}
                   />
                   <NextSection title="歷屆參訪紀錄" path={appPath.visitation} />
                 </>

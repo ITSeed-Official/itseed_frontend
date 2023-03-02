@@ -1,7 +1,9 @@
-import styles from './Timer.module.scss';
-import SectionWrapper from 'components/molecules/SectionWrapper';
-import moment from 'moment';
 import { useState, useEffect } from 'react';
+import moment from 'moment';
+
+import SectionWrapper from 'components/molecules/SectionWrapper';
+
+import styles from './Timer.module.scss';
 
 interface TimerProps {
   endTime: string;
