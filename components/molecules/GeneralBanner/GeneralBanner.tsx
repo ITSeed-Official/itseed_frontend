@@ -38,12 +38,12 @@ const GeneralBanner: FC<GeneralBannerProps> = ({
       </SectionWrapper>
       {desktopBackgroundImage && (
         <div className={classnames([styles.desktopOnly, styles.bannerImageWrapper])}>
-          <Image alt="desktop-banner-image" src={desktopBackgroundImage} width={1440} height={400} />
+          <Image alt="desktop-banner-image" src={desktopBackgroundImage} width={1440} height={400} priority />
         </div>
       )}
       {mobileBackgroundImage && (
         <div className={classnames([styles.mobileOnly, styles.bannerImageWrapper])}>
-          <Image alt="mobile-banner-image" src={mobileBackgroundImage} layout="fill" />
+          <Image alt="mobile-banner-image" src={mobileBackgroundImage} layout="fill" priority />
         </div>
       )}
       <div className={styles.filter}></div>

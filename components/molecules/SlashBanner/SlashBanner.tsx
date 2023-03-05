@@ -40,7 +40,7 @@ const SlashBanner: FC<SlashBannerProps> = ({
       </SectionWrapper>
       <div className={styles.infoBackground} />
       <div className={styles.bannerImageWrapper}>
-        <Image alt="banner-image" src={bannerImage} width={863} height={600} />
+        <Image alt="banner-image" src={bannerImage} width={863} height={600} priority />
       </div>
       <div className={styles.ScrollHinter}>
         <span>上滑瞭解更多</span>
