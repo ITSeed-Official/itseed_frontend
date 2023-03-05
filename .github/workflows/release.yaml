@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.18.0
+    - name: Install node dependencies
+      run: yarn install
+    - name: Run linter
+      run: yarn run lint
+    - name: Run build task
+      run: NODE_ENV=production NEXT_PUBLIC_API_ORIGIN=${{ secrets.NEXT_PUBLIC_API_ORIGIN }} NEXT_PUBLIC_API2_ORIGIN=${{ secrets.NEXT_PUBLIC_API2_ORIGIN }} SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }} SENTRY_AUTO_RELEASE=true yarn run build
+    - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@main
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.LINODE_SSH_PRIVACY_KEY }}
+          ARGS: "-rltgoDzvO --delete"
+          REMOTE_HOST: ${{ secrets.LINODE_REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.LINODE_REMOTE_USER }}
+          TARGET: ${{ secrets.LINODE_REMOTE_STAGE_TARGET }}
+          EXCLUDE: ".github, task-definition--stage.json"
+    - name: Reload web server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.LINODE_REMOTE_HOST }}
+        username: ${{ secrets.LINODE_REMOTE_USER }}
+        key: ${{ secrets.LINODE_SSH_PRIVACY_KEY }}
+        script: bash reload.sh
