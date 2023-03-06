@@ -34,11 +34,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
+  const metaTitle = `${detail.title}|by ${detail.lecturer}|資訊種子培訓計畫|講座課程`;
+  const metaDescription = `${detail.experience
+    .substring(0, 160)
+    .replace(/[\r\n#]+/g, '')
+    .trim()}...`;
+
   const meta = {
-    title: detail.title,
-    description: detail.overview,
-    og_title: detail.title,
-    og_description: detail.overview,
+    title: metaTitle,
+    description: metaDescription,
+    og_title: metaTitle,
+    og_description: metaDescription,
     og_url: `${appPath.courses}/${detail.id}`,
     og_image: detail.image.url,
   };

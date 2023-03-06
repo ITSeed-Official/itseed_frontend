@@ -39,11 +39,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
+  const metaTitle = `${detail.mentee}實習${detail.position}心得|資訊種子培訓計畫|職涯體驗`;
+  const metaDescription = `${detail.content
+    .substring(0, 160)
+    .replace(/[\r\n#]+/g, '')
+    .trim()}}...`;
+
   const meta = {
-    title: `${detail.mentee} ${detail.position}`,
-    description: detail.image.url,
-    og_title: `${detail.mentee} ${detail.position}`,
-    og_description: detail.overview_content,
+    title: metaTitle,
+    description: metaDescription,
+    og_title: metaTitle,
+    og_description: metaDescription,
     og_url: `${appPath.career}/${detail.id}`,
     og_image: detail.image.url,
   };

@@ -39,11 +39,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
+  const metaTitle = `${detail.title}|by ${detail.name}|資訊種子培訓計畫|校友評價`;
+  const metaDescription = `${detail.content
+    .substring(0, 160)
+    .replace(/[\r\n#]+/g, '')
+    .trim()}...`;
+
   const meta = {
-    title: `${detail.name} ${detail.position}`,
-    description: detail.title,
-    og_title: `${detail.name} ${detail.position}`,
-    og_description: detail.title,
+    title: metaTitle,
+    description: metaDescription,
+    og_title: metaTitle,
+    og_description: metaDescription,
     og_url: `${appPath.alumni}/${detail.id}`,
     og_image: detail.image.url,
   };
