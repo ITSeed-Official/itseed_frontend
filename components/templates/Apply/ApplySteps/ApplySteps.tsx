@@ -101,7 +101,7 @@ const ApplySteps: FC = () => {
         updateFields={updateFields}
         updateFormData={updateFormData}
       />,
-      <PaymentStep key="payment" />,
+      <PaymentStep key="payment" data={formData.info} />,
     ],
     formData.info.step
   );
