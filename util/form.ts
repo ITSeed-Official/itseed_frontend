@@ -23,6 +23,7 @@ export type Info = {
   recommender: string;
   referer: Referer[];
   step: number;
+  email: string;
 };
 
 export type Survey = {
@@ -72,6 +73,7 @@ export const INITIAL_DATA: FormDataType = {
     phone: '',
     school: '',
     department: '',
+    email: '',
     grade: [
       { title: '大一', value: 1, selected: false },
       { title: '大二', value: 2, selected: false },
