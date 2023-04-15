@@ -13,7 +13,7 @@ import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    const gtmId = process.env.GTM_ID ?? '';
+    const gtmId = process.env.NEXT_PUBLIC_GTM_ID ?? '';
     TagManager.initialize({ gtmId });
   }, []);
 
