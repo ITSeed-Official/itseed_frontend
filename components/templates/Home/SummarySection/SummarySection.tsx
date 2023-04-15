@@ -1,9 +1,22 @@
 import type { FC } from 'react';
+import { useEffect } from 'react';
 import Image from 'next/image';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import styles from './SummarySection.module.scss';
 
+import TagManager from 'react-gtm-module';
+
 const SummarySection: FC = () => {
+  useEffect(() => {
+    TagManager.dataLayer({
+      dataLayer: {
+        event: 'view_career',
+        user_id: 'test 123',
+        member_id: 'test 123',
+      },
+    });
+  }, []);
+
   return (
     <>
       <div className={styles.desktopOnly}>
