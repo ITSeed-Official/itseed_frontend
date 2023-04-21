@@ -13,12 +13,6 @@ const SummarySection: FC = () => {
         event: 'view_career',
         user_id: 'test 123',
         member_id: 'test 123',
-        items: [
-          {
-            item_id: 'test item id',
-            item_name: 'test item name',
-          },
-        ],
       },
     });
   }, []);
