@@ -213,12 +213,9 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
       <div>
         <h3 className={styles.title}>1.個人履歷</h3>
         <div className={styles.description}>
-          <p>請以「pdf」上傳限制大小為 5 MB</p>
-          <p>內容</p>
-          <p>1. 一頁以內</p>
-          <p>2. 建議內含：姓名、學歷、經歷、專長能力，及其他有利審查資料</p>
-          <p>檔案命名規則「姓名_個人履歷」</p>
-          <p>(如：報名者 陳資種，則將檔案命名為 「陳資種_個人履歷」)</p>
+          <p>個人履歷限制一頁以內，內容可包含學經歷、專長能力等 </p>
+          <p>檔案命名請按照「姓名_個人履歷」（如：陳資種_個人履歷）</p>
+          <p>請以「pdf」格式上傳，檔案大小限制為 5 MB</p>
         </div>
         {data.resume && <p className={styles.fileName}>{data.resume.name}</p>}
         <div
@@ -247,10 +244,9 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
       <div>
         <h3 className={styles.title}>2.學生證明</h3>
         <div className={styles.description}>
-          <p>請以「pdf」上傳限制大小為 5 MB</p>
-          <p>內容</p>
-          <p>1. 學生證正反面影本或照片、研究所錄取證明書影本或照片 檔案命名規則「姓名_學生證明」</p>
-          <p>(如：報名者 陳資種，則將檔案命名為 「陳資種_學生證明」)</p>
+          <p>請上傳學生證正反面影本、研究所錄取證明</p>
+          <p>檔案命名請按照「姓名_學生證明」（如：陳資種_學生證明）</p>
+          <p>請以「pdf」格式上傳，檔案大小限制為 5 MB</p>
         </div>
         {data.certification && <p className={styles.fileName}>{data.certification.name}</p>}
         <div
