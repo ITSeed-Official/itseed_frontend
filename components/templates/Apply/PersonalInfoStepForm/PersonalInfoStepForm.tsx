@@ -129,7 +129,7 @@ const PersonalInfoStepForm: FC<PersonalInfoStepFormProps> = ({ data, updateField
       <div className={styles.row}>
         <div className={styles.field}>
           <label htmlFor="grade" className={styles.fieldName}>
-            年級
+            年級（請填入您目前的年級）
           </label>
           <DropdownInput
             className={styles.dropdown}

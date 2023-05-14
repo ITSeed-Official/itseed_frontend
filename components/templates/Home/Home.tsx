@@ -32,7 +32,7 @@ const Home: NextPage<{ data: HomeData; router: NextRouter }> = ({ router, data }
         </>
       )}
       subTitle={session}
-      description="報名時間 2022.6.1 - 7.11"
+      description="報名時間 2023.6.1 - 7.11"
       ctaText="立即報名"
       ctaIcon={ButtonIcon.arrow}
       ctaOnClick={() => router.push(appPath.apply)}
