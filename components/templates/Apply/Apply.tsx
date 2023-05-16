@@ -1,19 +1,19 @@
 import type { NextPage } from 'next';
-import { useContext, useEffect } from 'react';
+import Image from 'next/image';
+import router from 'next/router';
 import Link from 'next/link';
+import { useContext, useEffect } from 'react';
 
 import { AuthContext } from 'contexts/AuthContext';
 import { appPath } from 'util/routing.config';
-import { EMAIL } from 'util/const';
+import { EMAIL, FB_PAGE } from 'util/const';
+import { stepMap } from 'util/form';
 
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import Button from 'components/atoms/Button';
 import Icon from 'components/atoms/Icon';
 
 import styles from './Apply.module.scss';
-import Image from 'next/image';
-import { stepMap } from 'util/form';
-import router from 'next/router';
 
 const Apply: NextPage<any> = () => {
   const { isLogin, nickname, step, signIn, signOut, updateUserInfo } = useContext(AuthContext);
@@ -81,7 +81,7 @@ const Apply: NextPage<any> = () => {
       </div>
       <p>
         目前僅開放 Google 帳號註冊/登入，如有任何其他相關問題，請私訊
-        <a className={styles.link} href="https://www.facebook.com/iloveitseed" target="blank">
+        <a className={styles.link} href={FB_PAGE} target="blank">
           資訊種子粉絲專頁
         </a>
         ，或寄信至 ITseed 信箱（{EMAIL}
