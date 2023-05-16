@@ -20,6 +20,7 @@ const PaymentStep: FC<PaymentStepProps> = ({ data }) => {
         <h3 className={styles.title}>資料確認</h3>
         <p>
           您已成功繳交第 {NEW_SESSION} 屆資訊種子培訓計畫的書審資料，請至個人信箱查看報名成功信。
+          <br />
           （＊若是不在收件匣，請至垃圾郵件查看。）
         </p>
       </div>
@@ -27,8 +28,9 @@ const PaymentStep: FC<PaymentStepProps> = ({ data }) => {
       <div>
         <h3 className={styles.title}>完成繳費</h3>
         <p>
-          完成資料填寫後，請至貝殼集器繳交 100 元報名費 繳交完畢後預計於三個工作天內收到貝殼集器回覆
-          若三天內未收到回覆（請記得檢查垃圾信件），請來信至 {EMAIL} 詢問
+          完成資料填寫後，請至貝殼集器繳交 100 元報名費。繳交完畢後預計於三個工作天內收到貝殼集器回覆。
+          <br />
+          若三天內未收到回覆（請先檢查垃圾信件）請來信至 {EMAIL} 詢問。
         </p>
       </div>
       <div className={styles.img}>

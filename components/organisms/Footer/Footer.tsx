@@ -1,5 +1,8 @@
 import { FC } from 'react';
 import Image from 'next/image';
+
+import { EMAIL } from 'util/const';
+
 import styles from './Footer.module.scss';
 
 const Footer: FC = () => {
@@ -22,7 +25,7 @@ const Footer: FC = () => {
             </a>
           </span>
           <span>
-            <a href="mailto:itseedsystem@gmail.com" target="_blank" rel="noreferrer noopener">
+            <a href={`mailto:${EMAIL}`} target="_blank" rel="noreferrer noopener">
               <Image alt="mail" src="/images/common/icons/icon-mail.svg" width="24" height="24" />
             </a>
           </span>

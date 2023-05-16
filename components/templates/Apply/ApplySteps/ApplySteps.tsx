@@ -2,10 +2,9 @@ import { FC, useEffect, useState, useRef } from 'react';
 
 import { useMultistepForm } from 'util/hooks/useMultistepForm';
 import { useModals } from 'util/hooks/useModals';
-import { GOOGLE_LOGIN_LINK } from 'util/const';
+import { FB_PAGE, GOOGLE_LOGIN_LINK, EMAIL } from 'util/const';
 import { FormDataType, formValidation, INITIAL_DATA, stepMap } from 'util/form';
 import { ErrorCode, ErrorWithCode } from 'util/error';
-import { EMAIL } from 'util/const';
 import { getFormData, updateFormData } from 'api/application';
 
 import ApplyStepsBar from '../ApplyStepsBar';
@@ -288,7 +287,12 @@ const ApplySteps: FC = () => {
             </div>
             <div>
               <h5 className={styles.note}>
-                如有任何其他相關問題，請私訊 資訊種子粉絲專頁，或寄信至 ITseed 信箱（{EMAIL}）將由專人為您解答！
+                如有任何其他相關問題，請私訊
+                <a className={styles.link} href={FB_PAGE}>
+                  資訊種子粉絲專頁
+                </a>
+                ，或寄信至 ITseed 信箱（{EMAIL}
+                ）將由專人為您解答！
               </h5>
             </div>
           </>
