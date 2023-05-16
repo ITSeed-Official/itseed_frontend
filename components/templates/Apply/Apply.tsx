@@ -48,12 +48,12 @@ const Apply: NextPage<any> = () => {
                 {step === 0 ? (
                   <>
                     歡迎來到資訊種子培訓計畫報名頁面！接下來將邀請您填寫報名相關資訊，
-                    總共分為五個部分，需時約X小時（可儲存進度），還請您耐心填寫。
+                    總共分為五個部分，每部分皆可儲存進度。書審部分建議可先複製題目於網站外填寫，確認填寫完畢後再填進官網的申請表單，還請您耐心填寫。「勇敢加入資種的行列吧！」
                   </>
                 ) : (
                   <>
                     歡迎回到資訊種子培訓計畫報名頁面，您先前已填寫至
-                    <span className={styles.stepName}> {stepMap[step - 1]} </span>
+                    <span className={styles.stepName}>{stepMap[step - 1]}</span>
                     ，點選下方「開始填寫」按鈕前往下一階段：
                     <span className={styles.stepName}> {stepMap[step]} </span>
                     繼續進行報名流程。
@@ -80,7 +80,11 @@ const Apply: NextPage<any> = () => {
         )}
       </div>
       <p>
-        目前僅開放Google帳號註冊/登入，如有任何其他相關問題，請私訊 資訊種子粉絲專頁，或寄信至 ITseed 信箱（{EMAIL}
+        目前僅開放 Google 帳號註冊/登入，如有任何其他相關問題，請私訊
+        <a className={styles.link} href="https://www.facebook.com/iloveitseed" target="blank">
+          資訊種子粉絲專頁
+        </a>
+        ，或寄信至 ITseed 信箱（{EMAIL}
         ）將由專人為您解答！
       </p>
     </SectionWrapper>
