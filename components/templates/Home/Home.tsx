@@ -14,6 +14,8 @@ import SlashBanner from 'components/molecules/SlashBanner';
 import NextSection, { Type as NextSectionType } from 'components/atoms/NextSection';
 import { NEW_SESSION } from 'util/const';
 
+import styles from './Home.module.scss';
+
 interface HomeData {
   alumniList: Alumni[];
 }
@@ -26,13 +28,15 @@ const Home: NextPage<{ data: HomeData; router: NextRouter }> = ({ router, data }
       bannerImage="/images/homepage/pics/banner@2x.png"
       PrimaryTitleContent={() => (
         <>
-          <em>擁抱</em>
+          <em>踏上旅程</em>，
           <br />
-          每一份<em>獨特</em>
+          <div className={styles.smallTitle}>
+            尋找<em>破除迷惘</em>的成長魔法！
+          </div>
         </>
       )}
       subTitle={session}
-      description="報名時間 2023.6.1 - 7.11"
+      description="報名時間 2023.6.2 - 7.1"
       ctaText="立即報名"
       ctaIcon={ButtonIcon.arrow}
       ctaOnClick={() => router.push(appPath.apply)}

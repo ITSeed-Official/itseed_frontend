@@ -9,7 +9,7 @@ type Copywriting = {
 };
 
 export const COPYWRITING: Copywriting = {
-  [Project.ps]: 'PS 專案',
+  [Project.ps]: 'TUV 專案',
   [Project.career]: '職涯專案',
   [Project.recruit]: '招生專案',
   [CareerCategory.company]: '公司實習',

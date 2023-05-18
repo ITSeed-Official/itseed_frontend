@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Image from 'next/image';
 
-import { EMAIL } from 'util/const';
+import { EMAIL, FB_PAGE } from 'util/const';
 
 import styles from './Footer.module.scss';
 
@@ -11,7 +11,7 @@ const Footer: FC = () => {
       <section className={styles.content}>
         <div className={styles.linksRow}>
           <span>
-            <a href="https://www.facebook.com/iloveitseed" target="_blank" rel="noreferrer noopener">
+            <a href={FB_PAGE} target="_blank" rel="noreferrer noopener">
               <Image alt="facebook" src="/images/common/icons/icon-facebook.svg" width="24" height="24" />
             </a>
           </span>

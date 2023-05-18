@@ -8,8 +8,6 @@ import TimelineSection from '../Home/TimelineSection';
 import Timer from './Timer';
 
 const Recruit: NextPage = () => {
-  let endTime = process.env.RECRUIT_END_TIME ?? DEFAULT_END_TIME;
-
   return (
     <TemplateWrapper
       primaryTitle="招生資訊"
@@ -20,7 +18,7 @@ const Recruit: NextPage = () => {
       nextSectionPath={appPath.career}
       nextSectionTitle="職涯體驗"
     >
-      <Timer endTime={endTime} />
+      <Timer endTime={DEFAULT_END_TIME} />
       <Information />
       <TimelineSection />
     </TemplateWrapper>

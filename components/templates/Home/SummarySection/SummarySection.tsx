@@ -1,10 +1,7 @@
 import type { FC } from 'react';
-import { useEffect } from 'react';
 import Image from 'next/image';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import styles from './SummarySection.module.scss';
-
-import TagManager from 'react-gtm-module';
 
 const SummarySection: FC = () => {
   return (
@@ -13,15 +10,15 @@ const SummarySection: FC = () => {
         <SectionWrapper className={styles.content}>
           <div className={styles.cardWrapper}>
             <div className={styles.card}>
-              <em>4</em>
+              <em>3</em>
               <span>大專案</span>
             </div>
             <div className={styles.card}>
-              <em>35</em>
+              <em>10+</em>
               <span>堂課程</span>
             </div>
             <div className={styles.card}>
-              <em>500+</em>
+              <em>600+</em>
               <span>人脈累積</span>
             </div>
           </div>
@@ -39,15 +36,15 @@ const SummarySection: FC = () => {
           <div className={styles.cardWrapper}>
             <h3 className={styles.title}>在資訊種子，你能參與...</h3>
             <div className={styles.card}>
-              <em>4</em>
+              <em>3</em>
               <span>大專案</span>
             </div>
             <div className={styles.card}>
-              <em>35</em>
+              <em>10+</em>
               <span>堂課程</span>
             </div>
             <div className={styles.card}>
-              <em>500+</em>
+              <em>600+</em>
               <span>人脈累積</span>
             </div>
           </div>
