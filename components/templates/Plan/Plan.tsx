@@ -35,21 +35,19 @@ const projects = [
     id: 1,
     name: COPYWRITING[Project.ps],
     description:
-      '專案全名 — Problem Solving 透過業主所佈達的題目，讓學員早日與業界接軌，並解決企業問題。從中學習如何團隊合作，以及向上管理的方法，並培養解決問題的邏輯與方法。',
+      '專案全名 — Top up the value ，以組為單位，協助企業進行社會關懷連結，利用問題拆解、設計思考等方式進行討論與產出方案，並規劃 MVP 測試是否可行，以提供企業執行。從中學習團隊建立、養成專案管理、企劃書撰寫、會議、信件等能力。',
     imgUrl: '/images/homepage/pics/intro.png',
   },
   {
     id: 2,
     name: COPYWRITING[Project.career],
-    description:
-      '專案全名 — Problem Solving 透過業主所佈達的題目，讓學員早日與業界接軌，並解決企業問題。從中學習如何團隊合作，以及向上管理的方法，並培養解決問題的邏輯與方法。',
+    description: '提供多元的職場體驗機會，幫助學員探索職涯方向與興趣； 提升職場軟硬實力，並增進跨屆交流。',
     imgUrl: '/images/homepage/pics/intro.png',
   },
   {
     id: 3,
     name: COPYWRITING[Project.recruit],
-    description:
-      '專案全名 — Problem Solving 透過業主所佈達的題目，讓學員早日與業界接軌，並解決企業問題。從中學習如何團隊合作，以及向上管理的方法，並培養解決問題的邏輯與方法。',
+    description: '合作、分享與傳承，延續資種核心價值。',
     imgUrl: '/images/homepage/pics/intro.png',
   },
 ];
