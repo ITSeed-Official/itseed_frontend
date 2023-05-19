@@ -8,6 +8,7 @@ export interface Visitation {
 
 export const getVisitations = async () => {
   try {
+    console.debug(`${DOMAIN}/visitations`);
     const response = await fetch(`${DOMAIN}/visitations`);
     const data: Visitation[] = await response.json();
     return data;

@@ -64,7 +64,13 @@ const About: NextPage<IProps> = ({ graduates: data }) => {
   }, [activeTab, introRef, organizationRef, rosterRef]);
 
   return (
-    <TemplateWrapper primaryTitle="關於資種" nextSectionPath={appPath.faq} nextSectionTitle="常見問題">
+    <TemplateWrapper
+      primaryTitle="關於資種"
+      nextSectionPath={appPath.faq}
+      nextSectionTitle="常見問題"
+      desktopBackgroundImage="/images/about/pics/about_desktop_banner@2x.png"
+      mobileBackgroundImage="/images/about/pics/about_mobile_banner@2x.png"
+    >
       <TabNav
         tabs={tabs}
         activeTab={activeTab}
