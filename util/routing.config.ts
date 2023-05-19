@@ -1,6 +1,9 @@
 export enum appPath {
   home = '/',
   about = '/about',
+  aboutPlan = '/about#計畫簡介',
+  aboutOrganization = '/about#組織架構',
+  aboutMember = '/about#歷屆名單',
   career = '/career',
   careerPersonalization = '/career#個人指導',
   careerInterview = '/career#職涯訪談',
