@@ -20,11 +20,12 @@ export const DEFAULT_FAQ: FAQ = {
 };
 
 export const CURRENT_YEAR = new Date().getFullYear();
-export const CURRENT_SESSION = 18;
+export const CURRENT_SESSION = 20;
 export const NEW_SESSION = CURRENT_YEAR - 2002;
 export const EMAIL = `itseed${NEW_SESSION}th@gmail.com`;
 export const DEFAULT_END_TIME = `${CURRENT_YEAR.toString()}-6-1 23:59:59`;
 export const FB_PAGE = 'https://www.facebook.com/iloveitseed';
+export const IG_PAGE = 'https://www.instagram.com/_itseed/';
 
 export const DOMAIN = process.env.NEXT_PUBLIC_API_ORIGIN;
 export const API2_DOMAIN = process.env.NEXT_PUBLIC_API2_ORIGIN;

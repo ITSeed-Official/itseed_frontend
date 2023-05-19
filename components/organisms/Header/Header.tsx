@@ -151,9 +151,28 @@ const MobileHeader: FC = () => {
               </ul>
             </li>
             <li className={mStyles.menuItemWrapper}>
-              <Link href={appPath.about} passHref>
-                <a className={mStyles.menuItem}>關於資種</a>
-              </Link>
+              <div className={mStyles.menuItem}>
+                關於資種
+                <FontAwesomeIcon className={mStyles.unexpandedSubMenuIcon} icon={faChevronRight} />
+                <FontAwesomeIcon className={mStyles.expandedSubMenuIcon} icon={faChevronDown} />
+              </div>
+              <ul className={mStyles.subMenuList}>
+                <li onClick={closeMenu}>
+                  <Link href={appPath.aboutPlan} passHref>
+                    <a className={mStyles.subMenuItem}>計畫簡介</a>
+                  </Link>
+                </li>
+                <li onClick={closeMenu}>
+                  <Link href={appPath.aboutOrganization} passHref>
+                    <a className={mStyles.subMenuItem}>組織架構</a>
+                  </Link>
+                </li>
+                <li onClick={closeMenu}>
+                  <Link href={appPath.aboutMember} passHref>
+                    <a className={mStyles.subMenuItem}>歷屆名單</a>
+                  </Link>
+                </li>
+              </ul>
             </li>
             <li className={mStyles.menuItemWrapper}>
               <Link href={appPath.faq}>
@@ -278,6 +297,19 @@ const DesktopHeader: FC = () => {
           </li>
           <li className={dStyles.navItem}>
             <Link href={appPath.about}>關於資種</Link>
+            <div className={dStyles.subNavList}>
+              <ul className={dStyles.subNavListContent}>
+                <li className={dStyles.subNavListItem}>
+                  <Link href={appPath.aboutPlan}>計畫簡介</Link>
+                </li>
+                <li className={dStyles.subNavListItem}>
+                  <Link href={appPath.aboutOrganization}>組織架構</Link>
+                </li>
+                <li className={dStyles.subNavListItem}>
+                  <Link href={appPath.aboutMember}>歷屆名單</Link>
+                </li>
+              </ul>
+            </div>
           </li>
           <li className={dStyles.navItem}>
             <Link href={appPath.faq}>常見問題</Link>
