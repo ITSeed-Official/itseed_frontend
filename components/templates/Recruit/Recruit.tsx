@@ -13,8 +13,8 @@ const Recruit: NextPage = () => {
       primaryTitle="招生資訊"
       subTitle=""
       description=""
-      desktopBackgroundImage="/images/recruit/pics/banner--desktop.png"
-      mobileBackgroundImage="/images/recruit/pics/banner--mobile.png"
+      desktopBackgroundImage="/images/recruit/pics/recruit_desktop_banner@2x.png"
+      mobileBackgroundImage="/images/recruit/pics/recruit_mobile_banner@2x.png"
       nextSectionPath={appPath.career}
       nextSectionTitle="職涯體驗"
     >

@@ -36,21 +36,28 @@ const projects = [
     name: COPYWRITING[Project.ps],
     description:
       '專案全名 — Top up the value ，以組為單位，協助企業進行社會關懷連結，利用問題拆解、設計思考等方式進行討論與產出方案，並規劃 MVP 測試是否可行，以提供企業執行。從中學習團隊建立、養成專案管理、企劃書撰寫、會議、信件等能力。',
-    imgUrl: '/images/homepage/pics/intro.png',
+    imgUrl: '/images/plan/pics/project_1@2x.png',
   },
   {
     id: 2,
     name: COPYWRITING[Project.career],
     description: '提供多元的職場體驗機會，幫助學員探索職涯方向與興趣； 提升職場軟硬實力，並增進跨屆交流。',
-    imgUrl: '/images/homepage/pics/intro.png',
+    imgUrl: '/images/plan/pics/project_2@2x.png',
   },
   {
     id: 3,
     name: COPYWRITING[Project.recruit],
     description: '合作、分享與傳承，延續資種核心價值。',
-    imgUrl: '/images/homepage/pics/intro.png',
+    imgUrl: '/images/plan/pics/project_3@2x.png',
   },
 ];
+
+// We should control the image in admin panel
+const imageNameMapping: { [key: string]: string } = {
+  'Google 台灣': '/images/plan/pics/google_logo.png',
+  Ogilvy奧美: '/images/plan/pics/ogilvy_logo.png',
+  'LINE Taiwan_台灣連線股份有限公司': '/images/plan/pics/line_logo.png',
+};
 
 const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
   const router = useRouter();
@@ -82,8 +89,8 @@ const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
 
   return (
     <TemplateWrapper
-      desktopBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
-      mobileBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
+      desktopBackgroundImage="/images/plan/pics/plan_desktop_banner@2x.png"
+      mobileBackgroundImage="/images/plan/pics/plan_mobile_banner@2x.png"
       primaryTitle="計畫內容"
       description="資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。
     透過執行 3 大專案，參與 10+ 堂來自業界講師的課程，了解業界生態，
@@ -148,7 +155,7 @@ const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {
           <div className={styles.visitation}>
             {visitations.map(({ id, name }) => (
               <div key={id} className={styles.visitationCard}>
-                <Image src="/images/plan/pics/google_logo.png" alt={name} layout="fixed" width={177} height={60} />
+                <Image src={imageNameMapping[name]} alt={name} layout="fixed" width={177} height={60} />
                 <Cta
                   className={styles.visitationCta}
                   ctaText="參訪紀錄"

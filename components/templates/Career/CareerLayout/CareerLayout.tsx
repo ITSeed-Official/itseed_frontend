@@ -10,7 +10,7 @@ const CareerLayout: FC = ({ children }) => {
       nextSectionTitle="校友評價"
       nextSectionPath={appPath.alumni}
       desktopBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
-      mobileBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
+      mobileBackgroundImage="/images/career/pics/career_mobile_banner@3x.png"
     >
       {children}
     </TemplateWrapper>

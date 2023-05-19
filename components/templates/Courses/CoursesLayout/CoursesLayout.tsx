@@ -8,8 +8,8 @@ type CourseLayoutProperty = Pick<TemplateWrapperProperty, 'subTitle' | 'descript
 const CoursesLayout: FC<CourseLayoutProperty> = ({ children, subTitle, description }) => {
   return (
     <TemplateWrapper
-      desktopBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
-      mobileBackgroundImage="/images/career/pics/career_desktop_banner@2x.png"
+      desktopBackgroundImage="/images/course/pics/course_desktop_banner@2x.png"
+      mobileBackgroundImage="/images/course/pics/course_mobile_banner@2x.png"
       primaryTitle="講座課程"
       subTitle={subTitle}
       description={description}

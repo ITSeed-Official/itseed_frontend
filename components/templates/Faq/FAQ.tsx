@@ -18,8 +18,8 @@ const Faq: NextPage<IProps> = ({ faqs }) => {
     <TemplateWrapper
       primaryTitle="常見問題"
       description="我們整理了歷來報名者所提出的疑問，提供解惑。"
-      desktopBackgroundImage="/images/faq/pics/banner--desktop.png"
-      mobileBackgroundImage="/images/faq/pics/banner--mobile.png"
+      desktopBackgroundImage="/images/faq/pics/faq_desktop_banner@2x.png"
+      mobileBackgroundImage="/images/faq/pics/faq_mobile_banner@2x.png"
       nextSectionPath={appPath.plan}
       nextSectionTitle="計畫介紹"
       nextSectionType={NextSectionType.green}

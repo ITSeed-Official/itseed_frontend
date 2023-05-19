@@ -43,7 +43,7 @@ const Desktop = ({ router, displayFeatureCard }: IProps) => (
   <SectionWrapper className={classNames([styles.introSection, styles.desktopOnly])}>
     <div className={styles.intro}>
       <div className={styles.introImageWrapper}>
-        <Image src="/images/homepage/pics/intro.png" alt="intro" layout="fill" priority />
+        <Image src="/images/homepage/pics/intro.jpg" alt="intro" layout="fill" priority />
       </div>
       <div className={styles.dummySpacing} />
       <div className={styles.introContent}>
@@ -88,7 +88,7 @@ const Mobile = ({ router, displayFeatureCard }: IProps) => (
       />
     </SectionWrapper>
     <div className={styles.introImageWrapper}>
-      <Image src="/images/homepage/pics/intro.png" alt="intro" layout="fill" priority />
+      <Image src="/images/homepage/pics/intro.jpg" alt="intro" layout="fill" priority />
     </div>
     {displayFeatureCard && (
       <SectionWrapper className={styles.introSectionMobileBottom}>

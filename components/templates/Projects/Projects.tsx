@@ -39,6 +39,8 @@ const Projects: NextPage = () => {
       subTitle=""
       description="資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。透過執行 3 大專案，參與 10+ 堂來自業界講師的課程，了解業界生態，並探索自己未來的職涯方向。
       培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。"
+      desktopBackgroundImage="/images/projects/pics/project_desktop_banner@2x.png"
+      mobileBackgroundImage="/images/projects/pics/project_mobile_banner@2x.png"
     >
       <div ref={elRef}>
         <TabNav tabs={TABS} activeTab={activeTab} onTabClick={changeTab} onStickyChange={setIsSubNavStuck} />
