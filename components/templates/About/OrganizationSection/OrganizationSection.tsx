@@ -42,11 +42,11 @@ const OrganizationSection: FC = () => {
               <li>正/副學員長：促使學員彼此交流互動，共同成長，打造該屆的團隊文化，凝聚彼此感情。</li>
               <li>
                 正/副行銷長：帶領行銷部建立對外形象，並紀錄學員一年的培訓過程，經營管道包含{' '}
-                <a className={styles.link} href={FB_PAGE} target="_blank">
+                <a className={styles.link} href={FB_PAGE} target="blank">
                   Facebook
                 </a>
                 、
-                <a className={styles.link} href={IG_PAGE} target="_blank">
+                <a className={styles.link} href={IG_PAGE} target="blank">
                   Instagram
                 </a>{' '}
                 等粉絲專頁 。
