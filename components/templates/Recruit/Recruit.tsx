@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 
 import { appPath } from 'util/routing.config';
-import { DEFAULT_END_TIME } from 'util/const';
+import { START_TIME, END_TIME } from 'util/const';
 import TemplateWrapper from 'components/organisms/TemplateWrapper';
 import Information from './Information';
 import TimelineSection from '../Home/TimelineSection';
@@ -18,7 +18,7 @@ const Recruit: NextPage = () => {
       nextSectionPath={appPath.career}
       nextSectionTitle="職涯體驗"
     >
-      <Timer endTime={DEFAULT_END_TIME} />
+      <Timer startTime={START_TIME} endTime={END_TIME} />
       <Information />
       <TimelineSection />
     </TemplateWrapper>

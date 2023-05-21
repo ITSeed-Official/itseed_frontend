@@ -23,7 +23,10 @@ export const CURRENT_YEAR = new Date().getFullYear();
 export const CURRENT_SESSION = 20;
 export const NEW_SESSION = CURRENT_YEAR - 2002;
 export const EMAIL = `itseed${NEW_SESSION}th@gmail.com`;
-export const DEFAULT_END_TIME = `${CURRENT_YEAR.toString()}-6-1 23:59:59`;
+// ISO 8601
+export const START_TIME = process.env.START_TIME || `${CURRENT_YEAR.toString()}-06-01T16:00:00.000Z`;
+// ISO 8601
+export const END_TIME = process.env.END_TIME || `${CURRENT_YEAR.toString()}-07-01T15:59:59.999Z`;
 export const FB_PAGE = 'https://www.facebook.com/iloveitseed';
 export const IG_PAGE = 'https://www.instagram.com/_itseed/';
 
