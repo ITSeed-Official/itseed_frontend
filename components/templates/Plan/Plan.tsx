@@ -57,6 +57,7 @@ const imageNameMapping: { [key: string]: string } = {
   'Google 台灣': '/images/plan/pics/google_logo.png',
   Ogilvy奧美: '/images/plan/pics/ogilvy_logo.png',
   'LINE Taiwan_台灣連線股份有限公司': '/images/plan/pics/line_logo.png',
+  Dcard: '/images/plan/pics/dcard_logo.png',
 };
 
 const Plan: NextPage<PlanProperty> = ({ courses, visitations }) => {

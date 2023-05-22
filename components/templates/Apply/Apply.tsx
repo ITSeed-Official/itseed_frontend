@@ -3,6 +3,8 @@ import Image from 'next/image';
 import router from 'next/router';
 import Link from 'next/link';
 import { useContext, useEffect } from 'react';
+import moment from 'moment';
+import { REGISTRATION_START_TIME, REGISTRATION_END_TIME } from 'util/const';
 
 import { AuthContext } from 'contexts/AuthContext';
 import { appPath } from 'util/routing.config';
@@ -19,6 +21,17 @@ const Apply: NextPage<any> = () => {
   const { isLogin, nickname, step, signIn, signOut, updateUserInfo } = useContext(AuthContext);
 
   useEffect(() => {
+    const startDate = moment(REGISTRATION_START_TIME, 'YYYY-MM-DD HH:mm:ss');
+    const endDate = moment(REGISTRATION_END_TIME, 'YYYY-MM-DD HH:mm:ss');
+    const now = moment();
+    // Temporary Hack Method
+    const devMode = document.cookie.includes('DEV_MODE=true');
+
+    if (!devMode && !now.isBetween(startDate, endDate)) {
+      alert('報名尚未開始');
+      window.location.href = '/';
+    }
+
     updateUserInfo(); // 每次回此畫面就重新抓一次 step 的資訊
   }, []);
 
