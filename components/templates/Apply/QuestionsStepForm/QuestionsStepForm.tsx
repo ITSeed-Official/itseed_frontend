@@ -27,7 +27,7 @@ const QuestionsStepForm: FC<QuestionsStepFormProps> = ({ data, updateFields }) =
   return (
     <>
       <div className={styles.intro}>
-        <p>本階段共有六道題目，建議花30-40分鐘的時間填寫。</p>
+        <p>本階段共有六道題目，請用心填寫，讓我們更認識你！</p>
       </div>
       <>
         {data.map(({ number, title, answer, limit }) => (

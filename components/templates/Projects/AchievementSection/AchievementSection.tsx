@@ -10,6 +10,7 @@ import MentorInformation from 'components/atoms/MentorInformation';
 
 import sproutIcon from 'public/images/common/icons/sprout.png';
 import styles from './AchievementSection.module.scss';
+import Markdown from 'components/molecules/Markdown';
 
 const AchievementsTitle = ({ title }: { title: string }) => (
   <div className={styles.achievementsTitle}>
@@ -30,8 +31,8 @@ const AchievementSection: FC = () => {
             size="md"
             defaultOpen={index === 0}
             className={styles.questionBox}
-            title={achievement.problem}
-            key={achievement.problem}
+            title={achievement.subject}
+            key={achievement.subject}
           >
             <div className={classnames(styles.sectionBackground, styles.achievementsContent)}>
               <Image
@@ -41,22 +42,27 @@ const AchievementSection: FC = () => {
                 height={achievement.imageHeight}
               />
               <div className={styles.achievementBlock}>
-                <AchievementsTitle title="專案題目" />
+                <AchievementsTitle title="合作企業" />
                 <hr />
-                <p>{achievement.subject}</p>
+                <p>{achievement.partner}</p>
               </div>
               <div className={styles.achievementBlock}>
-                <AchievementsTitle title="解決問題過程" />
+                <AchievementsTitle title="議題選擇動機" />
+                <hr />
+                <Markdown className={styles.achievementMarkdown} text={achievement.motivation} />
+              </div>
+              <div className={styles.achievementBlock}>
+                <AchievementsTitle title="欲解決問題" />
+                <hr />
+                <p>{achievement.problem}</p>
+              </div>
+              <div className={styles.achievementBlock}>
+                <AchievementsTitle title="解方" />
                 <hr />
                 <p>{achievement.solveProcess}</p>
               </div>
               <div className={styles.achievementBlock}>
-                <AchievementsTitle title="期末呈現" />
-                <hr />
-                <p>{achievement.present}</p>
-              </div>
-              <div className={styles.achievementBlock}>
-                <AchievementsTitle title={`心得分享：（${achievement.sharingStudent}）`} />
+                <AchievementsTitle title="心得分享" />
                 <hr />
                 <p>{achievement.sharing}</p>
               </div>
