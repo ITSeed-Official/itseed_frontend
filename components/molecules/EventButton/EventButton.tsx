@@ -16,7 +16,7 @@ const EventButton: FC<EventButtonProps> = ({ campaignList }) => {
     <div className={styles.eventOpen}>
       <div className={styles.eventMenu}>
         {campaignList.map(({ text, image, url }) => (
-          <a className={styles.event} href={url} target="blank">
+          <a key={text} className={styles.event} href={url} target="blank">
             <Icon iconSrc={image.url} />
             <p>{text}</p>
           </a>

@@ -29,7 +29,7 @@ const AlumniDetail: FC<AlumniDetailProperty> = ({ detail, list }) => {
           <Image src={detail.image.url} alt={detail.name} layout="fill" />
         </div>
         <div className={styles.text}>
-          <h2>{detail.title}</h2>
+          <h2 className={styles.title}>{detail.title}</h2>
           <p className={styles.name}>{detail.name}</p>
           <p className={styles.position}>{detail.position}</p>
         </div>
