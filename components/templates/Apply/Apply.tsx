@@ -4,7 +4,7 @@ import router from 'next/router';
 import Link from 'next/link';
 import { useContext, useEffect } from 'react';
 import moment from 'moment';
-import { REGISTRATION_START_TIME, REGISTRATION_END_TIME } from 'util/const';
+import { START_TIME, END_TIME } from 'util/const';
 
 import { AuthContext } from 'contexts/AuthContext';
 import { appPath } from 'util/routing.config';
@@ -21,8 +21,8 @@ const Apply: NextPage<any> = () => {
   const { isLogin, nickname, step, signIn, signOut, updateUserInfo } = useContext(AuthContext);
 
   useEffect(() => {
-    const startDate = moment(REGISTRATION_START_TIME, 'YYYY-MM-DD HH:mm:ss');
-    const endDate = moment(REGISTRATION_END_TIME, 'YYYY-MM-DD HH:mm:ss');
+    const startDate = moment(START_TIME, 'YYYY-MM-DD HH:mm:ss');
+    const endDate = moment(END_TIME, 'YYYY-MM-DD HH:mm:ss');
     const now = moment();
     // Temporary Hack Method
     const devMode = document.cookie.includes('DEV_MODE=true');
