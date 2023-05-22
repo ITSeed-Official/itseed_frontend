@@ -3,7 +3,8 @@ import type { NextPage } from 'next';
 import { withRouter, NextRouter } from 'next/router';
 import { appPath } from 'util/routing.config';
 import { Alumni } from 'api/alumni';
-import { ButtonIcon } from 'components/atoms/Button';
+import { Campaign } from 'api/campaign';
+import { NEW_SESSION } from 'util/const';
 
 import SummarySection from 'components/templates/Home/SummarySection';
 import IntroSection from 'components/templates/Home/IntroSection';
@@ -12,12 +13,14 @@ import TimelineSection from 'components/templates/Home/TimelineSection';
 import FAQSection from 'components/templates/Home/FAQSection';
 import SlashBanner from 'components/molecules/SlashBanner';
 import NextSection, { Type as NextSectionType } from 'components/atoms/NextSection';
-import { NEW_SESSION } from 'util/const';
+import { ButtonIcon } from 'components/atoms/Button';
+import EventButton from 'components/molecules/EventButton';
 
 import styles from './Home.module.scss';
 
 interface HomeData {
   alumniList: Alumni[];
+  campaignList: Campaign[];
 }
 
 const session = `第 ${NEW_SESSION} 屆資訊種子培訓計畫`;
@@ -47,6 +50,7 @@ const Home: NextPage<{ data: HomeData; router: NextRouter }> = ({ router, data }
     <TimelineSection />
     <FAQSection limit={3} />
     <NextSection title="計畫內容" path={appPath.plan} type={NextSectionType.green} />
+    {data && data.campaignList && <EventButton campaignList={data.campaignList} />}
   </>
 );
 

@@ -37,6 +37,10 @@
     flex-direction: column;
     justify-content: center;
 
+    & > .title {
+        line-height: 1.5;
+    }
+
     & > .name {
         margin-top: 16px;
     }
