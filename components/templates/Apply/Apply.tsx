@@ -97,7 +97,7 @@ const Apply: NextPage<any> = () => {
         <a className={styles.link} href={FB_PAGE} target="blank">
           資訊種子粉絲專頁
         </a>
-        ，或寄信至 ITseed 信箱（{EMAIL}
+        ，或寄信至 ITSeed 信箱（{EMAIL}
         ）將由專人為您解答！
       </p>
     </SectionWrapper>
