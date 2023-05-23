@@ -18,6 +18,7 @@ export type CourseDetailType = {
   created_at: string;
   updated_at: string;
   image: Image;
+  number: string;
 };
 
 export const getCourses = async () => {

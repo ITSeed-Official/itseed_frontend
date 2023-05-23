@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import { useState, useEffect, useRef } from 'react';
 
-import { CURRENT_SESSION } from 'util/const';
+import { CURRENT_SESSION, NEW_SESSION } from 'util/const';
 import { appPath } from 'util/routing.config';
 import { useTab } from 'util/hooks/useTab';
 import { getGraduates, Graduate } from 'api/graduates';
@@ -66,6 +66,7 @@ const About: NextPage<IProps> = ({ graduates: data }) => {
   return (
     <TemplateWrapper
       primaryTitle="關於資種"
+      description={`資訊種子即將邁入第 ${NEW_SESSION} 屆，除了每屆來自不同科系的成員，從資種畢業的學長姐也會組成校友會，以善的循環回饋資種，讓資種不斷茁壯。`}
       nextSectionPath={appPath.faq}
       nextSectionTitle="常見問題"
       desktopBackgroundImage="/images/about/pics/about_desktop_banner@2x.png"

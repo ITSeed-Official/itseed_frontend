@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import router from 'next/router';
+import router, { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useContext, useEffect } from 'react';
 import moment from 'moment';
@@ -19,6 +19,7 @@ import styles from './Apply.module.scss';
 
 const Apply: NextPage<any> = () => {
   const { isLogin, nickname, step, signIn, signOut, updateUserInfo } = useContext(AuthContext);
+  const domRouter = useRouter();
 
   useEffect(() => {
     const startDate = moment(START_TIME, 'YYYY-MM-DD HH:mm:ss');
@@ -29,7 +30,7 @@ const Apply: NextPage<any> = () => {
 
     if (!devMode && !now.isBetween(startDate, endDate)) {
       alert('報名尚未開始');
-      window.location.href = '/';
+      domRouter.back();
     }
 
     updateUserInfo(); // 每次回此畫面就重新抓一次 step 的資訊

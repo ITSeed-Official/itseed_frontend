@@ -81,7 +81,7 @@ const CoursesDetail: FC<CoursesDetailProperty> = ({ detail, list }) => {
           <Markdown className={styles.content} text={lecturer_background} />
         </div>
       </SectionWrapper>
-      <SectionWrapper title="更多課程回顧" isBackgroundGreen>
+      <SectionWrapper title="歷年講座課程" isBackgroundGreen>
         <Swiper
           className={styles.courseSwiper}
           breakpoints={{
@@ -102,7 +102,7 @@ const CoursesDetail: FC<CoursesDetailProperty> = ({ detail, list }) => {
                 <CoursesCard
                   key={course.id}
                   data={course}
-                  courseNumber={parseInt(course.id) < 10 ? `0${course.id}` : course.id}
+                  courseNumber={parseInt(course.number) < 10 ? `0${course.number}` : course.number}
                 />
               </SwiperSlide>
             ))}
