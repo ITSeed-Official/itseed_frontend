@@ -21,7 +21,7 @@ type CoursesListsProperty = {
 type CourseListSectionProperty = CoursesListsProperty & { onClick: () => {}; ctaText: string; courseLimit?: number };
 
 export const CourseListSection = forwardRef<HTMLDivElement, CourseListSectionProperty>(
-  ({ courses, onClick, ctaText, courseLimit = 12 }, ref) => {
+  ({ courses, onClick, ctaText, courseLimit = 20 }, ref) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
