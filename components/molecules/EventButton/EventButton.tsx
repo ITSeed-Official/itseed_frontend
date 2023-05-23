@@ -12,14 +12,14 @@ type EventButtonProps = {
 const EventButton: FC<EventButtonProps> = ({ campaignList }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
 
-  const campaignListSorted = useMemo(
-    () =>
-      campaignList.sort(
-        (campaign_front, campaign_back) =>
-          new Date(campaign_front.ended_at).getTime() - new Date(campaign_back.ended_at).getTime()
-      ),
-    [campaignList]
-  );
+  const campaignListSorted = useMemo(() => {
+    campaignList.sort(
+      (campaign_front, campaign_back) =>
+        new Date(campaign_front.ended_at).getTime() - new Date(campaign_back.ended_at).getTime()
+    );
+
+    return campaignList.filter(({ started_at }) => new Date(started_at).getTime() <= new Date().getTime());
+  }, [campaignList]);
 
   return isMenuOpen ? (
     <div className={styles.eventOpen}>
