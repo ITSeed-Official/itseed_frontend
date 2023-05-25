@@ -50,7 +50,6 @@ const Home: NextPage<{ data: HomeData; router: NextRouter }> = ({ router, data }
     <TimelineSection />
     <FAQSection limit={3} />
     <NextSection title="計畫內容" path={appPath.plan} type={NextSectionType.green} />
-    {data && data.campaignList && <EventButton campaignList={data.campaignList} />}
   </>
 );
 
