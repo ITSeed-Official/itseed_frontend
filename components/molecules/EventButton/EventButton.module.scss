@@ -7,11 +7,11 @@
     flex-direction: column;
     align-items: center;
     z-index: 5;
-    right: 28px;
+    right: 32px;
     bottom: 40px;
 
     @include mobile {
-        right: 9px;
+        right: 12px;
         bottom: 16px;
     }
 }
