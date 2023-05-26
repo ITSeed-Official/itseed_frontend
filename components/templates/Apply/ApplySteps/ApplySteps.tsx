@@ -33,7 +33,8 @@ const ApplySteps: FC = () => {
   const ref = useRef<HTMLDivElement | null>(null);
   //const { isOpen, closeModal, openModal } = useContext(ModalContext);
 
-  console.log('formData', formData, 'isFormUpdateSuccess', isFormUpdateSuccess);
+  if (process.env.NODE_ENV !== 'production')
+    console.log('formData', formData, 'isFormUpdateSuccess', isFormUpdateSuccess);
 
   const getData = async () => {
     try {

@@ -10,6 +10,8 @@ import EventButton from 'components/molecules/EventButton';
 import styles from './Layout.module.scss';
 import { appPath } from 'util/routing.config';
 
+if (process.env.NODE_ENV === 'production') console.log('歡迎來到資訊種子官網，我是開發團隊的 Malik');
+
 const Layout: FC = ({ children }) => {
   // TODO: 把 EventButton 搬來這邊
   const router = useRouter();
@@ -19,10 +21,10 @@ const Layout: FC = ({ children }) => {
       const campaigns = await getCampaigns();
       setCampaigns(campaigns);
     };
-
-    console.log('useEffect Layout');
     api();
   }, []);
+
+  if (process.env.NODE_ENV !== 'production') console.log('RENDER');
 
   return (
     <div className={styles.container}>

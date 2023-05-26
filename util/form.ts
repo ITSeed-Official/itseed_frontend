@@ -159,7 +159,7 @@ export const INITIAL_DATA: FormDataType = {
 export const formValidation = (data: FormDataType) => {
   const isInfoValid =
     Object.entries(data.info).find(([key, value]) => {
-      console.log(key, value);
+      if (process.env.NODE_ENV !== 'production') console.log(key, value);
       // 非必填
       if (key === 'recommender' || key === 'referer' || key === 'city') return false;
 
