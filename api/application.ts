@@ -4,7 +4,7 @@ import { ErrorWithCode, ErrorCode } from 'util/error';
 
 export const getFormData = async (): Promise<any> => {
   const response = await fetch(`${API2_DOMAIN}/applications/me`, { credentials: 'include' });
-  console.log('getFormData status:', response.status);
+
   if (response.status === 401) {
     throw new ErrorWithCode('No auth', ErrorCode.NoAuth);
   }
@@ -21,8 +21,6 @@ export const updateFormData = async (formData: Partial<FormDataType> | FormDataT
       data: formData,
     }),
   });
-
-  console.log('updateFormData status:', response.status);
 
   if (response.status === 401) {
     throw new ErrorWithCode('No auth', ErrorCode.NoAuth);

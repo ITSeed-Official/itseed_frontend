@@ -144,7 +144,7 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
       return;
     }
 
-    if (file.size > 1048576 * 3) {
+    if (file.size > 1048576 * 5) {
       setIsOnDrag(null);
 
       if (fileType === 'resume')

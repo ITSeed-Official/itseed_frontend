@@ -13,7 +13,6 @@ type PaymentStepProps = {
 };
 
 const PaymentStep: FC<PaymentStepProps> = ({ data }) => {
-  console.log(data.nickname);
   return (
     <>
       <div>
