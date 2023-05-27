@@ -248,7 +248,7 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
       <div>
         <h3 className={styles.title}>2.學生證明</h3>
         <div className={styles.description}>
-          <p>請上傳學生證正反面影本、研究所錄取證明</p>
+          <p>請上傳在學證明、研究所錄取證明</p>
           <p>檔案命名請按照「姓名_學生證明」（如：陳資種_學生證明）</p>
           <p>請以「pdf」格式上傳，檔案大小限制為 5 MB</p>
         </div>
