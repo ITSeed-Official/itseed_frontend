@@ -217,7 +217,11 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
           <p>檔案命名請按照「姓名_個人履歷」（如：陳資種_個人履歷）</p>
           <p>請以「pdf」格式上傳，檔案大小限制為 5 MB</p>
         </div>
-        {data.resume && <p className={styles.fileName}>{data.resume.name}</p>}
+        {data.resume.name && (
+          <a className={styles.fileName} href={data.resume.path} target="_blank" rel="noreferrer">
+            {data.resume.name}
+          </a>
+        )}
         <div
           className={classnames(styles.uploadBlock, isOnDrag === 'resume' && styles.onDrag)}
           onDragEnter={() => setIsOnDrag('resume')}
@@ -248,7 +252,11 @@ const FilesUploadStepForm: FC<FilesUploadStepFormType> = ({ data, updateFields, 
           <p>檔案命名請按照「姓名_學生證明」（如：陳資種_學生證明）</p>
           <p>請以「pdf」格式上傳，檔案大小限制為 5 MB</p>
         </div>
-        {data.certification && <p className={styles.fileName}>{data.certification.name}</p>}
+        {data.certification.name && (
+          <a className={styles.fileName} href={data.certification.path} target="_blank" rel="noreferrer">
+            {data.certification.name}
+          </a>
+        )}
         <div
           className={classnames(styles.uploadBlock, isOnDrag && styles.onDrag)}
           onDragEnter={() => setIsOnDrag('certification')}

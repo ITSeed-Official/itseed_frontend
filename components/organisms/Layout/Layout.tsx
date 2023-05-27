@@ -10,7 +10,7 @@ import EventButton from 'components/molecules/EventButton';
 import styles from './Layout.module.scss';
 import { appPath } from 'util/routing.config';
 
-if (process.env.NODE_ENV === 'production') console.log('歡迎來到資訊種子官網，我是開發團隊的 Malik');
+if (process.env.NODE_ENV === 'production') console.log('本網頁由 18 屆張宇承、15 屆陳建宇 呂紹靖、13 屆薛翔文共同開發');
 
 const Layout: FC = ({ children }) => {
   // TODO: 把 EventButton 搬來這邊

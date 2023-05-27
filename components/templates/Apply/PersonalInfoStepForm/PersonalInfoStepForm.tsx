@@ -177,17 +177,19 @@ const PersonalInfoStepForm: FC<PersonalInfoStepFormProps> = ({ data, updateField
         </div>
       </div>
       <div className={styles.fullRow}>
-        <p className={classnames(styles.fieldName, styles.notRequired)}>請問您是透過何種管道得知資種？（可複選）</p>
+        <p className={classnames(styles.fieldName, styles.notRequired)}>請問您是透過何種管道得知資種？（可複選）*</p>
         {data.referer.map(({ title, selected, value }) => (
           <label key={value} htmlFor={value} className={styles.checkbox}>
-            {title}
             <input
               type="checkbox"
               id={value}
               value={value}
-              onChange={(e) => onChangeHandler(e, 'referer')}
+              onChange={(e) => {
+                onChangeHandler(e, 'referer');
+              }}
               checked={selected}
             />
+            {title}
           </label>
         ))}
       </div>
