@@ -4,7 +4,7 @@ import router, { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useContext, useEffect } from 'react';
 import moment from 'moment';
-import { START_TIME, END_TIME, DEV_SECRET } from 'util/const';
+import { START_TIME, END_TIME } from 'util/const';
 
 import { AuthContext } from 'contexts/AuthContext';
 import { appPath } from 'util/routing.config';
@@ -26,7 +26,7 @@ const Apply: NextPage<any> = () => {
     const endDate = moment(END_TIME, 'YYYY-MM-DD HH:mm:ss');
     const now = moment();
     // Temporary Hack Method
-    const devMode = document.cookie.includes(DEV_SECRET ?? '');
+    const devMode = document.cookie.includes('DEV_MODE=true');
 
     if (!devMode && !now.isBetween(startDate, endDate)) {
       alert('報名尚未開始');
