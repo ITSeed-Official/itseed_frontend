@@ -19,6 +19,8 @@ export const DEFAULT_FAQ: FAQ = {
   answer: '',
 };
 
+export const DEV_SECRET = process.env.DEV_SECRET;
+
 export const CURRENT_YEAR = new Date().getFullYear();
 export const CURRENT_SESSION = 20;
 export const NEW_SESSION = CURRENT_YEAR - 2002;
