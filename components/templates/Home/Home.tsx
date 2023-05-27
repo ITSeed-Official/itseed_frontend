@@ -14,7 +14,6 @@ import FAQSection from 'components/templates/Home/FAQSection';
 import SlashBanner from 'components/molecules/SlashBanner';
 import NextSection, { Type as NextSectionType } from 'components/atoms/NextSection';
 import { ButtonIcon } from 'components/atoms/Button';
-import EventButton from 'components/molecules/EventButton';
 
 import styles from './Home.module.scss';
 
@@ -50,7 +49,6 @@ const Home: NextPage<{ data: HomeData; router: NextRouter }> = ({ router, data }
     <TimelineSection />
     <FAQSection limit={3} />
     <NextSection title="計畫內容" path={appPath.plan} type={NextSectionType.green} />
-    {data && data.campaignList && <EventButton campaignList={data.campaignList} />}
   </>
 );
 
