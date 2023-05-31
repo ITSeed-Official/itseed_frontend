@@ -35,6 +35,7 @@ const DiscStepForm: FC<DiscStepFormProps> = ({ data, updateFields, surveyIndex }
           </div>
         ))}
       </div>
+      <p className={styles.note}>*「特質調查」填答內容不會作為書審評分的標準</p>
     </div>
   );
 };
