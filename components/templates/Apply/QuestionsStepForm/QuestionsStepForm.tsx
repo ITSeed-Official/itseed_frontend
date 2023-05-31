@@ -27,7 +27,7 @@ const QuestionsStepForm: FC<QuestionsStepFormProps> = ({ data, updateFields }) =
   return (
     <>
       <div className={styles.intro}>
-        <p>本階段共有{data.length}道題目，請用心填寫，讓我們更認識你！</p>
+        <p>本階段共有 {data.length > 0 ? data.length : 5} 道題目，請用心填寫，讓我們更認識你！</p>
       </div>
       <>
         {data.map(({ number, title, answer, limit }) => (

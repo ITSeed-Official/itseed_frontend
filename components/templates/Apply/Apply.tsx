@@ -61,15 +61,22 @@ const Apply: NextPage<any> = () => {
               <p className={styles.description}>
                 {step === 0 ? (
                   <>
-                    歡迎來到資訊種子培訓計畫報名頁面！接下來將邀請您填寫報名相關資訊，
-                    總共分為五個部分，每部分皆可儲存進度。書審部分建議可先複製題目於網站外填寫，確認填寫完畢後再填進官網的申請表單，還請您耐心填寫。「勇敢加入資種的行列吧！」
+                    歡迎來到資訊種子培訓計畫報名頁面，勇敢加入資種的行列吧！
+                    <br />
+                    接下來將邀請您填寫報名相關資訊，總共分為五個部分，每部分皆可儲存進度。
+                    <br />
+                    第一部分為「特質調查」，共有 10題，幫助您回想過去合作經驗，也讓我們更了解您！
+                    填答完畢會直接進入下一部分，且
+                    <span style={{ color: '#00702D', fontWeight: 400 }}>特質調查填答內容不會作為書審評分的標準</span>
+                    ，請安心填寫。
                   </>
                 ) : (
                   <>
-                    歡迎回到資訊種子培訓計畫報名頁面，您先前已填寫至
+                    歡迎回到資訊種子培訓計畫報名頁面，您先前已填寫至：
                     <span className={styles.stepName}>{stepMap[step - 1]}</span>
-                    ，點選下方「開始填寫」按鈕前往下一階段：
-                    <span className={styles.stepName}> {stepMap[step]} </span>
+                    <br />
+                    點選下方「開始填寫」按鈕前往下一階段：
+                    <span className={styles.stepName}>{stepMap[step]}</span>
                     繼續進行報名流程。
                   </>
                 )}
