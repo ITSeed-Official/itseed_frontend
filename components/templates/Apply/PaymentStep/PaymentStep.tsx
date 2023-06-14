@@ -18,9 +18,9 @@ const PaymentStep: FC<PaymentStepProps> = ({ data }) => {
       <div>
         <h3 className={styles.title}>資料確認</h3>
         <p>
-          您已成功繳交第 {NEW_SESSION} 屆資訊種子培訓計畫的書審資料，請至個人信箱查看報名成功信。
+          您已成功繳交第 {NEW_SESSION} 屆資訊種子培訓計畫的書審資料，提醒您繳交報名費 100 元後，才算完成報名程序，請儘速至貝殼集器繳交。
           <br />
-          （＊若是不在收件匣，請至垃圾郵件查看。）
+          （＊報名成功信將於繳交報名費後寄出。）
         </p>
       </div>
       <div className={styles.divisionLine} />
