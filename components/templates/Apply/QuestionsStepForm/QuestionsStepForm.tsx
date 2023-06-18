@@ -1,4 +1,4 @@
-import { FC, ChangeEvent } from 'react';
+import { FC, ChangeEvent, useState } from 'react';
 import { Answer } from 'util/form';
 
 import styles from './QuestionsStepForm.module.scss';
@@ -33,6 +33,7 @@ const QuestionsStepForm: FC<QuestionsStepFormProps> = ({ data, updateFields }) =
         {data.map(({ number, title, answer, limit }) => (
           <div key={number} className={styles.questionBlock}>
             <p>{title}</p>
+            <span className={styles.answerLength}>目前字數: {getLength(answer)}</span>
             <textarea
               value={answer}
               onChange={(e) => {
