@@ -28,10 +28,10 @@ const Apply: NextPage<any> = () => {
     // Temporary Hack Method
     const devMode = document.cookie.includes('DEV_MODE=true');
 
-    if (!devMode && !now.isBetween(startDate, endDate)) {
-      alert('報名尚未開始');
-      domRouter.back();
-    }
+    // if (!devMode && !now.isBetween(startDate, endDate)) {
+    //   alert('報名尚未開始');
+    //   domRouter.back();
+    // }
 
     updateUserInfo(); // 每次回此畫面就重新抓一次 step 的資訊
   }, []);
