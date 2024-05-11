@@ -4,7 +4,7 @@ import router, { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useContext, useEffect } from 'react';
 import moment from 'moment';
-import { START_TIME, END_TIME } from 'util/const';
+import { START_TIME, END_TIME, DEV_MODE } from 'util/const';
 
 import { AuthContext } from 'contexts/AuthContext';
 import { appPath } from 'util/routing.config';
@@ -26,9 +26,9 @@ const Apply: NextPage<any> = () => {
     const endDate = moment(END_TIME);
     const now = moment();
     // Temporary Hack Method
-    const devMode = document.cookie.includes('DEV_MODE=true');
+    const devMode = document.cookie.includes(DEV_MODE);
 
-    if (true) {
+    if (devMode || now.isBefore(startDate) || now.isAfter(endDate)) {
       alert('報名尚未開始');
       domRouter.back();
     }

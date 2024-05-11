@@ -24,9 +24,9 @@ export const CURRENT_SESSION = 20;
 export const NEW_SESSION = CURRENT_YEAR - 2002;
 export const EMAIL = `itseed${NEW_SESSION}th@gmail.com`;
 // ISO 8601
-export const START_TIME = process.env.START_TIME || `${CURRENT_YEAR.toString()}-06-01T16:00:00.000Z`;
+export const START_TIME = process.env.START_TIME || `${CURRENT_YEAR.toString()}-05-23T16:00:00.000Z`;
 // ISO 8601
-export const END_TIME = process.env.END_TIME || `${CURRENT_YEAR.toString()}-07-04T15:59:59.999Z`;
+export const END_TIME = process.env.END_TIME || `${CURRENT_YEAR.toString()}-06-30T15:59:59.999Z`;
 export const FB_PAGE = 'https://www.facebook.com/iloveitseed';
 export const IG_PAGE = 'https://www.instagram.com/_itseed/';
 
@@ -34,3 +34,4 @@ export const DOMAIN = process.env.NEXT_PUBLIC_API_ORIGIN;
 export const API2_DOMAIN = process.env.NEXT_PUBLIC_API2_ORIGIN;
 export const GOOGLE_LOGIN_LINK = `${process.env.NEXT_PUBLIC_API2_ORIGIN}/auth/google/redirect`;
 export const DEFAULT_REVALIDATE = Number(process.env.DEFAULT_REVALIDATE) || 60;
+export const DEV_MODE = process.env.DEV_MODE || 'DEV_MODE=true';
