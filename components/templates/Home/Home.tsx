@@ -30,10 +30,10 @@ const Home: NextPage<{ data: HomeData; router: NextRouter }> = ({ router, data }
       bannerImage="/images/homepage/pics/banner@2x.png"
       PrimaryTitleContent={() => (
         <>
-          <em>踏上旅程</em>，
+          陪你在<em>探索的路上</em>，
           <br />
           <div className={styles.smallTitle}>
-            尋找<em>破除迷惘</em>的成長魔法！
+            自在<em>發芽茁壯</em>！
           </div>
         </>
       )}
