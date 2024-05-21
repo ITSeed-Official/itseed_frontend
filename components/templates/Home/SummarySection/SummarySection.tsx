@@ -18,7 +18,7 @@ const SummarySection: FC = () => {
               <span>堂課程</span>
             </div>
             <div className={styles.card}>
-              <em>600+</em>
+              <em>700+</em>
               <span>人脈累積</span>
             </div>
           </div>
@@ -44,7 +44,7 @@ const SummarySection: FC = () => {
               <span>堂課程</span>
             </div>
             <div className={styles.card}>
-              <em>600+</em>
+              <em>700+</em>
               <span>人脈累積</span>
             </div>
           </div>
