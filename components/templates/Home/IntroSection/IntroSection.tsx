@@ -10,18 +10,18 @@ import { appPath } from 'util/routing.config';
 
 const features = [
   {
-    title: '專案實作',
+    title: '三大專案',
     imgSrc: '/images/homepage/icons/project.svg',
     // hoverImgSrc: "/images/homepage/icons/project.svg",
     link: appPath.projects,
-    content: ['累積業界實務', '職涯探索與深化', '跨領域團隊夥伴'],
+    content: ['TUV 專案', '職涯專案', '招生專案'],
   },
   {
     title: '專業課程',
     imgSrc: '/images/homepage/icons/class.svg',
     // hoverImgSrc: "/images/homepage/icons/class.svg",
     link: appPath.courses,
-    content: ['擺脫學校框架', '職場軟實力培養', '突破視野侷限'],
+    content: ['15+ 業師培訓課程', '培養協作軟實力', '建立團隊與實務能力'],
   },
   {
     title: '校友資源',
