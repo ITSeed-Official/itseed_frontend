@@ -28,7 +28,7 @@ const Apply: NextPage<any> = () => {
     // Temporary Hack Method
 
     const cookies = document.cookie
-    let cookie = {}
+    let cookie: { [key: string]: string } = {}
     if (cookies !== '' || typeof(cookies) !== undefined) {
       cookie = cookies.split('; ').map((s: string) => s.split("="))
       .reduce((result: { [key: string]: string }, [key, value]) => {
@@ -38,7 +38,6 @@ const Apply: NextPage<any> = () => {
     }
 
     const devMode = cookie[DEV_MODE] == 'true';
-    console.log('devMode', document.cookie);
     if (!devMode && !now.isBetween(startDate, endDate)) {
       alert('報名尚未開始');
       domRouter.back();
