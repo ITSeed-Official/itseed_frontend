@@ -28,14 +28,14 @@ const features = [
     imgSrc: '/images/homepage/icons/resource.svg',
     // hoverImgSrc: "/images/homepage/icons/resource.svg",
     link: appPath.alumni,
-    content: ['不藏私回饋', '跨代交流分享', '各界人脈建立'],
+    content: ['700+ 校友資源', '跨代交流分享', '建立各界人脈'],
   },
   {
-    title: '職涯導師',
+    title: '職涯資源',
     imgSrc: '/images/homepage/icons/mentor.png',
     // hoverImgSrc: "/images/homepage/icons/mentor.svg",
     link: appPath.careerCompany,
-    content: ['歷屆校友共學', '提攜突破瓶頸', '共好未來發展'],
+    content: ['20+ 企業實習機會', '30+ 場職涯訪談', '共好未來發展'],
   },
 ];
 

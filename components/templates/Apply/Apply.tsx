@@ -26,9 +26,20 @@ const Apply: NextPage<any> = () => {
     const endDate = moment(END_TIME);
     const now = moment();
     // Temporary Hack Method
-    const devMode = document.cookie.includes(DEV_MODE);
 
-    if (devMode || now.isBefore(startDate) || now.isAfter(endDate)) {
+    const cookies = document.cookie
+    let cookie = {}
+    if (cookies !== '' || typeof(cookies) !== undefined) {
+      cookie = cookies.split('; ').map((s: string) => s.split("="))
+      .reduce((result: { [key: string]: string }, [key, value]) => {
+        result[key] = value;
+        return result;
+      }, {});
+    }
+
+    const devMode = cookie[DEV_MODE] == 'true';
+    console.log('devMode', document.cookie);
+    if (!devMode && !now.isBetween(startDate, endDate)) {
       alert('報名尚未開始');
       domRouter.back();
     }
