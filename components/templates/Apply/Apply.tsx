@@ -27,8 +27,7 @@ const Apply: NextPage<any> = () => {
     const now = moment();
     // Temporary Hack Method
     const devMode = document.cookie.includes(DEV_MODE);
-
-    if (devMode || now.isBefore(startDate) || now.isAfter(endDate)) {
+    if (!devMode && !now.isBetween(startDate, endDate)) {
       alert('報名尚未開始');
       domRouter.back();
     }
