@@ -34,4 +34,4 @@ export const DOMAIN = process.env.NEXT_PUBLIC_API_ORIGIN;
 export const API2_DOMAIN = process.env.NEXT_PUBLIC_API2_ORIGIN;
 export const GOOGLE_LOGIN_LINK = `${process.env.NEXT_PUBLIC_API2_ORIGIN}/auth/google/redirect`;
 export const DEFAULT_REVALIDATE = Number(process.env.DEFAULT_REVALIDATE) || 60;
-export const DEV_MODE = process.env.DEV_MODE || 'DEV_MODE=true';
+export const DEV_MODE = process.env.DEV_MODE || 'DEV_MODE';
