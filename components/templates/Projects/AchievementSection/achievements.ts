@@ -17,8 +17,8 @@ export type AchievementType = {
 export const achievements: AchievementType[] = [
   {
     image: '/images/projects/pics/tuv_group_one.jpg',
-    imageWidth: 414,
-    imageHeight: 200,
+    imageWidth: 514,
+    imageHeight: 400,
     alt: 'group_one',
     subject: '世代隔閡 一起來溝通',
     partner: '盤古銀髮',
@@ -33,8 +33,8 @@ export const achievements: AchievementType[] = [
   },
   {
     image: '/images/projects/pics/tuv_group_two.jpg',
-    imageWidth: 414,
-    imageHeight: 200,
+    imageWidth: 514,
+    imageHeight: 400,
     alt: 'group_two',
     subject: 'Sponya × 影響力投資',
     partner: 'Sponya',
@@ -47,8 +47,8 @@ export const achievements: AchievementType[] = [
   },
   {
     image: '/images/projects/pics/tuv_group_three.jpg',
-    imageWidth: 414,
-    imageHeight: 200,
+    imageWidth: 514,
+    imageHeight: 400,
     alt: 'group_three',
     subject: '破除迷惘－高中生科系探索活動',
     partner: 'Sponya',
@@ -61,8 +61,8 @@ export const achievements: AchievementType[] = [
   },
   {
     image: '/images/projects/pics/tuv_group_four.jpg',
-    imageWidth: 360,
-    imageHeight: 149,
+    imageWidth: 514,
+    imageHeight: 400,
     alt: 'group_four',
     subject: '失智症是誰的事？ 我們的事！',
     partner: '盤古銀髮',
@@ -76,8 +76,8 @@ export const achievements: AchievementType[] = [
   },
   {
     image: '/images/projects/pics/tuv_group_five.jpg',
-    imageWidth: 360,
-    imageHeight: 149,
+    imageWidth: 514,
+    imageHeight: 400,
     alt: 'group_five',
     subject: '職芽溫室 —大學生職涯探索與迷惘問題',
     partner: '國泰人壽',

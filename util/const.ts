@@ -20,9 +20,9 @@ export const DEFAULT_FAQ: FAQ = {
 };
 
 export const CURRENT_YEAR = new Date().getFullYear();
-export const CURRENT_SESSION = 20;
+export const CURRENT_SESSION = 21;
 export const NEW_SESSION = CURRENT_YEAR - 2002;
-export const EMAIL = `itseed${NEW_SESSION}th@gmail.com`;
+export const EMAIL = `itseed${NEW_SESSION}nd@gmail.com`;
 // ISO 8601
 export const START_TIME = process.env.START_TIME || `${CURRENT_YEAR.toString()}-05-23T16:00:00.000Z`;
 // ISO 8601

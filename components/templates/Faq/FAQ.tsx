@@ -39,7 +39,7 @@ const Faq: NextPage<IProps> = ({ faqs }) => {
           </span>
           ，或寄信至
           <span className={styles.green}>
-            <a href="mailto:itseed21th@gmail.com"> ITSeed 信箱（itseed21th@gmail.com）</a>
+            <a href="mailto:itseed22nd@gmail.com"> ITSeed 信箱（itseed22nd@gmail.com）</a>
           </span>
           <br />
           將由專人為您解答！
