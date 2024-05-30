@@ -49,7 +49,7 @@ const Desktop = ({ router, displayFeatureCard }: IProps) => (
       <div className={styles.introContent}>
         <h2 className={styles.introTitle}>計畫介紹</h2>
         <p className={styles.introDescription}>
-          資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。透過執行 3 大專案，參與 10+
+          資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。透過執行 3 大專案，參與 15+
           堂來自業界講師的課程，了解業界生態，並探索自己未來的職涯方向，培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。
         </p>
         <Button
@@ -76,7 +76,7 @@ const Mobile = ({ router, displayFeatureCard }: IProps) => (
     <SectionWrapper className={styles.introSectionMobileTop}>
       <h2 className={styles.introTitle}>計畫介紹</h2>
       <p className={styles.introDescription}>
-        資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。透過執行 3 大專案，參與 10+
+        資訊種子培訓計畫不同於大學一貫的授課方式，讓學員在實踐中學習。透過執行 3 大專案，參與 15+
         堂來自業界講師的課程，了解業界生態，並探索自己未來的職涯方向，培養跨領域合作、解決問題的思維等職場必備的能力，成為能踏入職場的人才。
       </p>
       <Button
