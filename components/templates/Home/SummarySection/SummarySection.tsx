@@ -14,7 +14,7 @@ const SummarySection: FC = () => {
               <span>大專案</span>
             </div>
             <div className={styles.card}>
-              <em>10+</em>
+              <em>15+</em>
               <span>堂課程</span>
             </div>
             <div className={styles.card}>
@@ -40,7 +40,7 @@ const SummarySection: FC = () => {
               <span>大專案</span>
             </div>
             <div className={styles.card}>
-              <em>10+</em>
+              <em>15+</em>
               <span>堂課程</span>
             </div>
             <div className={styles.card}>

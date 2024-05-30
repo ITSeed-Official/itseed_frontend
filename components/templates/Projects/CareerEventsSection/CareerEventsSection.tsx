@@ -5,6 +5,7 @@ import { careerEvents } from './careerEvents';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 
 import styles from './CareerEventsSection.module.scss';
+import { CURRENT_SESSION } from 'util/const';
 
 const CareerEventsSection: FC = () => {
   return (
@@ -12,7 +13,7 @@ const CareerEventsSection: FC = () => {
       <div className={styles.topicSection}>
         <h2>職涯活動</h2>
         <p>
-          職涯活動：由第 20
+          職涯活動：由第 {CURRENT_SESSION}
           屆職涯召部團隊也舉辦了一系列的職涯活動，以四大核心價值「分享、回饋、回顧、前瞻」，來協助學員在不同的產業與職務能有更深入的了解，盡情探索各種未來方向，並成為更具有競爭力的市場人才，以此籌畫了各類型職涯活動！
         </p>
       </div>
