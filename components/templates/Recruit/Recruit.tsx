@@ -12,7 +12,7 @@ const Recruit: NextPage = () => {
     <TemplateWrapper
       primaryTitle="招生資訊"
       subTitle=""
-      description="資訊種子是為期一年的培訓計畫，本年度的報名期間為 2024.05.24 - 2024.06.30，給自己一個加速成長的機會，心動不如馬上行動！"
+      description="資訊種子是為期一年的培訓計畫，本年度的報名期間為 2024.05.24 - 2024.07.03，給自己一個加速成長的機會，心動不如馬上行動！"
       desktopBackgroundImage="/images/recruit/pics/recruit_desktop_banner@2x.png"
       mobileBackgroundImage="/images/recruit/pics/recruit_mobile_banner@2x.png"
       nextSectionPath={appPath.career}
