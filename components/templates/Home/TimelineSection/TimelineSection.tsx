@@ -17,7 +17,7 @@ const cards: ICard[] = [
   {
     step: 1,
     imgSrc: '/images/homepage/icons/joinus_step1.png',
-    title: ['5/24-6/30', '官網線上報名'],
+    title: ['5/24-7/3', '官網線上報名'],
     description: ['註冊並填寫基本資料', '將所需資料上傳'],
   },
   {
