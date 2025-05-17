@@ -30,15 +30,15 @@ const Home: NextPage<{ data: HomeData; router: NextRouter }> = ({ router, data }
       bannerImage="/images/homepage/pics/banner@2x.png"
       PrimaryTitleContent={() => (
         <>
-          陪你在<em>探索的路上</em>，
+          在溫暖中探索，
           <br />
           <div className={styles.smallTitle}>
-            自在<em>發芽茁壯</em>！
+            發芽成喜歡的模樣！
           </div>
         </>
       )}
       subTitle={session}
-      description="報名時間 2024.5.24 - 7.3"
+      description="報名時間 2025.5.26 - 7.4"
       ctaText="立即報名"
       ctaIcon={ButtonIcon.arrow}
       ctaOnClick={() => router.push(appPath.apply)}
