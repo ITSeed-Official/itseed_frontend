@@ -6,6 +6,7 @@ import FAQBox from 'components/templates/Home/FAQSection/FAQBox';
 import TemplateWrapper from 'components/organisms/TemplateWrapper';
 import SectionWrapper from 'components/molecules/SectionWrapper';
 import { Type as NextSectionType } from 'components/atoms/NextSection';
+import { EMAIL } from 'util/const';
 
 import styles from './FAQ.module.scss';
 
@@ -39,7 +40,7 @@ const Faq: NextPage<IProps> = ({ faqs }) => {
           </span>
           ，或寄信至
           <span className={styles.green}>
-            <a href="mailto:itseed22nd@gmail.com"> ITSeed 信箱（itseed22nd@gmail.com）</a>
+            <a href={`mailto:${EMAIL}`}>ITSeed 信箱（{EMAIL}）</a>
           </span>
           <br />
           將由專人為您解答！
