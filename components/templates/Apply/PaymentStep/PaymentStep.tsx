@@ -38,7 +38,7 @@ const PaymentStep: FC<PaymentStepProps> = ({ data }) => {
       </div>
       <Button>
         <a
-          href={`https://itseed21.backme.tw/checkout/3699/32543?locale=zh-TW&transaction[recipient_attributes][name]=${data.nickname}&intl_cellphone_recipient=${data.phone}&transaction[recipient_attributes][contact_email]=${data.email}&transaction[recipient_attributes]&transaction[recipient_attributes][contact_email_confirm]=${data.email}&transaction[recipient_attributes][recipient_subdivision]=TPE&transaction[recipient_attributes][recipient_cityarea]=信義區&transaction[recipient_attributes][recipient_postal_code]=110&transaction[recipient_attributes][recipient_address]=忠孝東路四段516號2樓`}
+          href={`https://itseed23.backme.tw/checkout/3699/36496?locale=zh-TW&transaction[recipient_attributes][name]=${data.nickname}&intl_cellphone_recipient=${data.phone}&transaction[recipient_attributes][contact_email]=${data.email}&transaction[recipient_attributes]&transaction[recipient_attributes][contact_email_confirm]=${data.email}&transaction[recipient_attributes][recipient_subdivision]=TPE&transaction[recipient_attributes][recipient_cityarea]=信義區&transaction[recipient_attributes][recipient_postal_code]=110&transaction[recipient_attributes][recipient_address]=忠孝東路四段516號2樓`}
           target="_blank"
           rel="noreferrer"
         >
