@@ -17,13 +17,13 @@ const cards: ICard[] = [
   {
     step: 1,
     imgSrc: '/images/homepage/icons/joinus_step1.png',
-    title: ['5/26-7/4', '官網線上報名'],
+    title: ['5/26-7/8', '官網線上報名'],
     description: ['註冊並填寫基本資料', '將所需資料上傳'],
   },
   {
     step: 2,
     imgSrc: '/images/homepage/icons/joinus_step2.png',
-    title: ['5/26-7/4', '繳交報名費'],
+    title: ['5/26-7/8', '繳交報名費'],
     description: ['透過貝殼集器繳交報名費 100 元', '請在報名完成後 3 天內繳交完畢'],
   },
   {

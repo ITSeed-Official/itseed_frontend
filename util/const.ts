@@ -26,7 +26,7 @@ export const EMAIL = `itseedfor${NEW_SESSION}@gmail.com`;
 // ISO 8601
 export const START_TIME = process.env.START_TIME || `${CURRENT_YEAR.toString()}-05-25T16:00:00.000Z`;
 // ISO 8601
-export const END_TIME = process.env.END_TIME || `${CURRENT_YEAR.toString()}-07-07T15:59:59.999Z`;
+export const END_TIME = process.env.END_TIME || `${CURRENT_YEAR.toString()}-07-08T15:59:59.999Z`;
 export const FB_PAGE = 'https://www.facebook.com/iloveitseed';
 export const IG_PAGE = 'https://www.instagram.com/_itseed/';
 
